@@ -18,6 +18,12 @@
   },
   "homepage": "https://github.com/RFP-Verde/RFP-2204-FEC#readme",
   "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.5.0",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2"
   }
