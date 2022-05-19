@@ -1,5 +1,6 @@
 import React from 'react';
 import Price from './Price';
+import Stars from '../shared/Stars';
 
 export default function DescriptionDetails() {
   return (
@@ -16,6 +17,7 @@ export default function DescriptionDetails() {
         This optimized air cushion pocket reduces impact but keeps a perfect
         balance underfoot.
       </p>
+      <Stars rating={2.5} />
       <Price price={140} salePrice={100} />
       {/* <AddToCart /> */}
     </div>
