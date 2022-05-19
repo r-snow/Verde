@@ -1,6 +1,7 @@
 import React from 'react';
 import { hot } from 'react-hot-loader/root';
 import PropTypes from 'prop-types';
+import Overview from './components/overview/Overview';
 
 function App(props) {
   const { name } = props;
@@ -11,6 +12,7 @@ function App(props) {
         {` ${name}`}
       </h1>
       <div>Sup</div>
+      <Overview />
     </>
   );
 }
