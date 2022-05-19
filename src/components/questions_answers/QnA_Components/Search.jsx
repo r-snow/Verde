@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function Search() {
   return (
-    <from>
+    <form>
       <input type="text" placeholder="Search for answers..." />
-    </from>
+    </form>
   );
 }
