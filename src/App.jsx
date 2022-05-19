@@ -13,6 +13,10 @@ function App(props) {
       </h1>
       <div>Sup</div>
       <Overview />
+      <div
+        className="stars testStars-WillDeleteLater"
+        style={{ '--rating': 2.5 }}
+      />
     </>
   );
 }
