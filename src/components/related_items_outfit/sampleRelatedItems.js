@@ -129,3 +129,5 @@ const retlatedItemsv = [
     ],
   },
 ];
+
+export default product;
