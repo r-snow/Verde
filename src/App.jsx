@@ -3,6 +3,7 @@ import { hot } from 'react-hot-loader/root';
 import PropTypes from 'prop-types';
 import Overview from './components/overview/Overview';
 import QnA from './components/questions_answers/QnA';
+import RelatedItems from './components/related_items_outfit/relatedItems';
 
 function App(props) {
   const { name } = props;
@@ -13,6 +14,7 @@ function App(props) {
         {` ${name}`}
       </h1>
       <Overview />
+      <RelatedItems />
       <QnA />
     </>
   );
