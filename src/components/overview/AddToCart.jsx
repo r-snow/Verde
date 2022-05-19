@@ -3,13 +3,19 @@ import SizeSelector from './SizeSelector';
 import QtySelector from './QtySelector';
 
 export default function AddToCart() {
+  const handleCartSubmit = (e) => {
+    e.preventDefault();
+    // console.log(e.target[0].value);
+    // console.log(e.target[1].value);
+  };
+
   return (
-    <div>
+    <form onSubmit={handleCartSubmit}>
       <span>
         <SizeSelector />
         <QtySelector />
       </span>
-      {/* <AddToCartBtn /> */}
-    </div>
+      <button type="submit">Add to Cart</button>
+    </form>
   );
 }
