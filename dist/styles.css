@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-
 /* Overview Styles Section */
 
 /* Question and Answers Section */
@@ -17,7 +16,33 @@
 
 /* Ratings and Reviews Section */
 
-
 /* Stars */
+
+/* Stars Instructions! Add a className='stars' to a div and add a number to the style property. Example: style={{'--rating': num}} */
+
+:root {
+  --star-color: lightgray;
+  --star-background: #f1e536;
+}
+
+.stars:before {
+  content: '★★★★★';
+  background: linear-gradient(
+    90deg,
+    var(--star-background) var(--percent),
+    var(--star-color) var(--percent)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  font-size: 15px;
+  font-family: Times; /* make sure ★ appears correctly*/
+  line-height: 1;
+}
 
 /* Bars */
