@@ -1,11 +1,12 @@
 import React from 'react';
-// import Product from './sampleRelatedItems';
 import Price from './price';
+import Image from './Image.jsx';
 
-function ProductCard(props) {
+export default function ProductCard() {
   return (
     <div>
-      <ProductImage />
+      <Image />
+      {/* Product Category: */}
       <p>Jackets</p>
       {/* Product Name: */}
       <p>Camo Onesie</p>
@@ -15,5 +16,3 @@ function ProductCard(props) {
     </div>
   );
 }
-
-export default ProductCard;
