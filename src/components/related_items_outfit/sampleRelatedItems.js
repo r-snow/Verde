@@ -27,7 +27,7 @@ const product = {
 
 const relatedItemIds = [65632, 65633, 65638, 65637];
 
-const retlatedItemsv = [
+const relatedItems = [
   {
     id: 65632,
     campus: 'rfp',
@@ -130,4 +130,4 @@ const retlatedItemsv = [
   },
 ];
 
-export default product;
+export default relatedItems;
