@@ -1,6 +1,6 @@
 import React from 'react';
-import Price from './price';
-import Image from './Image.jsx';
+import Price from './Price';
+import Image from './Image';
 
 export default function ProductCard() {
   return (
