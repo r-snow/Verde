@@ -11,12 +11,7 @@ function App(props) {
         Hello
         {` ${name}`}
       </h1>
-      <div>Sup</div>
       <Overview />
-      <div
-        className="stars testStars-WillDeleteLater"
-        style={{ '--rating': 2.5 }}
-      />
     </>
   );
 }
