@@ -11,8 +11,8 @@ export default function QnA() {
         <p>Q: Would it fit super skinny people?</p>
         <p>A: Probably Not</p>
       </div>
-      <button type="submit">MORE ANSWERED QUESTIONS</button>
-      <button type="submit">Add A QUESTIONS +</button>
+      <button type="button">MORE ANSWERED QUESTIONS</button>
+      <button type="button">Add A QUESTION +</button>
     </section>
   );
 }
