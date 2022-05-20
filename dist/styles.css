@@ -27,6 +27,45 @@
   margin: 0.05em 0em;
 }
 
+/* Review Modal Section */
+
+.char-words {
+  display: inline-block;
+  width: 60px;
+  padding: 0em;
+  margin: 0.35em 0em;
+  height: 1px;
+}
+
+.name-email-input {
+  width: 20rem;
+  padding: 2px 20px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: solid lightgray 1.5px;
+}
+
+.recommendation-radio-btns {
+  margin: 0em 1em 1em 1.5em;
+}
+
+.review-summary-form {
+  width: 55%;
+  padding: 8px 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: solid lightgray 1.5px;
+}
+
+.review-body-form {
+  width: 55%;
+  padding: 30px 10px;
+
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: solid lightgray 1.5px;
+}
+
 /* Stars */
 
 /* Stars Instructions! Add a className='stars' to a div and add a number to the style property. Example: style={{'--rating': num}} */
