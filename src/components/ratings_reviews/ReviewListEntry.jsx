@@ -9,7 +9,7 @@ function ReviewListEntry() {
         flexDirection: 'column',
         marginLeft: '0.5em',
         padding: '2em 3em',
-        'border-radius': '5px',
+        borderRadius: '5px',
         border: 'solid 2px white',
         justifyContent: 'center',
         alignItems: 'flex-start',
