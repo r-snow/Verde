@@ -11,10 +11,10 @@ function Ratings() {
         justifyContent: 'start',
         alignItems: 'center',
         border: 'solid 0px white',
-        'border-radius': '5px',
+        borderRadius: '5px',
         padding: '2em 1em',
         marginRight: '1em',
-        'min-width': '200px',
+        minWidth: '200px',
       }}
     >
       Average Ratings

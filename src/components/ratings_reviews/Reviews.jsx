@@ -10,7 +10,7 @@ function Reviews() {
         margin: '0.2em',
         border: 'solid 0px white',
         padding: '0.2em 0em 0em 0em',
-        'border-radius': '5px',
+        borderRadius: '5px',
         justifyContent: 'center',
         alignItems: 'center',
       }}
@@ -21,7 +21,7 @@ function Reviews() {
           display: 'flex',
           flexDirection: 'row',
           float: 'right',
-          'margin-bottom': '1em',
+          marginBottom: '1em',
         }}
       >
         <option>Sort by...</option>
@@ -35,7 +35,7 @@ function Reviews() {
         type="button"
         style={{
           padding: '0.6em 0.5em',
-          'margin-top': '1rem',
+          marginTop: '1rem',
         }}
       >
         Show more
