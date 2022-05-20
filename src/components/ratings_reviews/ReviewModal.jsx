@@ -1,10 +1,11 @@
 import React from 'react';
+import Stars from '../shared/Stars';
 
 function ReviewModal() {
   return (
     <section>
       Rating
-      <div className="stars" style={{ '--rating': 3 }} />
+      <Stars rating={3} />
       <div
         className="rating-definition"
         style={{
