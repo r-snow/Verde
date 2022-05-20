@@ -3,6 +3,7 @@ import { hot } from 'react-hot-loader/root';
 import PropTypes from 'prop-types';
 import Overview from './components/overview/Overview';
 import QnA from './components/questions_answers/QnA';
+import RatingsAndReviews from './components/ratings_reviews/RatingsAndReviews';
 
 function App(props) {
   const { name } = props;
@@ -14,6 +15,11 @@ function App(props) {
       </h1>
       <Overview />
       <QnA />
+      <RatingsAndReviews />
+      <div
+        className="stars testStars-WillDeleteLater"
+        style={{ '--rating': 2.5 }}
+      />
     </>
   );
 }
