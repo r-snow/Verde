@@ -1,4 +1,6 @@
 import React from 'react';
+import Stars from '../shared/Stars';
+import Bars from '../shared/Bars';
 
 function Ratings() {
   return (
@@ -18,43 +20,40 @@ function Ratings() {
       Average Ratings
       <h1>
         4.2
-        <div
-          className="stars"
-          style={{ '--rating': (Math.round(4.2 * 4) / 4).toFixed(2) }}
-        />
+        <Stars rating={(Math.round(4.2 * 4) / 4).toFixed(2)} />
       </h1>
-      <i>67% of reviews recommend this product!</i>
+      <i>76% of reviews recommend this product!</i>
       <br />
       Sort by...
       <div className="bars-container">
         <div className="indiv-bar">
-          {'5 stars '}
-          <div className="bars" /> {90}
-          <br />
+          5 stars
+          <Bars reviewCount={90} totalCount={265} />
+          {90}
         </div>
 
         <div className="indiv-bar">
-          {'4 stars '}
-          <div className="bars" /> {61}
-          <br />
+          4 stars
+          <Bars reviewCount={61} totalCount={265} />
+          {61}
         </div>
 
         <div className="indiv-bar">
-          {'3 stars '}
-          <div className="bars" /> {75}
-          <br />
+          3 stars
+          <Bars reviewCount={75} totalCount={265} />
+          {75}
         </div>
 
         <div className="indiv-bar">
-          {'2 stars '}
-          <div className="bars" /> {31}
-          <br />
+          2 stars
+          <Bars reviewCount={31} totalCount={265} />
+          {31}
         </div>
 
         <div className="indiv-bar">
-          {'1 stars '}
-          <div className="bars" /> {7}
-          <br />
+          1 stars
+          <Bars reviewCount={7} totalCount={264} />
+          {7}
         </div>
       </div>
     </div>

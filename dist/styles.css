@@ -24,6 +24,7 @@
 .indiv-bar {
   display: flex;
   flex-direction: row;
+  margin: 0.05em 0em;
 }
 
 /* Stars */
@@ -60,12 +61,17 @@
 .bars:before {
   content: '----';
   letter-spacing: 25px;
-  background: linear-gradient(90deg, rgb(3, 233, 118) 20%, lightgray 20%);
+  background: linear-gradient(
+    90deg,
+    rgb(3, 233, 118) var(--bar-percent),
+    lightgray var(--bar-percent)
+  );
   -webkit-text-fill-color: transparent;
   border-radius: 15px;
 }
 
 .bars {
+  --bar-percent: calc((var(--reviewCount) / var(--totalCount)) * 100%);
   font-size: 5px;
   line-height: 4.3;
 }

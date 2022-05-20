@@ -1,4 +1,5 @@
 import React from 'react';
+import Stars from '../shared/Stars';
 
 function ReviewListEntry() {
   return (
@@ -14,9 +15,9 @@ function ReviewListEntry() {
         alignItems: 'flex-start',
       }}
     >
-      {' Review #1'}
+      Review #1
       <div className="reviewer-name">BobbyBigBob</div>
-      <span className="stars" style={{ '--rating': 2.5 }} />
+      <Stars rating={2.5} />
       Review Summary
       <span>
         <b>Bolded Summary of the product</b>
@@ -42,8 +43,8 @@ function ReviewListEntry() {
       <span>Length: Long</span>
       <div>
         Was this Review Helpful?
-        <button type="submit">Yes</button>
-        <button type="submit">No</button>
+        <button type="button">Yes</button>
+        <button type="button">No</button>
       </div>
       <div>Leave a comment</div>
     </section>

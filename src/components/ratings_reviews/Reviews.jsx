@@ -7,7 +7,7 @@ function Reviews() {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        marginLeft: '0.2em',
+        margin: '0.2em',
         border: 'solid 0px white',
         padding: '0.2em 0em 0em 0em',
         'border-radius': '5px',
@@ -21,6 +21,7 @@ function Reviews() {
           display: 'flex',
           flexDirection: 'row',
           float: 'right',
+          'margin-bottom': '1em',
         }}
       >
         <option>Sort by...</option>
@@ -28,11 +29,10 @@ function Reviews() {
         <option>Newest</option>
         <option>Relevance</option>
       </select>
-      <br />
       <ReviewListEntry />
       <ReviewListEntry />
       <button
-        type="submit"
+        type="button"
         style={{
           padding: '0.6em 0.5em',
           'margin-top': '1rem',
