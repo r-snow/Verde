@@ -1,5 +1,6 @@
 import React from 'react';
 import AddToCart from './AddToCart';
+import StyleSelector from './StyleSelector';
 import Price from '../shared/Price';
 import Stars from '../shared/Stars';
 
@@ -20,6 +21,7 @@ export default function DescriptionDetails() {
       </p>
       <Stars rating={2.5} />
       <Price price={140} salePrice={100} />
+      <StyleSelector />
       <AddToCart />
     </div>
   );
