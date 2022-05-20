@@ -1,9 +1,16 @@
 import React from 'react';
 import ImageGallery from './ImageGallery';
+import ExpandedView from './ExpandedView';
 import DescriptionDetails from './DescriptionDetails';
 
 export default function Overview() {
-  return (
+  const [isDefaultImgView, setIsDefaultImgView] = React.useState(true);
+
+  const changeImgView = () => {
+    setIsDefaultImgView((prev) => !prev);
+  };
+
+  return isDefaultImgView ? (
     <section
       style={{
         display: 'flex',
@@ -13,8 +20,10 @@ export default function Overview() {
         padding: '4em',
       }}
     >
-      <ImageGallery />
+      <ImageGallery changeImgView={changeImgView} />
       <DescriptionDetails />
     </section>
+  ) : (
+    <ExpandedView changeImgView={changeImgView} />
   );
 }
