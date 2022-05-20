@@ -1,5 +1,6 @@
 import React from 'react';
 import Stars from '../shared/Stars';
+import CharacteristicsButtons from './CharacteristicsButtons';
 
 function ReviewModal() {
   return (
@@ -9,7 +10,7 @@ function ReviewModal() {
       <div
         className="rating-definition"
         style={{
-          'font-size': '0.5em',
+          fontSize: '0.5em',
         }}
       >
         <p>5 = Amazing</p>
@@ -36,54 +37,12 @@ function ReviewModal() {
         No
       </div>
       <div className="characteristics-radio-btns">
-        <div className="size-char">
-          <p className="char-words">Size</p>
-          <input type="radio" value="1" name="size" />
-          <input type="radio" value="2" name="size" />
-          <input type="radio" value="3" name="size" />
-          <input type="radio" value="4" name="size" />
-          <input type="radio" value="5" name="size" />
-        </div>
-        <div className="width-char">
-          <p className="char-words">Width</p>
-          <input type="radio" value="1" name="width" />
-          <input type="radio" value="2" name="width" />
-          <input type="radio" value="3" name="width" />
-          <input type="radio" value="4" name="width" />
-          <input type="radio" value="5" name="width" />
-        </div>
-        <div className="comfort-char">
-          <p className="char-words">Comfort</p>
-          <input type="radio" value="1" name="comfort" />
-          <input type="radio" value="2" name="comfort" />
-          <input type="radio" value="3" name="comfort" />
-          <input type="radio" value="4" name="comfort" />
-          <input type="radio" value="5" name="comfort" />
-        </div>
-        <div className="quality-char">
-          <p className="char-words">Quality</p>
-          <input type="radio" value="1" name="quality" />
-          <input type="radio" value="2" name="quality" />
-          <input type="radio" value="3" name="quality" />
-          <input type="radio" value="4" name="quality" />
-          <input type="radio" value="5" name="quality" />
-        </div>
-        <div className="length-char">
-          <p className="char-words">Length</p>
-          <input type="radio" value="1" name="length" />
-          <input type="radio" value="2" name="length" />
-          <input type="radio" value="3" name="length" />
-          <input type="radio" value="4" name="length" />
-          <input type="radio" value="5" name="length" />
-        </div>
-        <div className="function-char">
-          <p className="char-words">Function</p>
-          <input type="radio" value="1" name="function" />
-          <input type="radio" value="2" name="function" />
-          <input type="radio" value="3" name="function" />
-          <input type="radio" value="4" name="function" />
-          <input type="radio" value="5" name="function" />
-        </div>
+        <CharacteristicsButtons characteristic="size" />
+        <CharacteristicsButtons characteristic="width" />
+        <CharacteristicsButtons characteristic="comfort" />
+        <CharacteristicsButtons characteristic="quality" />
+        <CharacteristicsButtons characteristic="length" />
+        <CharacteristicsButtons characteristic="function" />
       </div>
       <form>
         <p>Review Summary 50 char cap</p>
