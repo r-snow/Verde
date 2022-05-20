@@ -14,12 +14,28 @@ export default function StyleSelector() {
       id={style}
       onClick={() => handleStyleClick(style)}
       style={{
-        color: selectedStyle === style ? 'red' : 'black',
+        backgroundColor: selectedStyle === style ? 'lightgrey' : 'transparent',
+        borderRadius: '50%',
+        borderColor: 'transparent',
+        marginRight: '1em',
+        padding: '0.5em',
       }}
     >
-      {style}
+      <img
+        src="https://tracksmith-media.imgix.net/Spring22-Mens-Twilight-Tee-Denim.png?auto=format,compress&crop=faces&dpr=2&fit=crop&h=30&w=30"
+        alt={style}
+        width="30px"
+      />
     </button>
   ));
 
-  return <section>{thumbnails}</section>;
+  return (
+    <section
+      style={{
+        marginBottom: '1em',
+      }}
+    >
+      {thumbnails}
+    </section>
+  );
 }
