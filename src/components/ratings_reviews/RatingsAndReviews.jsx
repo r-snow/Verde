@@ -11,6 +11,7 @@ function RatingsAndReviews() {
         justifyContent: 'start',
         padding: '1em',
       }}
+      id="ratings-reviews"
     >
       <Ratings />
       <Reviews />

@@ -19,7 +19,17 @@ export default function DescriptionDetails() {
         This optimized air cushion pocket reduces impact but keeps a perfect
         balance underfoot.
       </p>
-      <Stars rating={2.5} />
+      <span>
+        <Stars rating={2.5} />
+        <a
+          href="#ratings-reviews"
+          style={{
+            color: 'black',
+          }}
+        >
+          Read all [#] of reviews
+        </a>
+      </span>
       <Price price={140} salePrice={100} />
       <StyleSelector />
       <AddToCart />
