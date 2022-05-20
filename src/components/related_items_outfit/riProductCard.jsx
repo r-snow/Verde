@@ -1,5 +1,5 @@
 import React from 'react';
-import Price from './Price';
+import Price from '../shared/Price';
 import Image from './Image';
 
 export default function ProductCard() {

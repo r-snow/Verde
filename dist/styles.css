@@ -16,13 +16,24 @@
 
 /* Ratings and Reviews Section */
 
+.bars-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.indiv-bar {
+  display: flex;
+  flex-direction: row;
+  margin: 0.05em 0em;
+}
+
 /* Stars */
 
 /* Stars Instructions! Add a className='stars' to a div and add a number to the style property. Example: style={{'--rating': num}} */
 
 :root {
   --star-color: lightgray;
-  --star-background: #f1e536;
+  --star-background: #36f17e;
 }
 
 .stars:before {
@@ -46,3 +57,21 @@
 }
 
 /* Bars */
+
+.bars:before {
+  content: '----';
+  letter-spacing: 25px;
+  background: linear-gradient(
+    90deg,
+    rgb(3, 233, 118) var(--bar-percent),
+    lightgray var(--bar-percent)
+  );
+  -webkit-text-fill-color: transparent;
+  border-radius: 15px;
+}
+
+.bars {
+  --bar-percent: calc((var(--reviewCount) / var(--totalCount)) * 100%);
+  font-size: 5px;
+  line-height: 4.3;
+}

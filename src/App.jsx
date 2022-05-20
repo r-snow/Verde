@@ -3,7 +3,8 @@ import { hot } from 'react-hot-loader/root';
 import PropTypes from 'prop-types';
 import Overview from './components/overview/Overview';
 import QnA from './components/questions_answers/QnA';
-import RelatedItems from './components/related_items_outfit/RelatedItems';
+import RatingsAndReviews from './components/ratings_reviews/RatingsAndReviews';
+import RelatedItems from './components/related_items_outfit/relatedItems';
 import YourOutfit from './components/related_items_outfit/YourOutfit';
 
 function App(props) {
@@ -18,6 +19,7 @@ function App(props) {
       <RelatedItems />
       <YourOutfit />
       <QnA />
+      <RatingsAndReviews />
     </>
   );
 }
