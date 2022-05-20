@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductCard from './riProductCard';
+import ProductCard from './RIProductCard';
 
 export default function relatedItems() {
   return (
@@ -11,6 +11,9 @@ export default function relatedItems() {
           flexDirection: 'row',
         }}
       >
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
         <ProductCard />
         <ProductCard />
         <ProductCard />

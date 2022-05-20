@@ -3,8 +3,24 @@ import Price from '../shared/Price';
 import Image from './Image';
 
 export default function ProductCard() {
+  const handleKeyPress = (event) => {
+    event.preventDefault9();
+    if (event.key === 'Enter') {
+      console.log('Compare to current product coming soon...');
+    }
+  };
+
+  const handleClick = () => {
+    console.log('Compare to current product coming soon...');
+  };
+
   return (
-    <div>
+    <div
+      onClick={handleClick}
+      onKeyPress={handleKeyPress}
+      role="button"
+      tabIndex={0}
+    >
       <Image />
       {/* Product Category: */}
       <p>Jackets</p>
