@@ -6,6 +6,8 @@ import QnA from './components/questions_answers/QnA';
 import RelatedItems from './components/related_items_outfit/relatedItems';
 import YourOutfit from './components/related_items_outfit/YourOutfit';
 
+import ReviewModal from './components/ratings_reviews/ReviewModal';
+
 function App(props) {
   const { name } = props;
   return (
@@ -18,6 +20,7 @@ function App(props) {
       <RelatedItems />
       <YourOutfit />
       <QnA />
+      <ReviewModal />
     </>
   );
 }
