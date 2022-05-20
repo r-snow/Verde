@@ -2,10 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function CharacteristicsButtons({ characteristic }) {
-  let capitalCharacteristic = characteristic;
-  capitalCharacteristic =
-    capitalCharacteristic.charAt(0).toUpperCase() +
-    capitalCharacteristic.slice(1);
+  const capitalCharacteristic =
+    characteristic.charAt(0).toUpperCase() + characteristic.slice(1);
   // capitalizes first letter of the characteristic
   return (
     <div className={`${characteristic}-char`}>
