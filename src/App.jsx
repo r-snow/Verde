@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import Overview from './components/overview/Overview';
 import QnA from './components/questions_answers/QnA';
 import RatingsAndReviews from './components/ratings_reviews/RatingsAndReviews';
+import RelatedItems from './components/related_items_outfit/relatedItems';
+import YourOutfit from './components/related_items_outfit/YourOutfit';
 
 function App(props) {
   const { name } = props;
@@ -14,12 +16,10 @@ function App(props) {
         {` ${name}`}
       </h1>
       <Overview />
+      <RelatedItems />
+      <YourOutfit />
       <QnA />
       <RatingsAndReviews />
-      <div
-        className="stars testStars-WillDeleteLater"
-        style={{ '--rating': 2.5 }}
-      />
     </>
   );
 }

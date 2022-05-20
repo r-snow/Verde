@@ -1,5 +1,6 @@
 import React from 'react';
-import Price from './Price';
+import AddToCart from './AddToCart';
+import Price from '../shared/Price';
 import Stars from '../shared/Stars';
 
 export default function DescriptionDetails() {
@@ -19,7 +20,7 @@ export default function DescriptionDetails() {
       </p>
       <Stars rating={2.5} />
       <Price price={140} salePrice={100} />
-      {/* <AddToCart /> */}
+      <AddToCart />
     </div>
   );
 }
