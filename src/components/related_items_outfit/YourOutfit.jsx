@@ -1,5 +1,5 @@
 import React from 'react';
-import AddToOutfit from './AddOutfitCard';
+import AddToOutfitCard from './AddOutfitCard';
 
 export default function YourOutfit() {
   return (
@@ -12,7 +12,7 @@ export default function YourOutfit() {
         }}
       >
         {/* Conditional render if there are no products on Outfit */}
-        <AddToOutfit />
+        <AddToOutfitCard />
       </section>
     </div>
   );
