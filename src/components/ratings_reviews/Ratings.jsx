@@ -20,7 +20,7 @@ function Ratings() {
       Average Ratings
       <h1>
         4.2
-        <Stars rating={(Math.round(4.2 * 4) / 4).toFixed(2)} />
+        <Stars rating={4.2} />
       </h1>
       <i>76% of reviews recommend this product!</i>
       <br />
