@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function Price({ price, salePrice }) {
-  // const showSalePrice = salePrice === 0;
-
   return (
     <span
       style={{

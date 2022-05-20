@@ -1,6 +1,6 @@
 import React from 'react';
-import Price from './Price';
 import AddToCart from './AddToCart';
+import Price from '../shared/Price';
 import Stars from '../shared/Stars';
 
 export default function DescriptionDetails() {
