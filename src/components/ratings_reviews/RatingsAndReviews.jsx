@@ -3,6 +3,12 @@ import Ratings from './Ratings';
 import Reviews from './Reviews';
 
 function RatingsAndReviews() {
+  // const [modalActive, setModalStatus] = React.useState(true);
+
+  // const toggleModal = () => {
+  //   setModalStatus((prev) => !prev);
+  // };
+
   return (
     <section
       style={{

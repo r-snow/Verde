@@ -20,7 +20,7 @@ function ReviewListEntry() {
       <span>
         <b>Bolded Summary of the product</b>
       </span>
-      <Stars rating={2.5} />
+      <Stars rating={2.5} id="reviewStar" />
       <span>Body should be 50-1000 characters</span>
       <div className="images-container">
         <img
