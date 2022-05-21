@@ -22,12 +22,22 @@ export function CarouselItem({ children, width }) {
 export default function Carousel({ children }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const updateIndex = (newIndex) => {
+    if (newIndex < 0) {
+      newIndex = 0;
+    } else if (newIndex >= React.Children.count(children)) {
+      newIndex = React.Children.count(children) - 1;
+    }
+
+    setActiveIndex(newIndex);
+  };
+
   return (
     <div
       className="carousel"
       style={{
         overflow: 'hidden',
-        transform: `translateX(-{${activeIndex * 100}}%)`,
+        transform: `translateX(-{${activeIndex * 30}}%)`,
         whiteSpace: 'nowrap',
         transition: 'transform 0.3s',
       }}
@@ -40,9 +50,36 @@ export default function Carousel({ children }) {
           transition: 'transform 0.3s',
         }}
       >
-        {React.Children.map(children, (child, index) =>
-          React.cloneElement(child, { width: '30%' })
+        {React.Children.map(children, (child) =>
+          React.cloneElement(child, { width: '30%', key: child.id })
         )}
+      </div>
+      <div
+        className="indicators"
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          margin: '5px',
+        }}
+      >
+        <button
+          type="button"
+          onClick={() => {
+            updateIndex(activeIndex - 1);
+            console.log('Scroll left coming soon...');
+          }}
+        >
+          Prev
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            updateIndex(activeIndex + 1);
+            console.log('Scroll right coming soon...');
+          }}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
