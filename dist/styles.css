@@ -25,10 +25,23 @@ html {
   flex-direction: column;
 }
 
+.images-container {
+  display: flex;
+  width: 100%;
+}
+
 .indiv-bar {
   display: flex;
   flex-direction: row;
-  margin: 0.05em 0em;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.review-thumbnails {
+  height: 50px;
+  width: 80px;
+  border-radius: 5px;
+  margin-right: 1rem;
 }
 
 /* Review Modal Section */
@@ -51,6 +64,15 @@ html {
 
 .recommendation-radio-btns {
   margin: 0em 1em 1em 1.5em;
+}
+
+.review-helpful-btn {
+  border: 0;
+  border-radius: 5px;
+  font-size: 0.05em;
+  background-color: transparent;
+  color: rgb(105, 105, 105);
+  text-align: center;
 }
 
 .review-summary-form {
@@ -117,4 +139,20 @@ html {
   --bar-percent: calc((var(--reviewCount) / var(--totalCount)) * 100%);
   font-size: 5px;
   line-height: 4.3;
+}
+
+/* Clickable Stars */
+
+button#clickableStars {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.on {
+  color: rgb(16, 255, 96);
+}
+.off {
+  color: #ccc;
 }

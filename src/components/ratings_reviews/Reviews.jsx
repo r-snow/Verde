@@ -7,20 +7,15 @@ function Reviews() {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        margin: '0.2em',
-        border: 'solid 0px white',
-        padding: '0.2em 0em 0em 0em',
+        // border: 'solid 5px white',
+        width: 'calc((2 / 3) * 100% - 10px)',
         borderRadius: '5px',
-        justifyContent: 'center',
         alignItems: 'center',
       }}
     >
-      <em>Reviews</em>
       <select
         style={{
-          display: 'flex',
-          flexDirection: 'row',
-          float: 'right',
+          alignSelf: 'flex-end',
           marginBottom: '1em',
         }}
       >
@@ -34,6 +29,8 @@ function Reviews() {
       <button
         type="button"
         style={{
+          backgroundColor: 'lightgray',
+          borderRadius: '5px',
           padding: '0.6em 0.5em',
           marginTop: '1rem',
         }}

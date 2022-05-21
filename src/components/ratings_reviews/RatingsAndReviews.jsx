@@ -10,6 +10,8 @@ function RatingsAndReviews() {
         flexDirection: 'row',
         justifyContent: 'start',
         padding: '1em',
+        fontFamily: 'Helvetica',
+        fontWeight: '100',
       }}
       id="ratings-reviews"
     >

@@ -8,23 +8,35 @@ function Ratings() {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'start',
-        alignItems: 'center',
+        justifyContent: 'flex-start',
         border: 'solid 0px white',
         borderRadius: '5px',
         padding: '2em 1em',
         marginRight: '1em',
+        width: 'calc((1 / 3) * 100%)',
         minWidth: '200px',
+        fontSize: '0.6em',
       }}
     >
-      Average Ratings
+      <h4
+        style={{
+          display: 'flex',
+        }}
+      >
+        Reviews & Ratings
+      </h4>
       <h1>
         4.2
         <Stars rating={4.2} />
       </h1>
       <i>76% of reviews recommend this product!</i>
-      <br />
-      Sort by...
+      <p
+        style={{
+          alignSelf: 'center',
+        }}
+      >
+        Sort by...
+      </p>
       <div className="bars-container">
         <div className="indiv-bar">
           5 stars
@@ -52,8 +64,8 @@ function Ratings() {
 
         <div className="indiv-bar">
           1 stars
-          <Bars reviewCount={7} totalCount={264} />
-          {7}
+          <Bars reviewCount={11} totalCount={265} />
+          {11}
         </div>
       </div>
     </div>

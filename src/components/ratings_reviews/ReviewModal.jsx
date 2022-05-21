@@ -1,12 +1,19 @@
 import React from 'react';
-import Stars from '../shared/Stars';
 import CharacteristicsButtons from './CharacteristicsButtons';
+import ClickStars from './ClickStars';
 
 function ReviewModal() {
+  // const [rating, setRating] = React.useState(0);
+
+  // const handleClickStars = (value) => {
+  //   console.log(value);
+  //   setRating(value);
+  // };
+
   return (
     <section>
       Rating
-      <Stars rating={3} />
+      <ClickStars />
       <div
         className="rating-definition"
         style={{
