@@ -1,4 +1,5 @@
 import React from 'react';
+// import PropTypes from 'prop-types';
 import ReviewListEntry from './ReviewListEntry';
 
 function Reviews() {
@@ -7,20 +8,15 @@ function Reviews() {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        margin: '0.2em',
-        border: 'solid 0px white',
-        padding: '0.2em 0em 0em 0em',
+        // border: 'solid 5px white',
+        width: 'calc((2 / 3) * 100% - 10px)',
         borderRadius: '5px',
-        justifyContent: 'center',
         alignItems: 'center',
       }}
     >
-      <em>Reviews</em>
       <select
         style={{
-          display: 'flex',
-          flexDirection: 'row',
-          float: 'right',
+          alignSelf: 'flex-end',
           marginBottom: '1em',
         }}
       >
@@ -29,6 +25,17 @@ function Reviews() {
         <option>Newest</option>
         <option>Relevance</option>
       </select>
+      <button
+        type="button"
+        style={{
+          alignSelf: 'flex-end',
+          width: '150px',
+          marginBottom: '1em',
+        }}
+        // onClick={toggleModal}
+      >
+        Write a review
+      </button>
       <ReviewListEntry />
       <ReviewListEntry />
       <button
@@ -43,5 +50,9 @@ function Reviews() {
     </div>
   );
 }
+
+// Reviews.propTypes = {
+//   toggleModal: PropTypes.func.isRequired,
+// };
 
 export default Reviews;
