@@ -15,8 +15,8 @@ export default function QuestionList({ question }) {
         </span>
       </div>
 
-      {answersArr.slice(0, 2).map((answer) => (
-        <AnswerList answer={answer} />
+      {answersArr.slice(0, 2).map((answer, index) => (
+        <AnswerList key={index} answer={answer} />
       ))}
     </div>
   );

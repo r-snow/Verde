@@ -9,8 +9,8 @@ export default function QnA() {
     <section>
       <h1>Questions &amp; Answers</h1>
       <Search />
-      {questions.slice(0, 5).map((question) => (
-        <QuestionList question={question} />
+      {questions.slice(0, 5).map((question, index) => (
+        <QuestionList key={index} question={question} />
       ))}
       <button type="button">MORE ANSWERED QUESTIONS</button>
       <button type="button">Add A QUESTION +</button>
