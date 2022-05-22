@@ -130,7 +130,32 @@ const exampleData = {
       asker_name: 'asdf',
       question_helpfulness: 0,
       reported: false,
-      answers: {},
+      answers: {
+        6539005: {
+          id: 5539005,
+          body: 'Probably Not',
+          date: '2022-04-12T00:00:00.000Z',
+          answerer_name: 'user',
+          helpfulness: 2,
+          photos: [],
+        },
+        6539007: {
+          id: 5539007,
+          body: 'Yes',
+          date: '2022-04-12T00:00:00.000Z',
+          answerer_name: 'User',
+          helpfulness: 2,
+          photos: [],
+        },
+        6539010: {
+          id: 5539010,
+          body: 'Absolutely',
+          date: '2022-04-12T00:00:00.000Z',
+          answerer_name: 'User',
+          helpfulness: 0,
+          photos: [],
+        },
+      },
     },
     {
       question_id: 592760,
@@ -209,7 +234,7 @@ const exampleData = {
       question_body: 'this is answer to a test POST request',
       question_date: '2022-03-29T00:00:00.000Z',
       asker_name: 'austin chapin',
-      question_helpfulness: 0,
+      question_helpfulness: 10,
       reported: false,
       answers: {
         5538563: {
