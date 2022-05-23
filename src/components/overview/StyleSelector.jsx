@@ -1,4 +1,5 @@
 import React from 'react';
+import { nanoid } from 'nanoid';
 
 export default function StyleSelector() {
   const [selectedStyle, setSelectedStyle] = React.useState('style1');
@@ -10,7 +11,7 @@ export default function StyleSelector() {
   const thumbnails = styles.map((style) => (
     <button
       type="button"
-      key={style}
+      key={nanoid()}
       id={style}
       onClick={() => handleStyleClick(style)}
       style={{
