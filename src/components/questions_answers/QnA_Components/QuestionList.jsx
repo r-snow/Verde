@@ -1,23 +1,83 @@
-import React from 'react';
-import AnswerList from './AnswerList';
-// import { format, parseISO } from 'date-fns';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import Question from './Question';
+import MoreQuestions from './MoreQuestions';
+import AddAQuestion from './AddAQuestion';
 
-export default function QuestionList({ question }) {
-  const { question_body, question_helpfulness, answers } = question;
-  const answersArr = Object.values(answers);
+export default function QuestionList({ questions, searchInput, productID }) {
+  const [openModal, setOpenModal] = useState(false);
+
   return (
-    <div>
+    <div
+      style={{
+        maxHeight: '1000px',
+        overflowY: 'scroll',
+      }}
+    >
+      {searchInput === null
+        ? questions
+            .slice(0, 5)
+            .map((question, count) =>
+              count > 3 ? (
+                <MoreQuestions
+                  questions={questions}
+                  key={question.question_id}
+                />
+              ) : (
+                <Question
+                  question={question}
+                  key={question.question_id}
+                  productID={productID}
+                />
+              )
+            )
+        : questions
+            .filter((q) =>
+              q.question_body.toLowerCase().includes(searchInput.toLowerCase())
+            )
+            .slice(0, 5)
+            .map((question, count) =>
+              count > 3 ? (
+                <MoreQuestions
+                  questions={questions}
+                  key={question.question_id}
+                />
+              ) : (
+                <Question
+                  question={question}
+                  productID={productID}
+                  key={question.question_id}
+                />
+              )
+            )}
       <div>
-        Q: {question_body}
-        <span>
-          Helpful? <a>Yes</a>
-          <span>{question_helpfulness}</span> | <a>Add Answer</a>
-        </span>
+        <button
+          className="add-question-button"
+          type="button"
+          onClick={() => setOpenModal(true)}
+        >
+          Add A QUESTION +
+        </button>
+        {openModal && (
+          <AddAQuestion productID={productID} setOpenModal={setOpenModal} />
+        )}
       </div>
-
-      {answersArr.slice(0, 2).map((answer, index) => (
-        <AnswerList key={index} answer={answer} />
-      ))}
     </div>
   );
 }
+
+QuestionList.propTypes = {
+  questions: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
+  searchInput: PropTypes.string,
+  productID: PropTypes.string.isRequired,
+};
+
+QuestionList.defaultProps = {
+  searchInput: null,
+};
