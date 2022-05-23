@@ -7,31 +7,29 @@ export default function MoreQuestions({ questions }) {
   return (
     <div>
       {collapseQuestions ? (
-        <div>
-          <button
-            type="button"
-            onClick={() => {
-              setCollapseQuestions(!collapseQuestions);
-            }}
-          >
-            More Answered Questions
-          </button>
-        </div>
+        <button
+          className="more-questions"
+          type="button"
+          onClick={() => {
+            setCollapseQuestions(!collapseQuestions);
+          }}
+        >
+          More Answered Questions
+        </button>
       ) : (
         <div>
           {questions.slice(4).map((question) => (
             <Question question={question} key={question.question_id} />
           ))}
-          <div>
-            <button
-              type="button"
-              onClick={() => {
-                setCollapseQuestions(!collapseQuestions);
-              }}
-            >
-              Collapse Questions
-            </button>
-          </div>
+          <button
+            className="more-questions"
+            type="button"
+            onClick={() => {
+              setCollapseQuestions(!collapseQuestions);
+            }}
+          >
+            Collapse Questions
+          </button>
         </div>
       )}
     </div>

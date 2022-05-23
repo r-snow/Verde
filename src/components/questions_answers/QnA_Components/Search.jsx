@@ -5,9 +5,9 @@ export default function Search({ handleSearch }) {
   return (
     <form>
       <input
+        className="qa-search-bar"
         type="text"
-        size="50"
-        placeholder="Have a question? Search for answers…                       🔍"
+        placeholder="Have a question? Search for answers…"
         onChange={(e) => handleSearch(e.target.value)}
       />
     </form>

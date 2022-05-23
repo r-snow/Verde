@@ -32,35 +32,38 @@ export default function Question({ question }) {
   };
 
   return (
-    <div>
-      <span>Q: {question.question_body}</span>
-      <span> | Helpful? </span>
-      <span
-        onClick={markHelpful}
-        onKeyPress={markHelpful}
-        tabIndex="0"
-        role="button"
-        style={{
-          textDecoration: 'underline',
-          cursor: 'pointer',
-        }}
-      >
-        Yes
-      </span>
-      <span> ({helpful}) </span>
-      <span
-        onClick={() => setShowModal(true)}
-        onKeyPress={setShowModal}
-        tabIndex="0"
-        role="button"
-        style={{
-          textDecoration: 'underline',
-          cursor: 'pointer',
-        }}
-      >
-        | Add Answer
-      </span>
-
+    <div className="question">
+      <div className="question-body">
+        Q: {question.question_body}
+        <div className="question-control">
+          Helpful?&nbsp;&nbsp;
+          <span
+            onClick={markHelpful}
+            onKeyPress={markHelpful}
+            tabIndex="0"
+            role="button"
+            style={{
+              textDecoration: 'underline',
+              cursor: 'pointer',
+            }}
+          >
+            Yes
+          </span>
+          <span> &nbsp;({helpful}) &nbsp;&nbsp;| &nbsp;&nbsp;</span>
+          <span
+            onClick={() => setShowModal(true)}
+            onKeyPress={setShowModal}
+            tabIndex="0"
+            role="button"
+            style={{
+              textDecoration: 'underline',
+              cursor: 'pointer',
+            }}
+          >
+            Add Answer
+          </span>
+        </div>
+      </div>
       {answerArr
         .slice(0, 3)
         .map((answer, count) =>

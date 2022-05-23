@@ -21,8 +21,8 @@ export default function QnA() {
   const handleModalOpen = () => setOpenModal(true);
   const handleModalClose = () => setOpenModal(false);
   return (
-    <section>
-      <h1>Questions &amp; Answers</h1>
+    <section className="qa-widget">
+      <h1 className="qa-header">Questions &amp; Answers</h1>
       <Search handleSearch={handleSearch} />
       {questions !== undefined && Object.keys(questions).length ? (
         <QuestionList
@@ -31,14 +31,22 @@ export default function QnA() {
           productID={productID}
         />
       ) : null}
-      <button type="button" onClick={handleModalOpen}>
-        Add A QUESTION +
-      </button>
-      <AddAQuestion
-        productID={productID}
-        openModal={openModal}
-        handleModalClose={handleModalClose}
-      />
+      {questions === undefined && (
+        <div>
+          <button
+            className="add-question-button"
+            type="button"
+            onClick={handleModalOpen}
+          >
+            Add A QUESTION +
+          </button>
+          <AddAQuestion
+            productID={productID}
+            openModal={openModal}
+            handleModalClose={handleModalClose}
+          />
+        </div>
+      )}
     </section>
   );
 }

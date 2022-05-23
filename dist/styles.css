@@ -1,4 +1,4 @@
-/* General CSS */
+/*------- General CSS ----------*/
 
 * {
   box-sizing: border-box;
@@ -8,17 +8,160 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Overview Styles Section */
+/*-------- Overview Styles Section -------*/
 
-/* Question and Answers Section */
+/*------- Question and Answers Section ------*/
+.qa-widget {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  font-family: Helvetica;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 
-/* Related Items Section */
+.qa-header {
+  font-size: 30px;
+}
 
-/* Related Items Section */
+/* search-bar */
+.qa-search-bar {
+  display: flex;
+  width: 100%;
+  border: 1px solid black;
+  font-size: 16px;
+  text-align: left;
+  margin: 10px;
+  padding: 12px 20px 12px 40px;
+}
 
-/* Your outfit */
+/* Question */
+.question {
+  flex-direction: row;
+  margin: 12px;
+  padding: 0px 20px 0px 20px;
+  width: 100%;
+  display: block;
+}
 
-/* Ratings and Reviews Section */
+.question-body {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.question-control {
+  margin-left: auto;
+  float: right;
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.add-question-button {
+  font-size: medium;
+  height: 60px;
+  width: 235px;
+  padding: 10px;
+  margin: 25px;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+.add-question-button:hover {
+  background-color: lightgrey;
+  border: 1px solid black;
+}
+
+.more-questions {
+  font-size: medium;
+  height: 60px;
+  width: 235px;
+  padding: 10px;
+  margin: 25px;
+  cursor: pointer;
+  transition: all ease 0.3s;
+  float: left;
+}
+.more-questions:hover {
+  background-color: lightgrey;
+  border: 1px solid black;
+}
+/* Answers*/
+.answer-div {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.answer {
+  margin: 10px;
+  font-weight: 500;
+  font-size: 18px;
+  overflow-wrap: normal;
+}
+
+.answer-name {
+  font-size: 15px;
+  display: inline-flex;
+  flex-direction: row;
+  margin-left: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.more-answers {
+  font-weight: bold;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  margin: 8px;
+  transition: all ease 0.4s;
+  background-color: transparent;
+}
+
+.more-answers:hover {
+  background-color: lightgrey;
+}
+
+/* Answer Modal */
+.answer-modal {
+  background-color: rgb(126, 188, 179);
+  z-index: 150; /* Overlay effect: positioned over other containers */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  position: fixed; /* Fix position on the top-left corner*/
+  top: 0;
+  left: 0;
+  overflow: auto;
+  padding: 150px; /* Location of the content container */
+}
+.answer-modal-close {
+  float: right;
+  border: none;
+  background-color: transparent;
+  font-size: medium;
+  font-weight: bold;
+  cursor: pointer;
+}
+.answer-form-submit-button {
+  font-weight: bold;
+  font-size: medium;
+  height: 50px;
+  width: 150px;
+  background-color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.answer-form-submit-button:hover {
+  background-color: whitesmoke;
+}
+
+/*------ Related Items Section -----*/
+
+/*------ Related Items Section -----*/
+
+/*------- Your outfit-------*/
+
+/*------ Ratings and Reviews Section ------*/
 
 .bars-container {
   display: flex;

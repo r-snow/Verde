@@ -8,31 +8,29 @@ export default function MoreAnswers({ answerArr }) {
   return (
     <div>
       {collapseAnswers ? (
-        <div>
-          <button
-            type="button"
-            onClick={() => {
-              setCollapseAnswers(!collapseAnswers);
-            }}
-          >
-            LOAD MORE ANSWERS
-          </button>
-        </div>
+        <button
+          className="more-answers"
+          type="button"
+          onClick={() => {
+            setCollapseAnswers(!collapseAnswers);
+          }}
+        >
+          LOAD MORE ANSWERS
+        </button>
       ) : (
         <div>
           {answerArr.slice(2).map((answer) => (
             <AnswerList answer={answer} key={answer.id} />
           ))}
-          <div>
-            <button
-              type="button"
-              onClick={() => {
-                setCollapseAnswers(!collapseAnswers);
-              }}
-            >
-              Collapse Answers
-            </button>
-          </div>
+          <button
+            className="more-answers"
+            type="button"
+            onClick={() => {
+              setCollapseAnswers(!collapseAnswers);
+            }}
+          >
+            Collapse Answers
+          </button>
         </div>
       )}
     </div>

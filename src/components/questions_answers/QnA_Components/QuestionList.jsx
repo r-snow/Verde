@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Question from './Question';
 import MoreQuestions from './MoreQuestions';
+import AddAQuestion from './AddAQuestion';
 
 export default function QuestionList({ questions, searchInput, productID }) {
+  const [openModal, setOpenModal] = useState(false);
+  const handleModalOpen = () => setOpenModal(true);
+  const handleModalClose = () => setOpenModal(false);
   return (
     <div>
       {searchInput === null
@@ -42,6 +46,20 @@ export default function QuestionList({ questions, searchInput, productID }) {
                 />
               )
             )}
+      <div>
+        <button
+          className="add-question-button"
+          type="button"
+          onClick={handleModalOpen}
+        >
+          Add A QUESTION +
+        </button>
+        <AddAQuestion
+          productID={productID}
+          openModal={openModal}
+          handleModalClose={handleModalClose}
+        />
+      </div>
     </div>
   );
 }
