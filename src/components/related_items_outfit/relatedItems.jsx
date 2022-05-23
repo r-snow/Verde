@@ -1,6 +1,7 @@
 import React from 'react';
 // import ProductCard from './RIProductCard';
 import Carousel, { CarouselItem } from './Carousel';
+import ProductCard from './riProductCard';
 
 export default function relatedItems() {
   return (

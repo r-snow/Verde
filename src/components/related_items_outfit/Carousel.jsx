@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export function CarouselItem({ children, width }) {
   return (
@@ -21,16 +21,33 @@ export function CarouselItem({ children, width }) {
 
 export default function Carousel({ children }) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
 
   const updateIndex = (newIndex) => {
-    if (newIndex < 0) {
-      newIndex = 0;
+    let updatedIndex = newIndex;
+    if (updatedIndex < 0) {
+      updatedIndex = React.Children.count(children) - 1;
     } else if (newIndex >= React.Children.count(children)) {
-      newIndex = React.Children.count(children) - 1;
+      updatedIndex = 0;
     }
 
-    setActiveIndex(newIndex);
+    setActiveIndex(updatedIndex);
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!paused) {
+        updateIndex(activeIndex + 1);
+      }
+      updateIndex(activeIndex + 1);
+    }, 2000);
+
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  });
 
   return (
     <div
@@ -41,6 +58,8 @@ export default function Carousel({ children }) {
         whiteSpace: 'nowrap',
         transition: 'transform 0.3s',
       }}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
     >
       <div
         className="inner"
