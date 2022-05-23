@@ -1,13 +1,20 @@
 import React from 'react';
 import Ratings from './Ratings';
 import Reviews from './Reviews';
+import ReviewModal from './ReviewModal';
 
 function RatingsAndReviews() {
-  // const [modalActive, setModalStatus] = React.useState(true);
+  const [modalActive, setModalStatus] = React.useState(false);
 
-  // const toggleModal = () => {
-  //   setModalStatus((prev) => !prev);
-  // };
+  const toggleModal = () => {
+    setModalStatus(!modalActive);
+  };
+
+  if (modalActive) {
+    document.body.classList.add('prevent-scroll-background');
+  } else {
+    document.body.classList.remove('prevent-scroll-background');
+  }
 
   return (
     <section
@@ -22,7 +29,8 @@ function RatingsAndReviews() {
       id="ratings-reviews"
     >
       <Ratings />
-      <Reviews />
+      <Reviews toggleModal={toggleModal} />
+      {modalActive && <ReviewModal toggleModal={toggleModal} />}
     </section>
   );
 }

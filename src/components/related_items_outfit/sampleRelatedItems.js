@@ -1,6 +1,6 @@
 // https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/65631
 
-const product = {
+export const product = {
   id: 65631,
   campus: 'rfp',
   name: 'Camo Onesie',
@@ -25,7 +25,7 @@ const product = {
 
 // https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/65631/related
 
-const relatedItemIds = [65632, 65633, 65638, 65637];
+export const relatedItemIds = [65632, 65633, 65638, 65637];
 
 const relatedItems = [
   {

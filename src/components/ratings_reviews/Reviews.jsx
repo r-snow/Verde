@@ -1,8 +1,8 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import ReviewListEntry from './ReviewListEntry';
 
-function Reviews() {
+function Reviews({ toggleModal }) {
   return (
     <div
       style={{
@@ -32,7 +32,7 @@ function Reviews() {
           width: '150px',
           marginBottom: '1em',
         }}
-        // onClick={toggleModal}
+        onClick={toggleModal}
       >
         Write a review
       </button>
@@ -51,8 +51,8 @@ function Reviews() {
   );
 }
 
-// Reviews.propTypes = {
-//   toggleModal: PropTypes.func.isRequired,
-// };
+Reviews.propTypes = {
+  toggleModal: PropTypes.func.isRequired,
+};
 
 export default Reviews;
