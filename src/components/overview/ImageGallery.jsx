@@ -18,6 +18,7 @@ export default function ImageGallery({ changeImgView }) {
     <section
       style={{
         display: 'flex',
+        alignItems: 'center',
       }}
     >
       <Thumbnails
@@ -28,7 +29,7 @@ export default function ImageGallery({ changeImgView }) {
       <div
         style={{
           position: 'relative',
-          height: '390px',
+          height: '500px',
           width: '500px',
           display: 'flex',
           justifyContent: 'center',
@@ -38,7 +39,7 @@ export default function ImageGallery({ changeImgView }) {
           src={productStylesData.results[0].photos[currImgIdx].url}
           alt="sample img"
           style={{
-            maxHeight: '390px',
+            maxHeight: '500px',
             maxWidth: '390px',
           }}
         />

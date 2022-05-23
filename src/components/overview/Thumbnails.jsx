@@ -5,28 +5,33 @@ import { nanoid } from 'nanoid';
 export default function Thumbnails({ photos, currImgIdx, setCurrImgIdx }) {
   const thumbnailElements = photos.map((photo, i) => (
     <button
+      className="main-gallery-thumbnail-container"
       key={nanoid()}
       type="button"
       onClick={() => setCurrImgIdx(i)}
-      style={{
-        backgroundColor: 'transparent',
-        borderColor: 'transparent',
-        padding: '0',
-      }}
     >
       <img
         src={photo.thumbnail_url}
         alt="thumbnail"
+        className="main-gallery-thumbnail"
         style={{
-          width: '50px',
-          height: '50px',
-          objectFit: 'cover',
-          border: 'grey solid 2px',
           borderColor: currImgIdx === i ? 'grey' : 'transparent',
         }}
       />
     </button>
   ));
+
+  const displayedThumbnailElements = thumbnailElements.filter((element, i) => {
+    if (currImgIdx <= 6 && i <= 6) {
+      return true;
+    }
+    if (currImgIdx > 6 && i >= currImgIdx - 6 && i <= currImgIdx) {
+      return true;
+    }
+    return false;
+  });
+  // while currIndex is less than 6, just show the first 7
+  // if currIndex is greater than 6, show from currIndex - 6 to currIndex
   return (
     <section
       style={{
@@ -45,7 +50,7 @@ export default function Thumbnails({ photos, currImgIdx, setCurrImgIdx }) {
           Up
         </button>
       )}
-      {thumbnailElements}
+      {displayedThumbnailElements}
       {currImgIdx !== photos.length - 1 && (
         <button
           type="button"

@@ -9,6 +9,24 @@ html {
 }
 
 /*-------- Overview Styles Section -------*/
+.main-gallery-thumbnail {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  transition: 0.3s;
+  border: 2px grey solid;
+}
+
+.main-gallery-thumbnail-container {
+  background-color: transparent;
+  border-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.main-gallery-thumbnail:hover {
+  transform: scale(1.02);
+}
 
 /*------- Question and Answers Section ------*/
 .qa-widget {
