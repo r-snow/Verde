@@ -28,6 +28,7 @@ function ReviewModal({ toggleModal }) {
           border: 'solid white 1px',
           position: 'absolute',
           padding: '1em',
+          alignSelf: 'center',
         }}
       >
         <section

@@ -45,9 +45,9 @@ html {
 }
 
 /* Review Modal Section */
-/* body.prevent-scroll-background {
+body.prevent-scroll-background {
   overflow-y: hidden;
-} */
+}
 
 .char-words {
   display: inline-block;
@@ -58,6 +58,8 @@ html {
 }
 
 .full-modal-container {
+  display: flex;
+  flex-direction: column;
   overflow: scroll;
 }
 

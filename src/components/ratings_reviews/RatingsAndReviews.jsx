@@ -22,9 +22,9 @@ function RatingsAndReviews() {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'start',
-        padding: '1em',
         fontFamily: 'Helvetica',
         fontWeight: '100',
+        padding: '1em',
       }}
       id="ratings-reviews"
     >
