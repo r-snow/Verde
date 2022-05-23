@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Stars from '../shared/Stars';
 
 function ReviewListEntry({ review }) {
-  console.log(review, 'review passed down into ReviewListEntry');
+  // console.log(review, 'review passed down into ReviewListEntry');
   return (
     <section
       style={{
@@ -91,7 +91,13 @@ function ReviewListEntry({ review }) {
 }
 
 ReviewListEntry.propTypes = {
-  review: PropTypes.shape.isRequired,
+  review: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
 };
 
 export default ReviewListEntry;

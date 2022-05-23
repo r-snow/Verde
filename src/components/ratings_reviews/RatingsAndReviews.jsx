@@ -10,9 +10,10 @@ const config = require('../../../config');
 function RatingsAndReviews() {
   const [modalActive, setModalStatus] = useState(false);
   const [reviews, setReviews] = useState([]);
+  const [visible, setVisible] = useState(2);
 
   const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/';
-  const id = 65733;
+  const id = 65738;
   useEffect(() => {
     axios
       .get(`${url}reviews/?product_id=${id}`, {
@@ -24,6 +25,12 @@ function RatingsAndReviews() {
   const toggleModal = () => {
     setModalStatus(!modalActive);
   };
+
+  const addVisibility = () => {
+    const newTotal = visible + 2;
+    setVisible(newTotal);
+  };
+  // created a new variable newTotal to prevent linter errors with constants/
 
   if (modalActive) {
     document.body.classList.add('prevent-scroll-background');
@@ -44,7 +51,16 @@ function RatingsAndReviews() {
       id="ratings-reviews"
     >
       <Ratings />
-      <Reviews toggleModal={toggleModal} reviews={reviews} />
+      {Reviews.length !== 0 ? (
+        <Reviews
+          reviews={reviews}
+          toggleModal={toggleModal}
+          visible={visible}
+          addVisibility={addVisibility}
+        />
+      ) : (
+        <button type="button">Helloooooooo World</button>
+      )}
       {modalActive && <ReviewModal toggleModal={toggleModal} />}
     </section>
   );
