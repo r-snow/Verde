@@ -27,7 +27,15 @@ export default function ProductCard() {
         alignItems: 'center',
       }}
     >
-      <div>
+      <div
+        style={{
+          width: 'fit-content',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
         <Image />
         {/* Product Category: */}
         <p>Jackets</p>

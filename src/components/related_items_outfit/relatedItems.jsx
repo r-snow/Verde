@@ -3,7 +3,7 @@ import React from 'react';
 import Carousel from './Carousel';
 import ProductCard from './riProductCard';
 
-export default function relatedItems() {
+export default function RelatedItems() {
   return (
     <div>
       <h2>Related Items</h2>

@@ -28,7 +28,7 @@ export default function Carousel({ children }) {
     let updatedIndex = newIndex;
     if (updatedIndex < 0) {
       updatedIndex = React.Children.count(children) - 1;
-    } else if (newIndex >= React.Children.count(children)) {
+    } else if (newIndex >= React.Children.count(children) - 2) {
       updatedIndex = 0;
     }
 
@@ -41,7 +41,7 @@ export default function Carousel({ children }) {
         updateIndex(activeIndex + 1);
       }
       updateIndex(activeIndex + 1);
-    }, 2000);
+    }, 3000);
 
     return () => {
       if (interval) {
@@ -55,9 +55,6 @@ export default function Carousel({ children }) {
       className="carousel"
       style={{
         overflow: 'hidden',
-        transform: `translateX(-0%)`,
-        whiteSpace: 'nowrap',
-        transition: 'transform 0.3s',
       }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -65,13 +62,13 @@ export default function Carousel({ children }) {
       <div
         className="inner"
         style={{
-          transform: `translateX(-${activeIndex * 30}%)`,
+          transform: `translateX(-${activeIndex * 400}px)`,
           whiteSpace: 'nowrap',
-          transition: 'transform 0.3s',
+          transition: 'transform 0.5s',
         }}
       >
         {React.Children.map(children, (child) =>
-          React.cloneElement(child, { width: '30%' })
+          React.cloneElement(child, { width: `400px` })
         )}
       </div>
       <div
