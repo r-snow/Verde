@@ -37,10 +37,10 @@ function ReviewModal({ toggleModal }) {
             display: 'flex',
             flexDirection: 'column',
             backgroundColor: 'white',
-            padding: '1em',
-            // justifyContent: 'center',
-            alignItems: 'center',
             borderRadius: '5rem',
+            padding: '3em 1em 5em 1em',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
           Rating
@@ -51,11 +51,11 @@ function ReviewModal({ toggleModal }) {
               fontSize: '0.5em',
             }}
           >
-            <p>5 = Amazing</p>
-            <p>4 = Good</p>
-            <p>3 = Average</p>
-            <p>2 = Not terrible</p>
-            <p>1 = Bad</p>
+            <p>1 - Poor</p>
+            <p>2 - Fair</p>
+            <p>3 - Average</p>
+            <p>4 - Good</p>
+            <p>5 - Great</p>
           </div>
           <div className="do-you-recommend">
             <p>Do you recommend this product?</p>
@@ -110,15 +110,17 @@ function ReviewModal({ toggleModal }) {
               placeholder="Example:jackson11"
               className="name-email-input"
             />
-          </form>
-          <form>
+            <p className="disclaimer-text">
+              For privacy reasons, do <i>not</i> use your full name or email
+              address.
+            </p>
             <p>Email 60 char cap</p>
             <input
               type="text"
               placeholder="Example:jackson11@email.com"
               className="name-email-input"
             />
-            <p>
+            <p className="disclaimer-text">
               For authentication reasons, you <i>will not</i> be emailed.
             </p>
           </form>

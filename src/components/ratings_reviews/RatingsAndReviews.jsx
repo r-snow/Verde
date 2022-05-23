@@ -13,7 +13,7 @@ function RatingsAndReviews() {
   const [visible, setVisible] = useState(2);
 
   const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/';
-  const id = 65738;
+  const id = 65733;
   useEffect(() => {
     axios
       .get(`${url}reviews/?product_id=${id}`, {
@@ -43,23 +43,35 @@ function RatingsAndReviews() {
       style={{
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'start',
+        justifyContent: 'center',
         fontFamily: 'Helvetica',
         fontWeight: '100',
         padding: '1em',
       }}
       id="ratings-reviews"
     >
-      <Ratings />
-      {Reviews.length !== 0 ? (
-        <Reviews
-          reviews={reviews}
-          toggleModal={toggleModal}
-          visible={visible}
-          addVisibility={addVisibility}
-        />
+      {reviews.length !== 0 ? (
+        <>
+          <Ratings reviews={reviews} />
+          <Reviews
+            reviews={reviews}
+            toggleModal={toggleModal}
+            visible={visible}
+            addVisibility={addVisibility}
+          />
+        </>
       ) : (
-        <button type="button">Helloooooooo World</button>
+        <button
+          type="button"
+          onClick={toggleModal}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            width: '25%',
+          }}
+        >
+          Write a new review
+        </button>
       )}
       {modalActive && <ReviewModal toggleModal={toggleModal} />}
     </section>
