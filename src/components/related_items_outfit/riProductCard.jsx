@@ -24,29 +24,21 @@ export default function ProductCard() {
       style={{
         width: 'fit-content',
         display: 'inline-flex',
+        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
       }}
     >
-      <div
-        style={{
-          width: 'fit-content',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <Image />
-        {/* Product Category: */}
-        <p>Jackets</p>
-        {/* Product Name: */}
-        <p>Camo Onesie</p>
-        {/* Price: */}
-        <Price price={140} salePrice={120} />
-        {/* Star Rating */}
-        <Stars />
-      </div>
+      <Image />
+      {/* Product Category: */}
+      <p>Jackets</p>
+      {/* Product Name: */}
+      <p>Camo Onesie</p>
+      {/* Price: */}
+      <Price price={140} salePrice={120} />
+      {/* Star Rating */}
+      <Stars />
+      <button type="button">X</button>
     </div>
   );
 }
