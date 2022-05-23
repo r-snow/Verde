@@ -21,6 +21,7 @@ export default function AnswerPhotos({ photo }) {
       {openModal ? (
         <div className="answer-photo-modal ">
           <button
+            style={{ position: 'absolute', top: '1em', right: '1em' }}
             className="enlarged-answer-photo-close"
             type="button"
             onClick={handlePhotoClick}

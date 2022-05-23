@@ -194,7 +194,7 @@ html {
   background-color: grey;
 }
 
-.enlarged-answer-photo-close {
+/* .enlarged-answer-photo-close {
   position: absolute;
   top: 200px;
   right: 400px;
@@ -202,7 +202,7 @@ html {
   font-weight: bold;
   border: none;
   transition: 0.3s;
-}
+} */
 
 .answer-photo {
   display: flex;
