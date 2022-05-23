@@ -73,18 +73,6 @@ const exampleData = {
           helpfulness: 0,
           photos: [],
         },
-        5985305: {
-          id: 5985305,
-          body: '6',
-          date: '2022-05-16T00:00:00.000Z',
-          answerer_name: 'yasi',
-          helpfulness: 0,
-          photos: [
-            'https://target.scene7.com/is/image/Target/GUEST_5be1a3a1-0f60-4dbb-98b0-f600ce32b5eb?wid=325&hei=325&qlt=80&fmt=pjpeg',
-            'https://target.scene7.com/is/image/Target/GUEST_90ad4a03-6e45-4cb9-8036-c64a364f2558?wid=325&hei=325&qlt=80&fmt=pjpeg',
-            'https://target.scene7.com/is/image/Target/GUEST_5d461430-3234-4cec-add0-326ae5dc41b1?wid=325&hei=325&qlt=80&fmt=pjpeg',
-          ],
-        },
       },
     },
     {
@@ -130,13 +118,17 @@ const exampleData = {
       question_helpfulness: 0,
       reported: false,
       answers: {
-        5360956: {
-          id: 5360956,
-          body: 'dfsdf',
-          date: '2022-02-24T00:00:00.000Z',
-          answerer_name: 'sfsdfs',
-          helpfulness: 1,
-          photos: [],
+        5985305: {
+          id: 5985305,
+          body: '6',
+          date: '2022-05-16T00:00:00.000Z',
+          answerer_name: 'yasi',
+          helpfulness: 0,
+          photos: [
+            'https://target.scene7.com/is/image/Target/GUEST_5be1a3a1-0f60-4dbb-98b0-f600ce32b5eb?wid=325&hei=325&qlt=80&fmt=pjpeg',
+            'https://target.scene7.com/is/image/Target/GUEST_90ad4a03-6e45-4cb9-8036-c64a364f2558?wid=325&hei=325&qlt=80&fmt=pjpeg',
+            'https://target.scene7.com/is/image/Target/GUEST_5d461430-3234-4cec-add0-326ae5dc41b1?wid=325&hei=325&qlt=80&fmt=pjpeg',
+          ],
         },
       },
     },

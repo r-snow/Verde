@@ -34,7 +34,7 @@ export default function AnswerList({ answer }) {
         </span>
         {body}
       </div>
-      <div>
+      <div className="photo">
         {answer.photos.length > 0 &&
           answer.photos.map((photo) => (
             <AnswerPhotos photo={photo} key={photo} />
