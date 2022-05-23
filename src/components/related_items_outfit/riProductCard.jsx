@@ -1,6 +1,7 @@
 import React from 'react';
 import Price from '../shared/Price';
 import Image from './Image';
+import Stars from '../shared/Stars';
 
 export default function ProductCard() {
   const handleKeyPress = (event) => {
@@ -44,6 +45,7 @@ export default function ProductCard() {
         {/* Price: */}
         <Price price={140} salePrice={120} />
         {/* Star Rating */}
+        <Stars />
       </div>
     </div>
   );
