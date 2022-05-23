@@ -1,8 +1,45 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Stars from '../shared/Stars';
 import Bars from '../shared/Bars';
 
-function Ratings() {
+function Ratings({ reviews }) {
+  const counter = {
+    sum: 0,
+    recommendedCount: 0,
+    oneStarReviews: 0,
+    twoStarReviews: 0,
+    threeStarReviews: 0,
+    fourStarReviews: 0,
+    fiveStarReviews: 0,
+  };
+
+  // computes average and # of reviews recommended the product and # of star reviews
+  for (let i = 0; i < reviews.length; i += 1) {
+    if (reviews[i].recommend === true) {
+      counter.recommendedCount += 1;
+    }
+
+    if (reviews[i].rating === 1) {
+      counter.oneStarReviews += 1;
+    }
+    if (reviews[i].rating === 2) {
+      counter.twoStarReviews += 1;
+    }
+    if (reviews[i].rating === 3) {
+      counter.threeStarReviews += 1;
+    }
+    if (reviews[i].rating === 4) {
+      counter.fourStarReviews += 1;
+    }
+    if (reviews[i].rating === 5) {
+      counter.fiveStarReviews += 1;
+    }
+
+    counter.sum += reviews[i].rating;
+  }
+  const averageRating = counter.sum / reviews.length;
+
   return (
     <div
       style={{
@@ -15,7 +52,7 @@ function Ratings() {
         marginRight: '1em',
         width: 'calc((1 / 3) * 100%)',
         minWidth: '200px',
-        fontSize: '0.6em',
+        fontSize: '0.8em',
       }}
     >
       <h4
@@ -26,10 +63,13 @@ function Ratings() {
         Reviews & Ratings
       </h4>
       <h1>
-        4.2
-        <Stars rating={4.2} />
+        {averageRating}
+        <Stars rating={averageRating} />
       </h1>
-      <i>76% of reviews recommend this product!</i>
+      <i>
+        {(counter.recommendedCount / reviews.length) * 100}% of reviews
+        recommend this product!
+      </i>
       <p
         style={{
           alignSelf: 'center',
@@ -40,36 +80,55 @@ function Ratings() {
       <div className="bars-container">
         <div className="indiv-bar">
           5 stars
-          <Bars reviewCount={90} totalCount={265} />
-          {90}
+          <Bars
+            reviewCount={counter.fiveStarReviews}
+            totalCount={reviews.length}
+          />
+          {counter.fiveStarReviews}
         </div>
 
         <div className="indiv-bar">
           4 stars
-          <Bars reviewCount={61} totalCount={265} />
-          {61}
+          <Bars
+            reviewCount={counter.fourStarReviews}
+            totalCount={reviews.length}
+          />
+          {counter.fourStarReviews}
         </div>
 
         <div className="indiv-bar">
           3 stars
-          <Bars reviewCount={75} totalCount={265} />
-          {75}
+          <Bars
+            reviewCount={counter.threeStarReviews}
+            totalCount={reviews.length}
+          />
+          {counter.threeStarReviews}
         </div>
 
         <div className="indiv-bar">
           2 stars
-          <Bars reviewCount={31} totalCount={265} />
-          {31}
+          <Bars
+            reviewCount={counter.twoStarReviews}
+            totalCount={reviews.length}
+          />
+          {counter.twoStarReviews}
         </div>
 
         <div className="indiv-bar">
           1 stars
-          <Bars reviewCount={11} totalCount={265} />
-          {11}
+          <Bars
+            reviewCount={counter.oneStarReviews}
+            totalCount={reviews.length}
+          />
+          {counter.oneStarReviews}
         </div>
       </div>
     </div>
   );
 }
+
+Ratings.propTypes = {
+  reviews: PropTypes.arrayOf(PropTypes.shape).isRequired,
+};
 
 export default Ratings;
