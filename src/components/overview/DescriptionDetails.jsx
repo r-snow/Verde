@@ -3,6 +3,7 @@ import AddToCart from './AddToCart';
 import StyleSelector from './StyleSelector';
 import Price from '../shared/Price';
 import Stars from '../shared/Stars';
+import productData from './example_data/productData';
 
 export default function DescriptionDetails() {
   return (
@@ -13,12 +14,9 @@ export default function DescriptionDetails() {
         marginLeft: '8em',
       }}
     >
-      <p>Basketball Shoes</p>
-      <p>Air Minis 250</p>
-      <p>
-        This optimized air cushion pocket reduces impact but keeps a perfect
-        balance underfoot.
-      </p>
+      <p>{productData.category}</p>
+      <p>{productData.name}</p>
+      {productData.description.length && <p>{productData.description}</p>}
       <span>
         <Stars rating={2.5} />
         <a
