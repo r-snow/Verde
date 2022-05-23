@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReviewListEntry from './ReviewListEntry';
 
-function Reviews({ toggleModal }) {
+function Reviews({ reviews, toggleModal }) {
   return (
     <div
       style={{
@@ -36,8 +36,9 @@ function Reviews({ toggleModal }) {
       >
         Write a review
       </button>
-      <ReviewListEntry />
-      <ReviewListEntry />
+      {reviews.map((review) => (
+        <ReviewListEntry review={review} key={review.review_id} />
+      ))}
       <button
         type="button"
         style={{
@@ -53,6 +54,7 @@ function Reviews({ toggleModal }) {
 
 Reviews.propTypes = {
   toggleModal: PropTypes.func.isRequired,
+  reviews: PropTypes.arrayOf(PropTypes.shape).isRequired,
 };
 
 export default Reviews;

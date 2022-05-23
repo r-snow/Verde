@@ -1,10 +1,25 @@
-import React from 'react';
+import axios from 'axios';
+
+import React, { useState, useEffect } from 'react';
 import Ratings from './Ratings';
 import Reviews from './Reviews';
 import ReviewModal from './ReviewModal';
 
+const config = require('../../../config');
+
 function RatingsAndReviews() {
-  const [modalActive, setModalStatus] = React.useState(false);
+  const [modalActive, setModalStatus] = useState(false);
+  const [reviews, setReviews] = useState([]);
+
+  const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/';
+  const id = 65733;
+  useEffect(() => {
+    axios
+      .get(`${url}reviews/?product_id=${id}`, {
+        headers: { Authorization: config.TOKEN },
+      })
+      .then((results) => setReviews(results.data.results));
+  }, []);
 
   const toggleModal = () => {
     setModalStatus(!modalActive);
@@ -29,7 +44,7 @@ function RatingsAndReviews() {
       id="ratings-reviews"
     >
       <Ratings />
-      <Reviews toggleModal={toggleModal} />
+      <Reviews toggleModal={toggleModal} reviews={reviews} />
       {modalActive && <ReviewModal toggleModal={toggleModal} />}
     </section>
   );

@@ -6,6 +6,7 @@ dist/*
 node_modules/
 *.log
 sample_tests/
+config.js
 
 # OS generated files
 .DS_Store

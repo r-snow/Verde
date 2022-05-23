@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Stars from '../shared/Stars';
 
-function ReviewListEntry() {
+function ReviewListEntry({ review }) {
+  console.log(review, 'review passed down into ReviewListEntry');
   return (
     <section
       style={{
@@ -18,21 +20,19 @@ function ReviewListEntry() {
       }}
     >
       <span>
-        <b>Bolded Summary of the product</b>
+        <b>{review.summary}</b>
       </span>
-      <Stars rating={2.5} id="reviewStar" />
-      <span>Body should be 50-1000 characters</span>
+      <Stars rating={review.rating} id="reviewStar" />
+      <span>{review.body}</span>
       <div className="images-container">
-        <img
-          src="https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/067/561/513/original/884790_01.jpg.jpeg?action=crop&width=750"
-          alt="yeezys"
-          className="review-thumbnails"
-        />
-        <img
-          src="https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fwp-content%2Fblogs.dir%2F6%2Ffiles%2F2022%2F03%2Fadidas-yeezy-boost-350-v2-zebra-white-black-sneakers-price-restock-release-date-1.jpg?q=80&w=1000&cbr=1&fit=max"
-          alt="yeezys2"
-          className="review-thumbnails"
-        />
+        {review.photos.map((photo) => (
+          <img
+            src={photo.url}
+            key={photo.id}
+            alt="yeezys"
+            className="review-thumbnails"
+          />
+        ))}
       </div>
       <div
         className="review-char-container"
@@ -57,7 +57,8 @@ function ReviewListEntry() {
           margin: '2em 0em 1em 0.2em',
         }}
       >
-        BobbyBigBob | October 29 1995 | Verified User | Recommended
+        {review.reviewer_name} | {review.date} | Verified User |{' '}
+        {review.recommend && 'Recommended!'}
       </div>
 
       <div
@@ -88,5 +89,9 @@ function ReviewListEntry() {
     </section>
   );
 }
+
+ReviewListEntry.propTypes = {
+  review: PropTypes.shape.isRequired,
+};
 
 export default ReviewListEntry;
