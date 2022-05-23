@@ -15,10 +15,6 @@ export default function StyleSelector({ styles, currStyle, setCurrStyle }) {
       onClick={() => handleStyleClick(i)}
       style={{
         backgroundColor: currStyle === i ? 'lightgrey' : 'transparent',
-        borderRadius: '50%',
-        borderColor: 'transparent',
-        marginRight: '1em',
-        padding: '0.25em',
       }}
     >
       <img
@@ -38,6 +34,7 @@ export default function StyleSelector({ styles, currStyle, setCurrStyle }) {
     <section
       style={{
         marginBottom: '1em',
+        display: 'flex',
       }}
     >
       {thumbnails}

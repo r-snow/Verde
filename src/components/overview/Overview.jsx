@@ -55,6 +55,9 @@ export default function Overview() {
       />
     </section>
   ) : (
-    <ExpandedView changeImgView={changeImgView} />
+    <ExpandedView
+      changeImgView={changeImgView}
+      currPhotoUrl={productStylesData.results[currStyle].photos[currImgIdx].url}
+    />
   );
 }
