@@ -8,6 +8,12 @@ import productData from './example_data/productData';
 export default function Overview() {
   const [isDefaultImgView, setIsDefaultImgView] = useState(true);
   const [currImgIdx, setCurrImgIdx] = useState(0);
+  const [currStyle, setCurrStyle] = useState(0);
+
+  const styles = productStylesData.results.map((style) => ({
+    styleId: style.style_id,
+    iconUrl: style.photos[0].thumbnail_url,
+  }));
 
   const incrementIdx = () => {
     setCurrImgIdx((prev) => prev + 1);
@@ -33,7 +39,7 @@ export default function Overview() {
     >
       <ImageGallery
         changeImgView={changeImgView}
-        photos={productStylesData.results[0].photos}
+        photos={productStylesData.results[currStyle].photos}
         currImgIdx={currImgIdx}
         incrementIdx={incrementIdx}
         decrementIdx={decrementIdx}
@@ -43,6 +49,9 @@ export default function Overview() {
         category={productData.category}
         name={productData.name}
         description={productData.description}
+        styles={styles}
+        currStyle={currStyle}
+        setCurrStyle={setCurrStyle}
       />
     </section>
   ) : (

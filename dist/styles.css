@@ -31,6 +31,10 @@ html {
   transform: scale(1.02);
 }
 
+.style-thumbnail:hover {
+  cursor: pointer;
+}
+
 /*------- Question and Answers Section ------*/
 .qa-widget {
   display: flex;

@@ -1,31 +1,35 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 
-export default function StyleSelector() {
-  const [selectedStyle, setSelectedStyle] = React.useState('style1');
-  const styles = ['style1', 'style2', 'style3', 'style4', 'style5'];
-
-  const handleStyleClick = (style) => {
-    setSelectedStyle(style);
+export default function StyleSelector({ styles, currStyle, setCurrStyle }) {
+  const handleStyleClick = (idx) => {
+    setCurrStyle(idx);
   };
-  const thumbnails = styles.map((style) => (
+
+  const thumbnails = styles.map((style, i) => (
     <button
+      className="style-thumbnail"
       type="button"
       key={nanoid()}
-      id={style}
-      onClick={() => handleStyleClick(style)}
+      onClick={() => handleStyleClick(i)}
       style={{
-        backgroundColor: selectedStyle === style ? 'lightgrey' : 'transparent',
+        backgroundColor: currStyle === i ? 'lightgrey' : 'transparent',
         borderRadius: '50%',
         borderColor: 'transparent',
         marginRight: '1em',
-        padding: '0.5em',
+        padding: '0.25em',
       }}
     >
       <img
-        src="https://tracksmith-media.imgix.net/Spring22-Mens-Twilight-Tee-Denim.png?auto=format,compress&crop=faces&dpr=2&fit=crop&h=30&w=30"
-        alt={style}
-        width="30px"
+        src={style.iconUrl}
+        alt={style.styleId}
+        style={{
+          width: '30px',
+          height: '30px',
+          objectFit: 'cover',
+          borderRadius: '50%',
+        }}
       />
     </button>
   ));
@@ -40,3 +44,15 @@ export default function StyleSelector() {
     </section>
   );
 }
+
+StyleSelector.propTypes = {
+  styles: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
+  currStyle: PropTypes.number.isRequired,
+  setCurrStyle: PropTypes.func.isRequired,
+};
