@@ -51,7 +51,7 @@ export default function Carousel({ children }) {
         }}
       >
         {React.Children.map(children, (child) =>
-          React.cloneElement(child, { width: '30%', key: child.id })
+          React.cloneElement(child, { width: '30%' })
         )}
       </div>
       <div
