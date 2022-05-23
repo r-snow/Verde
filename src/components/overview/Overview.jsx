@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ImageGallery from './ImageGallery';
 import ExpandedView from './ExpandedView';
 import DescriptionDetails from './DescriptionDetails';
 
 export default function Overview() {
-  const [isDefaultImgView, setIsDefaultImgView] = React.useState(true);
+  const [isDefaultImgView, setIsDefaultImgView] = useState(true);
 
   const changeImgView = () => {
     setIsDefaultImgView((prev) => !prev);
