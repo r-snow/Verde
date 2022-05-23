@@ -5,7 +5,7 @@ import Ratings from './Ratings';
 import Reviews from './Reviews';
 import ReviewModal from './ReviewModal';
 
-const config = require('../../../config');
+import config from '../../../config/config';
 
 function RatingsAndReviews() {
   const [modalActive, setModalStatus] = useState(false);
