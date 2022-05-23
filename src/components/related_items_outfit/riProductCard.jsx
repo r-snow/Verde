@@ -4,7 +4,7 @@ import Image from './Image';
 
 export default function ProductCard() {
   const handleKeyPress = (event) => {
-    event.preventDefault9();
+    event.preventDefault();
     if (event.key === 'Enter') {
       console.log('Compare to current product coming soon...');
     }
@@ -20,15 +20,23 @@ export default function ProductCard() {
       onKeyPress={handleKeyPress}
       role="button"
       tabIndex={0}
+      style={{
+        width: 'fit-content',
+        display: 'inline-flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
     >
-      <Image />
-      {/* Product Category: */}
-      <p>Jackets</p>
-      {/* Product Name: */}
-      <p>Camo Onesie</p>
-      {/* Price: */}
-      <Price price={140} salePrice={120} />
-      {/* Star Rating */}
+      <div>
+        <Image />
+        {/* Product Category: */}
+        <p>Jackets</p>
+        {/* Product Name: */}
+        <p>Camo Onesie</p>
+        {/* Price: */}
+        <Price price={140} salePrice={120} />
+        {/* Star Rating */}
+      </div>
     </div>
   );
 }
