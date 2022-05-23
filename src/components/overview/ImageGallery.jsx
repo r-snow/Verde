@@ -35,24 +35,23 @@ export default function ImageGallery({ changeImgView }) {
           justifyContent: 'center',
         }}
       >
-        <img
-          src={productStylesData.results[0].photos[currImgIdx].url}
-          alt="sample img"
-          style={{
-            maxHeight: '500px',
-            maxWidth: '390px',
-          }}
-        />
         <button
           type="button"
-          onClick={changeImgView}
+          className="main-image-btn"
           style={{
-            position: 'absolute',
-            top: '1em',
-            right: '1em',
+            backgroundColor: 'transparent',
+            borderColor: 'transparent',
           }}
+          onClick={changeImgView}
         >
-          Expanded View
+          <img
+            src={productStylesData.results[0].photos[currImgIdx].url}
+            alt="sample img"
+            style={{
+              maxHeight: '500px',
+              maxWidth: '390px',
+            }}
+          />
         </button>
         {currImgIdx !== 0 && (
           <button
