@@ -23,6 +23,7 @@ export default function ImageGallery({ changeImgView }) {
       <Thumbnails
         photos={productStylesData.results[0].photos}
         currImgIdx={currImgIdx}
+        setCurrImgIdx={setCurrImgIdx}
       />
       <div
         style={{
