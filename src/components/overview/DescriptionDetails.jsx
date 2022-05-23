@@ -1,11 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AddToCart from './AddToCart';
 import StyleSelector from './StyleSelector';
 import Price from '../shared/Price';
 import Stars from '../shared/Stars';
-import productData from './example_data/productData';
 
-export default function DescriptionDetails() {
+export default function DescriptionDetails({ category, name, description }) {
   return (
     <div
       style={{
@@ -14,9 +14,9 @@ export default function DescriptionDetails() {
         marginLeft: '8em',
       }}
     >
-      <p>{productData.category}</p>
-      <p>{productData.name}</p>
-      {productData.description.length && <p>{productData.description}</p>}
+      <p>{category}</p>
+      <p>{name}</p>
+      {description.length && <p>{description}</p>}
       <span>
         <Stars rating={2.5} />
         <a
@@ -34,3 +34,9 @@ export default function DescriptionDetails() {
     </div>
   );
 }
+
+DescriptionDetails.propTypes = {
+  category: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};
