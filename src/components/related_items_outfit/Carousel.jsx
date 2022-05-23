@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 // export function CarouselItem({ children, width }) {
 //   console.log(children);
@@ -107,3 +108,13 @@ export default function Carousel({ children }) {
     </div>
   );
 }
+
+Carousel.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
+};
