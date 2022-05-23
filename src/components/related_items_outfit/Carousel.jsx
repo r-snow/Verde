@@ -37,7 +37,7 @@ export default function Carousel({ children }) {
       className="carousel"
       style={{
         overflow: 'hidden',
-        transform: `translateX(-{${activeIndex * 30}}%)`,
+        transform: `translateX(-0%)`,
         whiteSpace: 'nowrap',
         transition: 'transform 0.3s',
       }}
@@ -45,7 +45,7 @@ export default function Carousel({ children }) {
       <div
         className="inner"
         style={{
-          transform: 'translateX(-0%)',
+          transform: `translateX(-${activeIndex * 30}%)`,
           whiteSpace: 'nowrap',
           transition: 'transform 0.3s',
         }}
@@ -64,6 +64,9 @@ export default function Carousel({ children }) {
       >
         <button
           type="button"
+          style={{
+            margin: '5px',
+          }}
           onClick={() => {
             updateIndex(activeIndex - 1);
             console.log('Scroll left coming soon...');
@@ -73,6 +76,9 @@ export default function Carousel({ children }) {
         </button>
         <button
           type="button"
+          style={{
+            margin: '5px',
+          }}
           onClick={() => {
             updateIndex(activeIndex + 1);
             console.log('Scroll right coming soon...');
