@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import Thumbnails from './Thumbnails';
 import productStylesData from './example_data/productStylesData';
 
 export default function ImageGallery({ changeImgView }) {
@@ -14,61 +15,71 @@ export default function ImageGallery({ changeImgView }) {
   };
 
   return (
-    <div
+    <section
       style={{
-        position: 'relative',
-        height: '390px',
-        width: '500px',
         display: 'flex',
-        justifyContent: 'center',
       }}
     >
-      <img
-        src={productStylesData.results[0].photos[currImgIdx].url}
-        alt="sample img"
-        style={{
-          maxHeight: '390px',
-          maxWidth: '390px',
-        }}
+      <Thumbnails
+        photos={productStylesData.results[0].photos}
+        currImgIdx={currImgIdx}
       />
-      <button
-        type="button"
-        onClick={changeImgView}
+      <div
         style={{
-          position: 'absolute',
-          top: '1em',
-          right: '1em',
+          position: 'relative',
+          height: '390px',
+          width: '500px',
+          display: 'flex',
+          justifyContent: 'center',
         }}
       >
-        Expanded View
-      </button>
-      {currImgIdx !== 0 && (
-        <button
-          type="button"
-          onClick={decrementIdx}
+        <img
+          src={productStylesData.results[0].photos[currImgIdx].url}
+          alt="sample img"
           style={{
-            position: 'absolute',
-            top: '50%',
-            left: '1em',
+            maxHeight: '390px',
+            maxWidth: '390px',
           }}
-        >
-          Prev
-        </button>
-      )}
-      {currImgIdx !== productStylesData.results[0].photos.length - 1 && (
+        />
         <button
           type="button"
-          onClick={incrementIdx}
+          onClick={changeImgView}
           style={{
             position: 'absolute',
-            top: '50%',
+            top: '1em',
             right: '1em',
           }}
         >
-          Next
+          Expanded View
         </button>
-      )}
-    </div>
+        {currImgIdx !== 0 && (
+          <button
+            type="button"
+            onClick={decrementIdx}
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '1em',
+            }}
+          >
+            Prev
+          </button>
+        )}
+        {currImgIdx !== productStylesData.results[0].photos.length - 1 && (
+          <button
+            type="button"
+            onClick={incrementIdx}
+            style={{
+              position: 'absolute',
+              top: '50%',
+              right: '1em',
+            }}
+          >
+            Next
+          </button>
+        )}
+      </div>
+    </section>
   );
 }
 
