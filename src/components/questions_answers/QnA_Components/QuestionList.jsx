@@ -6,10 +6,14 @@ import AddAQuestion from './AddAQuestion';
 
 export default function QuestionList({ questions, searchInput, productID }) {
   const [openModal, setOpenModal] = useState(false);
-  const handleModalOpen = () => setOpenModal(true);
-  const handleModalClose = () => setOpenModal(false);
+
   return (
-    <div>
+    <div
+      style={{
+        maxHeight: '1000px',
+        overflowY: 'scroll',
+      }}
+    >
       {searchInput === null
         ? questions
             .slice(0, 5)
@@ -50,15 +54,13 @@ export default function QuestionList({ questions, searchInput, productID }) {
         <button
           className="add-question-button"
           type="button"
-          onClick={handleModalOpen}
+          onClick={() => setOpenModal(true)}
         >
           Add A QUESTION +
         </button>
-        <AddAQuestion
-          productID={productID}
-          openModal={openModal}
-          handleModalClose={handleModalClose}
-        />
+        {openModal && (
+          <AddAQuestion productID={productID} setOpenModal={setOpenModal} />
+        )}
       </div>
     </div>
   );

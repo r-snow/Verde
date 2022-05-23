@@ -6,7 +6,12 @@ export default function MoreAnswers({ answerArr }) {
   const [collapseAnswers, setCollapseAnswers] = useState(true);
 
   return (
-    <div>
+    <div
+      style={{
+        maxHeight: '350px',
+        overflowY: 'scroll',
+      }}
+    >
       {collapseAnswers ? (
         <button
           className="more-answers"

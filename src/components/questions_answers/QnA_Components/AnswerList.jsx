@@ -82,7 +82,7 @@ export default function AnswerList({ answer }) {
             Report
           </span>
         )}
-        {reportToggle === true && <span> | Thank you for your report!</span>}
+        {reportToggle === true && <span> Thank you for your report!</span>}
       </div>
     </div>
   );

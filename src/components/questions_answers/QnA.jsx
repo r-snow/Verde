@@ -18,8 +18,7 @@ export default function QnA() {
       setSearchInput('');
     }
   };
-  const handleModalOpen = () => setOpenModal(true);
-  const handleModalClose = () => setOpenModal(false);
+
   return (
     <section className="qa-widget">
       <h1 className="qa-header">Questions &amp; Answers</h1>
@@ -36,15 +35,13 @@ export default function QnA() {
           <button
             className="add-question-button"
             type="button"
-            onClick={handleModalOpen}
+            onClick={() => setOpenModal(true)}
           >
             Add A QUESTION +
           </button>
-          <AddAQuestion
-            productID={productID}
-            openModal={openModal}
-            handleModalClose={handleModalClose}
-          />
+          {openModal && (
+            <AddAQuestion productID={productID} setOpenModal={setOpenModal} />
+          )}
         </div>
       )}
     </section>

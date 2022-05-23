@@ -80,9 +80,9 @@ const exampleData = {
           answerer_name: 'yasi',
           helpfulness: 0,
           photos: [
-            'https://res.cloudinary.com/dwbhfydeg/image/upload/v1652667312/flareon_tvuj2x.jpg',
-            'https://res.cloudinary.com/dwbhfydeg/image/upload/v1652667313/vaporean_qpa1jv.jpg',
-            'https://res.cloudinary.com/dwbhfydeg/image/upload/v1652667311/jolteon_w9epbj.jpg',
+            'https://target.scene7.com/is/image/Target/GUEST_5be1a3a1-0f60-4dbb-98b0-f600ce32b5eb?wid=325&hei=325&qlt=80&fmt=pjpeg',
+            'https://target.scene7.com/is/image/Target/GUEST_90ad4a03-6e45-4cb9-8036-c64a364f2558?wid=325&hei=325&qlt=80&fmt=pjpeg',
+            'https://target.scene7.com/is/image/Target/GUEST_5d461430-3234-4cec-add0-326ae5dc41b1?wid=325&hei=325&qlt=80&fmt=pjpeg',
           ],
         },
       },

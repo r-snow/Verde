@@ -121,19 +121,24 @@ html {
   background-color: lightgrey;
 }
 
-/* Answer Modal */
-.answer-modal {
-  background-color: rgb(126, 188, 179);
+/* Add Answer & Question Modal */
+.answer-modal,
+.add-question-modal {
+  background-color: rgb(158, 205, 198);
   z-index: 150; /* Overlay effect: positioned over other containers */
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  position: fixed; /* Fix position on the top-left corner*/
-  top: 0;
-  left: 0;
-  overflow: auto;
-  padding: 150px; /* Location of the content container */
+  position: fixed;
+  width: 50%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-left: 1.2rem;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
 }
-.answer-modal-close {
+
+.answer-modal-close,
+.add-question-modal-close {
   float: right;
   border: none;
   background-color: transparent;
@@ -141,7 +146,9 @@ html {
   font-weight: bold;
   cursor: pointer;
 }
-.answer-form-submit-button {
+
+.answer-form-submit-button,
+.question-form-submit-button {
   font-weight: bold;
   font-size: medium;
   height: 50px;
@@ -151,8 +158,54 @@ html {
   cursor: pointer;
 }
 
-.answer-form-submit-button:hover {
+.answer-form-submit-button:hover,
+.question-form-submit-button:hover {
   background-color: whitesmoke;
+}
+
+/* Photo & Modals */
+.answer-photo-modal {
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 150;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: auto;
+  padding-top: 200px;
+  margin: auto;
+}
+
+.enlarged-answer-photo-modal {
+  display: flex;
+  position: relative;
+  width: auto;
+  max-width: 1200px;
+  height: 600px;
+  margin: auto;
+  padding: auto;
+  border: 1px solid black;
+  background-color: grey;
+}
+
+.enlarged-answer-photo-close {
+  position: absolute;
+  top: 200px;
+  right: 400px;
+  font-size: 40px;
+  font-weight: bold;
+  border: none;
+  transition: 0.3s;
+}
+
+.answer-photo {
+  display: flex;
+  align-items: center;
+  margin: 20px 15px;
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
 }
 
 /*------ Related Items Section -----*/
