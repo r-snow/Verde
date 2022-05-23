@@ -264,6 +264,9 @@ html {
 }
 
 /* Review Modal Section */
+body.prevent-scroll-background {
+  overflow-y: hidden;
+}
 
 .char-words {
   display: inline-block;
@@ -271,6 +274,31 @@ html {
   padding: 0em;
   margin: 0.35em 0em;
   height: 1px;
+}
+
+.disclaimer-text {
+  font-size: 0.2em;
+}
+
+.full-modal-container {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
+
+.full-modal-container,
+.modal-overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.modal-overlay {
+  background: rgba(49, 49, 49, 0.8);
 }
 
 .name-email-input {

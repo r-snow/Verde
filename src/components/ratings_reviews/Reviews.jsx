@@ -1,8 +1,8 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import ReviewListEntry from './ReviewListEntry';
 
-function Reviews() {
+function Reviews({ reviews, toggleModal, visible, addVisibility }) {
   return (
     <div
       style={{
@@ -32,27 +32,36 @@ function Reviews() {
           width: '150px',
           marginBottom: '1em',
         }}
-        // onClick={toggleModal}
+        onClick={toggleModal}
       >
         Write a review
       </button>
-      <ReviewListEntry />
-      <ReviewListEntry />
-      <button
-        type="button"
-        style={{
-          padding: '0.6em 0.5em',
-          marginTop: '1rem',
-        }}
-      >
-        Show more
-      </button>
+
+      {reviews.slice(0, visible).map((review) => (
+        <ReviewListEntry review={review} key={review.review_id} />
+      ))}
+
+      {visible < reviews.length && (
+        <button
+          type="button"
+          style={{
+            padding: '0.6em 0.5em',
+            marginTop: '1rem',
+          }}
+          onClick={addVisibility}
+        >
+          Show more
+        </button>
+      )}
     </div>
   );
 }
 
-// Reviews.propTypes = {
-//   toggleModal: PropTypes.func.isRequired,
-// };
+Reviews.propTypes = {
+  reviews: PropTypes.arrayOf(PropTypes.shape).isRequired,
+  toggleModal: PropTypes.func.isRequired,
+  visible: PropTypes.number.isRequired,
+  addVisibility: PropTypes.func.isRequired,
+};
 
 export default Reviews;
