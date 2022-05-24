@@ -21,11 +21,20 @@ export default function DescriptionDetails({
         display: 'flex',
         flexDirection: 'column',
         marginLeft: '8em',
+        alignItems: 'center',
       }}
     >
       <p>{category}</p>
       <p>{name}</p>
-      {description.length && <p>{description}</p>}
+      {description.length && (
+        <p
+          style={{
+            textAlign: 'center',
+          }}
+        >
+          {description}
+        </p>
+      )}
       <span>
         <Stars rating={2.5} />
         <a
