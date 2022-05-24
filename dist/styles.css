@@ -250,8 +250,8 @@ html {
 }
 
 .review-photo-modal {
-  width: 50%;
-  height: 70%;
+  width: 100%;
+  height: 100%;
   position: absolute;
   right: 25%;
   bottom: 15%;

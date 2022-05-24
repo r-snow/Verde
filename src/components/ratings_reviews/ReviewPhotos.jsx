@@ -7,7 +7,6 @@ function ReviewPhotos({ photo }) {
   const handleOpenPhoto = () => {
     openPicture(!popUpPhoto);
   };
-
   return (
     <div>
       <img
