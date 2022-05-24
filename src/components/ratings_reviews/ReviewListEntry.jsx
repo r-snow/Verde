@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { format, parseISO } from 'date-fns';
 import Stars from '../shared/Stars';
+import ReviewPhotos from './ReviewPhotos';
 
 function ReviewListEntry({ review }) {
   // console.log(review, 'review passed down into ReviewListEntry');
@@ -26,12 +28,7 @@ function ReviewListEntry({ review }) {
       <span>{review.body}</span>
       <div className="images-container">
         {review.photos.map((photo) => (
-          <img
-            src={photo.url}
-            key={photo.id}
-            alt="yeezys"
-            className="review-thumbnails"
-          />
+          <ReviewPhotos photo={photo} />
         ))}
       </div>
       <div
@@ -57,7 +54,8 @@ function ReviewListEntry({ review }) {
           margin: '2em 0em 1em 0.2em',
         }}
       >
-        {review.reviewer_name} | {review.date} | Verified User |{' '}
+        {review.reviewer_name} |{' '}
+        {format(parseISO(review.date), 'MMMM dd, yyyy')} | Verified User |{' '}
         {review.recommend && 'Recommended!'}
       </div>
 

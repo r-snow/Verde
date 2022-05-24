@@ -1,19 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Thumbnails from './Thumbnails';
-import productStylesData from './example_data/productStylesData';
 
-export default function ImageGallery({ changeImgView }) {
-  const [currImgIdx, setCurrImgIdx] = useState(0);
-
-  const incrementIdx = () => {
-    setCurrImgIdx((prev) => prev + 1);
-  };
-
-  const decrementIdx = () => {
-    setCurrImgIdx((prev) => prev - 1);
-  };
-
+export default function ImageGallery({
+  changeImgView,
+  photos,
+  currImgIdx,
+  incrementIdx,
+  decrementIdx,
+  setCurrImgIdx,
+}) {
   return (
     <section
       style={{
@@ -22,7 +18,7 @@ export default function ImageGallery({ changeImgView }) {
       }}
     >
       <Thumbnails
-        photos={productStylesData.results[0].photos}
+        photos={photos}
         currImgIdx={currImgIdx}
         setCurrImgIdx={setCurrImgIdx}
       />
@@ -45,7 +41,7 @@ export default function ImageGallery({ changeImgView }) {
           onClick={changeImgView}
         >
           <img
-            src={productStylesData.results[0].photos[currImgIdx].url}
+            src={photos[currImgIdx].url}
             alt="sample img"
             style={{
               maxHeight: '500px',
@@ -66,7 +62,7 @@ export default function ImageGallery({ changeImgView }) {
             Prev
           </button>
         )}
-        {currImgIdx !== productStylesData.results[0].photos.length - 1 && (
+        {currImgIdx !== photos.length - 1 && (
           <button
             type="button"
             onClick={incrementIdx}
@@ -86,4 +82,15 @@ export default function ImageGallery({ changeImgView }) {
 
 ImageGallery.propTypes = {
   changeImgView: PropTypes.func.isRequired,
+  currImgIdx: PropTypes.number.isRequired,
+  incrementIdx: PropTypes.func.isRequired,
+  decrementIdx: PropTypes.func.isRequired,
+  setCurrImgIdx: PropTypes.func.isRequired,
+  photos: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
 };
