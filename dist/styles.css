@@ -328,7 +328,7 @@ body.prevent-scroll-background {
 }
 
 .review-photo-modal {
-  width: 60%;
+  width: 50%;
   height: 50%;
   position: fixed;
   top: 50%;
