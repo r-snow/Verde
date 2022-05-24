@@ -63,12 +63,12 @@ function Ratings({ reviews }) {
         Reviews & Ratings
       </h4>
       <h1>
-        {averageRating}
+        {averageRating.toFixed(2)}
         <Stars rating={averageRating} />
       </h1>
       <i>
-        {(counter.recommendedCount / reviews.length) * 100}% of reviews
-        recommend this product!
+        {((counter.recommendedCount / reviews.length) * 100).toFixed(2)}% of
+        reviews recommend this product!
       </i>
       <p
         style={{

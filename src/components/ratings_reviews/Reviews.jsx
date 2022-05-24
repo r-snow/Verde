@@ -9,7 +9,7 @@ function Reviews({
   addVisibility,
   sortReviews,
 }) {
-  console.log(reviews, 'list of reviews');
+  // console.log(reviews, 'list of reviews');
   return (
     <div
       style={{

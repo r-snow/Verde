@@ -12,8 +12,8 @@ function RatingsAndReviews() {
   const [reviews, setReviews] = useState([]);
   const [visible, setVisible] = useState(2);
 
-  const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/';
-  const id = 65733;
+  const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/';
+  const id = 40344;
   useEffect(() => {
     axios
       .get(`${url}reviews/?product_id=${id}&count=100`, {
@@ -41,9 +41,12 @@ function RatingsAndReviews() {
 
   const sortReviews = (sortType) => {
     axios
-      .get(`${url}reviews/?product_id=${id}&count=100&sort=${sortType}`, {
-        headers: { Authorization: config.TOKEN },
-      })
+      .get(
+        `${url}reviews/?product_id=${id}&count=100&sort=${sortType.toLowerCase()}`,
+        {
+          headers: { Authorization: config.TOKEN },
+        }
+      )
       .then((results) => setReviews(results.data.results));
   };
 
