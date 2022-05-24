@@ -2,13 +2,25 @@ import React, { useState } from 'react';
 import ImageGallery from './ImageGallery';
 import ExpandedView from './ExpandedView';
 import DescriptionDetails from './DescriptionDetails';
-import productStylesData from './example_data/productStylesData';
 import productData from './example_data/productData';
+import productStylesData from './example_data/productStylesData';
+import productReviewsData from './example_data/productReviewsData';
 
 export default function Overview() {
   const [isDefaultImgView, setIsDefaultImgView] = useState(true);
   const [currImgIdx, setCurrImgIdx] = useState(0);
   const [currStyle, setCurrStyle] = useState(0);
+
+  let avgRating = 0;
+  const reviewCount = Object.keys(productReviewsData.ratings).reduce(
+    (aggCount, key) => {
+      const currCount = Number(productReviewsData.ratings[key]);
+      avgRating += currCount * Number(key);
+      return aggCount + currCount;
+    },
+    0
+  );
+  avgRating /= reviewCount;
 
   const styles = productStylesData.results.map((style) => ({
     styleId: style.style_id,
@@ -61,6 +73,8 @@ export default function Overview() {
         setCurrStyle={setCurrStyle}
         currPrice={currPrice}
         currSalePrice={currSalePrice}
+        reviewCount={reviewCount}
+        avgRating={avgRating}
       />
     </section>
   ) : (

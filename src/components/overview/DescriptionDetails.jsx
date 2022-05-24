@@ -14,6 +14,8 @@ export default function DescriptionDetails({
   setCurrStyle,
   currPrice,
   currSalePrice,
+  reviewCount,
+  avgRating,
 }) {
   return (
     <div
@@ -35,17 +37,19 @@ export default function DescriptionDetails({
           {description}
         </p>
       )}
-      <span>
-        <Stars rating={2.5} />
-        <a
-          href="#ratings-reviews"
-          style={{
-            color: 'black',
-          }}
-        >
-          Read all [#] of reviews
-        </a>
-      </span>
+      {reviewCount > 0 && (
+        <span>
+          <Stars rating={avgRating} />
+          <a
+            href="#ratings-reviews"
+            style={{
+              color: 'black',
+            }}
+          >
+            Read all {reviewCount} reviews
+          </a>
+        </span>
+      )}
       <Price price={currPrice} salePrice={currSalePrice} />
       <StyleSelector
         styles={styles}
@@ -72,4 +76,6 @@ DescriptionDetails.propTypes = {
   setCurrStyle: PropTypes.func.isRequired,
   currPrice: PropTypes.number.isRequired,
   currSalePrice: PropTypes.number.isRequired,
+  reviewCount: PropTypes.number.isRequired,
+  avgRating: PropTypes.number.isRequired,
 };
