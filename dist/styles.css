@@ -321,6 +321,22 @@ body.prevent-scroll-background {
   border: solid lightgray 1.5px;
 }
 
+/* Review Photos */
+
+.full-photo-modal-container {
+  position: relative;
+}
+
+.review-photo-modal {
+  width: 60%;
+  height: 50%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -80%);
+  z-index: 1;
+}
+
 /* Stars */
 
 /* Stars Instructions! Add a className='stars' to a div and add a number to the style property. Example: style={{'--rating': num}} */
