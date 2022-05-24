@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import SizeSelector from './SizeSelector';
 import QtySelector from './QtySelector';
 
-export default function AddToCart({ skuData }) {
+export default function AddToCart({ skuData, currStyle }) {
   const [currSku, setCurrSku] = useState('Select Size');
   const [availQty, setAvailQty] = useState(['-']);
   const [selectedQty, setSelectedQty] = React.useState('-');
@@ -24,6 +24,12 @@ export default function AddToCart({ skuData }) {
     }
   }, [currSku, skuData]);
 
+  useEffect(() => {
+    setCurrSku('Select Size');
+    setAvailQty(['-']);
+    setSelectedQty('-');
+  }, [currStyle]);
+
   const handleCartSubmit = (e) => {
     e.preventDefault();
     if (currSku === 'Select Size') {
@@ -35,7 +41,14 @@ export default function AddToCart({ skuData }) {
   };
 
   return (
-    <form onSubmit={handleCartSubmit}>
+    <form
+      onSubmit={handleCartSubmit}
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '1em',
+      }}
+    >
       <span>
         <SizeSelector
           currSku={currSku}
@@ -61,4 +74,5 @@ AddToCart.propTypes = {
     PropTypes.object,
     PropTypes.array,
   ]).isRequired,
+  currStyle: PropTypes.number.isRequired,
 };

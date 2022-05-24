@@ -57,7 +57,7 @@ export default function DescriptionDetails({
         currStyle={currStyle}
         setCurrStyle={setCurrStyle}
       />
-      <AddToCart skuData={skuData} />
+      <AddToCart skuData={skuData} currStyle={currStyle} />
     </div>
   );
 }
