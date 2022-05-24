@@ -8,18 +8,26 @@ function ReviewModal({ toggleModal }) {
 
   const [formRating, changeFormRating] = useState(0);
   const [formRecommend, changeFormRecommend] = useState('');
-  const [formSize, changeFormSize] = useState('');
-  const [formWidth, changeFormWidth] = useState('');
-  const [formComfort, changeFormComfort] = useState('');
-  const [formQuality, changeFormQuality] = useState('');
-  const [formLength, changeFormLength] = useState('');
-  const [formFunction, changeFormFunction] = useState('');
   const [formSummary, changeFormSummary] = useState('');
   const [formBody, changeFormBody] = useState('');
   const [formName, changeFormName] = useState('');
   const [formEmail, changeFormEmail] = useState('');
+  const [radioQualities, setRadioQualities] = useState({
+    size: '',
+    width: '',
+    comfort: '',
+    quality: '',
+    length: '',
+    function: '',
+  });
 
-  // finish radio buttons state + photos
+  const handleRadioChange = (rating, newRating) => {
+    setRadioQualities((prev) => ({
+      ...prev,
+      [rating]: newRating,
+    }));
+  };
+  // finish photos
 
   const changeWordCount = (text) => {
     updateWordCount(text.length);
@@ -28,19 +36,13 @@ function ReviewModal({ toggleModal }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(
+      radioQualities,
       formRating,
       formRecommend,
       formSummary,
       formBody,
       formName,
-      formEmail,
-
-      formSize,
-      formWidth,
-      formComfort,
-      formQuality,
-      formLength,
-      formFunction
+      formEmail
     );
     // axios.post this form later
   };
@@ -116,27 +118,27 @@ function ReviewModal({ toggleModal }) {
           <div className="characteristics-radio-btns">
             <CharacteristicsButtons
               characteristic="size"
-              onChange={(event) => changeFormSize(event.target.value)}
+              handleRadioChange={handleRadioChange}
             />
             <CharacteristicsButtons
               characteristic="width"
-              onChange={(event) => changeFormWidth(event.target.value)}
+              handleRadioChange={handleRadioChange}
             />
             <CharacteristicsButtons
               characteristic="comfort"
-              onChange={(event) => changeFormComfort(event.target.value)}
+              handleRadioChange={handleRadioChange}
             />
             <CharacteristicsButtons
               characteristic="quality"
-              onChange={(event) => changeFormQuality(event.target.value)}
+              handleRadioChange={handleRadioChange}
             />
             <CharacteristicsButtons
               characteristic="length"
-              onChange={(event) => changeFormLength(event.target.value)}
+              handleRadioChange={handleRadioChange}
             />
             <CharacteristicsButtons
               characteristic="function"
-              onChange={(event) => changeFormFunction(event.target.value)}
+              handleRadioChange={handleRadioChange}
             />
           </div>
           <p>Review Summary 60 char cap</p>

@@ -398,6 +398,7 @@ body.prevent-scroll-background {
 /* Stars */
 
 /* Stars Instructions! Add a className='stars' to a div and add a number to the style property. Example: style={{'--rating': num}} */
+/* If you are using the component, simply pass a prop down an object as a prop {'--rating':num} */
 
 :root {
   --star-color: lightgray;
