@@ -35,7 +35,17 @@ function ReviewListEntry({ review }) {
       </span>
       <Stars rating={review.rating} id="reviewStar" />
 
-      {review.body.length > 250 ? (
+      {review.body.length < 250 && (
+        <span
+          style={{
+            padding: '1em 0em',
+          }}
+        >
+          {review.body}
+        </span>
+      )}
+
+      {review.body.length > 250 && !textView && (
         <>
           <span
             style={{
@@ -48,7 +58,9 @@ function ReviewListEntry({ review }) {
             Show more
           </button>{' '}
         </>
-      ) : (
+      )}
+
+      {review.body.length > 250 && textView && (
         <span
           style={{
             padding: '1em 0em',

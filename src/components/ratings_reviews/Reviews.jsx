@@ -2,8 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReviewListEntry from './ReviewListEntry';
 
-function Reviews({ reviews, toggleModal, visible, addVisibility }) {
-  // console.log(reviews, 'list of reviews');
+function Reviews({
+  reviews,
+  toggleModal,
+  visible,
+  addVisibility,
+  sortReviews,
+}) {
+  console.log(reviews, 'list of reviews');
   return (
     <div
       style={{
@@ -22,7 +28,9 @@ function Reviews({ reviews, toggleModal, visible, addVisibility }) {
         style={{
           alignSelf: 'flex-end',
           marginBottom: '1em',
+          overflow: 'hidden',
         }}
+        onChange={(event) => sortReviews(event.target.value)}
       >
         <option>Sort by...</option>
         <option>Helpfulness</option>
@@ -66,6 +74,7 @@ Reviews.propTypes = {
   toggleModal: PropTypes.func.isRequired,
   visible: PropTypes.number.isRequired,
   addVisibility: PropTypes.func.isRequired,
+  sortReviews: PropTypes.func.isRequired,
 };
 
 export default Reviews;
