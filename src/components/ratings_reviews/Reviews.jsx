@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ReviewListEntry from './ReviewListEntry';
 
 function Reviews({ reviews, toggleModal, visible, addVisibility }) {
+  // console.log(reviews, 'list of reviews');
   return (
     <div
       style={{
