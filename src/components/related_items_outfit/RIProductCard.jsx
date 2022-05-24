@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Price from '../shared/Price';
 import Image from './Image';
 import Stars from '../shared/Stars';
+import Compare from './CompareModal';
 
 export default function ProductCard() {
+  const [openModal, setOpenModal] = useState(false);
+
   const handleKeyPress = (event) => {
     event.preventDefault();
     if (event.key === 'Enter') {
@@ -23,6 +26,7 @@ export default function ProductCard() {
       onKeyPress={handleKeyPress}
       role="button"
       tabIndex={0}
+      className="product-card"
       style={{
         width: 'fit-content',
         display: 'inline-flex',
@@ -31,15 +35,25 @@ export default function ProductCard() {
         alignItems: 'center',
       }}
     >
-      <FontAwesomeIcon icon={faStar} className="product-card-button" />
+      <div className="product-card-compare">
+        <FontAwesomeIcon
+          icon={faStar}
+          size="lg"
+          type="button"
+          onClick={() => setOpenModal(true)}
+        />
+        {openModal && (
+          <Compare
+            curProdId="40005"
+            compProdID="40006"
+            setOpenModal={setOpenModal}
+          />
+        )}
+      </div>
       <Image />
-      {/* Product Category: */}
       <p>Jackets</p>
-      {/* Product Name: */}
       <p>Camo Onesie</p>
-      {/* Price: */}
       <Price price={140} salePrice={120} />
-      {/* Star Rating */}
       <Stars />
     </div>
   );

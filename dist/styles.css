@@ -236,9 +236,25 @@ html {
 
 /*------ Related Items Section -----*/
 
-.product-card-button {
+.product-card-compare {
   display: flex;
   align-self: flex-end;
+  color: #9a825c;
+  opacity: 0.5;
+}
+
+.compare-modal {
+  background-color: #fff;
+  z-index: 150; /* Overlay effect: positioned over other containers */
+  position: fixed;
+  width: 50%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-left: 1.2rem;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
 }
 
 /*------- Your outfit-------*/
