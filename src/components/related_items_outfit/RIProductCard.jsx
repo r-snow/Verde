@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Price from '../shared/Price';
 import Image from './Image';
 import Stars from '../shared/Stars';
@@ -29,9 +31,7 @@ export default function ProductCard() {
         alignItems: 'center',
       }}
     >
-      <button className="product-card-button" type="button">
-        X
-      </button>
+      <FontAwesomeIcon icon={faStar} className="product-card-button" />
       <Image />
       {/* Product Category: */}
       <p>Jackets</p>
