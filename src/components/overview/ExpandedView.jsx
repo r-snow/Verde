@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function ExpandedView({ changeImgView }) {
+export default function ExpandedView({ changeImgView, currPhotoUrl }) {
   return (
     <div
       style={{
@@ -12,7 +12,7 @@ export default function ExpandedView({ changeImgView }) {
       }}
     >
       <img
-        src="https://tracksmith-media.imgix.net/Spring22-Mens-Twilight-Tee-Denim.png?auto=format,compress&crop=faces&dpr=2&fit=crop&h=640&w=640"
+        src={currPhotoUrl}
         alt="sample img"
         style={{
           padding: '4em',
@@ -36,4 +36,5 @@ export default function ExpandedView({ changeImgView }) {
 
 ExpandedView.propTypes = {
   changeImgView: PropTypes.func.isRequired,
+  currPhotoUrl: PropTypes.string.isRequired,
 };

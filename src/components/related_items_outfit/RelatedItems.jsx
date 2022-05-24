@@ -1,19 +1,20 @@
 import React from 'react';
 // import ProductCard from './RIProductCard';
-import Carousel, { CarouselItem } from './Carousel';
+import Carousel from './Carousel';
+import ProductCard from './RIProductCard';
 
-export default function relatedItems() {
+export default function RelatedItems() {
   return (
     <div>
       <h2>Related Items</h2>
       <Carousel>
-        <CarouselItem>Item1</CarouselItem>
-        <CarouselItem>Item2</CarouselItem>
-        <CarouselItem>Item3</CarouselItem>
-        <CarouselItem>Item4</CarouselItem>
-        <CarouselItem>Item5</CarouselItem>
-        <CarouselItem>Item6</CarouselItem>
-        <CarouselItem>Item7</CarouselItem>
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
       </Carousel>
     </div>
   );
