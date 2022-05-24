@@ -34,13 +34,30 @@ function ReviewListEntry({ review }) {
         <b>{review.summary.slice(0, 60)}</b>
       </span>
       <Stars rating={review.rating} id="reviewStar" />
-      <span
-        style={{
-          padding: '1em 0em',
-        }}
-      >
-        {review.body.slice(0, 250)}
-      </span>
+
+      {review.body.length > 250 ? (
+        <>
+          <span
+            style={{
+              padding: '1em 0em',
+            }}
+          >
+            {review.body.slice(0, 250)}
+          </span>
+          <button type="button" onClick={changeView}>
+            Show more
+          </button>{' '}
+        </>
+      ) : (
+        <span
+          style={{
+            padding: '1em 0em',
+          }}
+        >
+          {review.body}
+        </span>
+      )}
+
       <div className="images-container">
         {review.photos.map((photo) => (
           <ReviewPhotos photo={photo} key={photo.id} />
