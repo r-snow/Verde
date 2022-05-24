@@ -14,6 +14,7 @@ export default function DescriptionDetails({
   setCurrStyle,
   currPrice,
   currSalePrice,
+  reviewCount,
 }) {
   return (
     <div
@@ -43,7 +44,7 @@ export default function DescriptionDetails({
             color: 'black',
           }}
         >
-          Read all [#] of reviews
+          Read all {reviewCount} of reviews
         </a>
       </span>
       <Price price={currPrice} salePrice={currSalePrice} />
@@ -72,4 +73,5 @@ DescriptionDetails.propTypes = {
   setCurrStyle: PropTypes.func.isRequired,
   currPrice: PropTypes.number.isRequired,
   currSalePrice: PropTypes.number.isRequired,
+  reviewCount: PropTypes.number.isRequired,
 };

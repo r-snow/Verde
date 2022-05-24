@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ImageGallery from './ImageGallery';
 import ExpandedView from './ExpandedView';
 import DescriptionDetails from './DescriptionDetails';
-import productStylesData from './example_data/productStylesData';
 import productData from './example_data/productData';
+import productStylesData from './example_data/productStylesData';
+import productReviewsData from './example_data/productReviewsData';
 
 export default function Overview() {
   const [isDefaultImgView, setIsDefaultImgView] = useState(true);
   const [currImgIdx, setCurrImgIdx] = useState(0);
   const [currStyle, setCurrStyle] = useState(0);
+  const [reviewCount, setReviewCount] = useState(0);
+  const [avgRating, setAvgRating] = useState(0);
 
   const styles = productStylesData.results.map((style) => ({
     styleId: style.style_id,
@@ -33,6 +36,17 @@ export default function Overview() {
     productStylesData.results[currStyle].sale_price === null
       ? 0
       : Number(productStylesData.results[currStyle].sale_price);
+
+  // useEffect(() => {
+  //   const reviewData = Object.keys(productReviewsData.ratings);
+  //   for (let i = 0; i < reviewData.length; i += 1) {
+  //     setReviewCount(
+  //       (prev) => prev + Number(productReviewsData[reviewData[i]])
+  //     );
+  //     setAvgRating((prev) => prev + Number(reviewData[i]));
+  //   }
+  //   setAvgRating((prev) => prev / reviewCount);
+  // }, []);
 
   return isDefaultImgView ? (
     <section
@@ -61,6 +75,7 @@ export default function Overview() {
         setCurrStyle={setCurrStyle}
         currPrice={currPrice}
         currSalePrice={currSalePrice}
+        reviewCount={reviewCount}
       />
     </section>
   ) : (
