@@ -1,22 +1,37 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 
-export default function SizeSelector() {
-  const [selected, setSelected] = React.useState('Select Size');
-  const sizes = ['Select Size', 'XS', 'S', 'M', 'L', 'XL'];
-  const sizeOptions = sizes.map((size) => (
-    <option key={nanoid()} value={size}>
-      {size}
+export default function SizeSelector({ skuData, currSku, setCurrSku }) {
+  const sizeOptions = Object.keys(skuData).map((key) => (
+    <option key={nanoid()} value={key}>
+      {skuData[key].size}
     </option>
   ));
 
   const handleChange = (e) => {
-    setSelected(e.target.value);
+    setCurrSku(e.target.value);
   };
 
-  return (
-    <select value={selected} onChange={handleChange}>
+  return sizeOptions.length > 1 ? (
+    <select value={currSku} onChange={handleChange}>
       {sizeOptions}
+    </select>
+  ) : (
+    <select value="oos" disabled>
+      <option value="oos">OUT OF STOCK</option>
     </select>
   );
 }
+
+SizeSelector.propTypes = {
+  skuData: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
+  currSku: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  setCurrSku: PropTypes.func.isRequired,
+};

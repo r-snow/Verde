@@ -16,6 +16,7 @@ export default function DescriptionDetails({
   currSalePrice,
   reviewCount,
   avgRating,
+  skuData,
 }) {
   return (
     <div
@@ -56,7 +57,7 @@ export default function DescriptionDetails({
         currStyle={currStyle}
         setCurrStyle={setCurrStyle}
       />
-      <AddToCart />
+      <AddToCart skuData={skuData} />
     </div>
   );
 }
@@ -78,4 +79,11 @@ DescriptionDetails.propTypes = {
   currSalePrice: PropTypes.number.isRequired,
   reviewCount: PropTypes.number.isRequired,
   avgRating: PropTypes.number.isRequired,
+  skuData: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
 };

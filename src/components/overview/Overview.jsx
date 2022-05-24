@@ -11,6 +11,14 @@ export default function Overview() {
   const [currImgIdx, setCurrImgIdx] = useState(0);
   const [currStyle, setCurrStyle] = useState(0);
 
+  const skuData = {
+    ...productStylesData.results[currStyle].skus,
+    'Select Size': {
+      quantity: '-',
+      size: 'Select Size',
+    },
+  };
+
   let avgRating = 0;
   const reviewCount = Object.keys(productReviewsData.ratings).reduce(
     (aggCount, key) => {
@@ -75,6 +83,7 @@ export default function Overview() {
         currSalePrice={currSalePrice}
         reviewCount={reviewCount}
         avgRating={avgRating}
+        skuData={skuData}
       />
     </section>
   ) : (
