@@ -10,11 +10,17 @@ export default function AddAnswer({ question, setShowModal }) {
   // const [photos, setPhotos] = useState([]);
   // const [photosToUpload, setPhotosToUpload] = useState([]);
 
-  function handleSubmit() {
-    if (answer.length && nickname.length && email.length) {
+  const isValidEmail = (val) => {
+    const validEmail =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return validEmail.test(val);
+  };
+
+  const handleSubmit = () => {
+    if (answer.length && nickname.length && isValidEmail(email)) {
       setShowModal(false);
     }
-  }
+  };
 
   //   function handlePhotos(e) {
   //     setPhotosToUpload(e.target.files);
