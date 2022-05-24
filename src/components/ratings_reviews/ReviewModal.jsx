@@ -1,15 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import CharacteristicsButtons from './CharacteristicsButtons';
 import ClickStars from './ClickStars';
 
 function ReviewModal({ toggleModal }) {
-  // const [rating, setRating] = React.useState(0);
+  const [wordCount, updateWordCount] = useState(0);
 
-  // const handleClickStars = (value) => {
-  //   console.log(value);
-  //   setRating(value);
-  // };
+  // const [formRating, changeFormRating] = useState(0);
+  // const [formRecommend, changeFormRecommend] = useState('');
+  // const [formSize, changeFormSize] = useState('');
+  // const [formWidth, changeFormWidth] = useState('');
+  // const [formComfort, changeFormComfort] = useState('');
+  // const [formQuality, changeFormQuality] = useState('');
+  // const [formLength, changeFormLength] = useState('');
+  // const [formFunction, changeFormFunction] = useState('');
+  // const [formSummary, changeFormSummary] = useState('');
+  // const [formBody, changeFormBody] = useState('');
+  // const [formName, changeFormName] = useState('');
+  // const [formEmail, changeFormEmail] = useState('');
+
+  const changeWordCount = () => {
+    updateWordCount(wordCount + 1);
+  };
 
   return (
     <div className="full-modal-container">
@@ -83,23 +95,30 @@ function ReviewModal({ toggleModal }) {
             <CharacteristicsButtons characteristic="function" />
           </div>
           <form>
-            <p>Review Summary 50 char cap</p>
+            <p>Review Summary 60 char cap</p>
             <input
               type="text"
               name="review-summary"
               id="Review Summary"
-              placeholder="Review Summary"
+              placeholder="Example: Best purchase ever!"
               className="review-summary-form"
+              maxLength="60"
             />
             <p>Review Body 50-1000 char + render min word counter</p>
             <input
               type="text"
               name="review-body"
               id="Review Body"
-              placeholder="Review Body"
+              placeholder="Why did you like the product or not?"
               className="review-body-form"
+              minLength="50"
+              maxLength="1000"
+              onChange={changeWordCount}
             />
-            <p>Minimum Word Count: 50</p>
+            {wordCount < 50 && (
+              <p>Minimum required characters left:{50 - wordCount}</p>
+            )}
+            {wordCount >= 50 && <p>Character requirement achieved!</p>}
           </form>
           <div className="upload-photos-modal">Upload Photos Here!</div>
           <button type="button">Upload Photos</button>
@@ -109,6 +128,7 @@ function ReviewModal({ toggleModal }) {
               type="text"
               placeholder="Example:jackson11"
               className="name-email-input"
+              maxLength="60"
             />
             <p className="disclaimer-text">
               For privacy reasons, do <i>not</i> use your full name or email
@@ -119,6 +139,7 @@ function ReviewModal({ toggleModal }) {
               type="text"
               placeholder="Example:jackson11@email.com"
               className="name-email-input"
+              maxLength="60"
             />
             <p className="disclaimer-text">
               For authentication reasons, you <i>will not</i> be emailed.
