@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import AnswerList from './AnswerList';
 
@@ -25,7 +26,7 @@ export default function MoreAnswers({ answerArr }) {
       ) : (
         <div>
           {answerArr.slice(2).map((answer) => (
-            <AnswerList answer={answer} key={answer.id} />
+            <AnswerList answer={answer} key={nanoid()} />
           ))}
           <button
             className="more-answers"

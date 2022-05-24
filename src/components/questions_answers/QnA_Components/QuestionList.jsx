@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import Question from './Question';
 import MoreQuestions from './MoreQuestions';
@@ -19,14 +20,11 @@ export default function QuestionList({ questions, searchInput, productID }) {
             .slice(0, 5)
             .map((question, count) =>
               count > 3 ? (
-                <MoreQuestions
-                  questions={questions}
-                  key={question.question_id}
-                />
+                <MoreQuestions questions={questions} key={nanoid()} />
               ) : (
                 <Question
                   question={question}
-                  key={question.question_id}
+                  key={nanoid()}
                   productID={productID}
                 />
               )
@@ -38,15 +36,12 @@ export default function QuestionList({ questions, searchInput, productID }) {
             .slice(0, 5)
             .map((question, count) =>
               count > 3 ? (
-                <MoreQuestions
-                  questions={questions}
-                  key={question.question_id}
-                />
+                <MoreQuestions questions={questions} key={nanoid()} />
               ) : (
                 <Question
                   question={question}
                   productID={productID}
-                  key={question.question_id}
+                  key={nanoid()}
                 />
               )
             )}
@@ -75,7 +70,7 @@ QuestionList.propTypes = {
     PropTypes.array,
   ]).isRequired,
   searchInput: PropTypes.string,
-  productID: PropTypes.string.isRequired,
+  productID: PropTypes.number.isRequired,
 };
 
 QuestionList.defaultProps = {
