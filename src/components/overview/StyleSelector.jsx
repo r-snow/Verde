@@ -14,7 +14,7 @@ export default function StyleSelector({ styles, currStyle, setCurrStyle }) {
       key={nanoid()}
       onClick={() => handleStyleClick(i)}
       style={{
-        backgroundColor: currStyle === i ? 'lightgrey' : 'transparent',
+        borderColor: currStyle === i ? 'lightgrey' : 'transparent',
       }}
     >
       <img
@@ -34,7 +34,9 @@ export default function StyleSelector({ styles, currStyle, setCurrStyle }) {
     <section
       style={{
         marginBottom: '1em',
-        display: 'flex',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, 50px)',
+        rowGap: '1em',
       }}
     >
       {thumbnails}
