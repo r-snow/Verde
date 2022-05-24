@@ -37,17 +37,19 @@ export default function DescriptionDetails({
           {description}
         </p>
       )}
-      <span>
-        <Stars rating={avgRating} />
-        <a
-          href="#ratings-reviews"
-          style={{
-            color: 'black',
-          }}
-        >
-          Read all {reviewCount} reviews
-        </a>
-      </span>
+      {reviewCount > 0 && (
+        <span>
+          <Stars rating={avgRating} />
+          <a
+            href="#ratings-reviews"
+            style={{
+              color: 'black',
+            }}
+          >
+            Read all {reviewCount} reviews
+          </a>
+        </span>
+      )}
       <Price price={currPrice} salePrice={currSalePrice} />
       <StyleSelector
         styles={styles}
