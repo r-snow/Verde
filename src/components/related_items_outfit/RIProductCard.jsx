@@ -29,6 +29,9 @@ export default function ProductCard() {
         alignItems: 'center',
       }}
     >
+      <button className="product-card-button" type="button">
+        X
+      </button>
       <Image />
       {/* Product Category: */}
       <p>Jackets</p>
@@ -38,7 +41,6 @@ export default function ProductCard() {
       <Price price={140} salePrice={120} />
       {/* Star Rating */}
       <Stars />
-      <button type="button">X</button>
     </div>
   );
 }

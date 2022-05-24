@@ -236,7 +236,10 @@ html {
 
 /*------ Related Items Section -----*/
 
-/*------ Related Items Section -----*/
+.product-card-button {
+  display: flex;
+  align-self: flex-end;
+}
 
 /*------- Your outfit-------*/
 
