@@ -15,6 +15,7 @@ export default function DescriptionDetails({
   currPrice,
   currSalePrice,
   reviewCount,
+  avgRating,
 }) {
   return (
     <div
@@ -37,14 +38,14 @@ export default function DescriptionDetails({
         </p>
       )}
       <span>
-        <Stars rating={2.5} />
+        <Stars rating={avgRating} />
         <a
           href="#ratings-reviews"
           style={{
             color: 'black',
           }}
         >
-          Read all {reviewCount} of reviews
+          Read all {reviewCount} reviews
         </a>
       </span>
       <Price price={currPrice} salePrice={currSalePrice} />
@@ -74,4 +75,5 @@ DescriptionDetails.propTypes = {
   currPrice: PropTypes.number.isRequired,
   currSalePrice: PropTypes.number.isRequired,
   reviewCount: PropTypes.number.isRequired,
+  avgRating: PropTypes.number.isRequired,
 };
