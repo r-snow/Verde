@@ -27,12 +27,12 @@ export default function Overview() {
     setIsDefaultImgView((prev) => !prev);
   };
 
-  const currPrice = productStylesData.results[currStyle].original_price;
+  const currPrice = Number(productStylesData.results[currStyle].original_price);
 
   const currSalePrice =
     productStylesData.results[currStyle].sale_price === null
       ? 0
-      : productStylesData.results[currStyle].sale_price;
+      : Number(productStylesData.results[currStyle].sale_price);
 
   return isDefaultImgView ? (
     <section
