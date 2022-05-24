@@ -257,6 +257,13 @@ html {
   padding-bottom: 0.7rem;
 }
 
+.compare-modal-close {
+  display: flex;
+  align-self: flex-end;
+  color: #9a825c;
+  opacity: 0.5;
+}
+
 /*------- Your outfit-------*/
 
 /*------ Ratings and Reviews Section ------*/

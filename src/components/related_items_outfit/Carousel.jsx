@@ -21,7 +21,6 @@ export default function Carousel({ children }) {
       if (!paused) {
         updateIndex(activeIndex + 1);
       }
-      updateIndex(activeIndex + 1);
     }, 3000);
 
     return () => {
@@ -37,8 +36,6 @@ export default function Carousel({ children }) {
       style={{
         overflow: 'hidden',
       }}
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
     >
       <div
         className="inner"
@@ -47,6 +44,8 @@ export default function Carousel({ children }) {
           whiteSpace: 'nowrap',
           transition: 'transform 0.5s',
         }}
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
       >
         {React.Children.map(children, (child) =>
           React.cloneElement(child, { width: `400px` })
@@ -67,7 +66,6 @@ export default function Carousel({ children }) {
           }}
           onClick={() => {
             updateIndex(activeIndex - 1);
-            console.log('Scroll left coming soon...');
           }}
         >
           Prev
@@ -79,7 +77,6 @@ export default function Carousel({ children }) {
           }}
           onClick={() => {
             updateIndex(activeIndex + 1);
-            console.log('Scroll right coming soon...');
           }}
         >
           Next
