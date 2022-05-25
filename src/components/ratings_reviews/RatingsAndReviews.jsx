@@ -11,6 +11,7 @@ function RatingsAndReviews() {
   const [modalActive, setModalStatus] = useState(false);
   const [reviews, setReviews] = useState([]);
   const [visible, setVisible] = useState(2);
+  const [ratedReviews, setRatedReviews] = useState([]);
 
   const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/';
   const id = 40344;
@@ -21,6 +22,18 @@ function RatingsAndReviews() {
       })
       .then((results) => setReviews(results.data.results));
   }, []);
+
+  const toggleRatedReviews = (rating) => {
+    const copy = reviews.slice();
+    const filteredReviews = [];
+    copy.forEach((review) => {
+      if (review.rating === rating) {
+        filteredReviews.push(review);
+      }
+    });
+    setRatedReviews(filteredReviews);
+    console.log(ratedReviews);
+  };
 
   const toggleModal = () => {
     setModalStatus(!modalActive);
@@ -64,7 +77,7 @@ function RatingsAndReviews() {
     >
       {reviews.length !== 0 ? (
         <>
-          <Ratings reviews={reviews} />
+          <Ratings reviews={reviews} toggleRatedReviews={toggleRatedReviews} />
           <Reviews
             reviews={reviews}
             toggleModal={toggleModal}
