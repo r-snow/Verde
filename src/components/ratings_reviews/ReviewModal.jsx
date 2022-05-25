@@ -12,6 +12,7 @@ function ReviewModal({ toggleModal }) {
   const [formBody, changeFormBody] = useState('');
   const [formName, changeFormName] = useState('');
   const [formEmail, changeFormEmail] = useState('');
+  const [formImages, changeFormImages] = useState([]);
   const [radioQualities, setRadioQualities] = useState({
     size: '',
     width: '',
@@ -20,6 +21,10 @@ function ReviewModal({ toggleModal }) {
     length: '',
     function: '',
   });
+
+  const uploadImages = (event) => {
+    changeFormImages(Object.values(event.target.files).slice(0, 5));
+  };
 
   const handleRadioChange = (rating, newRating) => {
     setRadioQualities((prev) => ({
@@ -36,13 +41,14 @@ function ReviewModal({ toggleModal }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(
-      radioQualities,
       formRating,
       formRecommend,
       formSummary,
       formBody,
       formName,
-      formEmail
+      formEmail,
+      formImages,
+      radioQualities
     );
     // axios.post this form later
   };
@@ -171,8 +177,15 @@ function ReviewModal({ toggleModal }) {
             <p>Minimum required characters left:{50 - wordCount}</p>
           )}
           {wordCount >= 50 && <p>Character requirement achieved!</p>}
-          <div className="upload-photos-modal">Upload Photos Here!</div>
-          <button type="button">Upload Photos</button>
+          <div className="upload-photos-modal">
+            Upload photos (5 photos max!)
+          </div>
+          <input
+            type="file"
+            multiple
+            accept="image/*"
+            onChange={uploadImages}
+          />
           <p>Nickname 60 char cap</p>
           <input
             type="text"
