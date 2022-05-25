@@ -3,19 +3,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Price from '../shared/Price';
-import Image from './Image';
 import Stars from '../shared/Stars';
 
-export default function ProductCard({ setOpenModal }) {
+export default function ProductCard({
+  category,
+  name,
+  price,
+  image,
+  // features,
+  setOpenModal,
+}) {
   const handleKeyPress = (event) => {
     event.preventDefault();
     if (event.key === 'Enter') {
-      console.log('Compare to current product coming soon...');
+      console.log('Clicking here will change overview product...');
     }
   };
 
   const handleClick = () => {
-    console.log('Compare to current product coming soon...');
+    console.log('Clicking here will change overview product...');
   };
 
   return (
@@ -31,6 +37,7 @@ export default function ProductCard({ setOpenModal }) {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        margin: '30px',
       }}
     >
       <div className="product-card-compare">
@@ -41,15 +48,26 @@ export default function ProductCard({ setOpenModal }) {
           onClick={() => setOpenModal(true)}
         />
       </div>
-      <Image />
-      <p>Jackets</p>
-      <p>Camo Onesie</p>
-      <Price price={140} salePrice={120} />
+      <img className="product-card-image" src={image} alt="Sample" />
+      <p>{category}</p>
+      <p>{name}</p>
+      <Price price={price} salePrice={120} />
       <Stars rating={2.5} />
     </div>
   );
 }
 
 ProductCard.propTypes = {
+  category: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  image: PropTypes.string.isRequired,
+  // features: PropTypes.oneOfType([
+  //   PropTypes.string,
+  //   PropTypes.number,
+  //   PropTypes.bool,
+  //   PropTypes.object,
+  //   PropTypes.array,
+  // ]).isRequired,
   setOpenModal: PropTypes.func.isRequired,
 };
