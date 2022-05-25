@@ -462,3 +462,27 @@ button#clickableStars {
 .off {
   color: #ccc;
 }
+
+/* Custom Stars */
+
+.custom-stars:before {
+  content: '★★★★★';
+  letter-spacing: -1.2px;
+  background: linear-gradient(
+    90deg,
+    var(--color) var(--percent),
+    lightgray var(--percent)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.custom-stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+  --color: var(--custom-color);
+  display: inline-block;
+  font-size: 15px;
+  font-family: Times; /* make sure ★ appears correctly*/
+  line-height: 1;
+}

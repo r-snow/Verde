@@ -105,7 +105,11 @@ function RatingsAndReviews() {
           display: 'flex',
         }}
       >
-        <Ratings reviews={reviews} toggleRatedReviews={toggleRatedReviews} />
+        <Ratings
+          reviews={reviews}
+          ratingSwitch={ratingSwitch}
+          toggleRatedReviews={toggleRatedReviews}
+        />
         <Reviews
           reviews={ratedReviews.length === 0 ? reviews : ratedReviews}
           toggleModal={toggleModal}

@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Stars from '../shared/Stars';
+// import Stars from '../shared/Stars';
+import CustomStars from '../shared/CustomStars';
 import Bars from '../shared/Bars';
 
-function Ratings({ reviews, toggleRatedReviews }) {
+function Ratings({ reviews, ratingSwitch, toggleRatedReviews }) {
   const counter = {
     sum: 0,
     recommendedCount: 0,
@@ -39,6 +40,7 @@ function Ratings({ reviews, toggleRatedReviews }) {
     counter.sum += reviews[i].rating;
   }
   const averageRating = counter.sum / reviews.length;
+  const filteredStarsKeys = Object.keys(ratingSwitch);
 
   return (
     <div
@@ -58,25 +60,28 @@ function Ratings({ reviews, toggleRatedReviews }) {
       <h4
         style={{
           display: 'flex',
+          alignSelf: 'center',
         }}
       >
         Reviews & Ratings
       </h4>
-      <h1>
-        {averageRating.toFixed(2)}
-        <Stars rating={averageRating} />
-      </h1>
-      <i>
-        {((counter.recommendedCount / reviews.length) * 100).toFixed(2)}% of
-        reviews recommend this product!
-      </i>
-      <p
+      <h1
         style={{
+          fontSize: '3.5em',
           alignSelf: 'center',
         }}
       >
-        Sort by...
-      </p>
+        {averageRating.toFixed(2)}
+        <CustomStars rating={averageRating} color="#205375" size="16px" />
+      </h1>
+      <i
+        style={{
+          marginBottom: '1em',
+        }}
+      >
+        {((counter.recommendedCount / reviews.length) * 100).toFixed(2)}% of
+        reviews recommend this product!
+      </i>
       <div className="bars-container">
         <div
           className="indiv-bar"
@@ -153,11 +158,45 @@ function Ratings({ reviews, toggleRatedReviews }) {
           {counter.oneStarReviews}
         </div>
       </div>
+      <p
+        style={{
+          alignSelf: 'center',
+        }}
+      >
+        Filtered By...
+      </p>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignSelf: 'center',
+        }}
+      >
+        {filteredStarsKeys.map((starKeys) => (
+          <button
+            type="button"
+            style={{
+              padding: '0.4rem 1.6rem',
+              margin: '0.2rem',
+            }}
+            onClick={() => toggleRatedReviews(starKeys)}
+          >
+            {starKeys} stars
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
 
 Ratings.propTypes = {
+  ratingSwitch: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
   reviews: PropTypes.arrayOf(PropTypes.shape).isRequired,
   toggleRatedReviews: PropTypes.func.isRequired,
 };
