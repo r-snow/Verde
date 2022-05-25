@@ -243,7 +243,13 @@ html {
   opacity: 0.5;
 }
 
+.compare-overlay {
+  background: rgba(255, 255, 255, 1);
+}
+
 .compare-modal {
+  display: flex;
+  flex-direction: column;
   background-color: #fff;
   z-index: 150; /* Overlay effect: positioned over other containers */
   position: fixed;
@@ -260,8 +266,35 @@ html {
 .compare-modal-close {
   display: flex;
   align-self: flex-end;
+  color: black;
+  margin-right: 20px;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.table-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.column-title {
+  display: flex;
+  flex-direction: row;
   color: #9a825c;
-  opacity: 0.5;
+  justify-content: space-evenly;
+}
+
+.table-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  justify-content: space-evenly;
+  color: black;
 }
 
 /*------- Your outfit-------*/
