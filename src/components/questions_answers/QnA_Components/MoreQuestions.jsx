@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import Question from './Question';
 
-export default function MoreQuestions({ questions }) {
+export default function MoreQuestions({ questions, searchInput }) {
   const [collapseQuestions, setCollapseQuestions] = useState(true);
   return (
     <div>
@@ -20,7 +20,11 @@ export default function MoreQuestions({ questions }) {
       ) : (
         <div>
           {questions.slice(4).map((question) => (
-            <Question question={question} key={nanoid()} />
+            <Question
+              question={question}
+              key={nanoid()}
+              searchInput={searchInput}
+            />
           ))}
           <button
             className="more-questions"
@@ -45,4 +49,9 @@ MoreQuestions.propTypes = {
     PropTypes.object,
     PropTypes.array,
   ]).isRequired,
+  searchInput: PropTypes.string,
+};
+
+MoreQuestions.defaultProps = {
+  searchInput: null,
 };

@@ -20,12 +20,17 @@ export default function QuestionList({ questions, searchInput, productID }) {
             .slice(0, 5)
             .map((question, count) =>
               count > 3 ? (
-                <MoreQuestions questions={questions} key={nanoid()} />
+                <MoreQuestions
+                  questions={questions}
+                  key={nanoid()}
+                  searchInput={searchInput}
+                />
               ) : (
                 <Question
                   question={question}
                   key={nanoid()}
                   productID={productID}
+                  searchInput={searchInput}
                 />
               )
             )
@@ -36,12 +41,17 @@ export default function QuestionList({ questions, searchInput, productID }) {
             .slice(0, 5)
             .map((question, count) =>
               count > 3 ? (
-                <MoreQuestions questions={questions} key={nanoid()} />
+                <MoreQuestions
+                  questions={questions}
+                  key={nanoid()}
+                  searchInput={searchInput}
+                />
               ) : (
                 <Question
                   question={question}
                   productID={productID}
                   key={nanoid()}
+                  searchInput={searchInput}
                 />
               )
             )}
