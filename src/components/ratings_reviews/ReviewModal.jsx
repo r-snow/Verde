@@ -1,15 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import CharacteristicsButtons from './CharacteristicsButtons';
 import ClickStars from './ClickStars';
 
 function ReviewModal({ toggleModal }) {
-  // const [rating, setRating] = React.useState(0);
+  const [wordCount, updateWordCount] = useState(0);
 
-  // const handleClickStars = (value) => {
-  //   console.log(value);
-  //   setRating(value);
-  // };
+  const [formRating, changeFormRating] = useState(0);
+  const [formRecommend, changeFormRecommend] = useState('');
+  const [formSummary, changeFormSummary] = useState('');
+  const [formBody, changeFormBody] = useState('');
+  const [formName, changeFormName] = useState('');
+  const [formEmail, changeFormEmail] = useState('');
+  const [formImages, changeFormImages] = useState([]);
+  const [radioQualities, setRadioQualities] = useState({
+    size: '',
+    width: '',
+    comfort: '',
+    quality: '',
+    length: '',
+    function: '',
+  });
+
+  const uploadImages = (event) => {
+    changeFormImages(Object.values(event.target.files).slice(0, 5));
+  };
+
+  const handleRadioChange = (rating, newRating) => {
+    setRadioQualities((prev) => ({
+      ...prev,
+      [rating]: newRating,
+    }));
+  };
+  // finish photos
+
+  const changeWordCount = (text) => {
+    updateWordCount(text.length);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(
+      formRating,
+      formRecommend,
+      formSummary,
+      formBody,
+      formName,
+      formEmail,
+      formImages,
+      radioQualities
+    );
+    // axios.post this form later
+  };
 
   return (
     <div className="full-modal-container">
@@ -31,7 +73,7 @@ function ReviewModal({ toggleModal }) {
           alignSelf: 'center',
         }}
       >
-        <section
+        <form
           className="reviewModal-container"
           style={{
             display: 'flex',
@@ -42,9 +84,10 @@ function ReviewModal({ toggleModal }) {
             justifyContent: 'center',
             alignItems: 'center',
           }}
+          onSubmit={handleSubmit}
         >
           Rating
-          <ClickStars />
+          <ClickStars changeFormRating={changeFormRating} />
           <div
             className="rating-definition"
             style={{
@@ -61,70 +104,124 @@ function ReviewModal({ toggleModal }) {
             <p>Do you recommend this product?</p>
             <input
               type="radio"
-              value="Yes"
+              value="yes"
               name="recommend-btn"
               className="recommendation-radio-btns"
+              checked={formRecommend === 'yes'}
+              onChange={(event) => changeFormRecommend(event.target.value)}
             />
             Yes
             <input
               type="radio"
-              value="No"
+              value="no"
               name="recommend-btn"
               className="recommendation-radio-btns"
+              checked={formRecommend === 'no'}
+              onChange={(event) => changeFormRecommend(event.target.value)}
             />
             No
           </div>
           <div className="characteristics-radio-btns">
-            <CharacteristicsButtons characteristic="size" />
-            <CharacteristicsButtons characteristic="width" />
-            <CharacteristicsButtons characteristic="comfort" />
-            <CharacteristicsButtons characteristic="quality" />
-            <CharacteristicsButtons characteristic="length" />
-            <CharacteristicsButtons characteristic="function" />
+            <CharacteristicsButtons
+              characteristic="size"
+              handleRadioChange={handleRadioChange}
+            />
+            <CharacteristicsButtons
+              characteristic="width"
+              handleRadioChange={handleRadioChange}
+            />
+            <CharacteristicsButtons
+              characteristic="comfort"
+              handleRadioChange={handleRadioChange}
+            />
+            <CharacteristicsButtons
+              characteristic="quality"
+              handleRadioChange={handleRadioChange}
+            />
+            <CharacteristicsButtons
+              characteristic="length"
+              handleRadioChange={handleRadioChange}
+            />
+            <CharacteristicsButtons
+              characteristic="function"
+              handleRadioChange={handleRadioChange}
+            />
           </div>
-          <form>
-            <p>Review Summary 50 char cap</p>
-            <input
-              type="text"
-              name="review-summary"
-              id="Review Summary"
-              placeholder="Review Summary"
-              className="review-summary-form"
-            />
-            <p>Review Body 50-1000 char + render min word counter</p>
-            <input
-              type="text"
-              name="review-body"
-              id="Review Body"
-              placeholder="Review Body"
-              className="review-body-form"
-            />
-            <p>Minimum Word Count: 50</p>
-          </form>
-          <div className="upload-photos-modal">Upload Photos Here!</div>
-          <button type="button">Upload Photos</button>
-          <form>
-            <p>Nickname 60 char cap</p>
-            <input
-              type="text"
-              placeholder="Example:jackson11"
-              className="name-email-input"
-            />
-            <p className="disclaimer-text">
-              For privacy reasons, do <i>not</i> use your full name or email
-              address.
-            </p>
-            <p>Email 60 char cap</p>
-            <input
-              type="text"
-              placeholder="Example:jackson11@email.com"
-              className="name-email-input"
-            />
-            <p className="disclaimer-text">
-              For authentication reasons, you <i>will not</i> be emailed.
-            </p>
-          </form>
-        </section>
+          <p>Review Summary 60 char cap</p>
+          <input
+            type="text"
+            name="review-summary"
+            id="Review Summary"
+            placeholder="Example: Best purchase ever!"
+            className="review-summary-form"
+            maxLength="60"
+            onChange={(event) => {
+              changeFormSummary(event.target.value);
+            }}
+          />
+          <p>Review Body 50-1000 char + render min word counter</p>
+          <input
+            type="text"
+            name="review-body"
+            id="Review Body"
+            placeholder="Why did you like the product or not?"
+            className="review-body-form"
+            minLength="50"
+            maxLength="1000"
+            onChange={(event) => {
+              changeFormBody(event.target.value);
+              changeWordCount(event.target.value);
+            }}
+          />
+          {wordCount < 50 && (
+            <p>Minimum required characters left:{50 - wordCount}</p>
+          )}
+          {wordCount >= 50 && <p>Character requirement achieved!</p>}
+          <div className="upload-photos-modal">
+            Upload photos (5 photos max!)
+          </div>
+          <input
+            type="file"
+            multiple
+            accept="image/*"
+            onChange={uploadImages}
+          />
+          <p>Nickname 60 char cap</p>
+          <input
+            type="text"
+            name="nickname"
+            placeholder="Example:jackson11"
+            className="name-email-input"
+            maxLength="60"
+            onChange={(event) => {
+              changeFormName(event.target.value);
+            }}
+          />
+          <p className="disclaimer-text">
+            For privacy reasons, do <i>not</i> use your full name or email
+            address.
+          </p>
+          <p>Email 60 char cap</p>
+          <input
+            type="text"
+            name="email"
+            placeholder="Example:jackson11@email.com"
+            className="name-email-input"
+            maxLength="60"
+            onChange={(event) => {
+              changeFormEmail(event.target.value);
+            }}
+          />
+          <p
+            className="disclaimer-text"
+            style={{
+              marginBottom: '2rem',
+            }}
+          >
+            For authentication reasons, you <i>will not</i> be emailed.
+          </p>
+          <button type="submit">Submit</button>
+        </form>
       </div>
     </div>
   );

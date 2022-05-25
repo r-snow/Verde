@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Stars from '../shared/Stars';
 import Bars from '../shared/Bars';
 
-function Ratings({ reviews }) {
+function Ratings({ reviews, toggleRatedReviews }) {
   const counter = {
     sum: 0,
     recommendedCount: 0,
@@ -63,12 +63,12 @@ function Ratings({ reviews }) {
         Reviews & Ratings
       </h4>
       <h1>
-        {averageRating}
+        {averageRating.toFixed(2)}
         <Stars rating={averageRating} />
       </h1>
       <i>
-        {(counter.recommendedCount / reviews.length) * 100}% of reviews
-        recommend this product!
+        {((counter.recommendedCount / reviews.length) * 100).toFixed(2)}% of
+        reviews recommend this product!
       </i>
       <p
         style={{
@@ -78,7 +78,13 @@ function Ratings({ reviews }) {
         Sort by...
       </p>
       <div className="bars-container">
-        <div className="indiv-bar">
+        <div
+          className="indiv-bar"
+          role="button"
+          tabIndex={0}
+          onClick={() => toggleRatedReviews(5)}
+          onKeyDown={() => toggleRatedReviews(5)}
+        >
           5 stars
           <Bars
             reviewCount={counter.fiveStarReviews}
@@ -87,7 +93,13 @@ function Ratings({ reviews }) {
           {counter.fiveStarReviews}
         </div>
 
-        <div className="indiv-bar">
+        <div
+          className="indiv-bar"
+          role="button"
+          tabIndex={0}
+          onClick={() => toggleRatedReviews(4)}
+          onKeyPress={() => toggleRatedReviews(4)}
+        >
           4 stars
           <Bars
             reviewCount={counter.fourStarReviews}
@@ -96,7 +108,13 @@ function Ratings({ reviews }) {
           {counter.fourStarReviews}
         </div>
 
-        <div className="indiv-bar">
+        <div
+          className="indiv-bar"
+          role="button"
+          tabIndex={0}
+          onClick={() => toggleRatedReviews(3)}
+          onKeyDown={() => toggleRatedReviews(3)}
+        >
           3 stars
           <Bars
             reviewCount={counter.threeStarReviews}
@@ -105,7 +123,13 @@ function Ratings({ reviews }) {
           {counter.threeStarReviews}
         </div>
 
-        <div className="indiv-bar">
+        <div
+          className="indiv-bar"
+          role="button"
+          tabIndex={0}
+          onClick={() => toggleRatedReviews(2)}
+          onKeyDown={() => toggleRatedReviews(2)}
+        >
           2 stars
           <Bars
             reviewCount={counter.twoStarReviews}
@@ -114,7 +138,13 @@ function Ratings({ reviews }) {
           {counter.twoStarReviews}
         </div>
 
-        <div className="indiv-bar">
+        <div
+          className="indiv-bar"
+          role="button"
+          tabIndex={0}
+          onClick={() => toggleRatedReviews(1)}
+          onKeyDown={() => toggleRatedReviews(1)}
+        >
           1 stars
           <Bars
             reviewCount={counter.oneStarReviews}
@@ -129,6 +159,7 @@ function Ratings({ reviews }) {
 
 Ratings.propTypes = {
   reviews: PropTypes.arrayOf(PropTypes.shape).isRequired,
+  toggleRatedReviews: PropTypes.func.isRequired,
 };
 
 export default Ratings;

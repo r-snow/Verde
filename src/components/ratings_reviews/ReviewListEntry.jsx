@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { format, parseISO } from 'date-fns';
 import Stars from '../shared/Stars';
 import ReviewPhotos from './ReviewPhotos';
 
 function ReviewListEntry({ review }) {
+  const [textView, setTextView] = useState(false);
+
+  const changeView = () => {
+    setTextView(!textView);
+  };
   // console.log(review, 'review passed down into ReviewListEntry');
   return (
     <section
@@ -13,7 +18,7 @@ function ReviewListEntry({ review }) {
         flexDirection: 'column',
         marginLeft: '0.5em',
         padding: '0.2em 0.3em',
-        fontSize: '0.7em',
+        fontSize: '0.5em',
         borderRadius: '5px',
         border: 'solid 2px white',
         justifyContent: 'center',
@@ -21,14 +26,53 @@ function ReviewListEntry({ review }) {
         width: '100%',
       }}
     >
-      <span>
-        <b>{review.summary}</b>
+      <span
+        style={{
+          fontSize: '2em',
+        }}
+      >
+        <b>{review.summary.slice(0, 60)}</b>
       </span>
       <Stars rating={review.rating} id="reviewStar" />
-      <span>{review.body}</span>
+
+      {review.body.length < 250 && (
+        <span
+          style={{
+            padding: '1em 0em',
+          }}
+        >
+          {review.body}
+        </span>
+      )}
+
+      {review.body.length > 250 && !textView && (
+        <>
+          <span
+            style={{
+              padding: '1em 0em',
+            }}
+          >
+            {review.body.slice(0, 250)}
+          </span>
+          <button type="button" onClick={changeView}>
+            Show more
+          </button>{' '}
+        </>
+      )}
+
+      {review.body.length > 250 && textView && (
+        <span
+          style={{
+            padding: '1em 0em',
+          }}
+        >
+          {review.body}
+        </span>
+      )}
+
       <div className="images-container">
         {review.photos.map((photo) => (
-          <ReviewPhotos photo={photo} />
+          <ReviewPhotos photo={photo} key={photo.id} />
         ))}
       </div>
       <div

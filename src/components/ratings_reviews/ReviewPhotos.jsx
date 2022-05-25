@@ -44,7 +44,13 @@ function ReviewPhotos({ photo }) {
 }
 
 ReviewPhotos.propTypes = {
-  photo: PropTypes.string.isRequired,
+  photo: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
 };
 
 export default ReviewPhotos;
