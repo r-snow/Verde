@@ -276,21 +276,6 @@ html {
   align-items: center;
 }
 
-.review-thumbnails {
-  height: 50px;
-  width: 80px;
-  border-radius: 5px;
-  margin: 0 1rem 0.4rem 0;
-}
-
-.review-photo-modal {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  right: 25%;
-  bottom: 15%;
-}
-
 /* .enlarged-review-photo-modal {
   display: flex;
   position: relative;
@@ -386,13 +371,29 @@ body.prevent-scroll-background {
 }
 
 .review-photo-modal {
-  width: 50%;
-  height: 50%;
+  width: 40%;
+  height: 40%;
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -80%);
+  transform: translate(-50%, -50%);
   z-index: 1;
+  object-fit: contain;
+}
+
+/* .review-photo-modal {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 25%;
+  bottom: 15%;
+} */
+
+.review-thumbnails {
+  height: 50px;
+  width: 80px;
+  border-radius: 2px;
+  margin: 0 1rem 0.4rem 0;
 }
 
 /* Stars */
