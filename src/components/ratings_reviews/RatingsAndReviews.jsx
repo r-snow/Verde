@@ -79,10 +79,11 @@ function RatingsAndReviews() {
       style={{
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'center',
+        justifyContent: 'start',
         fontFamily: 'Helvetica',
         fontWeight: '100',
-        padding: '1em',
+        padding: '0.2em',
+        border: 'solid white 2px',
       }}
       id="ratings-reviews"
     >

@@ -48,7 +48,7 @@ function Ratings({ reviews, ratingSwitch, toggleRatedReviews }) {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-start',
-        border: 'solid 0px white',
+        border: 'solid 2px white',
         borderRadius: '5px',
         padding: '2em 1em',
         marginRight: '1em',
