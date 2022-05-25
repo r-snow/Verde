@@ -1,5 +1,4 @@
 import React from 'react';
-import { hot } from 'react-hot-loader/root';
 import PropTypes from 'prop-types';
 import Overview from './components/overview/Overview';
 import QnA from './components/questions_answers/QnA';
@@ -32,4 +31,4 @@ App.defaultProps = {
   name: 'Verde Customer',
 };
 
-export default hot(App);
+export default App;
