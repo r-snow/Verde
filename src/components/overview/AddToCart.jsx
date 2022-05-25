@@ -6,7 +6,8 @@ import QtySelector from './QtySelector';
 export default function AddToCart({ skuData, currStyle }) {
   const [currSku, setCurrSku] = useState('Select Size');
   const [availQty, setAvailQty] = useState(['-']);
-  const [selectedQty, setSelectedQty] = React.useState('-');
+  const [selectedQty, setSelectedQty] = useState('-');
+  const [showSizeWarning, setShowSizeWarning] = useState(false);
 
   useEffect(() => {
     let newMax = skuData[currSku].quantity;
@@ -33,10 +34,11 @@ export default function AddToCart({ skuData, currStyle }) {
   const handleCartSubmit = (e) => {
     e.preventDefault();
     if (currSku === 'Select Size') {
+      setShowSizeWarning(true);
       // alert('Please pick a size');
     } else {
-      // console.log('currSku: ', currSku);
-      // console.log('selectedQty: ', selectedQty);
+      setShowSizeWarning(false);
+      // open the dropdown somehow
     }
   };
 
@@ -50,6 +52,19 @@ export default function AddToCart({ skuData, currStyle }) {
       }}
     >
       <span>
+        {showSizeWarning && (
+          <div
+            style={{
+              marginBottom: '0.5em',
+              padding: '0.5em',
+              backgroundColor: 'pink',
+              color: 'red',
+              borderRadius: '0.5em',
+            }}
+          >
+            Please pick a size!
+          </div>
+        )}
         <SizeSelector
           currSku={currSku}
           setCurrSku={setCurrSku}
