@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import { format, parseISO } from 'date-fns';
 import AnswerPhotos from './AnswerPhotos';
+import config from '../../../../config/config';
 
 export default function AnswerList({ answer }) {
   const { body, date } = answer;
@@ -9,16 +11,30 @@ export default function AnswerList({ answer }) {
   const [helpful, setHelpful] = useState(answer.helpfulness);
   const [reportToggle, setReportToggle] = useState(false);
 
+  const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/';
+
   const markAnswerHelpful = () => {
     if (!marked) {
-      setMarked(true);
-      setHelpful(helpful + 1);
+      axios
+        .put(`${url}qa/answers/${answer.id}/helpful`, null, {
+          headers: { Authorization: config.TOKEN },
+        })
+        .then(() => {
+          setMarked(true);
+          setHelpful(helpful + 1);
+        });
     }
   };
 
   const reportAnswer = () => {
     if (!reportToggle) {
-      setReportToggle(true);
+      axios
+        .put(`${url}qa/answers/${answer.id}/report`, null, {
+          headers: { Authorization: config.TOKEN },
+        })
+        .then(() => {
+          setReportToggle(true);
+        });
     }
   };
 
@@ -55,18 +71,21 @@ export default function AnswerList({ answer }) {
         )}
         <span> {format(parseISO(date), 'MMMM, dd, yyyy')}</span>
         <span> &nbsp;&nbsp;|&nbsp; Helpful? &nbsp;&nbsp;</span>
-        <span
-          onClick={markAnswerHelpful}
-          onKeyPress={markAnswerHelpful}
-          tabIndex="0"
-          role="button"
-          style={{
-            textDecoration: 'underline',
-            cursor: 'pointer',
-          }}
-        >
-          Yes
-        </span>
+        {marked === false && (
+          <span
+            onClick={markAnswerHelpful}
+            onKeyPress={markAnswerHelpful}
+            tabIndex="0"
+            role="button"
+            style={{
+              textDecoration: 'underline',
+              cursor: 'pointer',
+            }}
+          >
+            Yes
+          </span>
+        )}
+        {marked === true && <span>Yes</span>}
         <span> &nbsp;&nbsp;({helpful}) &nbsp;&nbsp;|&nbsp;&nbsp;</span>
         {reportToggle === false && (
           <span

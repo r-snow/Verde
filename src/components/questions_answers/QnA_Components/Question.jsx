@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
+import { nanoid } from 'nanoid';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import AnswerList from './AnswerList';
 import MoreAnswers from './MoreAnswers';
 import AddAnswer from './AddAnswer';
+import config from '../../../../config/config';
 
 export default function Question({ question }) {
   const [marked, setMarked] = useState(false);
   const [helpful, setHelpful] = useState(question.question_helpfulness);
   const [showModal, setShowModal] = useState(false);
+
+  const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/';
 
   let answerArr = Object.keys(question.answers).map((a) => question.answers[a]);
   const sellerCompare = (a, b) => {
@@ -26,8 +31,14 @@ export default function Question({ question }) {
 
   const markHelpful = () => {
     if (!marked) {
-      setMarked(true);
-      setHelpful(helpful + 1);
+      axios
+        .put(`${url}qa/questions/${question.question_id}/helpful`, null, {
+          headers: { Authorization: config.TOKEN },
+        })
+        .then(() => {
+          setMarked(true);
+          setHelpful(helpful + 1);
+        });
     }
   };
 
@@ -37,18 +48,21 @@ export default function Question({ question }) {
         Q: {question.question_body}
         <div className="question-control">
           Helpful?&nbsp;&nbsp;
-          <span
-            onClick={markHelpful}
-            onKeyPress={markHelpful}
-            tabIndex="0"
-            role="button"
-            style={{
-              textDecoration: 'underline',
-              cursor: 'pointer',
-            }}
-          >
-            Yes
-          </span>
+          {marked === false && (
+            <span
+              onClick={markHelpful}
+              onKeyPress={markHelpful}
+              tabIndex="0"
+              role="button"
+              style={{
+                textDecoration: 'underline',
+                cursor: 'pointer',
+              }}
+            >
+              Yes
+            </span>
+          )}
+          {marked === true && <span>Yes</span>}
           <span> &nbsp;({helpful}) &nbsp;&nbsp;| &nbsp;&nbsp;</span>
           <span
             onClick={() => setShowModal(true)}
@@ -68,9 +82,9 @@ export default function Question({ question }) {
         .slice(0, 3)
         .map((answer, count) =>
           count > 1 ? (
-            <MoreAnswers answerArr={answerArr} key={0} />
+            <MoreAnswers answerArr={answerArr} key={nanoid()} />
           ) : (
-            <AnswerList key={answer.id} answer={answer} />
+            <AnswerList key={nanoid()} answer={answer} />
           )
         )}
       {showModal && (

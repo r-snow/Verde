@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import Question from './Question';
 
@@ -19,7 +20,7 @@ export default function MoreQuestions({ questions }) {
       ) : (
         <div>
           {questions.slice(4).map((question) => (
-            <Question question={question} key={question.question_id} />
+            <Question question={question} key={nanoid()} />
           ))}
           <button
             className="more-questions"

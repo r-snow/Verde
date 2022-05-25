@@ -1,22 +1,38 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 
-export default function QtySelector() {
-  const [selected, setSelected] = React.useState('-');
-  const quantities = ['-', 1, 2, 3, 4, 5];
-  const qtyOptions = quantities.map((size) => (
-    <option key={nanoid()} value={size}>
-      {size}
+export default function QtySelector({ availQty, selectedQty, setSelectedQty }) {
+  const qtyOptions = availQty.map((qty) => (
+    <option key={nanoid()} value={qty}>
+      {qty}
     </option>
   ));
 
   const handleChange = (e) => {
-    setSelected(e.target.value);
+    setSelectedQty(e.target.value);
   };
 
-  return (
-    <select value={selected} onChange={handleChange}>
+  return availQty[0] === '-' ? (
+    <select value={selectedQty} disabled>
+      {qtyOptions}
+    </select>
+  ) : (
+    <select value={selectedQty} onChange={handleChange}>
       {qtyOptions}
     </select>
   );
 }
+
+QtySelector.propTypes = {
+  availQty: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
+  selectedQty: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
+  setSelectedQty: PropTypes.func.isRequired,
+};

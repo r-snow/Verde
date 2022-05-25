@@ -12,6 +12,9 @@ function Reviews({ reviews, toggleModal, visible, addVisibility }) {
         width: 'calc((2 / 3) * 100% - 10px)',
         borderRadius: '5px',
         alignItems: 'center',
+        maxHeight: '400px',
+        overflowY: 'scroll',
+        overflowX: 'hidden',
       }}
     >
       <select

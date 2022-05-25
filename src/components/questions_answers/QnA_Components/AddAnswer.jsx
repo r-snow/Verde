@@ -1,43 +1,62 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
+import config from '../../../../config/config';
 
 export default function AddAnswer({ question, setShowModal }) {
-  // const [question, setQuestion] = useState(question);
+  const [errorMessage, setErrorMessage] = useState('');
   const [answer, setAnswer] = useState('');
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
-  // const [photos, setPhotos] = useState([]);
-  // const [photosToUpload, setPhotosToUpload] = useState([]);
+  const [photos, setPhotos] = React.useState([]);
 
-  function handleSubmit() {
-    if (answer.length && nickname.length && email.length) {
-      setShowModal(false);
+  const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/';
+
+  const isValidEmail = (val) => {
+    const validEmail =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return validEmail.test(val);
+  };
+
+  const handleSubmit = () => {
+    const error = [];
+    if (!answer.length) {
+      error.push('Answer');
     }
-  }
+    if (!nickname.length) {
+      error.push('Nickname');
+    }
+    if (!isValidEmail(email)) {
+      error.push('Valid Email');
+    }
+    if (error.length) {
+      setErrorMessage(`You must enter the following: ${error.join(', ')}`);
+    } else {
+      axios
+        .post(
+          `${url}qa/questions/${question.question_id}/answers`,
+          {
+            body: answer,
+            name: nickname,
+            email,
+            photos,
+          },
+          {
+            headers: { Authorization: config.TOKEN },
+          }
+        )
+        .then(() => {
+          setShowModal(false);
+        });
+    }
+  };
 
-  //   function handlePhotos(e) {
-  //     setPhotosToUpload(e.target.files);
-  //     handleUpload(e.target.files);
-  //   }
-
-  // function handleUpload(files) {
-  //     if (files.length <= 5) {
-  //       const uploads = [];
-  //       for (let i = 0; i < files.length; i++) {
-
-  //       }
-  //       setPhotos(uploads);
-  //     }
-  //   }
-
-  // function handleClick(e) {
-  //   if (e.target !== e.currentTarget) {
-  //     e.stopPropagation();
-  //     return;
-  //   }
-  //   setShowModal(false);
-  // }
+  const addPhoto = (event) => {
+    const images = [];
+    images.push(event.target.value);
+    setPhotos(images);
+  };
 
   return (
     <div className="answer-modal">
@@ -49,6 +68,17 @@ export default function AddAnswer({ question, setShowModal }) {
         X
       </button>
       <h2>Submit Your Answer: {question.question_body}</h2>
+      {errorMessage && (
+        <div
+          style={{
+            backgroundColor: 'red',
+            fontWeight: 'bold',
+            padding: '5px',
+          }}
+        >
+          {errorMessage}
+        </div>
+      )}
       <form
         style={{
           display: 'flex',
@@ -85,8 +115,17 @@ export default function AddAnswer({ question, setShowModal }) {
             accept="image/*"
             id="formFileMultiple"
             multiple
-            // onChange={handlePhotos}
+            onChange={addPhoto}
           />
+          {photos.length > 0 && (
+            <div>
+              <span>Preview:</span>
+              <br />
+              {photos.map((photo) => (
+                <img src={photo} height="50px" alt="Preview" />
+              ))}
+            </div>
+          )}
         </div>
         <div
           style={{
