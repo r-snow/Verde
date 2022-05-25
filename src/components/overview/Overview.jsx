@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ImageGallery from './ImageGallery';
 import ExpandedView from './ExpandedView';
 import DescriptionDetails from './DescriptionDetails';
@@ -10,6 +10,23 @@ export default function Overview() {
   const [isDefaultImgView, setIsDefaultImgView] = useState(true);
   const [currImgIdx, setCurrImgIdx] = useState(0);
   const [currStyle, setCurrStyle] = useState(0);
+  const [skuData, setSkuData] = useState({
+    ...productStylesData.results[currStyle].skus,
+    'Select Size': {
+      quantity: '-',
+      size: 'Select Size',
+    },
+  });
+
+  useEffect(() => {
+    setSkuData({
+      ...productStylesData.results[currStyle].skus,
+      'Select Size': {
+        quantity: '-',
+        size: 'Select Size',
+      },
+    });
+  }, [currStyle]);
 
   let avgRating = 0;
   const reviewCount = Object.keys(productReviewsData.ratings).reduce(
@@ -75,6 +92,7 @@ export default function Overview() {
         currSalePrice={currSalePrice}
         reviewCount={reviewCount}
         avgRating={avgRating}
+        skuData={skuData}
       />
     </section>
   ) : (
