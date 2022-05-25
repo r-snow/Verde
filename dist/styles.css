@@ -317,6 +317,11 @@ html {
 
 /*------- Your outfit-------*/
 
+.add-outfit-card {
+  display: flex;
+  flex-direction: column;
+}
+
 /*------ Ratings and Reviews Section ------*/
 
 .bars-container {
