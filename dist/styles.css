@@ -393,6 +393,7 @@ body.prevent-scroll-background {
   left: 50%;
   transform: translate(-50%, -80%);
   z-index: 1;
+  object-fit: cover;
 }
 
 /* Stars */
