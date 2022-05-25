@@ -151,7 +151,7 @@ export default function AddAQuestion({ productID, setOpenModal }) {
         type="button"
         onClick={handleSubmit}
       >
-        Submit Answer
+        Submit Question
       </button>
     </div>
   );
