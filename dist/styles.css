@@ -270,16 +270,10 @@ html {
   margin-right: 20px;
 }
 
-.table {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
 .table-body {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .column-title {
@@ -291,7 +285,7 @@ html {
 
 .table-row {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
   justify-content: space-evenly;
   color: black;

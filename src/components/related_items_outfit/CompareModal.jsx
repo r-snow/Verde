@@ -22,25 +22,25 @@ export default function Compare({ setOpenModal }) {
         </button>
         <h2>COMPARING</h2>
         <table className="table">
-          <tr className="column-title">
-            <th>Current Product Name</th>
-            <th>Attribute</th>
-            <th>Compare Product Name</th>
-          </tr>
           <tbody className="table-body">
-            <tr className="table-row">
-              <td>&#10004;</td>
-              <td>&#10004;</td>
-              <td>&#10004;</td>
+            <tr className="column-title">
+              <th>Current Product Name</th>
+              <th>Attribute</th>
+              <th>Compare Product Name</th>
             </tr>
             <tr className="table-row">
+              <td>&#10004;</td>
               <td>Ultrasheen</td>
-              <td>Light Compose</td>
-              <td>100% Cotton</td>
+              <td>&#10004;</td>
             </tr>
             <tr className="table-row">
               <td>&#10004;</td>
+              <td>Light Compose</td>
               <td>&#10004;</td>
+            </tr>
+            <tr className="table-row">
+              <td>&#10004;</td>
+              <td>100% Cotton</td>
               <td>&#10004;</td>
             </tr>
           </tbody>
