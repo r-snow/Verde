@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Ratings from './Ratings';
 import Reviews from './Reviews';
 import ReviewModal from './ReviewModal';
@@ -11,7 +11,7 @@ function RatingsAndReviews() {
   const [modalActive, setModalStatus] = useState(false);
   const [reviews, setReviews] = useState([]);
   const [visible, setVisible] = useState(2);
-  const [ratedReviews, setRatedReviews] = useState([]);
+  const [ratingSwitch, toggleRatingSwitch] = useState({});
 
   const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/';
   const id = 40344;
@@ -24,15 +24,27 @@ function RatingsAndReviews() {
   }, []);
 
   const toggleRatedReviews = (rating) => {
-    const copy = reviews.slice();
-    const filteredReviews = [];
-    copy.forEach((review) => {
-      if (review.rating === rating) {
-        filteredReviews.push(review);
-      }
-    });
-    setRatedReviews(filteredReviews);
+    const copy = { ...ratingSwitch };
+    if (copy[rating]) {
+      delete copy[rating];
+    } else {
+      copy[rating] = rating;
+    }
+    toggleRatingSwitch(copy);
   };
+
+  const ratedReviews = useMemo(() => {
+    const filtered = Object.values(ratingSwitch);
+    const result = [];
+    for (let i = 0; i < filtered.length; i += 1) {
+      for (let j = 0; j < reviews.length; j += 1) {
+        if (reviews[j].rating === filtered[i]) {
+          result.push(reviews[j]);
+        }
+      }
+    }
+    return result;
+  }, [ratingSwitch, reviews]);
 
   const toggleModal = () => {
     setModalStatus(!modalActive);
@@ -95,7 +107,7 @@ function RatingsAndReviews() {
       >
         <Ratings reviews={reviews} toggleRatedReviews={toggleRatedReviews} />
         <Reviews
-          reviews={reviews}
+          reviews={ratedReviews.length === 0 ? reviews : ratedReviews}
           toggleModal={toggleModal}
           visible={visible}
           addVisibility={addVisibility}
