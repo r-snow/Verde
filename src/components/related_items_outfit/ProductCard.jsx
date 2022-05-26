@@ -6,12 +6,10 @@ import Price from '../shared/Price';
 import Stars from '../shared/Stars';
 
 export default function ProductCard({
-  category,
-  name,
-  price,
   image,
   // features,
   setOpenModal,
+  product,
 }) {
   const handleKeyPress = (event) => {
     event.preventDefault();
@@ -49,18 +47,15 @@ export default function ProductCard({
         />
       </div>
       <img className="product-card-image" src={image} alt="Sample" />
-      <p>{category}</p>
-      <p>{name}</p>
-      <Price price={price} salePrice={120} />
+      <p>{product.category}</p>
+      <p>{product.name}</p>
+      <Price price={parseFloat(product.default_price)} salePrice={120} />
       <Stars rating={2.5} />
     </div>
   );
 }
 
 ProductCard.propTypes = {
-  category: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
   // features: PropTypes.oneOfType([
   //   PropTypes.string,
@@ -69,5 +64,12 @@ ProductCard.propTypes = {
   //   PropTypes.object,
   //   PropTypes.array,
   // ]).isRequired,
+  product: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
   setOpenModal: PropTypes.func.isRequired,
 };

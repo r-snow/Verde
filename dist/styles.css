@@ -337,13 +337,14 @@ html {
 .add-outfit-card {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 200px;
   height: 500px;
   align-items: center;
   justify-content: center;
   border: 1.5px #9a825c;
   border-style: solid;
   border-radius: 20px;
+  margin: 30px;
 }
 
 .add-outfit-plus {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import AddOutfitCard from './AddOutfitCard';
 import Carousel from './Carousel';
-import ProductCard from './RIProductCard';
+import ProductCard from './ProductCard';
 import Compare from './CompareModal';
 
 export default function YourOutfit({ curProd }) {
@@ -10,10 +10,7 @@ export default function YourOutfit({ curProd }) {
   const [openModal, setOpenModal] = useState(false);
 
   const handleAdd = () => {
-    const newOutfit = outfit;
-    newOutfit.push(curProd);
-    setOutfit(newOutfit);
-    console.log(outfit);
+    setOutfit((prevOutfit) => [...prevOutfit, curProd]);
   };
 
   return (
@@ -25,22 +22,21 @@ export default function YourOutfit({ curProd }) {
           flexDirection: 'row',
         }}
       >
-        {/* Conditional render if there are no products on Outfit */}
         <AddOutfitCard handleAdd={handleAdd} />
         <div>
-          <Carousel>
+          <Carousel outfit={outfit}>
             {outfit.map((product) => (
               <ProductCard product={product} setOpenModal={setOpenModal} />
             ))}
           </Carousel>
+          {openModal && (
+            <Compare
+              curProdID="40005"
+              compProdID="40006"
+              setOpenModal={setOpenModal}
+            />
+          )}
         </div>
-        {openModal && (
-          <Compare
-            curProdID="40005"
-            compProdID="40006"
-            setOpenModal={setOpenModal}
-          />
-        )}
       </section>
     </div>
   );
