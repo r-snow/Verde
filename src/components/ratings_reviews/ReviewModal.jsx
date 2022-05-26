@@ -66,7 +66,7 @@ function ReviewModal({ toggleModal }) {
       <div
         className="outline-color"
         style={{
-          backgroundColor: 'cyan',
+          backgroundColor: '#C2DED1',
           border: 'solid white 1px',
           position: 'absolute',
           padding: '2em',
@@ -100,26 +100,30 @@ function ReviewModal({ toggleModal }) {
             <p>4 - Good</p>
             <p>5 - Great</p>
           </div>
-          <div className="do-you-recommend">
+          <div className="do-you-recommend" style={{ marginBottom: '3rem' }}>
             <p>Do you recommend this product?</p>
-            <input
-              type="radio"
-              value="yes"
-              name="recommend-btn"
-              className="recommendation-radio-btns"
-              checked={formRecommend === 'yes'}
-              onChange={(event) => changeFormRecommend(event.target.value)}
-            />
-            Yes
-            <input
-              type="radio"
-              value="no"
-              name="recommend-btn"
-              className="recommendation-radio-btns"
-              checked={formRecommend === 'no'}
-              onChange={(event) => changeFormRecommend(event.target.value)}
-            />
-            No
+            <label htmlFor="yes">
+              <input
+                type="radio"
+                value="yes"
+                name="recommend-btn"
+                className="recommendation-radio-btns"
+                checked={formRecommend === 'yes'}
+                onChange={(event) => changeFormRecommend(event.target.value)}
+              />
+              Yes
+            </label>
+            <label htmlFor="no">
+              <input
+                type="radio"
+                value="no"
+                name="recommend-btn"
+                className="recommendation-radio-btns"
+                checked={formRecommend === 'no'}
+                onChange={(event) => changeFormRecommend(event.target.value)}
+              />
+              No
+            </label>
           </div>
           <div className="characteristics-radio-btns">
             <CharacteristicsButtons
@@ -147,32 +151,36 @@ function ReviewModal({ toggleModal }) {
               handleRadioChange={handleRadioChange}
             />
           </div>
-          <p>Summary</p>
-          <input
-            type="text"
-            name="review-summary"
-            id="Review Summary"
-            placeholder="Example: Best purchase ever!"
-            className="review-summary-form"
-            maxLength="60"
-            onChange={(event) => {
-              changeFormSummary(event.target.value);
-            }}
-          />
-          <p>Body</p>
-          <input
-            type="text"
-            name="review-body"
-            id="Review Body"
-            placeholder="Why did you like the product or not?"
-            className="review-body-form"
-            minLength="50"
-            maxLength="1000"
-            onChange={(event) => {
-              changeFormBody(event.target.value);
-              changeWordCount(event.target.value);
-            }}
-          />
+          <label htmlFor="body" style={{ padding: '2rem' }}>
+            Summary
+            <input
+              type="text"
+              name="review-summary"
+              id="Review Summary"
+              placeholder="Example: Best purchase ever!"
+              className="review-summary-form"
+              maxLength="60"
+              onChange={(event) => {
+                changeFormSummary(event.target.value);
+              }}
+            />
+          </label>
+          <label htmlFor="body">
+            Body
+            <input
+              type="text"
+              name="review-body"
+              id="Review Body"
+              placeholder="Why did you like the product or not?"
+              className="review-body-form"
+              minLength="50"
+              maxLength="1000"
+              onChange={(event) => {
+                changeFormBody(event.target.value);
+                changeWordCount(event.target.value);
+              }}
+            />
+          </label>
           {wordCount < 50 && (
             <p
               style={{
@@ -183,41 +191,55 @@ function ReviewModal({ toggleModal }) {
             </p>
           )}
           {wordCount >= 50 && <p>Character requirement achieved!</p>}
-          <div className="upload-photos-modal">
-            Upload photos (5 photos max!)
-          </div>
-          <input
-            type="file"
-            multiple
-            accept="image/*"
-            onChange={uploadImages}
-          />
-          <p>Nickname</p>
-          <input
-            type="text"
-            name="nickname"
-            placeholder="Example:jackson11"
-            className="name-email-input"
-            maxLength="60"
-            onChange={(event) => {
-              changeFormName(event.target.value);
+          <label
+            htmlFor="upload-photos"
+            style={{
+              fontSize: '1.5em',
+              margin: '4rem',
+              border: 'solid lightgray 0.1em',
+              borderRadius: '1rem',
+              padding: '10rem 20rem',
             }}
-          />
+          >
+            Upload up to 5 photos
+            <br />
+            <input
+              type="file"
+              multiple
+              accept="image/*"
+              onChange={uploadImages}
+            />
+          </label>
+          <label htmlFor="nickname" style={{ padding: '1rem 0rem' }}>
+            Nickname
+            <input
+              type="text"
+              name="nickname"
+              placeholder="Example:jackson11"
+              className="name-email-input"
+              maxLength="60"
+              onChange={(event) => {
+                changeFormName(event.target.value);
+              }}
+            />
+          </label>
           <p className="disclaimer-text">
             For privacy reasons, do <i>not</i> use your full name or email
             address.
           </p>
-          <p>Email</p>
-          <input
-            type="text"
-            name="email"
-            placeholder="Example:jackson11@email.com"
-            className="name-email-input"
-            maxLength="60"
-            onChange={(event) => {
-              changeFormEmail(event.target.value);
-            }}
-          />
+          <label htmlFor="email" style={{ padding: '1rem 0rem' }}>
+            Email
+            <input
+              type="text"
+              name="email"
+              placeholder="Example:jackson11@email.com"
+              className="name-email-input"
+              maxLength="60"
+              onChange={(event) => {
+                changeFormEmail(event.target.value);
+              }}
+            />
+          </label>
           <p
             className="disclaimer-text"
             style={{
@@ -226,7 +248,12 @@ function ReviewModal({ toggleModal }) {
           >
             For authentication reasons, you <i>will not</i> be emailed.
           </p>
-          <button type="submit">Submit</button>
+          <button
+            type="submit"
+            style={{ padding: '1rem 2rem', borderRadius: '0.5rem' }}
+          >
+            Submit
+          </button>
         </form>
       </div>
     </div>

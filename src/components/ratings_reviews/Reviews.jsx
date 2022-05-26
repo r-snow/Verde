@@ -11,11 +11,18 @@ function Reviews({
 }) {
   // console.log(reviews, 'list of reviews');
   return (
-    <div className="full-review-container">
+    <div
+      className="full-review-container"
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
       <select
         style={{
           marginBottom: '1em',
-          overflow: 'hidden',
+          alignSelf: 'end',
+          padding: '0.5rem 2rem',
         }}
         onChange={(event) => sortReviews(event.target.value)}
       >
@@ -27,12 +34,13 @@ function Reviews({
 
       <div
         style={{
-          border: 'solid 5px green',
+          border: 'solid 0px green',
+          // maxWidth: '80rem',
           // margin: '0em 10em',
           borderRadius: '5px',
           maxHeight: '1000px',
           overflowY: 'scroll',
-          overflowX: 'hidden',
+          // overflowX: 'hidden',
         }}
       >
         {reviews.slice(0, visible).map((review) => (
@@ -43,18 +51,10 @@ function Reviews({
           style={{
             display: 'flex',
             justifyContent: 'space-around',
-            border: 'solid 5px cyan',
+            border: 'solid 0px cyan',
             width: '100%',
           }}
         >
-          <button
-            type="button"
-            className="end-review-buttons"
-            onClick={toggleModal}
-          >
-            Write a review
-          </button>
-
           {visible < reviews.length && (
             <button
               type="button"
@@ -64,6 +64,13 @@ function Reviews({
               Show more
             </button>
           )}
+          <button
+            type="button"
+            className="end-review-buttons"
+            onClick={toggleModal}
+          >
+            Write a review
+          </button>
         </section>
       </div>
     </div>

@@ -47,40 +47,40 @@ function Ratings({ reviews, ratingSwitch, toggleRatedReviews }) {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'flex-start',
-        border: 'solid 2px blue',
+        justifyContent: 'start',
+        alignItems: 'center',
+        border: 'solid 0px blue',
         borderRadius: '5px',
         padding: '2em 1em',
-        marginRight: '1em',
-        width: '20rem',
-        minWidth: '200px',
+        margin: '1em 0em 0em 0rem',
+        width: '30rem',
+        minWidth: '30rem',
         fontSize: '0.8em',
       }}
     >
-      <h4
-        style={{
-          display: 'flex',
-          alignSelf: 'center',
-        }}
-      >
-        Reviews & Ratings
-      </h4>
+      <h4>Reviews & Ratings</h4>
       <h1
         style={{
           fontSize: '3.5em',
-          alignSelf: 'center',
+          margin: '0.4em 0em',
         }}
       >
         {averageRating.toFixed(2)}
-        <CustomStars rating={averageRating} color="#205375" size="16px" />
+        <CustomStars rating={averageRating} color="cyan" size="25px" />
       </h1>
-      <i
-        style={{
-          marginBottom: '1em',
-        }}
-      >
-        {((counter.recommendedCount / reviews.length) * 100).toFixed(2)}% of
-        reviews recommend this product!
+
+      <i style={{ textAlign: 'center', marginBottom: '1em', width: '17rem' }}>
+        <h1
+          style={{
+            display: 'inline',
+            fontSize: '2em',
+          }}
+        >
+          {((counter.recommendedCount / reviews.length) * 100).toFixed(2)}
+        </h1>
+        <p style={{ display: 'inline' }}>
+          % of reviews recommend this product!
+        </p>
       </i>
       <div className="bars-container">
         <div
@@ -90,12 +90,12 @@ function Ratings({ reviews, ratingSwitch, toggleRatedReviews }) {
           onClick={() => toggleRatedReviews(5)}
           onKeyDown={() => toggleRatedReviews(5)}
         >
-          5 stars
+          <p style={{ margin: '0em 1em' }}>5 stars</p>
           <Bars
             reviewCount={counter.fiveStarReviews}
             totalCount={reviews.length}
           />
-          {counter.fiveStarReviews}
+          <p style={{ margin: '0em 1em' }}>{counter.fiveStarReviews}</p>
         </div>
 
         <div
@@ -105,12 +105,12 @@ function Ratings({ reviews, ratingSwitch, toggleRatedReviews }) {
           onClick={() => toggleRatedReviews(4)}
           onKeyPress={() => toggleRatedReviews(4)}
         >
-          4 stars
+          <p style={{ margin: '0em 1em' }}>4 stars</p>
           <Bars
             reviewCount={counter.fourStarReviews}
             totalCount={reviews.length}
           />
-          {counter.fourStarReviews}
+          <p style={{ margin: '0em 1em' }}>{counter.fourStarReviews}</p>
         </div>
 
         <div
@@ -120,12 +120,12 @@ function Ratings({ reviews, ratingSwitch, toggleRatedReviews }) {
           onClick={() => toggleRatedReviews(3)}
           onKeyDown={() => toggleRatedReviews(3)}
         >
-          3 stars
+          <p style={{ margin: '0em 1em' }}>3 stars</p>
           <Bars
             reviewCount={counter.threeStarReviews}
             totalCount={reviews.length}
           />
-          {counter.threeStarReviews}
+          <p style={{ margin: '0em 1em' }}>{counter.threeStarReviews}</p>
         </div>
 
         <div
@@ -135,12 +135,12 @@ function Ratings({ reviews, ratingSwitch, toggleRatedReviews }) {
           onClick={() => toggleRatedReviews(2)}
           onKeyDown={() => toggleRatedReviews(2)}
         >
-          2 stars
+          <p style={{ margin: '0em 1em' }}>2 stars</p>
           <Bars
             reviewCount={counter.twoStarReviews}
             totalCount={reviews.length}
           />
-          {counter.twoStarReviews}
+          <p style={{ margin: '0em 1em' }}>{counter.twoStarReviews}</p>
         </div>
 
         <div
@@ -150,12 +150,12 @@ function Ratings({ reviews, ratingSwitch, toggleRatedReviews }) {
           onClick={() => toggleRatedReviews(1)}
           onKeyDown={() => toggleRatedReviews(1)}
         >
-          1 stars
+          <p style={{ margin: '0em 1em' }}>1 stars</p>
           <Bars
             reviewCount={counter.oneStarReviews}
             totalCount={reviews.length}
           />
-          {counter.oneStarReviews}
+          <p style={{ margin: '0em 1em' }}>{counter.oneStarReviews}</p>
         </div>
       </div>
       <p

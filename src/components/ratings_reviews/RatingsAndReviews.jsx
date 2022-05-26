@@ -79,12 +79,12 @@ function RatingsAndReviews() {
       style={{
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'start',
+        justifyContent: 'space-between',
         fontFamily: 'Helvetica',
         fontWeight: '100',
         fontSize: '1.5em',
         padding: '0.2em',
-        border: 'solid red 2px',
+        border: 'solid red 0px',
         overflowX: 'hidden',
       }}
       id="ratings-reviews"
@@ -103,24 +103,18 @@ function RatingsAndReviews() {
         </button>
       )}
 
-      <div
-        style={{
-          display: 'flex',
-        }}
-      >
-        <Ratings
-          reviews={reviews}
-          ratingSwitch={ratingSwitch}
-          toggleRatedReviews={toggleRatedReviews}
-        />
-        <Reviews
-          reviews={ratedReviews.length === 0 ? reviews : ratedReviews}
-          toggleModal={toggleModal}
-          visible={visible}
-          addVisibility={addVisibility}
-          sortReviews={sortReviews}
-        />
-      </div>
+      <Ratings
+        reviews={reviews}
+        ratingSwitch={ratingSwitch}
+        toggleRatedReviews={toggleRatedReviews}
+      />
+      <Reviews
+        reviews={ratedReviews.length === 0 ? reviews : ratedReviews}
+        toggleModal={toggleModal}
+        visible={visible}
+        addVisibility={addVisibility}
+        sortReviews={sortReviews}
+      />
 
       {modalActive && <ReviewModal toggleModal={toggleModal} />}
     </section>
