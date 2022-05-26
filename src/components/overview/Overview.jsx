@@ -99,6 +99,9 @@ export default function Overview() {
     <ExpandedView
       changeImgView={changeImgView}
       currPhotoUrl={productStylesData.results[currStyle].photos[currImgIdx].url}
+      photos={productStylesData.results[currStyle].photos}
+      currImgIdx={currImgIdx}
+      setCurrImgIdx={setCurrImgIdx}
     />
   );
 }
