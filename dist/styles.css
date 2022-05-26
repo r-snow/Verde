@@ -320,6 +320,17 @@ html {
 .add-outfit-card {
   display: flex;
   flex-direction: column;
+  width: 300px;
+  height: 500px;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px #9a825c;
+  border-style: solid;
+  border-radius: 20px;
+}
+
+.add-outfit-plus {
+  color: #9a825c;
 }
 
 /*------ Ratings and Reviews Section ------*/
