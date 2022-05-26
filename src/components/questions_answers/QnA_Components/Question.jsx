@@ -5,9 +5,10 @@ import PropTypes from 'prop-types';
 import AnswerList from './AnswerList';
 import MoreAnswers from './MoreAnswers';
 import AddAnswer from './AddAnswer';
+import SearchHighlight from './SearchHighlight';
 import config from '../../../../config/config';
 
-export default function Question({ question }) {
+export default function Question({ question, searchInput }) {
   const [marked, setMarked] = useState(false);
   const [helpful, setHelpful] = useState(question.question_helpfulness);
   const [showModal, setShowModal] = useState(false);
@@ -45,7 +46,15 @@ export default function Question({ question }) {
   return (
     <div className="question">
       <div className="question-body">
-        Q: {question.question_body}
+        Q:{' '}
+        {searchInput !== null ? (
+          <SearchHighlight
+            searchInput={searchInput}
+            body={question.question_body}
+          />
+        ) : (
+          question.question_body
+        )}
         <div className="question-control">
           Helpful?&nbsp;&nbsp;
           {marked === false && (
@@ -102,4 +111,9 @@ Question.propTypes = {
     PropTypes.object,
     PropTypes.array,
   ]).isRequired,
+  searchInput: PropTypes.string,
+};
+
+Question.defaultProps = {
+  searchInput: null,
 };

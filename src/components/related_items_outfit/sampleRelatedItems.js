@@ -27,7 +27,7 @@ export const product = {
 
 export const relatedItemIds = [65632, 65633, 65638, 65637];
 
-const relatedItems = [
+export const relatedItems = [
   {
     id: 65632,
     campus: 'rfp',
