@@ -29,9 +29,9 @@ export default function YourOutfit({ curProd }) {
         <AddOutfitCard handleAdd={handleAdd} />
         <div>
           <Carousel>
-            <ProductCard setOpenModal={setOpenModal} />
-            {/* {outfit.map((product) => (
-            ))} */}
+            {outfit.map((product) => (
+              <ProductCard product={product} setOpenModal={setOpenModal} />
+            ))}
           </Carousel>
         </div>
         {openModal && (
