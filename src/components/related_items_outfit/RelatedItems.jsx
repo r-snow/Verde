@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
 import Carousel from './Carousel';
 import ProductCard from './RIProductCard';
 import Compare from './CompareModal';
@@ -22,6 +23,7 @@ export default function RelatedItems() {
               features={product.features}
               setOpenModal={setOpenModal}
               image={sampleStyles.results[0].photos[0].url}
+              key={nanoid()}
             />
           ))}
         </Carousel>
