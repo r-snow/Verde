@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Carousel from './Carousel';
 import ProductCard from './RIProductCard';
 import Compare from './CompareModal';
+import sampleItems from './sampleRelatedItems';
+import sampleStyles from './sampleStylesData';
 
 export default function RelatedItems() {
   const [openModal, setOpenModal] = useState(false);
@@ -10,15 +12,18 @@ export default function RelatedItems() {
   return (
     <div>
       <h2>Related Items</h2>
-      <div className="carousel">
+      <div>
         <Carousel>
-          <ProductCard setOpenModal={setOpenModal} />
-          <ProductCard setOpenModal={setOpenModal} />
-          <ProductCard setOpenModal={setOpenModal} />
-          <ProductCard setOpenModal={setOpenModal} />
-          <ProductCard setOpenModal={setOpenModal} />
-          <ProductCard setOpenModal={setOpenModal} />
-          <ProductCard setOpenModal={setOpenModal} />
+          {sampleItems.map((product) => (
+            <ProductCard
+              category={product.category}
+              name={product.name}
+              price={parseFloat(product.default_price)}
+              features={product.features}
+              setOpenModal={setOpenModal}
+              image={sampleStyles.results[0].photos[0].url}
+            />
+          ))}
         </Carousel>
       </div>
       {openModal && (

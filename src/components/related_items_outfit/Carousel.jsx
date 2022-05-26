@@ -21,7 +21,7 @@ export default function Carousel({ children }) {
       if (!paused) {
         updateIndex(activeIndex + 1);
       }
-    }, 3000);
+    }, 5000);
 
     return () => {
       if (interval) {
@@ -31,25 +31,18 @@ export default function Carousel({ children }) {
   });
 
   return (
-    <div
-      className="carousel"
-      style={{
-        overflow: 'hidden',
-      }}
-    >
+    <div className="carousel">
       <div
         className="inner"
         style={{
-          transform: `translateX(-${activeIndex * 400}px)`,
+          transform: `translateX(-${activeIndex * 260}px)`,
           whiteSpace: 'nowrap',
           transition: 'transform 0.5s',
         }}
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
-        {React.Children.map(children, (child) =>
-          React.cloneElement(child, { width: `400px` })
-        )}
+        {React.Children.map(children, (child) => React.cloneElement(child))}
       </div>
       <div
         className="indicators"
