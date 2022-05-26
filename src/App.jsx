@@ -18,7 +18,7 @@ function App(props) {
       </h1>
       <Overview />
       <RelatedItems setCurProd={setCurProd} />
-      <YourOutfit curProdID={curProd} />
+      <YourOutfit curProd={curProd} />
       <QnA />
       <RatingsAndReviews />
     </>

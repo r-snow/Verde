@@ -10,9 +10,10 @@ export default function YourOutfit({ curProd }) {
   const [openModal, setOpenModal] = useState(false);
 
   const handleAdd = () => {
-    let newOutfit = outfit;
+    const newOutfit = outfit;
     newOutfit.push(curProd);
     setOutfit(newOutfit);
+    console.log(outfit);
   };
 
   return (
@@ -26,9 +27,13 @@ export default function YourOutfit({ curProd }) {
       >
         {/* Conditional render if there are no products on Outfit */}
         <AddOutfitCard handleAdd={handleAdd} />
-        <Carousel>
-          <ProductCard setOpenModal={setOpenModal} />
-        </Carousel>
+        <div>
+          <Carousel>
+            <ProductCard setOpenModal={setOpenModal} />
+            {/* {outfit.map((product) => (
+            ))} */}
+          </Carousel>
+        </div>
         {openModal && (
           <Compare
             curProdID="40005"
@@ -42,5 +47,11 @@ export default function YourOutfit({ curProd }) {
 }
 
 YourOutfit.propTypes = {
-  curProdID: PropTypes.number.isRequired,
+  curProd: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
 };

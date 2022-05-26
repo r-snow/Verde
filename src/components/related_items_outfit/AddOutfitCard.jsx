@@ -1,13 +1,14 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 
-export default function AddOutfitCard() {
+export default function AddOutfitCard({ handleAdd }) {
   return (
     <div
       className="add-outfit-card"
-      onClick={() => console.log('Add current product to outfit...')}
-      onKeyPress={() => console.log('Add current product to outfit...')}
+      onClick={handleAdd}
+      onKeyPress={handleAdd}
       role="button"
       tabIndex={0}
     >
@@ -21,3 +22,7 @@ export default function AddOutfitCard() {
     </div>
   );
 }
+
+AddOutfitCard.propTypes = {
+  handleAdd: PropTypes.func.isRequired,
+};
