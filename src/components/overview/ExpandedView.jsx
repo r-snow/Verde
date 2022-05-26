@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCompress } from '@fortawesome/free-solid-svg-icons';
 import ExpandedIcons from './ExpandedIcons';
 
 export default function ExpandedView({
@@ -28,7 +30,8 @@ export default function ExpandedView({
           minWidth: '0',
         }}
       />
-      <button
+      <FontAwesomeIcon
+        icon={faCompress}
         type="button"
         onClick={changeImgView}
         style={{
@@ -36,9 +39,7 @@ export default function ExpandedView({
           top: '1em',
           right: '1em',
         }}
-      >
-        Main View
-      </button>
+      />
       <ExpandedIcons
         photos={photos}
         currImgIdx={currImgIdx}

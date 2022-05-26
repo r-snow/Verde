@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 export default function Thumbnails({ photos, currImgIdx, setCurrImgIdx }) {
   const thumbnailElements = photos.map((photo, i) => (
@@ -41,25 +43,25 @@ export default function Thumbnails({ photos, currImgIdx, setCurrImgIdx }) {
       }}
     >
       {currImgIdx !== 0 && (
-        <button
+        <FontAwesomeIcon
+          icon={faAngleUp}
+          color="black"
           type="button"
           onClick={() => {
             setCurrImgIdx((prev) => prev - 1);
           }}
-        >
-          Up
-        </button>
+        />
       )}
       {displayedThumbnailElements}
       {currImgIdx !== photos.length - 1 && (
-        <button
+        <FontAwesomeIcon
+          icon={faAngleDown}
+          color="black"
           type="button"
           onClick={() => {
             setCurrImgIdx((prev) => prev + 1);
           }}
-        >
-          Down
-        </button>
+        />
       )}
     </section>
   );

@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import Thumbnails from './Thumbnails';
 
 export default function ImageGallery({
@@ -50,30 +52,30 @@ export default function ImageGallery({
           />
         </button>
         {currImgIdx !== 0 && (
-          <button
+          <FontAwesomeIcon
+            icon={faAngleLeft}
             type="button"
             onClick={decrementIdx}
+            color="black"
             style={{
               position: 'absolute',
               top: '50%',
               left: '1em',
             }}
-          >
-            Prev
-          </button>
+          />
         )}
         {currImgIdx !== photos.length - 1 && (
-          <button
+          <FontAwesomeIcon
+            icon={faAngleRight}
             type="button"
             onClick={incrementIdx}
+            color="black"
             style={{
               position: 'absolute',
               top: '50%',
               right: '1em',
             }}
-          >
-            Next
-          </button>
+          />
         )}
       </div>
     </section>
