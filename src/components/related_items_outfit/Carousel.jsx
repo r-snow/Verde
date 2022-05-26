@@ -38,7 +38,6 @@ export default function Carousel({ children, outfit }) {
           transform: `translateX(-${activeIndex * 260}px)`,
           whiteSpace: 'nowrap',
           transition: 'transform 0.5s',
-          position: 'absolute',
         }}
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
