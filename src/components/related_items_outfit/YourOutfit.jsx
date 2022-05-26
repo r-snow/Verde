@@ -18,15 +18,10 @@ export default function YourOutfit({ curProd }) {
   return (
     <div>
       <h2>Your Outfit</h2>
-      <section
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-        }}
-      >
-        <AddOutfitCard handleAdd={handleAdd} />
+      <section className="your-outfit">
+        <AddOutfitCard className="add-oufit-card" handleAdd={handleAdd} />
         <div>
-          <Carousel outfit={outfit}>
+          <Carousel>
             {outfit.map((product) => (
               <ProductCard
                 product={product}

@@ -249,17 +249,17 @@ html {
 
 /*------ Related Items Section -----*/
 .carousel {
-  overflow: 'hidden';
-  width: 'fit-content';
+  overflow: hidden;
+  width: fit-content;
   position: relative;
 }
 
 .product-card {
-  width: 'fit-content';
-  display: 'inline-flex';
-  flex-direction: 'column';
-  justify-content: 'center';
-  align-items: 'center';
+  width: fit-content;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .product-card-image {
@@ -335,10 +335,16 @@ html {
 }
 
 /*------- Your outfit-------*/
+.your-outfit {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 200px;
+}
 
 .add-outfit-card {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   width: 200px;
   height: 500px;
   align-items: center;
