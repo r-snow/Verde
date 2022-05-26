@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCompress } from '@fortawesome/free-solid-svg-icons';
@@ -11,6 +11,30 @@ export default function ExpandedView({
   setCurrImgIdx,
   currImgIdx,
 }) {
+  const [isZoomed, setIsZoomed] = useState(false);
+
+  const handleImageClick = () => {
+    setIsZoomed((prev) => !prev);
+  };
+
+  const handleMouseEnter = (e) => {
+    if (isZoomed) {
+      console.log('onMouseEnter', e.clientX, e.clientY);
+    }
+  };
+
+  const handleMouseMove = (e) => {
+    if (isZoomed) {
+      console.log('onMouseMove', e.nativeEvent.clientX, e.nativeEvent.clientY);
+    }
+  };
+
+  const handleMouseLeave = (e) => {
+    if (isZoomed) {
+      console.log('onMouseLeave', e.clientX, e.clientY);
+    }
+  };
+
   return (
     <div
       style={{
@@ -21,15 +45,30 @@ export default function ExpandedView({
         // padding: '0 2em',
       }}
     >
-      <img
-        src={currPhotoUrl}
-        alt="big img"
+      <button
+        type="button"
         style={{
-          padding: '4em',
-          maxHeight: '80vh',
-          minWidth: '0',
+          backgroundColor: 'transparent',
+          borderColor: 'transparent',
+          objectFit: 'cover',
         }}
-      />
+        onClick={handleImageClick}
+      >
+        <img
+          src={currPhotoUrl}
+          className="expanded-view--img"
+          alt="big img"
+          style={{
+            // transform: 'scale(2.5)',
+            padding: '4em',
+            maxHeight: '80vh',
+            minWidth: '0',
+          }}
+          onMouseEnter={handleMouseEnter}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+        />
+      </button>
       <FontAwesomeIcon
         icon={faCompress}
         type="button"

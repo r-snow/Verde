@@ -44,6 +44,10 @@ html {
   cursor: pointer;
 }
 
+.expanded-view--img:hover {
+  cursor: crosshair;
+}
+
 .svg-inline--fa {
   transition: 0.3s;
 }
