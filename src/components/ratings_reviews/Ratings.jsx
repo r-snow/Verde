@@ -52,7 +52,7 @@ function Ratings({ reviews, ratingSwitch, toggleRatedReviews }) {
         borderRadius: '5px',
         padding: '2em 1em',
         marginRight: '1em',
-        width: 'calc((1 / 3) * 100%)',
+        width: '20rem',
         minWidth: '200px',
         fontSize: '0.8em',
       }}
@@ -169,6 +169,7 @@ function Ratings({ reviews, ratingSwitch, toggleRatedReviews }) {
         style={{
           display: 'flex',
           flexDirection: 'row',
+          flexWrap: 'wrap-reverse',
           alignSelf: 'center',
         }}
       >

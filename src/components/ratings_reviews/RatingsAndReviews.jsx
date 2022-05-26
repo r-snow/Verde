@@ -85,6 +85,7 @@ function RatingsAndReviews() {
         fontSize: '1.5em',
         padding: '0.2em',
         border: 'solid red 2px',
+        overflowX: 'hidden',
       }}
       id="ratings-reviews"
     >

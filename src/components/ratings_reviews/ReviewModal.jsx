@@ -69,7 +69,7 @@ function ReviewModal({ toggleModal }) {
           backgroundColor: 'cyan',
           border: 'solid white 1px',
           position: 'absolute',
-          padding: '1em',
+          padding: '2em',
           alignSelf: 'center',
         }}
       >
@@ -80,7 +80,7 @@ function ReviewModal({ toggleModal }) {
             flexDirection: 'column',
             backgroundColor: 'white',
             borderRadius: '5rem',
-            padding: '3em 1em 5em 1em',
+            padding: '10em',
             justifyContent: 'center',
             alignItems: 'center',
           }}
@@ -91,7 +91,7 @@ function ReviewModal({ toggleModal }) {
           <div
             className="rating-definition"
             style={{
-              fontSize: '0.5em',
+              fontSize: '0.7em',
             }}
           >
             <p>1 - Poor</p>
@@ -147,7 +147,7 @@ function ReviewModal({ toggleModal }) {
               handleRadioChange={handleRadioChange}
             />
           </div>
-          <p>Review Summary 60 char cap</p>
+          <p>Summary</p>
           <input
             type="text"
             name="review-summary"
@@ -159,7 +159,7 @@ function ReviewModal({ toggleModal }) {
               changeFormSummary(event.target.value);
             }}
           />
-          <p>Review Body 50-1000 char + render min word counter</p>
+          <p>Body</p>
           <input
             type="text"
             name="review-body"
@@ -174,7 +174,13 @@ function ReviewModal({ toggleModal }) {
             }}
           />
           {wordCount < 50 && (
-            <p>Minimum required characters left:{50 - wordCount}</p>
+            <p
+              style={{
+                fontSize: '0.7em',
+              }}
+            >
+              <i>Minimum required characters left:{50 - wordCount}</i>
+            </p>
           )}
           {wordCount >= 50 && <p>Character requirement achieved!</p>}
           <div className="upload-photos-modal">
@@ -186,7 +192,7 @@ function ReviewModal({ toggleModal }) {
             accept="image/*"
             onChange={uploadImages}
           />
-          <p>Nickname 60 char cap</p>
+          <p>Nickname</p>
           <input
             type="text"
             name="nickname"
@@ -201,7 +207,7 @@ function ReviewModal({ toggleModal }) {
             For privacy reasons, do <i>not</i> use your full name or email
             address.
           </p>
-          <p>Email 60 char cap</p>
+          <p>Email</p>
           <input
             type="text"
             name="email"

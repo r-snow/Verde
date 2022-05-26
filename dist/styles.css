@@ -260,6 +260,11 @@ html {
   flex-direction: column;
 }
 
+.end-review-buttons {
+  padding: 0.6em 0.5em;
+  font-size: 1em;
+}
+
 .full-photo-modal-container {
   position: relative;
 }
@@ -282,19 +287,9 @@ html {
   background-color: transparent;
   color: rgb(105, 105, 105);
   text-align: center;
+  font-size: 0.5em;
+  padding: 0.5em;
 }
-
-/* .enlarged-review-photo-modal {
-  display: flex;
-  position: relative;
-  width: auto;
-  max-width: 1200px;
-  max-height: 600px;
-  margin: auto;
-  padding: auto;
-  border: 1px solid black;
-  background-color: grey;
-} */
 
 /* Review Modal Section */
 body.prevent-scroll-background {
@@ -303,14 +298,14 @@ body.prevent-scroll-background {
 
 .char-words {
   display: inline-block;
-  width: 60px;
+  width: 8rem;
   padding: 0em;
   margin: 0.35em 0em;
   height: 1px;
 }
 
 .disclaimer-text {
-  font-size: 0.2em;
+  font-size: 0.5em;
 }
 
 .full-modal-container {
@@ -335,15 +330,16 @@ body.prevent-scroll-background {
 }
 
 .name-email-input {
-  width: 20rem;
-  padding: 2px 20px;
+  width: 30rem;
+  padding: 5px 20px;
   box-sizing: border-box;
   border-radius: 5px;
   border: solid lightgray 1.5px;
 }
 
 .recommendation-radio-btns {
-  margin: 0em 1em 1em 1.5em;
+  margin: 0em 1em 1em 5em;
+  align-self: center;
 }
 
 .review-summary-form {
@@ -357,7 +353,6 @@ body.prevent-scroll-background {
 .review-body-form {
   width: 55%;
   padding: 30px 10px;
-
   box-sizing: border-box;
   border-radius: 10px;
   border: solid lightgray 1.5px;
@@ -453,6 +448,11 @@ button#clickableStars {
   border: none;
   outline: none;
   cursor: pointer;
+}
+
+#clickableStars {
+  font-size: 2em;
+  transition: 200ms all ease-in-out;
 }
 
 .on {
