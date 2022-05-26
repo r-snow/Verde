@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
 import AddOutfitCard from './AddOutfitCard';
 import Carousel from './Carousel';
 import ProductCard from './ProductCard';
 import Compare from './CompareModal';
+import sampleStyles from './sampleStylesData';
 
 export default function YourOutfit({ curProd }) {
   const [outfit, setOutfit] = useState([]);
@@ -26,7 +28,12 @@ export default function YourOutfit({ curProd }) {
         <div>
           <Carousel outfit={outfit}>
             {outfit.map((product) => (
-              <ProductCard product={product} setOpenModal={setOpenModal} />
+              <ProductCard
+                product={product}
+                setOpenModal={setOpenModal}
+                image={sampleStyles.results[0].photos[0].url}
+                key={nanoid()}
+              />
             ))}
           </Carousel>
           {openModal && (

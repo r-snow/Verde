@@ -250,6 +250,8 @@ html {
 /*------ Related Items Section -----*/
 .carousel {
   overflow: 'hidden';
+  width: 'fit-content';
+  position: relative;
 }
 
 .product-card {

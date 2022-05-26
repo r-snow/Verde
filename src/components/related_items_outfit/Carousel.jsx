@@ -16,19 +16,19 @@ export default function Carousel({ children, outfit }) {
     setActiveIndex(updatedIndex);
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!paused) {
-        updateIndex(activeIndex + 1);
-      }
-    }, 5000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     if (!paused) {
+  //       updateIndex(activeIndex + 1);
+  //     }
+  //   }, 5000);
 
-    return () => {
-      if (interval) {
-        clearInterval(interval);
-      }
-    };
-  });
+  //   return () => {
+  //     if (interval) {
+  //       clearInterval(interval);
+  //     }
+  //   };
+  // });
 
   return (
     <div className="carousel">
@@ -38,6 +38,7 @@ export default function Carousel({ children, outfit }) {
           transform: `translateX(-${activeIndex * 260}px)`,
           whiteSpace: 'nowrap',
           transition: 'transform 0.5s',
+          position: 'absolute',
         }}
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}

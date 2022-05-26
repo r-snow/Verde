@@ -24,11 +24,11 @@ export default function ProductCard({
 
   return (
     <div
+      className="product-card"
       onClick={handleClick}
       onKeyPress={handleKeyPress}
       role="button"
       tabIndex={0}
-      className="product-card"
       style={{
         width: 'fit-content',
         display: 'inline-flex',
