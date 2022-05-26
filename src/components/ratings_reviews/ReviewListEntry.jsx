@@ -22,7 +22,7 @@ function ReviewListEntry({ review }) {
         borderRadius: '5px',
         border: 'solid 2px white',
         justifyContent: 'center',
-        alignItems: 'flex-start',
+        alignItems: 'center',
         width: '100%',
       }}
     >

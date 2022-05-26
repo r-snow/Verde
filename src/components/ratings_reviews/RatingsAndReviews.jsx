@@ -14,7 +14,7 @@ function RatingsAndReviews() {
   const [ratingSwitch, toggleRatingSwitch] = useState({});
 
   const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/';
-  const id = 40343;
+  const id = 40344;
   useEffect(() => {
     axios
       .get(`${url}reviews/?product_id=${id}&count=100`, {
@@ -79,10 +79,11 @@ function RatingsAndReviews() {
       style={{
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'center',
+        justifyContent: 'start',
         fontFamily: 'Helvetica',
         fontWeight: '100',
-        padding: '1em',
+        padding: '0.2em',
+        border: 'solid white 2px',
       }}
       id="ratings-reviews"
     >
@@ -105,7 +106,11 @@ function RatingsAndReviews() {
           display: 'flex',
         }}
       >
-        <Ratings reviews={reviews} toggleRatedReviews={toggleRatedReviews} />
+        <Ratings
+          reviews={reviews}
+          ratingSwitch={ratingSwitch}
+          toggleRatedReviews={toggleRatedReviews}
+        />
         <Reviews
           reviews={ratedReviews.length === 0 ? reviews : ratedReviews}
           toggleModal={toggleModal}

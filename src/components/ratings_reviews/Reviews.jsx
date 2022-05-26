@@ -15,11 +15,11 @@ function Reviews({
       style={{
         display: 'flex',
         flexDirection: 'column',
-        // border: 'solid 5px white',
+        border: 'solid 5px white',
         width: 'calc((2 / 3) * 100% - 10px)',
         borderRadius: '5px',
         alignItems: 'center',
-        maxHeight: '400px',
+        maxHeight: '600px',
         overflowY: 'scroll',
         overflowX: 'hidden',
       }}
