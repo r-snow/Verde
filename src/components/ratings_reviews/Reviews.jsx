@@ -11,24 +11,12 @@ function Reviews({
 }) {
   // console.log(reviews, 'list of reviews');
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        border: 'solid 5px white',
-        width: 'calc((2 / 3) * 100% - 10px)',
-        borderRadius: '5px',
-        alignItems: 'center',
-        maxHeight: '700px',
-        overflowY: 'scroll',
-        overflowX: 'hidden',
-      }}
-    >
+    <div className="full-review-container">
       <select
         style={{
-          alignSelf: 'flex-end',
+          // alignSelf: 'flex-end',
           marginBottom: '1em',
-          overflow: 'hidden',
+          // overflow: 'hidden',
         }}
         onChange={(event) => sortReviews(event.target.value)}
       >
@@ -48,23 +36,33 @@ function Reviews({
       >
         Write a review
       </button>
+      <div
+        style={{
+          border: 'solid 5px green',
+          // margin: '0em 10em',
+          borderRadius: '5px',
+          maxHeight: '1000px',
+          overflowY: 'scroll',
+          overflowX: 'hidden',
+        }}
+      >
+        {reviews.slice(0, visible).map((review) => (
+          <ReviewListEntry review={review} key={review.review_id} />
+        ))}
 
-      {reviews.slice(0, visible).map((review) => (
-        <ReviewListEntry review={review} key={review.review_id} />
-      ))}
-
-      {visible < reviews.length && (
-        <button
-          type="button"
-          style={{
-            padding: '0.6em 0.5em',
-            marginTop: '1rem',
-          }}
-          onClick={addVisibility}
-        >
-          Show more
-        </button>
-      )}
+        {visible < reviews.length && (
+          <button
+            type="button"
+            style={{
+              padding: '0.6em 0.5em',
+              marginTop: '1rem',
+            }}
+            onClick={addVisibility}
+          >
+            Show more
+          </button>
+        )}
+      </div>
     </div>
   );
 }

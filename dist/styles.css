@@ -276,6 +276,14 @@ html {
   align-items: center;
 }
 
+.review-helpful-btn {
+  border: 0;
+  border-radius: 5px;
+  background-color: transparent;
+  color: rgb(105, 105, 105);
+  text-align: center;
+}
+
 /* .enlarged-review-photo-modal {
   display: flex;
   position: relative;
@@ -336,15 +344,6 @@ body.prevent-scroll-background {
 
 .recommendation-radio-btns {
   margin: 0em 1em 1em 1.5em;
-}
-
-.review-helpful-btn {
-  border: 0;
-  border-radius: 5px;
-  font-size: 0.05em;
-  background-color: transparent;
-  color: rgb(105, 105, 105);
-  text-align: center;
 }
 
 .review-summary-form {

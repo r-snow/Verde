@@ -16,14 +16,13 @@ function ReviewListEntry({ review }) {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        marginLeft: '0.5em',
-        padding: '0.2em 0.3em',
-        fontSize: '0.5em',
+        padding: '2rem',
+        fontSize: '1em',
         borderRadius: '5px',
-        border: 'solid 2px white',
+        border: 'solid 5px yellow',
         justifyContent: 'center',
         alignItems: 'flex-start',
-        width: '100%',
+        width: '80rem',
       }}
     >
       <span
@@ -93,7 +92,6 @@ function ReviewListEntry({ review }) {
         style={{
           display: 'flex',
           width: '100%',
-          fontSize: '0.5em',
           color: 'darkgray',
           margin: '2em 0em 1em 0.2em',
         }}
@@ -108,8 +106,7 @@ function ReviewListEntry({ review }) {
         style={{
           display: 'flex',
           alignItems: 'flex-end',
-          lineHeight: '10px',
-          fontSize: '0.2em',
+          // lineHeight: '10px',
           width: '100%',
         }}
       >

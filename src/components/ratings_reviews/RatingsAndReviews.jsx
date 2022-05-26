@@ -82,8 +82,9 @@ function RatingsAndReviews() {
         justifyContent: 'start',
         fontFamily: 'Helvetica',
         fontWeight: '100',
+        fontSize: '1.5em',
         padding: '0.2em',
-        border: 'solid white 2px',
+        border: 'solid red 2px',
       }}
       id="ratings-reviews"
     >
