@@ -17,7 +17,6 @@ export default function ImageGallery({
       style={{
         display: 'flex',
         alignItems: 'center',
-        // width: '700px',
       }}
     >
       <Thumbnails
@@ -25,13 +24,28 @@ export default function ImageGallery({
         currImgIdx={currImgIdx}
         setCurrImgIdx={setCurrImgIdx}
       />
+      <FontAwesomeIcon
+        icon={faAngleLeft}
+        size="xl"
+        type="button"
+        onClick={() => {
+          if (currImgIdx) {
+            decrementIdx();
+          }
+        }}
+        color={currImgIdx === 0 ? 'white' : 'black'}
+        style={{
+          marginLeft: '1em',
+        }}
+      />
       <div
         style={{
           position: 'relative',
-          height: '500px',
-          width: '500px',
+          height: '70vh',
+          width: '60vw',
           display: 'flex',
           justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
         <a href="#expanded">
@@ -48,39 +62,24 @@ export default function ImageGallery({
               src={photos[currImgIdx].url}
               alt="sample img"
               style={{
-                maxHeight: '500px',
-                maxWidth: '390px',
+                maxHeight: '70vh',
+                maxWidth: '55vw',
               }}
             />
           </button>
         </a>
-        {currImgIdx !== 0 && (
-          <FontAwesomeIcon
-            icon={faAngleLeft}
-            type="button"
-            onClick={decrementIdx}
-            color="black"
-            style={{
-              position: 'absolute',
-              top: '50%',
-              left: '1em',
-            }}
-          />
-        )}
-        {currImgIdx !== photos.length - 1 && (
-          <FontAwesomeIcon
-            icon={faAngleRight}
-            type="button"
-            onClick={incrementIdx}
-            color="black"
-            style={{
-              position: 'absolute',
-              top: '50%',
-              right: '1em',
-            }}
-          />
-        )}
       </div>
+      <FontAwesomeIcon
+        icon={faAngleRight}
+        size="xl"
+        type="button"
+        onClick={() => {
+          if (currImgIdx !== photos.length - 1) {
+            incrementIdx();
+          }
+        }}
+        color={currImgIdx === photos.length - 1 ? 'white' : 'black'}
+      />
     </section>
   );
 }

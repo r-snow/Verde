@@ -75,10 +75,8 @@ export default function Overview() {
       style={{
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'center',
+        justifyContent: 'space-around',
         alignItems: 'center',
-        gap: '8em',
-        // padding: '4em',
         flexWrap: 'wrap',
         maxWidth: '100vw',
       }}

@@ -4,7 +4,7 @@ import AddToCart from './AddToCart';
 import StyleSelector from './StyleSelector';
 import Socials from './Socials';
 import Price from '../shared/Price';
-import Stars from '../shared/Stars';
+import CustomStars from '../shared/CustomStars';
 
 export default function DescriptionDetails({
   category,
@@ -26,12 +26,32 @@ export default function DescriptionDetails({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        width: '500px',
+        width: '400px',
       }}
     >
-      <p>{category}</p>
-      <p>{name}</p>
-      {slogan.length && <b>{slogan}</b>}
+      <p
+        style={{
+          textAlign: 'center',
+        }}
+      >
+        {category}
+      </p>
+      <p
+        style={{
+          textAlign: 'center',
+        }}
+      >
+        {name}
+      </p>
+      {slogan.length && (
+        <b
+          style={{
+            textAlign: 'center',
+          }}
+        >
+          {slogan}
+        </b>
+      )}
       {description.length && (
         <p
           style={{
@@ -42,8 +62,15 @@ export default function DescriptionDetails({
         </p>
       )}
       {reviewCount > 0 && (
-        <span>
-          <Stars rating={avgRating} />
+        <span
+          style={{
+            display: 'flex',
+            gap: '0.4em',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+          }}
+        >
+          <CustomStars rating={avgRating} color="gold" size="20px" />
           <a
             href="#ratings-reviews"
             style={{
