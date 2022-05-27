@@ -25,9 +25,13 @@ function ReviewModal({ toggleModal }) {
   });
 
   const uploadImages = (event) => {
-    console.log(event.target.files[0], 'photo object');
-    axios.post('https://api.imgur.com/3/upload', event.target.files[0], {
-      headers: { Authorization: `Client-ID ${config.CLIENTID}` },
+    // console.log(event.target.files, 'photo object');
+    const bodyFormData = new FormData();
+    bodyFormData.append('image', event.target.files[0]);
+    axios.post('https://api.imgur.com/3/upload', bodyFormData, {
+      headers: {
+        Authorization: `Client-ID ${config.CLIENTID}`,
+      },
     });
   };
 
