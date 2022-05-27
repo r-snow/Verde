@@ -58,6 +58,7 @@ export default function Overview() {
         document.body.style.overflow = 'hidden';
       } else {
         document.body.style.overflow = 'initial';
+        window.location.reload();
       }
       return !prev;
     });
@@ -75,9 +76,10 @@ export default function Overview() {
       style={{
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'center',
+        justifyContent: 'space-around',
         alignItems: 'center',
-        padding: '4em',
+        flexWrap: 'wrap',
+        maxWidth: '100vw',
       }}
     >
       <ImageGallery

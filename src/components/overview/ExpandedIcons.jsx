@@ -45,33 +45,33 @@ export default function ExpandedIcons({ photos, currImgIdx, setCurrImgIdx }) {
         bottom: '2em',
       }}
     >
-      {currImgIdx !== 0 && (
-        <FontAwesomeIcon
-          icon={faCaretLeft}
-          size="lg"
-          color="black"
-          style={{
-            opacity: '0.5',
-          }}
-          onClick={() => {
+      <FontAwesomeIcon
+        icon={faCaretLeft}
+        size="lg"
+        color={currImgIdx !== 0 ? 'black' : 'white'}
+        style={{
+          opacity: '0.5',
+        }}
+        onClick={() => {
+          if (currImgIdx !== 0) {
             setCurrImgIdx((prev) => prev - 1);
-          }}
-        />
-      )}
+          }
+        }}
+      />
       {displayedIconElements}
-      {currImgIdx !== photos.length - 1 && (
-        <FontAwesomeIcon
-          icon={faCaretRight}
-          size="lg"
-          color="black"
-          style={{
-            opacity: '0.5',
-          }}
-          onClick={() => {
+      <FontAwesomeIcon
+        icon={faCaretRight}
+        size="lg"
+        color={currImgIdx !== photos.length - 1 ? 'black' : 'white'}
+        style={{
+          opacity: '0.5',
+        }}
+        onClick={() => {
+          if (currImgIdx !== photos.length - 1) {
             setCurrImgIdx((prev) => prev + 1);
-          }}
-        />
-      )}
+          }
+        }}
+      />
     </section>
   );
 }

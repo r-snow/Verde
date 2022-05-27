@@ -32,8 +32,7 @@ export default function Thumbnails({ photos, currImgIdx, setCurrImgIdx }) {
     }
     return false;
   });
-  // while currIndex is less than 6, just show the first 7
-  // if currIndex is greater than 6, show from currIndex - 6 to currIndex
+
   return (
     <section
       style={{
@@ -42,27 +41,27 @@ export default function Thumbnails({ photos, currImgIdx, setCurrImgIdx }) {
         gap: '10px',
       }}
     >
-      {currImgIdx !== 0 && (
-        <FontAwesomeIcon
-          icon={faAngleUp}
-          color="black"
-          type="button"
-          onClick={() => {
+      <FontAwesomeIcon
+        icon={faAngleUp}
+        color={currImgIdx !== 0 ? 'black' : 'white'}
+        type="button"
+        onClick={() => {
+          if (currImgIdx !== 0) {
             setCurrImgIdx((prev) => prev - 1);
-          }}
-        />
-      )}
+          }
+        }}
+      />
       {displayedThumbnailElements}
-      {currImgIdx !== photos.length - 1 && (
-        <FontAwesomeIcon
-          icon={faAngleDown}
-          color="black"
-          type="button"
-          onClick={() => {
+      <FontAwesomeIcon
+        icon={faAngleDown}
+        color={currImgIdx !== photos.length - 1 ? 'black' : 'white'}
+        type="button"
+        onClick={() => {
+          if (currImgIdx !== photos.length - 1) {
             setCurrImgIdx((prev) => prev + 1);
-          }}
-        />
-      )}
+          }
+        }}
+      />
     </section>
   );
 }
