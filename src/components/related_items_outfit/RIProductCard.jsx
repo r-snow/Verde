@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Price from '../shared/Price';
 import Stars from '../shared/Stars';
+import productReviewsData from '../overview/example_data/productReviewsData';
+import Ratings from './sampleRatings';
 
 import config from '../../../config/config';
 
@@ -24,7 +26,7 @@ export default function ProductCard({ setOpenModal, productID }) {
       .get(`${url}products/${productID}/styles`, {
         headers: { Authorization: config.TOKEN },
       })
-      .then((results) => setImage(results.data));
+      .then((results) => setImage(results.data.results[0].photos[0].url));
   }, []);
 
   const handleKeyPress = (event) => {
@@ -36,6 +38,18 @@ export default function ProductCard({ setOpenModal, productID }) {
 
   const handleClick = () => {
     console.log('Clicking here will change overview product...');
+  };
+
+  const rating = () => {
+    let avgRating = 0;
+    const reviewCount = Object.keys(Ratings.ratings).reduce((aggCount, key) => {
+      const currCount = Number(productReviewsData.ratings[key]);
+      avgRating += currCount * Number(key);
+      return aggCount + currCount;
+    }, 0);
+    avgRating /= reviewCount;
+
+    return avgRating;
   };
 
   return (
@@ -62,11 +76,11 @@ export default function ProductCard({ setOpenModal, productID }) {
           onClick={() => setOpenModal(true)}
         />
       </div>
-      {/* <img className="product-card-image" src={image} alt="Sample" /> */}
+      <img className="product-card-image" src={image} alt="Sample" />
       <p>{product.category}</p>
       <p>{product.name}</p>
       <Price price={parseFloat(product.default_price)} salePrice={120} />
-      <Stars rating={2.5} />
+      <Stars rating={rating()} />
     </div>
   );
 }

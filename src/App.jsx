@@ -5,11 +5,12 @@ import QnA from './components/questions_answers/QnA';
 import RatingsAndReviews from './components/ratings_reviews/RatingsAndReviews';
 import RelatedItems from './components/related_items_outfit/RelatedItems';
 import YourOutfit from './components/related_items_outfit/YourOutfit';
-import currentProduct from './components/overview/example_data/productData';
+import currentProduct from './components/related_items_outfit/sampleProductData';
 
 function App(props) {
   const { name } = props;
   const [curProd, setCurProd] = useState(currentProduct);
+
   return (
     <>
       <h1>

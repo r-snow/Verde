@@ -38,7 +38,7 @@ export default function RelatedItems({ curProd }) {
       </div>
       {openModal && (
         <Compare
-          curProdID={curProd.id}
+          curProdID={Number(curProd.id)}
           compProdID="40006"
           setOpenModal={setOpenModal}
         />
