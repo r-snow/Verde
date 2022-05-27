@@ -1,22 +1,52 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import ImageGallery from './ImageGallery';
 import ExpandedView from './ExpandedView';
 import DescriptionDetails from './DescriptionDetails';
-import productData from './example_data/productData';
-import productStylesData from './example_data/productStylesData';
-import productReviewsData from './example_data/productReviewsData';
+import sampleProductData from './example_data/productData';
+import sampleProductStylesData from './example_data/productStylesData';
+import sampleProductReviewsData from './example_data/productReviewsData';
+import config from '../../../config/config';
 
 export default function Overview() {
   const [isDefaultImgView, setIsDefaultImgView] = useState(true);
   const [currImgIdx, setCurrImgIdx] = useState(0);
   const [currStyle, setCurrStyle] = useState(0);
   const [skuData, setSkuData] = useState({
-    ...productStylesData.results[currStyle].skus,
     'Select Size': {
       quantity: '-',
       size: 'Select Size',
     },
   });
+  const [productID, setProductID] = useState(40347);
+  const [productData, setProductData] = useState(sampleProductData);
+  const [productStylesData, setProductStylesData] = useState(
+    sampleProductStylesData
+  );
+  const [productReviewsData, setProductReviewsData] = useState(
+    sampleProductReviewsData
+  );
+
+  const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/';
+  useEffect(() => {
+    axios
+      .get(`${url}products/${productID}`, {
+        headers: { Authorization: config.TOKEN },
+      })
+      .then((res) => setProductData(res.data));
+
+    axios
+      .get(`${url}products/${productID}/styles`, {
+        headers: { Authorization: config.TOKEN },
+      })
+      .then((res) => setProductStylesData(res.data));
+
+    axios
+      .get(`${url}reviews/meta?product_id=${productID}`, {
+        headers: { Authorization: config.TOKEN },
+      })
+      .then((res) => setProductReviewsData(res.data));
+  }, [productID]);
 
   useEffect(() => {
     setSkuData({
@@ -26,7 +56,7 @@ export default function Overview() {
         size: 'Select Size',
       },
     });
-  }, [currStyle]);
+  }, [currStyle, productStylesData]);
 
   let avgRating = 0;
   const reviewCount = Object.keys(productReviewsData.ratings).reduce(
