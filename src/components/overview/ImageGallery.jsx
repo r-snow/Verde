@@ -33,24 +33,26 @@ export default function ImageGallery({
           justifyContent: 'center',
         }}
       >
-        <button
-          type="button"
-          className="main-image-btn"
-          style={{
-            backgroundColor: 'transparent',
-            borderColor: 'transparent',
-          }}
-          onClick={changeImgView}
-        >
-          <img
-            src={photos[currImgIdx].url}
-            alt="sample img"
+        <a href="#expanded">
+          <button
+            type="button"
+            className="main-image-btn"
             style={{
-              maxHeight: '500px',
-              maxWidth: '390px',
+              backgroundColor: 'transparent',
+              borderColor: 'transparent',
             }}
-          />
-        </button>
+            onClick={changeImgView}
+          >
+            <img
+              src={photos[currImgIdx].url}
+              alt="sample img"
+              style={{
+                maxHeight: '500px',
+                maxWidth: '390px',
+              }}
+            />
+          </button>
+        </a>
         {currImgIdx !== 0 && (
           <FontAwesomeIcon
             icon={faAngleLeft}

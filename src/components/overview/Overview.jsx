@@ -85,6 +85,7 @@ export default function Overview() {
         category={productData.category}
         name={productData.name}
         description={productData.description}
+        slogan={productData.slogan}
         styles={styles}
         currStyle={currStyle}
         setCurrStyle={setCurrStyle}

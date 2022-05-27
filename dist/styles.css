@@ -44,8 +44,12 @@ html {
   cursor: pointer;
 }
 
-.expanded-view--img:hover {
+.expanded-view--standard:hover {
   cursor: crosshair;
+}
+
+.expanded-view--zoomed:hover {
+  cursor: zoom-out;
 }
 
 .svg-inline--fa {

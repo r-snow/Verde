@@ -41,6 +41,8 @@ export default function ExpandedIcons({ photos, currImgIdx, setCurrImgIdx }) {
         flexDirection: 'row',
         gap: '1em',
         alignItems: 'center',
+        position: 'absolute',
+        bottom: '2em',
       }}
     >
       {currImgIdx !== 0 && (
