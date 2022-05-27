@@ -27,7 +27,7 @@ export default function ProductCard({ setOpenModal, productID }) {
         headers: { Authorization: config.TOKEN },
       })
       .then((results) => setImage(results.data.results[0].photos[0].url));
-  }, []);
+  }, [productID]);
 
   const handleKeyPress = (event) => {
     event.preventDefault();

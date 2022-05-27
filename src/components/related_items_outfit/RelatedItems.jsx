@@ -20,7 +20,7 @@ export default function RelatedItems({ curProd }) {
         headers: { Authorization: config.TOKEN },
       })
       .then((results) => setRelatedItemIDs(results.data));
-  }, []);
+  }, [curProd.id]);
 
   return (
     <div>
