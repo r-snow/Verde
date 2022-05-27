@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import CharacteristicsButtons from './CharacteristicsButtons';
 import ClickStars from './ClickStars';
+import config from '../../../config/config';
 
 function ReviewModal({ toggleModal }) {
   const [wordCount, updateWordCount] = useState(0);
@@ -14,16 +16,23 @@ function ReviewModal({ toggleModal }) {
   const [formEmail, changeFormEmail] = useState('');
   const [formImages, changeFormImages] = useState([]);
   const [radioQualities, setRadioQualities] = useState({
-    size: '',
-    width: '',
-    comfort: '',
-    quality: '',
-    length: '',
-    function: '',
+    Size: '',
+    Width: '',
+    Comfort: '',
+    Quality: '',
+    Length: '',
+    Fit: '',
   });
 
   const uploadImages = (event) => {
-    changeFormImages(Object.values(event.target.files).slice(0, 5));
+    // console.log(event.target.files, 'photo object');
+    const bodyFormData = new FormData();
+    bodyFormData.append('image', event.target.files[0]);
+    axios.post('https://api.imgur.com/3/upload', bodyFormData, {
+      headers: {
+        Authorization: `Client-ID ${config.CLIENTID}`,
+      },
+    });
   };
 
   const handleRadioChange = (rating, newRating) => {
@@ -40,17 +49,34 @@ function ReviewModal({ toggleModal }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(
-      formRating,
-      formRecommend,
-      formSummary,
-      formBody,
-      formName,
-      formEmail,
-      formImages,
-      radioQualities
+    // console.log(radioQualities, 'radio qualities');
+    let recommended = false;
+    if (formRecommend === 'yes') {
+      recommended = true;
+    }
+    const testRadio = { ...radioQualities };
+    delete testRadio.size;
+    delete testRadio.width;
+    console.log(testRadio, 'object with postman test values');
+    const newPost = {
+      product_id: 40344,
+      rating: formRating,
+      recommend: recommended,
+      summary: formSummary,
+      body: formBody,
+      name: formName,
+      email: formEmail,
+      photos: formImages,
+      characteristics: testRadio,
+    };
+    console.log(newPost, 'obj before send');
+    axios.post(
+      `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews`,
+      newPost,
+      {
+        headers: { Authorization: config.TOKEN },
+      }
     );
-    // axios.post this form later
   };
 
   return (
@@ -66,10 +92,10 @@ function ReviewModal({ toggleModal }) {
       <div
         className="outline-color"
         style={{
-          backgroundColor: 'cyan',
+          backgroundColor: '#C2DED1',
           border: 'solid white 1px',
           position: 'absolute',
-          padding: '1em',
+          padding: '2em',
           alignSelf: 'center',
         }}
       >
@@ -80,7 +106,7 @@ function ReviewModal({ toggleModal }) {
             flexDirection: 'column',
             backgroundColor: 'white',
             borderRadius: '5rem',
-            padding: '3em 1em 5em 1em',
+            padding: '10em',
             justifyContent: 'center',
             alignItems: 'center',
           }}
@@ -91,7 +117,7 @@ function ReviewModal({ toggleModal }) {
           <div
             className="rating-definition"
             style={{
-              fontSize: '0.5em',
+              fontSize: '0.7em',
             }}
           >
             <p>1 - Poor</p>
@@ -100,26 +126,30 @@ function ReviewModal({ toggleModal }) {
             <p>4 - Good</p>
             <p>5 - Great</p>
           </div>
-          <div className="do-you-recommend">
+          <div className="do-you-recommend" style={{ marginBottom: '3rem' }}>
             <p>Do you recommend this product?</p>
-            <input
-              type="radio"
-              value="yes"
-              name="recommend-btn"
-              className="recommendation-radio-btns"
-              checked={formRecommend === 'yes'}
-              onChange={(event) => changeFormRecommend(event.target.value)}
-            />
-            Yes
-            <input
-              type="radio"
-              value="no"
-              name="recommend-btn"
-              className="recommendation-radio-btns"
-              checked={formRecommend === 'no'}
-              onChange={(event) => changeFormRecommend(event.target.value)}
-            />
-            No
+            <label htmlFor="yes">
+              <input
+                type="radio"
+                value="yes"
+                name="recommend-btn"
+                className="recommendation-radio-btns"
+                checked={formRecommend === 'yes'}
+                onChange={(event) => changeFormRecommend(event.target.value)}
+              />
+              Yes
+            </label>
+            <label htmlFor="no">
+              <input
+                type="radio"
+                value="no"
+                name="recommend-btn"
+                className="recommendation-radio-btns"
+                checked={formRecommend === 'no'}
+                onChange={(event) => changeFormRecommend(event.target.value)}
+              />
+              No
+            </label>
           </div>
           <div className="characteristics-radio-btns">
             <CharacteristicsButtons
@@ -143,75 +173,99 @@ function ReviewModal({ toggleModal }) {
               handleRadioChange={handleRadioChange}
             />
             <CharacteristicsButtons
-              characteristic="function"
+              characteristic="fit"
               handleRadioChange={handleRadioChange}
             />
           </div>
-          <p>Review Summary 60 char cap</p>
-          <input
-            type="text"
-            name="review-summary"
-            id="Review Summary"
-            placeholder="Example: Best purchase ever!"
-            className="review-summary-form"
-            maxLength="60"
-            onChange={(event) => {
-              changeFormSummary(event.target.value);
-            }}
-          />
-          <p>Review Body 50-1000 char + render min word counter</p>
-          <input
-            type="text"
-            name="review-body"
-            id="Review Body"
-            placeholder="Why did you like the product or not?"
-            className="review-body-form"
-            minLength="50"
-            maxLength="1000"
-            onChange={(event) => {
-              changeFormBody(event.target.value);
-              changeWordCount(event.target.value);
-            }}
-          />
+          <label htmlFor="body" style={{ padding: '2rem' }}>
+            Summary
+            <input
+              type="text"
+              name="review-summary"
+              id="Review Summary"
+              placeholder="Example: Best purchase ever!"
+              className="review-summary-form"
+              maxLength="60"
+              onChange={(event) => {
+                changeFormSummary(event.target.value);
+              }}
+            />
+          </label>
+          <label htmlFor="body">
+            Body
+            <input
+              type="text"
+              name="review-body"
+              id="Review Body"
+              placeholder="Why did you like the product or not?"
+              className="review-body-form"
+              minLength="50"
+              maxLength="1000"
+              onChange={(event) => {
+                changeFormBody(event.target.value);
+                changeWordCount(event.target.value);
+              }}
+            />
+          </label>
           {wordCount < 50 && (
-            <p>Minimum required characters left:{50 - wordCount}</p>
+            <p
+              style={{
+                fontSize: '0.7em',
+              }}
+            >
+              <i>Minimum required characters left:{50 - wordCount}</i>
+            </p>
           )}
           {wordCount >= 50 && <p>Character requirement achieved!</p>}
-          <div className="upload-photos-modal">
-            Upload photos (5 photos max!)
-          </div>
-          <input
-            type="file"
-            multiple
-            accept="image/*"
-            onChange={uploadImages}
-          />
-          <p>Nickname 60 char cap</p>
-          <input
-            type="text"
-            name="nickname"
-            placeholder="Example:jackson11"
-            className="name-email-input"
-            maxLength="60"
-            onChange={(event) => {
-              changeFormName(event.target.value);
+          <label
+            htmlFor="upload-photos"
+            style={{
+              fontSize: '1.5em',
+              margin: '4rem',
+              border: 'solid lightgray 0.1em',
+              borderRadius: '1rem',
+              padding: '10rem 20rem',
             }}
-          />
+          >
+            Upload up to 5 photos
+            <br />
+            <input
+              type="file"
+              multiple
+              accept="image/*"
+              onChange={uploadImages}
+            />
+          </label>
+          <label htmlFor="nickname" style={{ padding: '1rem 0rem' }}>
+            Nickname
+            <input
+              type="text"
+              name="nickname"
+              placeholder="Example:jackson11"
+              className="name-email-input"
+              maxLength="60"
+              onChange={(event) => {
+                changeFormName(event.target.value);
+              }}
+            />
+          </label>
           <p className="disclaimer-text">
             For privacy reasons, do <i>not</i> use your full name or email
             address.
           </p>
-          <p>Email 60 char cap</p>
-          <input
-            type="text"
-            name="email"
-            placeholder="Example:jackson11@email.com"
-            className="name-email-input"
-            maxLength="60"
-            onChange={(event) => {
-              changeFormEmail(event.target.value);
-            }}
-          />
+          <label htmlFor="email" style={{ padding: '1rem 0rem' }}>
+            Email
+            <input
+              type="text"
+              name="email"
+              placeholder="Example:jackson11@email.com"
+              className="name-email-input"
+              maxLength="60"
+              onChange={(event) => {
+                changeFormEmail(event.target.value);
+              }}
+            />
+          </label>
           <p
             className="disclaimer-text"
             style={{
@@ -220,7 +274,12 @@ function ReviewModal({ toggleModal }) {
           >
             For authentication reasons, you <i>will not</i> be emailed.
           </p>
-          <button type="submit">Submit</button>
+          <button
+            type="submit"
+            style={{ padding: '1rem 2rem', borderRadius: '0.5rem' }}
+          >
+            Submit
+          </button>
         </form>
       </div>
     </div>
