@@ -1,10 +1,28 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 
-export default function AddOutfitCard() {
+export default function AddOutfitCard({ handleAdd }) {
   return (
-    <div>
-      <p>+</p>
+    <div
+      className="add-outfit-card"
+      onClick={handleAdd}
+      onKeyPress={handleAdd}
+      role="button"
+      tabIndex={0}
+    >
+      <FontAwesomeIcon
+        className="add-outfit-plus"
+        icon={faCirclePlus}
+        size="xl"
+        type="button"
+      />
       <p>Add Outfit</p>
     </div>
   );
 }
+
+AddOutfitCard.propTypes = {
+  handleAdd: PropTypes.func.isRequired,
+};
