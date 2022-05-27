@@ -1,15 +1,16 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import Price from '../shared/Price';
 import Stars from '../shared/Stars';
 
-export default function ProductCard({
+export default function YOProductCard({
   image,
   // features,
-  setOpenModal,
+  handleRemove,
   product,
+  index,
 }) {
   const handleKeyPress = (event) => {
     event.preventDefault();
@@ -25,8 +26,8 @@ export default function ProductCard({
   return (
     <div
       className="product-card"
-      onClick={handleClick}
-      onKeyPress={handleKeyPress}
+      // onClick={handleClick}
+      // onKeyPress={handleKeyPress}
       role="button"
       tabIndex={0}
       style={{
@@ -40,10 +41,10 @@ export default function ProductCard({
     >
       <div className="product-card-compare">
         <FontAwesomeIcon
-          icon={faStar}
+          icon={faCircleXmark}
           size="lg"
           type="button"
-          onClick={() => setOpenModal(true)}
+          onClick={() => handleRemove(index)}
         />
       </div>
       <img className="product-card-image" src={image} alt="Sample" />
@@ -55,7 +56,7 @@ export default function ProductCard({
   );
 }
 
-ProductCard.propTypes = {
+YOProductCard.propTypes = {
   image: PropTypes.string.isRequired,
   // features: PropTypes.oneOfType([
   //   PropTypes.string,
@@ -71,5 +72,6 @@ ProductCard.propTypes = {
     PropTypes.object,
     PropTypes.array,
   ]).isRequired,
-  setOpenModal: PropTypes.func.isRequired,
+  handleRemove: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired,
 };

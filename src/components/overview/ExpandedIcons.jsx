@@ -1,29 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { nanoid } from 'nanoid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCircle,
+  faCaretRight,
+  faCaretLeft,
+} from '@fortawesome/free-solid-svg-icons';
 
-export default function Thumbnails({ photos, currImgIdx, setCurrImgIdx }) {
-  const thumbnailElements = photos.map((photo, i) => (
-    <button
-      className="main-gallery-thumbnail-container"
+import { nanoid } from 'nanoid';
+
+export default function ExpandedIcons({ photos, currImgIdx, setCurrImgIdx }) {
+  const iconElements = photos.map((photo, i) => (
+    <FontAwesomeIcon
+      icon={faCircle}
+      size="lg"
+      color="black"
+      style={{
+        opacity: currImgIdx === i ? '1' : '0.5',
+      }}
       key={nanoid()}
       type="button"
       onClick={() => setCurrImgIdx(i)}
-    >
-      <img
-        src={photo.thumbnail_url}
-        alt="thumbnail"
-        className="main-gallery-thumbnail"
-        style={{
-          borderColor: currImgIdx === i ? 'grey' : 'transparent',
-        }}
-      />
-    </button>
+    />
   ));
 
-  const displayedThumbnailElements = thumbnailElements.filter((element, i) => {
+  const displayedIconElements = iconElements.filter((element, i) => {
     if (currImgIdx <= 6 && i <= 6) {
       return true;
     }
@@ -32,32 +33,40 @@ export default function Thumbnails({ photos, currImgIdx, setCurrImgIdx }) {
     }
     return false;
   });
-  // while currIndex is less than 6, just show the first 7
-  // if currIndex is greater than 6, show from currIndex - 6 to currIndex
+
   return (
     <section
       style={{
         display: 'flex',
-        flexDirection: 'column',
-        gap: '10px',
+        flexDirection: 'row',
+        gap: '1em',
+        alignItems: 'center',
+        position: 'absolute',
+        bottom: '2em',
       }}
     >
       {currImgIdx !== 0 && (
         <FontAwesomeIcon
-          icon={faAngleUp}
+          icon={faCaretLeft}
+          size="lg"
           color="black"
-          type="button"
+          style={{
+            opacity: '0.5',
+          }}
           onClick={() => {
             setCurrImgIdx((prev) => prev - 1);
           }}
         />
       )}
-      {displayedThumbnailElements}
+      {displayedIconElements}
       {currImgIdx !== photos.length - 1 && (
         <FontAwesomeIcon
-          icon={faAngleDown}
+          icon={faCaretRight}
+          size="lg"
           color="black"
-          type="button"
+          style={{
+            opacity: '0.5',
+          }}
           onClick={() => {
             setCurrImgIdx((prev) => prev + 1);
           }}
@@ -67,7 +76,7 @@ export default function Thumbnails({ photos, currImgIdx, setCurrImgIdx }) {
   );
 }
 
-Thumbnails.propTypes = {
+ExpandedIcons.propTypes = {
   photos: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,

@@ -17,6 +17,7 @@ export default function DescriptionDetails({
   reviewCount,
   avgRating,
   skuData,
+  slogan,
 }) {
   return (
     <div
@@ -29,6 +30,7 @@ export default function DescriptionDetails({
     >
       <p>{category}</p>
       <p>{name}</p>
+      {slogan.length && <b>{slogan}</b>}
       {description.length && (
         <p
           style={{
@@ -66,6 +68,7 @@ DescriptionDetails.propTypes = {
   category: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  slogan: PropTypes.string.isRequired,
   styles: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,

@@ -44,6 +44,21 @@ html {
   cursor: pointer;
 }
 
+.expanded-view--standard:hover {
+  cursor: crosshair;
+}
+
+.expanded-view--zoomed:hover {
+  cursor: zoom-out;
+}
+
+.svg-inline--fa {
+  transition: 0.3s;
+}
+
+.svg-inline--fa:hover {
+  transform: scale(1.1);
+}
 /*------- Question and Answers Section ------*/
 .qa-widget {
   display: flex;
@@ -248,10 +263,116 @@ html {
 }
 
 /*------ Related Items Section -----*/
+.carousel {
+  overflow: hidden;
+  width: fit-content;
+  position: relative;
+}
 
-/*------ Related Items Section -----*/
+.product-card {
+  width: fit-content;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-card-image {
+  width: auto;
+  height: 300px;
+}
+
+.product-card-compare {
+  display: flex;
+  align-self: flex-end;
+  color: #9a825c;
+  opacity: 0.5;
+  margin: 10px 0px;
+}
+
+.full-modal-container,
+.compare-overlay {
+  width: 100vw;
+  height: 100vw;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.compare-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.compare-modal {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  z-index: 150; /* Overlay effect: positioned over other containers */
+  position: fixed;
+  width: 50%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-left: 1.2rem;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+}
+
+.compare-modal-close {
+  display: flex;
+  align-self: flex-end;
+  color: black;
+  margin-right: 20px;
+}
+
+.table-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.column-title {
+  display: flex;
+  flex-direction: row;
+  color: #9a825c;
+  justify-content: space-evenly;
+}
+
+.table-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  justify-content: space-evenly;
+  color: black;
+}
 
 /*------- Your outfit-------*/
+.your-outfit {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 200px;
+}
+
+.add-outfit-card {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 200px;
+  height: 500px;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px #9a825c;
+  border-style: solid;
+  border-radius: 20px;
+  margin: 30px;
+}
+
+.add-outfit-plus {
+  color: #9a825c;
+}
 
 /*------ Ratings and Reviews Section ------*/
 
@@ -380,6 +501,7 @@ body.prevent-scroll-background {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
+<<<<<<< HEAD
   object-fit: contain;
 }
 
@@ -396,6 +518,9 @@ body.prevent-scroll-background {
   width: 80px;
   border-radius: 2px;
   margin: 0 1rem 0.4rem 0;
+=======
+  object-fit: cover;
+>>>>>>> main
 }
 
 /* Stars */
