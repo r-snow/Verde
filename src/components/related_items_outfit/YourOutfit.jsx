@@ -3,16 +3,18 @@ import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import AddOutfitCard from './AddOutfitCard';
 import Carousel from './Carousel';
-import ProductCard from './ProductCard';
-import Compare from './CompareModal';
+import YOProductCard from './YOProductCard';
 import sampleStyles from './sampleStylesData';
 
 export default function YourOutfit({ curProd }) {
   const [outfit, setOutfit] = useState([]);
-  const [openModal, setOpenModal] = useState(false);
 
   const handleAdd = () => {
     setOutfit((prevOutfit) => [...prevOutfit, curProd]);
+  };
+
+  const handleRemove = () => {
+    setOutfit((prevOutfit) => prevOutfit.splice());
   };
 
   return (
@@ -22,22 +24,16 @@ export default function YourOutfit({ curProd }) {
         <AddOutfitCard className="add-oufit-card" handleAdd={handleAdd} />
         <div>
           <Carousel>
-            {outfit.map((product) => (
-              <ProductCard
+            {outfit.map((product, index) => (
+              <YOProductCard
                 product={product}
-                setOpenModal={setOpenModal}
+                handleRemove={handleRemove}
                 image={sampleStyles.results[0].photos[0].url}
                 key={nanoid()}
+                index={index}
               />
             ))}
           </Carousel>
-          {openModal && (
-            <Compare
-              curProdID="40005"
-              compProdID="40006"
-              setOpenModal={setOpenModal}
-            />
-          )}
         </div>
       </section>
     </div>

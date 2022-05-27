@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import Carousel from './Carousel';
-import ProductCard from './ProductCard';
+import ProductCard from './RIProductCard';
 import Compare from './CompareModal';
 import sampleItems from './sampleRelatedItems';
 import sampleStyles from './sampleStylesData';
