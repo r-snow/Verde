@@ -501,7 +501,6 @@ body.prevent-scroll-background {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-<<<<<<< HEAD
   object-fit: contain;
 }
 
@@ -518,9 +517,6 @@ body.prevent-scroll-background {
   width: 80px;
   border-radius: 2px;
   margin: 0 1rem 0.4rem 0;
-=======
-  object-fit: cover;
->>>>>>> main
 }
 
 /* Stars */
