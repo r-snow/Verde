@@ -4,11 +4,16 @@ import { format, parseISO } from 'date-fns';
 import Stars from '../shared/Stars';
 import ReviewPhotos from './ReviewPhotos';
 
-function ReviewListEntry({ review }) {
+function ReviewListEntry({ review, submitHelpfulNess }) {
   const [textView, setTextView] = useState(false);
+  const [clickedHelpful, setClickedHelpful] = useState(false);
 
   const changeView = () => {
     setTextView(!textView);
+  };
+
+  const toggleClickedHelpful = () => {
+    setClickedHelpful(!clickedHelpful);
   };
   // console.log(review, 'review passed down into ReviewListEntry');
   return (
@@ -111,13 +116,39 @@ function ReviewListEntry({ review }) {
           width: '100%',
         }}
       >
-        <div>Was this Review Helpful?</div>
-        <button type="button" className="review-helpful-btn">
-          Yes
-        </button>
-        <button type="button" className="review-helpful-btn">
-          No
-        </button>
+        {!clickedHelpful ? (
+          <div>
+            <div style={{ display: 'inline' }}>Was this Review Helpful?</div>
+            <button
+              type="button"
+              className="review-helpful-btn"
+              name="yes"
+              value="yes"
+              onClick={(event) => {
+                submitHelpfulNess(event.target.value, review.review_id);
+                toggleClickedHelpful();
+              }}
+            >
+              Yes
+            </button>
+            <button
+              type="button"
+              className="review-helpful-btn"
+              name="no"
+              value="no"
+              onClick={(event) => {
+                submitHelpfulNess(event.target.value, review.review_id);
+                toggleClickedHelpful();
+              }}
+            >
+              No
+            </button>
+          </div>
+        ) : (
+          <p style={{ fontSize: '0.55em', fontWeight: 'bold' }}>
+            Thank you for your feedback!
+          </p>
+        )}
         <div
           style={{
             marginLeft: 'auto',
@@ -138,6 +169,7 @@ ReviewListEntry.propTypes = {
     PropTypes.object,
     PropTypes.array,
   ]).isRequired,
+  submitHelpfulNess: PropTypes.func.isRequired,
 };
 
 export default ReviewListEntry;

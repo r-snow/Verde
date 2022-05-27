@@ -1,45 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
 // import Stars from '../shared/Stars';
 import CustomStars from '../shared/CustomStars';
 import Bars from '../shared/Bars';
 
-function Ratings({ reviews, ratingSwitch, toggleRatedReviews }) {
-  const counter = {
-    sum: 0,
-    recommendedCount: 0,
-    oneStarReviews: 0,
-    twoStarReviews: 0,
-    threeStarReviews: 0,
-    fourStarReviews: 0,
-    fiveStarReviews: 0,
-  };
-
+function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
+  const totalReviews =
+    Number(meta.recommended.true) + Number(meta.recommended.false);
+  const totalRatingScore =
+    Number(meta.ratings[5]) * 5 +
+    Number(meta.ratings[4]) * 4 +
+    Number(meta.ratings[3]) * 3 +
+    Number(meta.ratings[2]) * 2 +
+    Number(meta.ratings[1]) * 1;
+  const averageRatingScore = totalRatingScore / totalReviews;
   // computes average and # of reviews recommended the product and # of star reviews
-  for (let i = 0; i < reviews.length; i += 1) {
-    if (reviews[i].recommend === true) {
-      counter.recommendedCount += 1;
-    }
-
-    if (reviews[i].rating === 1) {
-      counter.oneStarReviews += 1;
-    }
-    if (reviews[i].rating === 2) {
-      counter.twoStarReviews += 1;
-    }
-    if (reviews[i].rating === 3) {
-      counter.threeStarReviews += 1;
-    }
-    if (reviews[i].rating === 4) {
-      counter.fourStarReviews += 1;
-    }
-    if (reviews[i].rating === 5) {
-      counter.fiveStarReviews += 1;
-    }
-
-    counter.sum += reviews[i].rating;
-  }
-  const averageRating = counter.sum / reviews.length;
   const filteredStarsKeys = Object.keys(ratingSwitch);
 
   return (
@@ -65,8 +41,8 @@ function Ratings({ reviews, ratingSwitch, toggleRatedReviews }) {
           margin: '0.4em 0em',
         }}
       >
-        {averageRating.toFixed(2)}
-        <CustomStars rating={averageRating} color="cyan" size="25px" />
+        {averageRatingScore.toFixed(2)}
+        <CustomStars rating={averageRatingScore} color="cyan" size="25px" />
       </h1>
 
       <i style={{ textAlign: 'center', marginBottom: '1em', width: '17rem' }}>
@@ -76,7 +52,7 @@ function Ratings({ reviews, ratingSwitch, toggleRatedReviews }) {
             fontSize: '2em',
           }}
         >
-          {((counter.recommendedCount / reviews.length) * 100).toFixed(2)}
+          {((Number(meta.recommended.true) / totalReviews) * 100).toFixed(2)}
         </h1>
         <p style={{ display: 'inline' }}>
           % of reviews recommend this product!
@@ -92,10 +68,10 @@ function Ratings({ reviews, ratingSwitch, toggleRatedReviews }) {
         >
           <p style={{ margin: '0em 1em' }}>5 stars</p>
           <Bars
-            reviewCount={counter.fiveStarReviews}
-            totalCount={reviews.length}
+            reviewCount={Number(meta.ratings[5])}
+            totalCount={totalReviews}
           />
-          <p style={{ margin: '0em 1em' }}>{counter.fiveStarReviews}</p>
+          <p style={{ margin: '0em 1em' }}>{Number(meta.ratings[5])}</p>
         </div>
 
         <div
@@ -107,10 +83,10 @@ function Ratings({ reviews, ratingSwitch, toggleRatedReviews }) {
         >
           <p style={{ margin: '0em 1em' }}>4 stars</p>
           <Bars
-            reviewCount={counter.fourStarReviews}
-            totalCount={reviews.length}
+            reviewCount={Number(meta.ratings[4])}
+            totalCount={totalReviews}
           />
-          <p style={{ margin: '0em 1em' }}>{counter.fourStarReviews}</p>
+          <p style={{ margin: '0em 1em' }}>{Number(meta.ratings[4])}</p>
         </div>
 
         <div
@@ -122,10 +98,10 @@ function Ratings({ reviews, ratingSwitch, toggleRatedReviews }) {
         >
           <p style={{ margin: '0em 1em' }}>3 stars</p>
           <Bars
-            reviewCount={counter.threeStarReviews}
-            totalCount={reviews.length}
+            reviewCount={Number(meta.ratings[3])}
+            totalCount={totalReviews}
           />
-          <p style={{ margin: '0em 1em' }}>{counter.threeStarReviews}</p>
+          <p style={{ margin: '0em 1em' }}>{Number(meta.ratings[3])}</p>
         </div>
 
         <div
@@ -137,10 +113,10 @@ function Ratings({ reviews, ratingSwitch, toggleRatedReviews }) {
         >
           <p style={{ margin: '0em 1em' }}>2 stars</p>
           <Bars
-            reviewCount={counter.twoStarReviews}
-            totalCount={reviews.length}
+            reviewCount={Number(meta.ratings[2])}
+            totalCount={totalReviews}
           />
-          <p style={{ margin: '0em 1em' }}>{counter.twoStarReviews}</p>
+          <p style={{ margin: '0em 1em' }}>{Number(meta.ratings[2])}</p>
         </div>
 
         <div
@@ -152,10 +128,10 @@ function Ratings({ reviews, ratingSwitch, toggleRatedReviews }) {
         >
           <p style={{ margin: '0em 1em' }}>1 stars</p>
           <Bars
-            reviewCount={counter.oneStarReviews}
-            totalCount={reviews.length}
+            reviewCount={Number(meta.ratings[1])}
+            totalCount={totalReviews}
           />
-          <p style={{ margin: '0em 1em' }}>{counter.oneStarReviews}</p>
+          <p style={{ margin: '0em 1em' }}>{Number(meta.ratings[1])}</p>
         </div>
       </div>
       <p
@@ -176,6 +152,7 @@ function Ratings({ reviews, ratingSwitch, toggleRatedReviews }) {
         {filteredStarsKeys.map((starKeys) => (
           <button
             type="button"
+            key={nanoid()}
             style={{
               padding: '0.4rem 1.6rem',
               margin: '0.2rem',
@@ -191,6 +168,13 @@ function Ratings({ reviews, ratingSwitch, toggleRatedReviews }) {
 }
 
 Ratings.propTypes = {
+  meta: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
   ratingSwitch: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
@@ -198,7 +182,6 @@ Ratings.propTypes = {
     PropTypes.object,
     PropTypes.array,
   ]).isRequired,
-  reviews: PropTypes.arrayOf(PropTypes.shape).isRequired,
   toggleRatedReviews: PropTypes.func.isRequired,
 };
 

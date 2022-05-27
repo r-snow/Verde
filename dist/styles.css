@@ -432,7 +432,7 @@ body.prevent-scroll-background {
 /* Bars */
 
 .bars:before {
-  content: '-------';
+  content: '------';
   letter-spacing: 1.5em;
   background: linear-gradient(
     90deg,

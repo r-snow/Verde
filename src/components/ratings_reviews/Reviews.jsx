@@ -8,6 +8,7 @@ function Reviews({
   visible,
   addVisibility,
   sortReviews,
+  submitHelpfulNess,
 }) {
   // console.log(reviews, 'list of reviews');
   return (
@@ -44,7 +45,11 @@ function Reviews({
         }}
       >
         {reviews.slice(0, visible).map((review) => (
-          <ReviewListEntry review={review} key={review.review_id} />
+          <ReviewListEntry
+            review={review}
+            key={review.review_id}
+            submitHelpfulNess={submitHelpfulNess}
+          />
         ))}
         <section
           className="button-container"
@@ -83,6 +88,7 @@ Reviews.propTypes = {
   visible: PropTypes.number.isRequired,
   addVisibility: PropTypes.func.isRequired,
   sortReviews: PropTypes.func.isRequired,
+  submitHelpfulNess: PropTypes.func.isRequired,
 };
 
 export default Reviews;

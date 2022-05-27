@@ -12,6 +12,28 @@ function RatingsAndReviews() {
   const [reviews, setReviews] = useState([]);
   const [visible, setVisible] = useState(2);
   const [ratingSwitch, toggleRatingSwitch] = useState({});
+  const [meta, setMeta] = useState({
+    characteristics: {
+      Comfort: {
+        id: 0,
+        value: '',
+      },
+      Fit: {
+        id: 0,
+        value: '',
+      },
+      Length: {
+        id: 0,
+        value: '',
+      },
+      Quality: {
+        id: 0,
+        value: '',
+      },
+    },
+    ratings: { 1: '', 2: '', 3: '', 4: '', 5: '' },
+    recommended: { false: '', true: '' },
+  });
 
   const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/';
   const id = 40344;
@@ -21,6 +43,11 @@ function RatingsAndReviews() {
         headers: { Authorization: config.TOKEN },
       })
       .then((results) => setReviews(results.data.results));
+    axios
+      .get(`${url}reviews/meta/?product_id=${id}`, {
+        headers: { Authorization: config.TOKEN },
+      })
+      .then((results) => setMeta({ ...results.data }));
   }, []);
 
   const toggleRatedReviews = (rating) => {
@@ -74,6 +101,14 @@ function RatingsAndReviews() {
       .then((results) => setReviews(results.data.results));
   };
 
+  const submitHelpfulNess = (value, reviewId) => {
+    if (value === 'yes') {
+      axios.put(`${url}reviews/${reviewId}/helpful`, null, {
+        headers: { Authorization: config.TOKEN },
+      });
+    }
+  };
+
   return (
     <section
       style={{
@@ -104,7 +139,7 @@ function RatingsAndReviews() {
       )}
 
       <Ratings
-        reviews={reviews}
+        meta={meta}
         ratingSwitch={ratingSwitch}
         toggleRatedReviews={toggleRatedReviews}
       />
@@ -114,6 +149,7 @@ function RatingsAndReviews() {
         visible={visible}
         addVisibility={addVisibility}
         sortReviews={sortReviews}
+        submitHelpfulNess={submitHelpfulNess}
       />
 
       {modalActive && <ReviewModal toggleModal={toggleModal} />}

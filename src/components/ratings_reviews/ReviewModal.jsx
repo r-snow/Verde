@@ -19,7 +19,6 @@ function ReviewModal({ toggleModal }) {
     comfort: '',
     quality: '',
     length: '',
-    function: '',
   });
 
   const uploadImages = (event) => {
@@ -144,10 +143,6 @@ function ReviewModal({ toggleModal }) {
             />
             <CharacteristicsButtons
               characteristic="length"
-              handleRadioChange={handleRadioChange}
-            />
-            <CharacteristicsButtons
-              characteristic="function"
               handleRadioChange={handleRadioChange}
             />
           </div>
