@@ -32,13 +32,22 @@ export default function DescriptionDetails({
       <p
         style={{
           textAlign: 'center',
+          fontFamily: 'Helvetica',
+          fontWeight: '300',
+          color: 'grey',
+          fontSize: '12px',
+          marginTop: '0',
         }}
       >
-        {category}
+        {category.toUpperCase()}
       </p>
       <p
         style={{
           textAlign: 'center',
+          fontFamily: 'Cormorant Garamond',
+          fontWeight: '500',
+          fontSize: '36px',
+          marginTop: '0',
         }}
       >
         {name}
@@ -46,7 +55,11 @@ export default function DescriptionDetails({
       {slogan.length && (
         <b
           style={{
+            marginBottom: '0',
             textAlign: 'center',
+            fontFamily: 'Cormorant Garamond',
+            fontWeight: '500',
+            fontSize: '20px',
           }}
         >
           {slogan}
@@ -55,7 +68,9 @@ export default function DescriptionDetails({
       {description.length && (
         <p
           style={{
+            fontWeight: '300',
             textAlign: 'center',
+            fontFamily: 'Cormorant Garamond',
           }}
         >
           {description}
@@ -74,10 +89,14 @@ export default function DescriptionDetails({
           <a
             href="#ratings-reviews"
             style={{
-              color: 'black',
+              fontFamily: 'Helvetica',
+              fontWeight: '300',
+              color: 'grey',
+              fontSize: '12px',
+              marginTop: '0',
             }}
           >
-            Read all {reviewCount} reviews
+            READ ALL {reviewCount} REVIEWS
           </a>
         </span>
       )}

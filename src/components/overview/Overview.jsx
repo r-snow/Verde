@@ -58,6 +58,7 @@ export default function Overview() {
         document.body.style.overflow = 'hidden';
       } else {
         document.body.style.overflow = 'initial';
+        window.location.reload();
       }
       return !prev;
     });

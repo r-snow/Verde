@@ -16,7 +16,9 @@ export default function Socials() {
         data-href="https://www.facebook.com/hackreactor"
         data-layout="box_count"
         data-size="small"
+        // src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v14.0&appId=168446345309&autoLogAppEvents=1"
       >
+        {/* <div id="fb-root"></div> */}
         <a
           target="_blank"
           rel="noreferrer"
