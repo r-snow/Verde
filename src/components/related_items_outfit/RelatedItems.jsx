@@ -1,25 +1,36 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import Carousel from './Carousel';
 import ProductCard from './RIProductCard';
 import Compare from './CompareModal';
-import sampleItems from './sampleRelatedItems';
-import sampleStyles from './sampleStylesData';
 
-export default function RelatedItems() {
+import config from '../../../config/config';
+
+export default function RelatedItems({ curProd }) {
   const [openModal, setOpenModal] = useState(false);
+  const [relatedItemIDs, setRelatedItemIDs] = useState([]);
+
+  const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/';
+  useEffect(() => {
+    axios
+      .get(`${url}products/${curProd.id}/related`, {
+        headers: { Authorization: config.TOKEN },
+      })
+      .then((results) => setRelatedItemIDs(results.data));
+  }, []);
 
   return (
     <div>
       <h2>Related Items</h2>
       <div>
         <Carousel>
-          {sampleItems.map((product) => (
+          {relatedItemIDs.map((productID) => (
             <ProductCard
-              product={product}
+              productID={productID}
               setOpenModal={setOpenModal}
-              image={sampleStyles.results[0].photos[0].url}
               key={nanoid()}
             />
           ))}
@@ -27,7 +38,7 @@ export default function RelatedItems() {
       </div>
       {openModal && (
         <Compare
-          curProdID="40005"
+          curProdID={curProd.id}
           compProdID="40006"
           setOpenModal={setOpenModal}
         />
@@ -36,6 +47,12 @@ export default function RelatedItems() {
   );
 }
 
-Compare.propTypes = {
-  setOpenModal: PropTypes.func.isRequired,
+RelatedItems.propTypes = {
+  curProd: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
 };
