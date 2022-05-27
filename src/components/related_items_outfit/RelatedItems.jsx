@@ -7,7 +7,7 @@ import Compare from './CompareModal';
 import sampleItems from './sampleRelatedItems';
 import sampleStyles from './sampleStylesData';
 
-export default function RelatedItems() {
+export default function RelatedItems({ curProd }) {
   const [openModal, setOpenModal] = useState(false);
 
   return (
@@ -27,7 +27,7 @@ export default function RelatedItems() {
       </div>
       {openModal && (
         <Compare
-          curProdID="40005"
+          curProdID={Number(curProd.id)}
           compProdID="40006"
           setOpenModal={setOpenModal}
         />
@@ -36,6 +36,12 @@ export default function RelatedItems() {
   );
 }
 
-Compare.propTypes = {
-  setOpenModal: PropTypes.func.isRequired,
+RelatedItems.propTypes = {
+  curProd: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
 };
