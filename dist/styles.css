@@ -44,6 +44,21 @@ html {
   cursor: pointer;
 }
 
+.expanded-view--standard:hover {
+  cursor: crosshair;
+}
+
+.expanded-view--zoomed:hover {
+  cursor: zoom-out;
+}
+
+.svg-inline--fa {
+  transition: 0.3s;
+}
+
+.svg-inline--fa:hover {
+  transform: scale(1.1);
+}
 /*------- Question and Answers Section ------*/
 .qa-widget {
   display: flex;
@@ -249,15 +264,17 @@ html {
 
 /*------ Related Items Section -----*/
 .carousel {
-  overflow: 'hidden';
+  overflow: hidden;
+  width: fit-content;
+  position: relative;
 }
 
 .product-card {
-  width: 'fit-content';
-  display: 'inline-flex';
-  flex-direction: 'column';
-  justify-content: 'center';
-  align-items: 'center';
+  width: fit-content;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .product-card-image {
@@ -333,6 +350,29 @@ html {
 }
 
 /*------- Your outfit-------*/
+.your-outfit {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 200px;
+}
+
+.add-outfit-card {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 200px;
+  height: 500px;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px #9a825c;
+  border-style: solid;
+  border-radius: 20px;
+  margin: 30px;
+}
+
+.add-outfit-plus {
+  color: #9a825c;
+}
 
 /*------ Ratings and Reviews Section ------*/
 

@@ -53,7 +53,14 @@ export default function Overview() {
   };
 
   const changeImgView = () => {
-    setIsDefaultImgView((prev) => !prev);
+    setIsDefaultImgView((prev) => {
+      if (prev) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'initial';
+      }
+      return !prev;
+    });
   };
 
   const currPrice = Number(productStylesData.results[currStyle].original_price);
@@ -85,6 +92,7 @@ export default function Overview() {
         category={productData.category}
         name={productData.name}
         description={productData.description}
+        slogan={productData.slogan}
         styles={styles}
         currStyle={currStyle}
         setCurrStyle={setCurrStyle}
@@ -99,6 +107,9 @@ export default function Overview() {
     <ExpandedView
       changeImgView={changeImgView}
       currPhotoUrl={productStylesData.results[currStyle].photos[currImgIdx].url}
+      photos={productStylesData.results[currStyle].photos}
+      currImgIdx={currImgIdx}
+      setCurrImgIdx={setCurrImgIdx}
     />
   );
 }

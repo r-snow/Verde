@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import Thumbnails from './Thumbnails';
 
 export default function ImageGallery({
@@ -31,49 +33,51 @@ export default function ImageGallery({
           justifyContent: 'center',
         }}
       >
-        <button
-          type="button"
-          className="main-image-btn"
-          style={{
-            backgroundColor: 'transparent',
-            borderColor: 'transparent',
-          }}
-          onClick={changeImgView}
-        >
-          <img
-            src={photos[currImgIdx].url}
-            alt="sample img"
-            style={{
-              maxHeight: '500px',
-              maxWidth: '390px',
-            }}
-          />
-        </button>
-        {currImgIdx !== 0 && (
+        <a href="#expanded">
           <button
             type="button"
+            className="main-image-btn"
+            style={{
+              backgroundColor: 'transparent',
+              borderColor: 'transparent',
+            }}
+            onClick={changeImgView}
+          >
+            <img
+              src={photos[currImgIdx].url}
+              alt="sample img"
+              style={{
+                maxHeight: '500px',
+                maxWidth: '390px',
+              }}
+            />
+          </button>
+        </a>
+        {currImgIdx !== 0 && (
+          <FontAwesomeIcon
+            icon={faAngleLeft}
+            type="button"
             onClick={decrementIdx}
+            color="black"
             style={{
               position: 'absolute',
               top: '50%',
               left: '1em',
             }}
-          >
-            Prev
-          </button>
+          />
         )}
         {currImgIdx !== photos.length - 1 && (
-          <button
+          <FontAwesomeIcon
+            icon={faAngleRight}
             type="button"
             onClick={incrementIdx}
+            color="black"
             style={{
               position: 'absolute',
               top: '50%',
               right: '1em',
             }}
-          >
-            Next
-          </button>
+          />
         )}
       </div>
     </section>
