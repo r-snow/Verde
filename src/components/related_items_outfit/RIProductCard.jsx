@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Price from '../shared/Price';
 import Stars from '../shared/Stars';
+import productReviewsData from '../overview/example_data/productReviewsData';
+import Ratings from './sampleRatings';
 
 export default function ProductCard({
   image,
@@ -20,6 +22,18 @@ export default function ProductCard({
 
   const handleClick = () => {
     console.log('Clicking here will change overview product...');
+  };
+
+  const rating = () => {
+    let avgRating = 0;
+    const reviewCount = Object.keys(Ratings.ratings).reduce((aggCount, key) => {
+      const currCount = Number(productReviewsData.ratings[key]);
+      avgRating += currCount * Number(key);
+      return aggCount + currCount;
+    }, 0);
+    avgRating /= reviewCount;
+
+    return avgRating;
   };
 
   return (
@@ -50,7 +64,7 @@ export default function ProductCard({
       <p>{product.category}</p>
       <p>{product.name}</p>
       <Price price={parseFloat(product.default_price)} salePrice={120} />
-      <Stars rating={2.5} />
+      <Stars rating={rating()} />
     </div>
   );
 }
