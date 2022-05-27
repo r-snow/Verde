@@ -13,7 +13,7 @@ export default function ExpandedIcons({ photos, currImgIdx, setCurrImgIdx }) {
   const iconElements = photos.map((photo, i) => (
     <FontAwesomeIcon
       icon={faCircle}
-      size="2xs"
+      size="lg"
       color="black"
       style={{
         opacity: currImgIdx === i ? '1' : '0.5',
@@ -48,7 +48,7 @@ export default function ExpandedIcons({ photos, currImgIdx, setCurrImgIdx }) {
       {currImgIdx !== 0 && (
         <FontAwesomeIcon
           icon={faCaretLeft}
-          size="xs"
+          size="lg"
           color="black"
           style={{
             opacity: '0.5',
@@ -62,7 +62,7 @@ export default function ExpandedIcons({ photos, currImgIdx, setCurrImgIdx }) {
       {currImgIdx !== photos.length - 1 && (
         <FontAwesomeIcon
           icon={faCaretRight}
-          size="xs"
+          size="lg"
           color="black"
           style={{
             opacity: '0.5',

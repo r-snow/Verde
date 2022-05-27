@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCompress } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCompress,
+  faAngleRight,
+  faAngleLeft,
+} from '@fortawesome/free-solid-svg-icons';
 import ExpandedIcons from './ExpandedIcons';
 
 export default function ExpandedView({
@@ -21,7 +25,6 @@ export default function ExpandedView({
 
   const handleMouseMove = (e) => {
     if (isZoomed) {
-      // console.log('onMouseMove', e.nativeEvent.clientX, e.nativeEvent.clientY);
       setX(`${(0.5 * window.innerWidth - e.nativeEvent.clientX).toString()}`);
       setY(`${(0.5 * window.innerHeight - e.nativeEvent.clientY).toString()}`);
     }
@@ -36,6 +39,40 @@ export default function ExpandedView({
         justifyContent: 'center',
       }}
     >
+      {currImgIdx !== 0 && !isZoomed && (
+        <FontAwesomeIcon
+          icon={faAngleLeft}
+          type="button"
+          color="black"
+          size="lg"
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '1em',
+            zIndex: '9999',
+          }}
+          onClick={() => {
+            setCurrImgIdx((prev) => prev - 1);
+          }}
+        />
+      )}
+      {currImgIdx !== photos.length - 1 && !isZoomed && (
+        <FontAwesomeIcon
+          icon={faAngleRight}
+          type="button"
+          color="black"
+          size="lg"
+          style={{
+            position: 'absolute',
+            top: '50%',
+            right: '1em',
+            zIndex: '9999',
+          }}
+          onClick={() => {
+            setCurrImgIdx((prev) => prev + 1);
+          }}
+        />
+      )}
       <div
         style={{
           display: 'flex',
@@ -45,7 +82,6 @@ export default function ExpandedView({
           height: '100vh',
           width: '100vw',
           justifyContent: 'center',
-          // padding: '0 2em',
         }}
       >
         {!isZoomed ? (
@@ -65,8 +101,6 @@ export default function ExpandedView({
               className="expanded-view--standard"
               alt="big img"
               style={{
-                // transform: 'scale(2.5)',
-                // padding: '4em',
                 maxHeight: '80vh',
                 maxWidth: '60vw',
                 minWidth: '0',
@@ -104,21 +138,26 @@ export default function ExpandedView({
             />
           </button>
         )}
-        <FontAwesomeIcon
-          icon={faCompress}
-          type="button"
-          onClick={changeImgView}
-          style={{
-            position: 'absolute',
-            top: '1em',
-            right: '1em',
-          }}
-        />
-        <ExpandedIcons
-          photos={photos}
-          currImgIdx={currImgIdx}
-          setCurrImgIdx={setCurrImgIdx}
-        />
+        {!isZoomed && (
+          <FontAwesomeIcon
+            icon={faCompress}
+            type="button"
+            size="lg"
+            onClick={changeImgView}
+            style={{
+              position: 'absolute',
+              top: '1em',
+              right: '1em',
+            }}
+          />
+        )}
+        {!isZoomed && (
+          <ExpandedIcons
+            photos={photos}
+            currImgIdx={currImgIdx}
+            setCurrImgIdx={setCurrImgIdx}
+          />
+        )}
       </div>
     </section>
   );

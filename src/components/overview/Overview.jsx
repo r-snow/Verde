@@ -53,7 +53,14 @@ export default function Overview() {
   };
 
   const changeImgView = () => {
-    setIsDefaultImgView((prev) => !prev);
+    setIsDefaultImgView((prev) => {
+      if (prev) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'initial';
+      }
+      return !prev;
+    });
   };
 
   const currPrice = Number(productStylesData.results[currStyle].original_price);
