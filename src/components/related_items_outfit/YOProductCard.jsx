@@ -26,8 +26,8 @@ export default function YOProductCard({
   return (
     <div
       className="product-card"
-      onClick={handleClick}
-      onKeyPress={handleKeyPress}
+      // onClick={handleClick}
+      // onKeyPress={handleKeyPress}
       role="button"
       tabIndex={0}
       style={{
@@ -44,7 +44,7 @@ export default function YOProductCard({
           icon={faCircleXmark}
           size="lg"
           type="button"
-          onClick={handleRemove()}
+          onClick={() => handleRemove(index)}
         />
       </div>
       <img className="product-card-image" src={image} alt="Sample" />

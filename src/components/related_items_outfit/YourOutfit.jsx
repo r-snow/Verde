@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import AddOutfitCard from './AddOutfitCard';
@@ -13,8 +13,11 @@ export default function YourOutfit({ curProd }) {
     setOutfit((prevOutfit) => [...prevOutfit, curProd]);
   };
 
-  const handleRemove = () => {
-    setOutfit((prevOutfit) => prevOutfit.splice());
+  const handleRemove = (index) => {
+    setOutfit((prevOutfit) => {
+      prevOutfit.splice(index, 1);
+      return prevOutfit.slice();
+    });
   };
 
   return (
