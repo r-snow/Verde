@@ -11,16 +11,21 @@ import config from '../../../config/config';
 
 export default function ProductCard({ setOpenModal, productID }) {
   const [product, setProduct] = useState({});
+  const [image, setImage] = useState('');
+
   const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/';
   useEffect(() => {
     axios
       .get(`${url}products/${productID}`, {
         headers: { Authorization: config.TOKEN },
       })
-      .then((results) => console.log(results.data));
+      .then((results) => setProduct(results.data));
+    axios
+      .get(`${url}products/${productID}/styles`, {
+        headers: { Authorization: config.TOKEN },
+      })
+      .then((results) => setImage(results.data));
   }, []);
-
-  // setProduct(results.data);
 
   const handleKeyPress = (event) => {
     event.preventDefault();
