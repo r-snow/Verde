@@ -6,6 +6,7 @@ export default function Price({ price, salePrice }) {
     <span
       style={{
         display: 'flex',
+        gap: '0.8em',
       }}
     >
       {salePrice === 0 ? (

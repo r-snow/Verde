@@ -77,7 +77,10 @@ export default function Overview() {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: '4em',
+        gap: '8em',
+        // padding: '4em',
+        flexWrap: 'wrap',
+        maxWidth: '100vw',
       }}
     >
       <ImageGallery

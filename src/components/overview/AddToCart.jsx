@@ -49,6 +49,7 @@ export default function AddToCart({ skuData, currStyle }) {
         display: 'flex',
         flexDirection: 'column',
         gap: '1em',
+        marginBottom: '1em',
       }}
     >
       <span>

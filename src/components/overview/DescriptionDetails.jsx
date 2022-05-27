@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AddToCart from './AddToCart';
 import StyleSelector from './StyleSelector';
+import Socials from './Socials';
 import Price from '../shared/Price';
 import Stars from '../shared/Stars';
 
@@ -24,8 +25,8 @@ export default function DescriptionDetails({
       style={{
         display: 'flex',
         flexDirection: 'column',
-        marginLeft: '8em',
         alignItems: 'center',
+        width: '500px',
       }}
     >
       <p>{category}</p>
@@ -60,6 +61,7 @@ export default function DescriptionDetails({
         setCurrStyle={setCurrStyle}
       />
       <AddToCart skuData={skuData} currStyle={currStyle} />
+      <Socials />
     </div>
   );
 }

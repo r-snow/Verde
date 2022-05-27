@@ -17,6 +17,7 @@ export default function ImageGallery({
       style={{
         display: 'flex',
         alignItems: 'center',
+        // width: '700px',
       }}
     >
       <Thumbnails
