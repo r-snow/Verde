@@ -1,82 +1,63 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Stars from '../shared/Stars';
+import { nanoid } from 'nanoid';
+// import Stars from '../shared/Stars';
+import CustomStars from '../shared/CustomStars';
 import Bars from '../shared/Bars';
 
-function Ratings({ reviews, toggleRatedReviews }) {
-  const counter = {
-    sum: 0,
-    recommendedCount: 0,
-    oneStarReviews: 0,
-    twoStarReviews: 0,
-    threeStarReviews: 0,
-    fourStarReviews: 0,
-    fiveStarReviews: 0,
-  };
-
+function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
+  const totalReviews =
+    Number(meta.recommended.true) + Number(meta.recommended.false);
+  const totalRatingScore =
+    Number(meta.ratings[5]) * 5 +
+    Number(meta.ratings[4]) * 4 +
+    Number(meta.ratings[3]) * 3 +
+    Number(meta.ratings[2]) * 2 +
+    Number(meta.ratings[1]) * 1;
+  const averageRatingScore = totalRatingScore / totalReviews;
   // computes average and # of reviews recommended the product and # of star reviews
-  for (let i = 0; i < reviews.length; i += 1) {
-    if (reviews[i].recommend === true) {
-      counter.recommendedCount += 1;
-    }
-
-    if (reviews[i].rating === 1) {
-      counter.oneStarReviews += 1;
-    }
-    if (reviews[i].rating === 2) {
-      counter.twoStarReviews += 1;
-    }
-    if (reviews[i].rating === 3) {
-      counter.threeStarReviews += 1;
-    }
-    if (reviews[i].rating === 4) {
-      counter.fourStarReviews += 1;
-    }
-    if (reviews[i].rating === 5) {
-      counter.fiveStarReviews += 1;
-    }
-
-    counter.sum += reviews[i].rating;
-  }
-  const averageRating = counter.sum / reviews.length;
+  const filteredStarsKeys = Object.keys(ratingSwitch);
 
   return (
     <div
       style={{
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'flex-start',
-        border: 'solid 0px white',
+        justifyContent: 'start',
+        alignItems: 'center',
+        border: 'solid 0px blue',
         borderRadius: '5px',
         padding: '2em 1em',
-        marginRight: '1em',
-        width: 'calc((1 / 3) * 100%)',
-        minWidth: '200px',
+        margin: '1em 0em 0em 0rem',
+        width: '30rem',
+        minWidth: '30rem',
         fontSize: '0.8em',
       }}
     >
-      <h4
+      <h4>Reviews & Ratings</h4>
+      <h1
         style={{
-          display: 'flex',
+          fontSize: '3.5em',
+          margin: '0.4em 0em',
         }}
       >
-        Reviews & Ratings
-      </h4>
-      <h1>
-        {averageRating.toFixed(2)}
-        <Stars rating={averageRating} />
+        {averageRatingScore.toFixed(2)}
+        <CustomStars rating={averageRatingScore} color="cyan" size="25px" />
       </h1>
-      <i>
-        {((counter.recommendedCount / reviews.length) * 100).toFixed(2)}% of
-        reviews recommend this product!
+
+      <i style={{ textAlign: 'center', marginBottom: '1em', width: '17rem' }}>
+        <h1
+          style={{
+            display: 'inline',
+            fontSize: '2em',
+          }}
+        >
+          {((Number(meta.recommended.true) / totalReviews) * 100).toFixed(2)}
+        </h1>
+        <p style={{ display: 'inline' }}>
+          % of reviews recommend this product!
+        </p>
       </i>
-      <p
-        style={{
-          alignSelf: 'center',
-        }}
-      >
-        Sort by...
-      </p>
       <div className="bars-container">
         <div
           className="indiv-bar"
@@ -85,12 +66,12 @@ function Ratings({ reviews, toggleRatedReviews }) {
           onClick={() => toggleRatedReviews(5)}
           onKeyDown={() => toggleRatedReviews(5)}
         >
-          5 stars
+          <p style={{ margin: '0em 1em' }}>5 stars</p>
           <Bars
-            reviewCount={counter.fiveStarReviews}
-            totalCount={reviews.length}
+            reviewCount={Number(meta.ratings[5])}
+            totalCount={totalReviews}
           />
-          {counter.fiveStarReviews}
+          <p style={{ margin: '0em 1em' }}>{Number(meta.ratings[5])}</p>
         </div>
 
         <div
@@ -100,12 +81,12 @@ function Ratings({ reviews, toggleRatedReviews }) {
           onClick={() => toggleRatedReviews(4)}
           onKeyPress={() => toggleRatedReviews(4)}
         >
-          4 stars
+          <p style={{ margin: '0em 1em' }}>4 stars</p>
           <Bars
-            reviewCount={counter.fourStarReviews}
-            totalCount={reviews.length}
+            reviewCount={Number(meta.ratings[4])}
+            totalCount={totalReviews}
           />
-          {counter.fourStarReviews}
+          <p style={{ margin: '0em 1em' }}>{Number(meta.ratings[4])}</p>
         </div>
 
         <div
@@ -115,12 +96,12 @@ function Ratings({ reviews, toggleRatedReviews }) {
           onClick={() => toggleRatedReviews(3)}
           onKeyDown={() => toggleRatedReviews(3)}
         >
-          3 stars
+          <p style={{ margin: '0em 1em' }}>3 stars</p>
           <Bars
-            reviewCount={counter.threeStarReviews}
-            totalCount={reviews.length}
+            reviewCount={Number(meta.ratings[3])}
+            totalCount={totalReviews}
           />
-          {counter.threeStarReviews}
+          <p style={{ margin: '0em 1em' }}>{Number(meta.ratings[3])}</p>
         </div>
 
         <div
@@ -130,12 +111,12 @@ function Ratings({ reviews, toggleRatedReviews }) {
           onClick={() => toggleRatedReviews(2)}
           onKeyDown={() => toggleRatedReviews(2)}
         >
-          2 stars
+          <p style={{ margin: '0em 1em' }}>2 stars</p>
           <Bars
-            reviewCount={counter.twoStarReviews}
-            totalCount={reviews.length}
+            reviewCount={Number(meta.ratings[2])}
+            totalCount={totalReviews}
           />
-          {counter.twoStarReviews}
+          <p style={{ margin: '0em 1em' }}>{Number(meta.ratings[2])}</p>
         </div>
 
         <div
@@ -145,20 +126,62 @@ function Ratings({ reviews, toggleRatedReviews }) {
           onClick={() => toggleRatedReviews(1)}
           onKeyDown={() => toggleRatedReviews(1)}
         >
-          1 stars
+          <p style={{ margin: '0em 1em' }}>1 stars</p>
           <Bars
-            reviewCount={counter.oneStarReviews}
-            totalCount={reviews.length}
+            reviewCount={Number(meta.ratings[1])}
+            totalCount={totalReviews}
           />
-          {counter.oneStarReviews}
+          <p style={{ margin: '0em 1em' }}>{Number(meta.ratings[1])}</p>
         </div>
+      </div>
+      <p
+        style={{
+          alignSelf: 'center',
+        }}
+      >
+        Filtered By...
+      </p>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          flexWrap: 'wrap-reverse',
+          alignSelf: 'center',
+        }}
+      >
+        {filteredStarsKeys.map((starKeys) => (
+          <button
+            type="button"
+            key={nanoid()}
+            style={{
+              padding: '0.4rem 1.6rem',
+              margin: '0.2rem',
+            }}
+            onClick={() => toggleRatedReviews(starKeys)}
+          >
+            {starKeys} stars
+          </button>
+        ))}
       </div>
     </div>
   );
 }
 
 Ratings.propTypes = {
-  reviews: PropTypes.arrayOf(PropTypes.shape).isRequired,
+  meta: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
+  ratingSwitch: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
   toggleRatedReviews: PropTypes.func.isRequired,
 };
 

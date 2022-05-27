@@ -8,27 +8,22 @@ function Reviews({
   visible,
   addVisibility,
   sortReviews,
+  submitHelpfulNess,
 }) {
   // console.log(reviews, 'list of reviews');
   return (
     <div
+      className="full-review-container"
       style={{
         display: 'flex',
         flexDirection: 'column',
-        // border: 'solid 5px white',
-        width: 'calc((2 / 3) * 100% - 10px)',
-        borderRadius: '5px',
-        alignItems: 'center',
-        maxHeight: '400px',
-        overflowY: 'scroll',
-        overflowX: 'hidden',
       }}
     >
       <select
         style={{
-          alignSelf: 'flex-end',
           marginBottom: '1em',
-          overflow: 'hidden',
+          alignSelf: 'end',
+          padding: '0.5rem 2rem',
         }}
         onChange={(event) => sortReviews(event.target.value)}
       >
@@ -37,34 +32,52 @@ function Reviews({
         <option>Newest</option>
         <option>Relevance</option>
       </select>
-      <button
-        type="button"
+
+      <div
         style={{
-          alignSelf: 'flex-end',
-          width: '150px',
-          marginBottom: '1em',
+          border: 'solid 0px green',
+          // maxWidth: '80rem',
+          // margin: '0em 10em',
+          borderRadius: '5px',
+          maxHeight: '1000px',
+          overflowY: 'scroll',
+          // overflowX: 'hidden',
         }}
-        onClick={toggleModal}
       >
-        Write a review
-      </button>
-
-      {reviews.slice(0, visible).map((review) => (
-        <ReviewListEntry review={review} key={review.review_id} />
-      ))}
-
-      {visible < reviews.length && (
-        <button
-          type="button"
+        {reviews.slice(0, visible).map((review) => (
+          <ReviewListEntry
+            review={review}
+            key={review.review_id}
+            submitHelpfulNess={submitHelpfulNess}
+          />
+        ))}
+        <section
+          className="button-container"
           style={{
-            padding: '0.6em 0.5em',
-            marginTop: '1rem',
+            display: 'flex',
+            justifyContent: 'space-around',
+            border: 'solid 0px cyan',
+            width: '100%',
           }}
-          onClick={addVisibility}
         >
-          Show more
-        </button>
-      )}
+          {visible < reviews.length && (
+            <button
+              type="button"
+              className="end-review-buttons"
+              onClick={addVisibility}
+            >
+              Show more
+            </button>
+          )}
+          <button
+            type="button"
+            className="end-review-buttons"
+            onClick={toggleModal}
+          >
+            Write a review
+          </button>
+        </section>
+      </div>
     </div>
   );
 }
@@ -75,6 +88,7 @@ Reviews.propTypes = {
   visible: PropTypes.number.isRequired,
   addVisibility: PropTypes.func.isRequired,
   sortReviews: PropTypes.func.isRequired,
+  submitHelpfulNess: PropTypes.func.isRequired,
 };
 
 export default Reviews;
