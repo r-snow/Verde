@@ -7,7 +7,7 @@ function CharacteristicsButtons({ characteristic, handleRadioChange }) {
   // capitalizes first letter of the characteristic
 
   const changeRating = (event) => {
-    handleRadioChange(characteristic, event.target.value);
+    handleRadioChange(capitalCharacteristic, event.target.value);
   };
 
   return (

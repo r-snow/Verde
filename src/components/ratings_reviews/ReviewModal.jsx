@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import CharacteristicsButtons from './CharacteristicsButtons';
 import ClickStars from './ClickStars';
+import config from '../../../config/config';
 
 function ReviewModal({ toggleModal }) {
   const [wordCount, updateWordCount] = useState(0);
@@ -14,15 +16,19 @@ function ReviewModal({ toggleModal }) {
   const [formEmail, changeFormEmail] = useState('');
   const [formImages, changeFormImages] = useState([]);
   const [radioQualities, setRadioQualities] = useState({
-    size: '',
-    width: '',
-    comfort: '',
-    quality: '',
-    length: '',
+    Size: '',
+    Width: '',
+    Comfort: '',
+    Quality: '',
+    Length: '',
+    Fit: '',
   });
 
   const uploadImages = (event) => {
-    changeFormImages(Object.values(event.target.files).slice(0, 5));
+    console.log(event.target.files[0], 'photo object');
+    axios.post('https://api.imgur.com/3/upload', event.target.files[0], {
+      headers: { Authorization: `Client-ID ${config.CLIENTID}` },
+    });
   };
 
   const handleRadioChange = (rating, newRating) => {
@@ -39,17 +45,34 @@ function ReviewModal({ toggleModal }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(
-      formRating,
-      formRecommend,
-      formSummary,
-      formBody,
-      formName,
-      formEmail,
-      formImages,
-      radioQualities
+    // console.log(radioQualities, 'radio qualities');
+    let recommended = false;
+    if (formRecommend === 'yes') {
+      recommended = true;
+    }
+    const testRadio = { ...radioQualities };
+    delete testRadio.size;
+    delete testRadio.width;
+    console.log(testRadio, 'object with postman test values');
+    const newPost = {
+      product_id: 40344,
+      rating: formRating,
+      recommend: recommended,
+      summary: formSummary,
+      body: formBody,
+      name: formName,
+      email: formEmail,
+      photos: formImages,
+      characteristics: testRadio,
+    };
+    console.log(newPost, 'obj before send');
+    axios.post(
+      `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews`,
+      newPost,
+      {
+        headers: { Authorization: config.TOKEN },
+      }
     );
-    // axios.post this form later
   };
 
   return (
@@ -143,6 +166,10 @@ function ReviewModal({ toggleModal }) {
             />
             <CharacteristicsButtons
               characteristic="length"
+              handleRadioChange={handleRadioChange}
+            />
+            <CharacteristicsButtons
+              characteristic="fit"
               handleRadioChange={handleRadioChange}
             />
           </div>
