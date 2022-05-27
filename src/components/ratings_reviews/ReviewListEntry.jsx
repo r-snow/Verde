@@ -4,11 +4,16 @@ import { format, parseISO } from 'date-fns';
 import Stars from '../shared/Stars';
 import ReviewPhotos from './ReviewPhotos';
 
-function ReviewListEntry({ review }) {
+function ReviewListEntry({ review, submitHelpfulNess }) {
   const [textView, setTextView] = useState(false);
+  const [clickedHelpful, setClickedHelpful] = useState(false);
 
   const changeView = () => {
     setTextView(!textView);
+  };
+
+  const toggleClickedHelpful = () => {
+    setClickedHelpful(!clickedHelpful);
   };
   // console.log(review, 'review passed down into ReviewListEntry');
   return (
@@ -16,14 +21,14 @@ function ReviewListEntry({ review }) {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        marginLeft: '0.5em',
-        padding: '0.2em 0.3em',
-        fontSize: '0.5em',
-        borderRadius: '5px',
-        border: 'solid 2px white',
+        padding: '2rem',
+        fontSize: '1em',
+        borderRadius: '1em',
+        border: 'solid 2px lightgray',
+        margin: '1em 0em',
         justifyContent: 'center',
         alignItems: 'flex-start',
-        width: '100%',
+        width: '80rem',
       }}
     >
       <span
@@ -93,7 +98,6 @@ function ReviewListEntry({ review }) {
         style={{
           display: 'flex',
           width: '100%',
-          fontSize: '0.5em',
           color: 'darkgray',
           margin: '2em 0em 1em 0.2em',
         }}
@@ -108,18 +112,43 @@ function ReviewListEntry({ review }) {
         style={{
           display: 'flex',
           alignItems: 'flex-end',
-          lineHeight: '10px',
-          fontSize: '0.2em',
+          // lineHeight: '10px',
           width: '100%',
         }}
       >
-        <div>Was this Review Helpful?</div>
-        <button type="button" className="review-helpful-btn">
-          Yes
-        </button>
-        <button type="button" className="review-helpful-btn">
-          No
-        </button>
+        {!clickedHelpful ? (
+          <div>
+            <div style={{ display: 'inline' }}>Was this Review Helpful?</div>
+            <button
+              type="button"
+              className="review-helpful-btn"
+              name="yes"
+              value="yes"
+              onClick={(event) => {
+                submitHelpfulNess(event.target.value, review.review_id);
+                toggleClickedHelpful();
+              }}
+            >
+              Yes
+            </button>
+            <button
+              type="button"
+              className="review-helpful-btn"
+              name="no"
+              value="no"
+              onClick={(event) => {
+                submitHelpfulNess(event.target.value, review.review_id);
+                toggleClickedHelpful();
+              }}
+            >
+              No
+            </button>
+          </div>
+        ) : (
+          <p style={{ fontSize: '0.55em', fontWeight: 'bold' }}>
+            Thank you for your feedback!
+          </p>
+        )}
         <div
           style={{
             marginLeft: 'auto',
@@ -140,6 +169,7 @@ ReviewListEntry.propTypes = {
     PropTypes.object,
     PropTypes.array,
   ]).isRequired,
+  submitHelpfulNess: PropTypes.func.isRequired,
 };
 
 export default ReviewListEntry;
