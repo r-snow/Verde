@@ -18,7 +18,7 @@ export default function Overview() {
       size: 'Select Size',
     },
   });
-  const [productID, setProductID] = useState(40347);
+  const [productID, setProductID] = useState(40344);
   const [productData, setProductData] = useState(sampleProductData);
   const [productStylesData, setProductStylesData] = useState(
     sampleProductStylesData
@@ -26,26 +26,54 @@ export default function Overview() {
   const [productReviewsData, setProductReviewsData] = useState(
     sampleProductReviewsData
   );
+  const [isLoaded, setIsLoaded] = useState({
+    product: false,
+    styles: false,
+    reviews: false,
+  });
 
   const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/';
   useEffect(() => {
+    setIsLoaded({
+      product: false,
+      styles: false,
+      reviews: false,
+    });
     axios
       .get(`${url}products/${productID}`, {
         headers: { Authorization: config.TOKEN },
       })
-      .then((res) => setProductData(res.data));
+      .then((res) => {
+        setProductData(res.data);
+        setIsLoaded((prev) => ({
+          ...prev,
+          product: true,
+        }));
+      });
 
     axios
       .get(`${url}products/${productID}/styles`, {
         headers: { Authorization: config.TOKEN },
       })
-      .then((res) => setProductStylesData(res.data));
+      .then((res) => {
+        setProductStylesData(res.data);
+        setIsLoaded((prev) => ({
+          ...prev,
+          styles: true,
+        }));
+      });
 
     axios
       .get(`${url}reviews/meta?product_id=${productID}`, {
         headers: { Authorization: config.TOKEN },
       })
-      .then((res) => setProductReviewsData(res.data));
+      .then((res) => {
+        setProductReviewsData(res.data);
+        setIsLoaded((prev) => ({
+          ...prev,
+          reviews: true,
+        }));
+      });
   }, [productID]);
 
   useEffect(() => {
@@ -88,7 +116,6 @@ export default function Overview() {
         document.body.style.overflow = 'hidden';
       } else {
         document.body.style.overflow = 'initial';
-        window.location.reload();
       }
       return !prev;
     });
@@ -102,39 +129,43 @@ export default function Overview() {
       : Number(productStylesData.results[currStyle].sale_price);
 
   return isDefaultImgView ? (
-    <section
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-        maxWidth: '100vw',
-      }}
-    >
-      <ImageGallery
-        changeImgView={changeImgView}
-        photos={productStylesData.results[currStyle].photos}
-        currImgIdx={currImgIdx}
-        incrementIdx={incrementIdx}
-        decrementIdx={decrementIdx}
-        setCurrImgIdx={setCurrImgIdx}
-      />
-      <DescriptionDetails
-        category={productData.category}
-        name={productData.name}
-        description={productData.description}
-        slogan={productData.slogan}
-        styles={styles}
-        currStyle={currStyle}
-        setCurrStyle={setCurrStyle}
-        currPrice={currPrice}
-        currSalePrice={currSalePrice}
-        reviewCount={reviewCount}
-        avgRating={avgRating}
-        skuData={skuData}
-      />
-    </section>
+    isLoaded.product === true &&
+      isLoaded.styles === true &&
+      isLoaded.reviews === true && (
+        <section
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            maxWidth: '100vw',
+          }}
+        >
+          <ImageGallery
+            changeImgView={changeImgView}
+            photos={productStylesData.results[currStyle].photos}
+            currImgIdx={currImgIdx}
+            incrementIdx={incrementIdx}
+            decrementIdx={decrementIdx}
+            setCurrImgIdx={setCurrImgIdx}
+          />
+          <DescriptionDetails
+            category={productData.category}
+            name={productData.name}
+            description={productData.description}
+            slogan={productData.slogan}
+            styles={styles}
+            currStyle={currStyle}
+            setCurrStyle={setCurrStyle}
+            currPrice={currPrice}
+            currSalePrice={currSalePrice}
+            reviewCount={reviewCount}
+            avgRating={avgRating}
+            skuData={skuData}
+          />
+        </section>
+      )
   ) : (
     <ExpandedView
       changeImgView={changeImgView}

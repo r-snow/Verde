@@ -14,11 +14,11 @@ export default function QtySelector({ availQty, selectedQty, setSelectedQty }) {
   };
 
   return availQty[0] === '-' ? (
-    <select value={selectedQty} disabled>
+    <select value={selectedQty} disabled className="qty-select">
       {qtyOptions}
     </select>
   ) : (
-    <select value={selectedQty} onChange={handleChange}>
+    <select value={selectedQty} onChange={handleChange} className="qty-select">
       {qtyOptions}
     </select>
   );

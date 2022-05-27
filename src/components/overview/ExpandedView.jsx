@@ -139,17 +139,24 @@ export default function ExpandedView({
           </button>
         )}
         {!isZoomed && (
-          <FontAwesomeIcon
-            icon={faCompress}
-            type="button"
-            size="lg"
-            onClick={changeImgView}
-            style={{
-              position: 'absolute',
-              top: '1em',
-              right: '1em',
+          <a
+            href="#top"
+            onClick={() => {
+              changeImgView();
             }}
-          />
+          >
+            <FontAwesomeIcon
+              icon={faCompress}
+              color="black"
+              type="button"
+              size="lg"
+              style={{
+                position: 'absolute',
+                top: '1em',
+                right: '1em',
+              }}
+            />
+          </a>
         )}
         {!isZoomed && (
           <ExpandedIcons

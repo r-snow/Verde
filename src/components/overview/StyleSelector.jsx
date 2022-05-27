@@ -9,17 +9,17 @@ export default function StyleSelector({ styles, currStyle, setCurrStyle }) {
 
   const thumbnails = styles.map((style, i) => (
     <button
-      className="style-thumbnail"
+      className={
+        currStyle === i ? 'style-thumbnail selected-style' : 'style-thumbnail'
+      }
       type="button"
       key={nanoid()}
       onClick={() => handleStyleClick(i)}
-      style={{
-        borderColor: currStyle === i ? 'grey' : 'transparent',
-        gridColumn: 'span 2',
-        display: 'flex',
-        justifyContent: 'center',
-        margin: '0',
-      }}
+      // style={
+      //   {
+      //     // backgroundColor: currStyle === i ? 'red' : 'transparent',
+      //   }
+      // }
     >
       <img
         src={style.iconUrl}
@@ -39,7 +39,7 @@ export default function StyleSelector({ styles, currStyle, setCurrStyle }) {
       style={{
         marginBottom: '1em',
         display: 'grid',
-        gridTemplateColumns: 'repeat(8, 25px)',
+        gridTemplateColumns: 'repeat(8, 1fr)',
         rowGap: '1em',
         columnGap: '0.5em',
       }}
