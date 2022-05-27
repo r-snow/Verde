@@ -44,6 +44,21 @@ html {
   cursor: pointer;
 }
 
+.expanded-view--standard:hover {
+  cursor: crosshair;
+}
+
+.expanded-view--zoomed:hover {
+  cursor: zoom-out;
+}
+
+.svg-inline--fa {
+  transition: 0.3s;
+}
+
+.svg-inline--fa:hover {
+  transform: scale(1.1);
+}
 /*------- Question and Answers Section ------*/
 .qa-widget {
   display: flex;
