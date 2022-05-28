@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid';
 // import Stars from '../shared/Stars';
 import CustomStars from '../shared/CustomStars';
 import Bars from '../shared/Bars';
+import Sliders from '../shared/Sliders';
 
 function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
   const totalReviews =
@@ -15,9 +16,9 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
     Number(meta.ratings[2]) * 2 +
     Number(meta.ratings[1]) * 1;
   const averageRatingScore = totalRatingScore / totalReviews;
-  // computes average and # of reviews recommended the product and # of star reviews
   const filteredStarsKeys = Object.keys(ratingSwitch);
-
+  const metaEntries = Object.entries(meta.characteristics);
+  // computes average and # of reviews recommended the product and # of star reviews
   return (
     <div
       style={{
@@ -58,6 +59,16 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
           % of reviews recommend this product!
         </p>
       </i>
+      <div className="sliders-container">
+        {metaEntries.map((entry) => (
+          <Sliders
+            id={entry[1].id}
+            key={nanoid()}
+            average={entry[1].value}
+            char={entry[0]}
+          />
+        ))}
+      </div>
       <div className="bars-container">
         <div
           className="indiv-bar"

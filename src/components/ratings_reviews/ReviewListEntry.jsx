@@ -80,7 +80,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
           <ReviewPhotos photo={photo} key={photo.id} />
         ))}
       </div>
-      <div
+      {/* <div
         className="review-char-container"
         style={{
           display: 'flex',
@@ -91,7 +91,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
         <span>Size: Awesome </span>
         <span>Fits: True to Size</span>
         <span>Length: Long</span>
-      </div>
+      </div> */}
 
       <div
         className="reviewer-name"
@@ -100,6 +100,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
           width: '100%',
           color: 'darkgray',
           margin: '2em 0em 1em 0.2em',
+          fontSize: '0.8em',
         }}
       >
         {review.reviewer_name} |{' '}
@@ -118,7 +119,9 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
       >
         {!clickedHelpful ? (
           <div>
-            <div style={{ display: 'inline' }}>Was this Review Helpful?</div>
+            <div style={{ display: 'inline', fontSize: '0.8em' }}>
+              Was this Review Helpful?
+            </div>
             <button
               type="button"
               className="review-helpful-btn"

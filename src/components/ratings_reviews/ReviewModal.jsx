@@ -30,8 +30,7 @@ function ReviewModal({ meta, toggleModal }) {
         'https://api.cloudinary.com/v1_1/dppbuevux/image/upload',
         bodyFormData
       )
-      .then((response) => changeFormImages([...formImages, response.data.url]))
-      .catch((err) => console.log(err));
+      .then((response) => changeFormImages([...formImages, response.data.url]));
   };
 
   const handleRadioChange = (id, newRating) => {
@@ -66,7 +65,6 @@ function ReviewModal({ meta, toggleModal }) {
       photos: formImages,
       characteristics: testRadio,
     };
-    console.log(newPost, 'obj before send');
     axios.post(
       `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews`,
       newPost,
