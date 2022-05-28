@@ -15,11 +15,6 @@ export default function StyleSelector({ styles, currStyle, setCurrStyle }) {
       type="button"
       key={nanoid()}
       onClick={() => handleStyleClick(i)}
-      // style={
-      //   {
-      //     // backgroundColor: currStyle === i ? 'red' : 'transparent',
-      //   }
-      // }
     >
       <img
         src={style.iconUrl}

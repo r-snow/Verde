@@ -15,7 +15,7 @@ export default function Overview() {
   const [skuData, setSkuData] = useState({
     'Select Size': {
       quantity: '-',
-      size: 'Select Size',
+      size: 'Select Size...',
     },
   });
   const [productID, setProductID] = useState(40344);
@@ -81,7 +81,7 @@ export default function Overview() {
       ...productStylesData.results[currStyle].skus,
       'Select Size': {
         quantity: '-',
-        size: 'Select Size',
+        size: 'Select Size...',
       },
     });
   }, [currStyle, productStylesData]);
