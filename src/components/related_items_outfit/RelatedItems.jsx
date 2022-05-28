@@ -5,12 +5,10 @@ import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import Carousel from './Carousel';
 import ProductCard from './RIProductCard';
-import Compare from './CompareModal';
 
 import config from '../../../config/config';
 
 export default function RelatedItems({ curProd }) {
-  const [openModal, setOpenModal] = useState(false);
   const [relatedItemIDs, setRelatedItemIDs] = useState([]);
 
   const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/';
@@ -29,20 +27,13 @@ export default function RelatedItems({ curProd }) {
         <Carousel>
           {relatedItemIDs.map((productID) => (
             <ProductCard
+              curProd={curProd}
               productID={productID}
-              setOpenModal={setOpenModal}
               key={nanoid()}
             />
           ))}
         </Carousel>
       </div>
-      {openModal && (
-        <Compare
-          curProdID={Number(curProd.id)}
-          compProdID="40006"
-          setOpenModal={setOpenModal}
-        />
-      )}
     </div>
   );
 }
