@@ -1,44 +1,44 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { nanoid } from 'nanoid';
 import CharacteristicsButtons from './CharacteristicsButtons';
 import ClickStars from './ClickStars';
 import config from '../../../config/config';
 
-function ReviewModal({ toggleModal }) {
+function ReviewModal({ meta, toggleModal }) {
   const [wordCount, updateWordCount] = useState(0);
 
-  const [formRating, changeFormRating] = useState(0);
+  const [formRating, changeFormRating] = useState(null);
   const [formRecommend, changeFormRecommend] = useState('');
   const [formSummary, changeFormSummary] = useState('');
   const [formBody, changeFormBody] = useState('');
   const [formName, changeFormName] = useState('');
   const [formEmail, changeFormEmail] = useState('');
   const [formImages, changeFormImages] = useState([]);
-  const [radioQualities, setRadioQualities] = useState({
-    Size: '',
-    Width: '',
-    Comfort: '',
-    Quality: '',
-    Length: '',
-    Fit: '',
-  });
+  const [radioQualities, setRadioQualities] = useState({});
+
+  const metaEntries = Object.entries(meta.characteristics);
 
   const uploadImages = (event) => {
     // console.log(event.target.files, 'photo object');
     const bodyFormData = new FormData();
-    bodyFormData.append('image', event.target.files[0]);
-    axios.post('https://api.imgur.com/3/upload', bodyFormData, {
-      headers: {
-        Authorization: `Client-ID ${config.CLIENTID}`,
-      },
-    });
+    bodyFormData.append('file', event.target.files[0]);
+    bodyFormData.append('upload_preset', 'vypkehti');
+    axios
+      .post(
+        'https://api.cloudinary.com/v1_1/dppbuevux/image/upload',
+        bodyFormData
+      )
+      .then((response) => changeFormImages([...formImages, response.data.url]))
+      .catch((err) => console.log(err));
   };
 
-  const handleRadioChange = (rating, newRating) => {
+  const handleRadioChange = (id, newRating) => {
+    const idString = id.toString();
     setRadioQualities((prev) => ({
       ...prev,
-      [rating]: newRating,
+      [idString]: newRating,
     }));
   };
   // finish photos
@@ -55,9 +55,6 @@ function ReviewModal({ toggleModal }) {
       recommended = true;
     }
     const testRadio = { ...radioQualities };
-    delete testRadio.size;
-    delete testRadio.width;
-    console.log(testRadio, 'object with postman test values');
     const newPost = {
       product_id: 40344,
       rating: formRating,
@@ -152,30 +149,14 @@ function ReviewModal({ toggleModal }) {
             </label>
           </div>
           <div className="characteristics-radio-btns">
-            <CharacteristicsButtons
-              characteristic="size"
-              handleRadioChange={handleRadioChange}
-            />
-            <CharacteristicsButtons
-              characteristic="width"
-              handleRadioChange={handleRadioChange}
-            />
-            <CharacteristicsButtons
-              characteristic="comfort"
-              handleRadioChange={handleRadioChange}
-            />
-            <CharacteristicsButtons
-              characteristic="quality"
-              handleRadioChange={handleRadioChange}
-            />
-            <CharacteristicsButtons
-              characteristic="length"
-              handleRadioChange={handleRadioChange}
-            />
-            <CharacteristicsButtons
-              characteristic="fit"
-              handleRadioChange={handleRadioChange}
-            />
+            {metaEntries.map((entry) => (
+              <CharacteristicsButtons
+                characteristic={entry[0]}
+                id={entry[1].id}
+                key={entry[1].id}
+                handleRadioChange={handleRadioChange}
+              />
+            ))}
           </div>
           <label htmlFor="body" style={{ padding: '2rem' }}>
             Summary
@@ -229,12 +210,19 @@ function ReviewModal({ toggleModal }) {
           >
             Upload up to 5 photos
             <br />
-            <input
-              type="file"
-              multiple
-              accept="image/*"
-              onChange={uploadImages}
-            />
+            <input type="file" accept="image/*" onChange={uploadImages} />
+            <input type="file" accept="image/*" onChange={uploadImages} />
+            <input type="file" accept="image/*" onChange={uploadImages} />
+            <input type="file" accept="image/*" onChange={uploadImages} />
+            <input type="file" accept="image/*" onChange={uploadImages} />
+            {formImages.map((image) => (
+              <img
+                src={image}
+                alt="upload"
+                key={nanoid()}
+                className="upload-review-thumbnails"
+              />
+            ))}
           </label>
           <label htmlFor="nickname" style={{ padding: '1rem 0rem' }}>
             Nickname
@@ -256,7 +244,7 @@ function ReviewModal({ toggleModal }) {
           <label htmlFor="email" style={{ padding: '1rem 0rem' }}>
             Email
             <input
-              type="text"
+              type="email"
               name="email"
               placeholder="Example:jackson11@email.com"
               className="name-email-input"
@@ -287,6 +275,13 @@ function ReviewModal({ toggleModal }) {
 }
 
 ReviewModal.propTypes = {
+  meta: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
   toggleModal: PropTypes.func.isRequired,
 };
 

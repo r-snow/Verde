@@ -487,6 +487,14 @@ body.prevent-scroll-background {
   margin: 1rem 1rem 0rem 1rem;
 }
 
+.upload-review-thumbnails {
+  height: 20vh;
+  width: 20vw;
+  border-radius: 0.5rem;
+  margin: 0.4rem 0rem;
+  object-fit: fill;
+}
+
 /* Review Photos */
 
 .full-photo-modal-container {
