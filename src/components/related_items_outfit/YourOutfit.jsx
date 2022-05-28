@@ -1,16 +1,24 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import AddOutfitCard from './AddOutfitCard';
 import Carousel from './Carousel';
 import YOProductCard from './YOProductCard';
-import sampleStyles from './sampleStylesData';
 
 export default function YourOutfit({ curProd }) {
   const [outfit, setOutfit] = useState([]);
 
   const handleAdd = () => {
-    setOutfit((prevOutfit) => [...prevOutfit, curProd]);
+    let isNewProd = true;
+    for (let i = 0; i < outfit.length; i += 1) {
+      if (outfit[i] === curProd) {
+        isNewProd = false;
+      }
+    }
+
+    if (isNewProd) {
+      setOutfit((prevOutfit) => [...prevOutfit, curProd]);
+    }
   };
 
   const handleRemove = (index) => {
@@ -27,11 +35,10 @@ export default function YourOutfit({ curProd }) {
         <AddOutfitCard className="add-oufit-card" handleAdd={handleAdd} />
         <div>
           <Carousel>
-            {outfit.map((product, index) => (
+            {outfit.map((productID, index) => (
               <YOProductCard
-                product={product}
+                productID={productID}
                 handleRemove={handleRemove}
-                image={sampleStyles.results[0].photos[0].url}
                 key={nanoid()}
                 index={index}
               />

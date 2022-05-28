@@ -9,7 +9,7 @@ import currentProduct from './components/related_items_outfit/sampleProductData'
 
 function App(props) {
   const { name } = props;
-  const [curProd, setCurProd] = useState(currentProduct);
+  const [curProd, setCurProd] = useState(Number(currentProduct.id));
 
   return (
     <>
