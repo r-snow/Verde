@@ -1,16 +1,34 @@
-import React from 'react';
+import axios from 'axios';
+
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Price from '../shared/Price';
 import Stars from '../shared/Stars';
+import productReviewsData from '../overview/example_data/productReviewsData';
+import Ratings from './sampleRatings';
 
-export default function ProductCard({
-  image,
-  // features,
-  setOpenModal,
-  product,
-}) {
+import config from '../../../config/config';
+
+export default function ProductCard({ setOpenModal, productID }) {
+  const [product, setProduct] = useState({});
+  const [image, setImage] = useState('');
+
+  const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/';
+  useEffect(() => {
+    axios
+      .get(`${url}products/${productID}`, {
+        headers: { Authorization: config.TOKEN },
+      })
+      .then((results) => setProduct(results.data));
+    axios
+      .get(`${url}products/${productID}/styles`, {
+        headers: { Authorization: config.TOKEN },
+      })
+      .then((results) => setImage(results.data.results[0].photos[0].url));
+  }, [productID]);
+
   const handleKeyPress = (event) => {
     event.preventDefault();
     if (event.key === 'Enter') {
@@ -20,6 +38,18 @@ export default function ProductCard({
 
   const handleClick = () => {
     console.log('Clicking here will change overview product...');
+  };
+
+  const rating = () => {
+    let avgRating = 0;
+    const reviewCount = Object.keys(Ratings.ratings).reduce((aggCount, key) => {
+      const currCount = Number(productReviewsData.ratings[key]);
+      avgRating += currCount * Number(key);
+      return aggCount + currCount;
+    }, 0);
+    avgRating /= reviewCount;
+
+    return avgRating;
   };
 
   return (
@@ -50,26 +80,12 @@ export default function ProductCard({
       <p>{product.category}</p>
       <p>{product.name}</p>
       <Price price={parseFloat(product.default_price)} salePrice={120} />
-      <Stars rating={2.5} />
+      <Stars rating={rating()} />
     </div>
   );
 }
 
 ProductCard.propTypes = {
-  image: PropTypes.string.isRequired,
-  // features: PropTypes.oneOfType([
-  //   PropTypes.string,
-  //   PropTypes.number,
-  //   PropTypes.bool,
-  //   PropTypes.object,
-  //   PropTypes.array,
-  // ]).isRequired,
-  product: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.bool,
-    PropTypes.object,
-    PropTypes.array,
-  ]).isRequired,
+  productID: PropTypes.number.isRequired,
   setOpenModal: PropTypes.func.isRequired,
 };

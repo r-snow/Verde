@@ -14,15 +14,19 @@ export default function StyleSelector({ styles, currStyle, setCurrStyle }) {
       key={nanoid()}
       onClick={() => handleStyleClick(i)}
       style={{
-        borderColor: currStyle === i ? 'lightgrey' : 'transparent',
+        borderColor: currStyle === i ? 'grey' : 'transparent',
+        gridColumn: 'span 2',
+        display: 'flex',
+        justifyContent: 'center',
+        margin: '0',
       }}
     >
       <img
         src={style.iconUrl}
         alt={style.styleId}
         style={{
-          width: '30px',
-          height: '30px',
+          width: '40px',
+          height: '40px',
           objectFit: 'cover',
           borderRadius: '50%',
         }}
@@ -35,8 +39,9 @@ export default function StyleSelector({ styles, currStyle, setCurrStyle }) {
       style={{
         marginBottom: '1em',
         display: 'grid',
-        gridTemplateColumns: 'repeat(4, 50px)',
+        gridTemplateColumns: 'repeat(8, 25px)',
         rowGap: '1em',
+        columnGap: '0.5em',
       }}
     >
       {thumbnails}
