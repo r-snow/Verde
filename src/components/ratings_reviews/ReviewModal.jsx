@@ -63,7 +63,7 @@ function ReviewModal({ meta, toggleModal }) {
       photos: formImages,
       characteristics: testRadio,
     };
-    console.log(newPost, 'post Obj');
+    // console.log(newPost, 'post Obj');
 
     axios
       .post(
@@ -96,7 +96,7 @@ function ReviewModal({ meta, toggleModal }) {
           backgroundColor: '#C2DED1',
           border: 'solid white 1px',
           position: 'absolute',
-          padding: '2em',
+          padding: '1.5em',
           alignSelf: 'center',
         }}
       >
@@ -107,7 +107,7 @@ function ReviewModal({ meta, toggleModal }) {
             flexDirection: 'column',
             backgroundColor: 'white',
             borderRadius: '5rem',
-            padding: '10em',
+            padding: '1rem',
             justifyContent: 'center',
             alignItems: 'center',
           }}
@@ -210,6 +210,7 @@ function ReviewModal({ meta, toggleModal }) {
               border: 'solid lightgray 0.1em',
               borderRadius: '1rem',
               padding: '10rem 20rem',
+              maxWidth: '65rem',
             }}
           >
             Upload up to 5 photos

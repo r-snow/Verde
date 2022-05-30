@@ -120,7 +120,8 @@ function RatingsAndReviews() {
         fontWeight: '100',
         fontSize: '1.5em',
         padding: '0.2em',
-        border: 'solid red 0px',
+        // border: 'solid red 5px',
+        flexWrap: 'wrap',
         overflowX: 'hidden',
       }}
       id="ratings-reviews"
