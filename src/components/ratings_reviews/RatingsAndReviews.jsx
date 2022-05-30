@@ -39,7 +39,7 @@ function RatingsAndReviews() {
   const id = 40344;
   useEffect(() => {
     axios
-      .get(`${url}reviews/?product_id=${id}&count=100`, {
+      .get(`${url}reviews/?product_id=${id}&sort=newest&count=1000`, {
         headers: { Authorization: config.TOKEN },
       })
       .then((results) => setReviews(results.data.results));
@@ -91,9 +91,10 @@ function RatingsAndReviews() {
   }
 
   const sortReviews = (sortType) => {
+    // console.log(sortType.toLowerCase());
     axios
       .get(
-        `${url}reviews/?product_id=${id}&count=100&sort=${sortType.toLowerCase()}`,
+        `${url}reviews/?product_id=${id}&count=1000&sort=${sortType.toLowerCase()}`,
         {
           headers: { Authorization: config.TOKEN },
         }
@@ -115,7 +116,7 @@ function RatingsAndReviews() {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        fontFamily: 'Helvetica',
+        fontFamily: 'Cormorant Garamond',
         fontWeight: '100',
         fontSize: '1.5em',
         padding: '0.2em',

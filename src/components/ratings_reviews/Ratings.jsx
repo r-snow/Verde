@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBarsStaggered } from '@fortawesome/free-solid-svg-icons';
 // import Stars from '../shared/Stars';
 import CustomStars from '../shared/CustomStars';
 import Bars from '../shared/Bars';
@@ -29,32 +31,39 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
         border: 'solid 0px blue',
         borderRadius: '5px',
         padding: '2em 1em',
-        margin: '1em 0em 0em 0rem',
+        margin: '0.5em 0em 0em 0rem',
         width: '30rem',
         minWidth: '30rem',
         fontSize: '0.8em',
       }}
     >
-      <h4>Reviews & Ratings</h4>
-      <h1
+      <p
+        style={{
+          fontSize: '2em',
+          margin: '0.3rem 0',
+        }}
+      >
+        Reviews & Ratings
+      </p>
+      <p
         style={{
           fontSize: '3.5em',
-          margin: '0.4em 0em',
+          margin: '0.1em 0em',
         }}
       >
         {averageRatingScore.toFixed(2)}
         <CustomStars rating={averageRatingScore} color="cyan" size="25px" />
-      </h1>
+      </p>
 
       <i style={{ textAlign: 'center', marginBottom: '1em', width: '17rem' }}>
-        <h1
+        <p
           style={{
             display: 'inline',
             fontSize: '2em',
           }}
         >
           {((Number(meta.recommended.true) / totalReviews) * 100).toFixed(2)}
-        </h1>
+        </p>
         <p style={{ display: 'inline' }}>
           % of reviews recommend this product!
         </p>
@@ -150,6 +159,14 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
           alignSelf: 'center',
         }}
       >
+        <FontAwesomeIcon
+          icon={faBarsStaggered}
+          size="xs"
+          style={{
+            opacity: '0.5',
+            margin: '0em 0.2em',
+          }}
+        />
         Filtered By...
       </p>
       <div

@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { format, parseISO } from 'date-fns';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faCircleCheck,
+  faThumbsUp,
+  faThumbsDown,
+  faComment,
+  faCertificate,
+} from '@fortawesome/free-solid-svg-icons';
 import Stars from '../shared/Stars';
 import ReviewPhotos from './ReviewPhotos';
 
@@ -18,13 +26,12 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
   // console.log(review, 'review passed down into ReviewListEntry');
   return (
     <section
+      className="reviews"
       style={{
         display: 'flex',
         flexDirection: 'column',
         padding: '2rem',
         fontSize: '1em',
-        borderRadius: '1em',
-        border: 'solid 2px lightgray',
         margin: '1em 0em',
         justifyContent: 'center',
         alignItems: 'flex-start',
@@ -80,18 +87,6 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
           <ReviewPhotos photo={photo} key={photo.id} />
         ))}
       </div>
-      {/* <div
-        className="review-char-container"
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          width: '65%',
-        }}
-      >
-        <span>Size: Awesome </span>
-        <span>Fits: True to Size</span>
-        <span>Length: Long</span>
-      </div> */}
 
       <div
         className="reviewer-name"
@@ -99,14 +94,37 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
           display: 'flex',
           width: '100%',
           color: 'darkgray',
-          margin: '2em 0em 1em 0.2em',
+          margin: '2em 0em 0em 0.2em',
           fontSize: '0.8em',
         }}
       >
         {review.reviewer_name} |{' '}
-        {format(parseISO(review.date), 'MMMM dd, yyyy')} | Verified User |{' '}
-        {review.recommend && 'Recommended!'}
+        {format(parseISO(review.date), 'MMMM dd, yyyy')} | Verified User{' '}
+        <FontAwesomeIcon
+          icon={faCertificate}
+          size="xs"
+          style={{
+            opacity: '0.5',
+            margin: '0.3em 0.2em',
+          }}
+        />
       </div>
+      <span
+        style={{
+          fontSize: '0.65em',
+          margin: '0.7rem 0rem',
+        }}
+      >
+        <FontAwesomeIcon
+          icon={faCircleCheck}
+          size="m"
+          style={{
+            opacity: '0.5',
+            margin: '0em 0.2em',
+          }}
+        />
+        {review.recommend && 'I recommended this product!'}
+      </span>
 
       <div
         className="misc-container"
@@ -132,7 +150,14 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
                 toggleClickedHelpful();
               }}
             >
-              Yes
+              <FontAwesomeIcon
+                icon={faThumbsUp}
+                size="m"
+                style={{
+                  opacity: '0.5',
+                  margin: '0em 0.2em',
+                }}
+              />
             </button>
             <button
               type="button"
@@ -144,7 +169,14 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
                 toggleClickedHelpful();
               }}
             >
-              No
+              <FontAwesomeIcon
+                icon={faThumbsDown}
+                size="m"
+                style={{
+                  opacity: '0.5',
+                  margin: '0em 0.2em',
+                }}
+              />
             </button>
           </div>
         ) : (
@@ -158,6 +190,14 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
           }}
         >
           Leave a comment
+          <FontAwesomeIcon
+            icon={faComment}
+            size="xs"
+            style={{
+              opacity: '0.5',
+              margin: '0em 0.4em',
+            }}
+          />
         </div>
       </div>
     </section>

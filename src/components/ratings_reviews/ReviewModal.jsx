@@ -40,7 +40,6 @@ function ReviewModal({ meta, toggleModal }) {
       [idString]: newRating,
     }));
   };
-  // finish photos
 
   const changeWordCount = (text) => {
     updateWordCount(text.length);
@@ -48,7 +47,6 @@ function ReviewModal({ meta, toggleModal }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(radioQualities, 'radio qualities');
     let recommended = false;
     if (formRecommend === 'yes') {
       recommended = true;
@@ -65,13 +63,21 @@ function ReviewModal({ meta, toggleModal }) {
       photos: formImages,
       characteristics: testRadio,
     };
-    axios.post(
-      `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews`,
-      newPost,
-      {
-        headers: { Authorization: config.TOKEN },
-      }
-    );
+    console.log(newPost, 'post Obj');
+
+    axios
+      .post(
+        `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews`,
+        newPost,
+        {
+          headers: { Authorization: config.TOKEN },
+        }
+      )
+      .then(() => {
+        toggleModal();
+        console.log('Successful Post');
+      })
+      .catch((err) => console.log(err));
   };
 
   return (

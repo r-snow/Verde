@@ -482,6 +482,24 @@ html {
   padding: 0.5em;
 }
 
+.reviews {
+  border-radius: 1em;
+  border: solid 2px lightgray;
+  /* border-image: linear-gradient(
+      to bottom,
+      rgb(27, 240, 158),
+      rgba(47, 214, 200, 1)
+    )
+    1 100%; */
+  /* border-width: 0.3rem;
+  border-style: solid; */
+  transition: 200ms all ease-in-out;
+}
+
+.reviews:hover {
+  border: solid 2px aquamarine;
+}
+
 /* Review Modal Section */
 body.prevent-scroll-background {
   overflow-y: hidden;
@@ -678,7 +696,7 @@ body.prevent-scroll-background {
 
 .sliders-container {
   text-align: center;
-  margin: 15px 0;
+  margin: 0.3rem 0;
 }
 
 /* Clickable Stars */
