@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function CharacteristicsButtons({ characteristic, handleRadioChange }) {
-  const capitalCharacteristic =
-    characteristic.charAt(0).toUpperCase() + characteristic.slice(1);
-  // capitalizes first letter of the characteristic
-
+function CharacteristicsButtons({ characteristic, id, handleRadioChange }) {
   const changeRating = (event) => {
-    handleRadioChange(capitalCharacteristic, event.target.value);
+    const qualityRating = Number(event.target.value);
+    handleRadioChange(id, qualityRating);
   };
 
   return (
@@ -21,7 +18,7 @@ function CharacteristicsButtons({ characteristic, handleRadioChange }) {
         minWidth: '40rem',
       }}
     >
-      <p className="char-words">{capitalCharacteristic}</p>
+      <p className="char-words">{characteristic}</p>
       <input
         type="radio"
         value="1"
@@ -68,6 +65,7 @@ function CharacteristicsButtons({ characteristic, handleRadioChange }) {
 
 CharacteristicsButtons.propTypes = {
   characteristic: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   handleRadioChange: PropTypes.func.isRequired,
 };
 
