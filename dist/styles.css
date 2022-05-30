@@ -8,7 +8,20 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  /* padding: 0; */
+  margin: 0;
+}
+
+#app {
+  background-color: #f8f8ff;
+}
 /*-------- Overview Styles Section -------*/
+.header--cart {
+  position: relative;
+}
+
 .main-image-btn:hover {
   cursor: zoom-in;
 }
@@ -113,6 +126,10 @@ html {
   cursor: pointer;
 }
 
+.qty-select,
+.size-select {
+  background-color: white;
+}
 .size-select {
   margin-right: 1em;
   width: 140px;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import Header from './components/overview/Header';
 import Overview from './components/overview/Overview';
 import QnA from './components/questions_answers/QnA';
 import RatingsAndReviews from './components/ratings_reviews/RatingsAndReviews';
@@ -13,10 +14,11 @@ function App(props) {
 
   return (
     <>
-      <h1 id="top">
+      {/* <h1 id="top">
         Hello
         {` ${name}`}
-      </h1>
+      </h1> */}
+      <Header />
       <Overview />
       <RelatedItems curProd={curProd} setCurProd={setCurProd} />
       <YourOutfit curProd={curProd} />
