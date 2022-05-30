@@ -1,4 +1,10 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faFacebookSquare,
+  faTwitterSquare,
+  faPinterestSquare,
+} from '@fortawesome/free-brands-svg-icons';
 
 export default function Socials() {
   return (
@@ -11,40 +17,28 @@ export default function Socials() {
         alignItems: 'center',
       }}
     >
-      <div
-        className="fb-share-button"
-        data-href="https://www.facebook.com/hackreactor"
-        data-layout="box_count"
-        data-size="small"
-        // src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v14.0&appId=168446345309&autoLogAppEvents=1"
-      >
-        {/* <div id="fb-root"></div> */}
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2Fhackreactor&amp;src=sdkpreparse"
-          className="fb-xfbml-parse-ignore"
-        >
-          Share
-        </a>
-      </div>
       <a
-        href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-        className="twitter-share-button"
-        data-size="large"
-        data-text="Team Verde really killed it @HackReactor"
-        data-url="https://github.com/RFP-Verde"
-        data-hashtags="FEC"
-        data-show-count="false"
+        target="_blank"
+        rel="noreferrer"
+        href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2Fhackreactor&amp;src=sdkpreparse"
       >
-        Tweet
+        <FontAwesomeIcon icon={faFacebookSquare} color="grey" size="2xl" />
       </a>
       <a
+        target="_blank"
+        rel="noreferrer"
+        href="https://twitter.com/intent/tweet?hashtags=FEC&original_referer=https%3A%2F%2Fpublish.twitter.com%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&text=Team%20Verde%20really%20killed%20it%20%40HackReactor%20https%3A%2F%2Fgithub.com%2FRFP-Verde"
+      >
+        <FontAwesomeIcon icon={faTwitterSquare} color="grey" size="2xl" />
+      </a>
+      <a
+        target="_blank"
+        rel="noreferrer"
         href="https://www.pinterest.com/pin/create/button/"
         data-pin-do="buttonBookmark"
         data-pin-tall="true"
       >
-        {' '}
+        <FontAwesomeIcon icon={faPinterestSquare} color="grey" size="2xl" />
       </a>
     </section>
   );

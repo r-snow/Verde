@@ -77,7 +77,9 @@ export default function AddToCart({ skuData, currStyle }) {
           setSelectedQty={setSelectedQty}
         />
       </span>
-      <button type="submit">Add to Cart</button>
+      <button type="submit" className="add-to-cart--btn">
+        ADD TO CART
+      </button>
     </form>
   );
 }

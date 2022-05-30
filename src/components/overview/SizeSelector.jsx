@@ -14,15 +14,11 @@ export default function SizeSelector({ skuData, currSku, setCurrSku }) {
   };
 
   return sizeOptions.length > 1 ? (
-    <select
-      value={currSku}
-      onChange={handleChange}
-      style={{ marginRight: '1em' }}
-    >
+    <select value={currSku} onChange={handleChange} className="size-select">
       {sizeOptions}
     </select>
   ) : (
-    <select value="oos" disabled style={{ marginRight: '1em' }}>
+    <select value="oos" disabled className="size-select">
       <option value="oos">OUT OF STOCK</option>
     </select>
   );
