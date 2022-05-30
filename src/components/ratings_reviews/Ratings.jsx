@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBarsStaggered } from '@fortawesome/free-solid-svg-icons';
 // import Stars from '../shared/Stars';
 import CustomStars from '../shared/CustomStars';
 import Bars from '../shared/Bars';
+import Sliders from '../shared/Sliders';
 
 function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
   const totalReviews =
@@ -15,9 +18,9 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
     Number(meta.ratings[2]) * 2 +
     Number(meta.ratings[1]) * 1;
   const averageRatingScore = totalRatingScore / totalReviews;
-  // computes average and # of reviews recommended the product and # of star reviews
   const filteredStarsKeys = Object.keys(ratingSwitch);
-
+  const metaEntries = Object.entries(meta.characteristics);
+  // computes average and # of reviews recommended the product and # of star reviews
   return (
     <div
       style={{
@@ -25,39 +28,56 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
         flexDirection: 'column',
         justifyContent: 'start',
         alignItems: 'center',
-        border: 'solid 0px blue',
-        borderRadius: '5px',
+        // border: 'solid 5px blue',
+        borderRadius: '3rem',
         padding: '2em 1em',
-        margin: '1em 0em 0em 0rem',
+        margin: 'auto',
         width: '30rem',
         minWidth: '30rem',
         fontSize: '0.8em',
       }}
     >
-      <h4>Reviews & Ratings</h4>
-      <h1
+      <div
+        style={{
+          fontSize: '2em',
+          margin: '0.3rem 0',
+        }}
+      >
+        Reviews & Ratings
+      </div>
+      <div
         style={{
           fontSize: '3.5em',
-          margin: '0.4em 0em',
+          margin: '0.1em 0em',
         }}
       >
         {averageRatingScore.toFixed(2)}
         <CustomStars rating={averageRatingScore} color="cyan" size="25px" />
-      </h1>
+      </div>
 
       <i style={{ textAlign: 'center', marginBottom: '1em', width: '17rem' }}>
-        <h1
+        <p
           style={{
             display: 'inline',
             fontSize: '2em',
           }}
         >
           {((Number(meta.recommended.true) / totalReviews) * 100).toFixed(2)}
-        </h1>
+        </p>
         <p style={{ display: 'inline' }}>
           % of reviews recommend this product!
         </p>
       </i>
+      <div className="sliders-container">
+        {metaEntries.map((entry) => (
+          <Sliders
+            id={entry[1].id}
+            key={nanoid()}
+            average={entry[1].value}
+            char={entry[0]}
+          />
+        ))}
+      </div>
       <div className="bars-container">
         <div
           className="indiv-bar"
@@ -139,6 +159,14 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
           alignSelf: 'center',
         }}
       >
+        <FontAwesomeIcon
+          icon={faBarsStaggered}
+          size="xs"
+          style={{
+            opacity: '0.5',
+            margin: '0em 0.2em',
+          }}
+        />
         Filtered By...
       </p>
       <div
