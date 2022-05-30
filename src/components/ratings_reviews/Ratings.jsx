@@ -37,15 +37,15 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
         fontSize: '0.8em',
       }}
     >
-      <p
+      <div
         style={{
           fontSize: '2em',
           margin: '0.3rem 0',
         }}
       >
         Reviews & Ratings
-      </p>
-      <p
+      </div>
+      <div
         style={{
           fontSize: '3.5em',
           margin: '0.1em 0em',
@@ -53,7 +53,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
       >
         {averageRatingScore.toFixed(2)}
         <CustomStars rating={averageRatingScore} color="cyan" size="25px" />
-      </p>
+      </div>
 
       <i style={{ textAlign: 'center', marginBottom: '1em', width: '17rem' }}>
         <p

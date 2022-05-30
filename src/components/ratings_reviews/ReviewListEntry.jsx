@@ -54,6 +54,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
         <span
           style={{
             padding: '1em 0em',
+            maxWidth: '60vw',
           }}
         >
           {review.body}
@@ -122,7 +123,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
           <div>
             <FontAwesomeIcon
               icon={faCircleCheck}
-              size="XL"
+              size="xl"
               style={{
                 opacity: '0.5',
                 margin: '0em 0.1em',
@@ -177,7 +178,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
             >
               <FontAwesomeIcon
                 icon={faThumbsUp}
-                size="m"
+                size="sm"
                 style={{
                   opacity: '0.5',
                   margin: '0em 0.2em',
@@ -196,7 +197,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
             >
               <FontAwesomeIcon
                 icon={faThumbsDown}
-                size="m"
+                size="sm"
                 style={{
                   opacity: '0.5',
                   margin: '0em 0.2em',
