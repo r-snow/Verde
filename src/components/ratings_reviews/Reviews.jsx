@@ -6,11 +6,11 @@ import ReviewListEntry from './ReviewListEntry';
 
 function Reviews({
   reviews,
-  // toggleModal,
   visible,
-  // addVisibility,
   sortReviews,
   submitHelpfulNess,
+  // toggleModal,
+  // addVisibility,
 }) {
   return (
     <div
@@ -63,11 +63,11 @@ function Reviews({
 
 Reviews.propTypes = {
   reviews: PropTypes.arrayOf(PropTypes.shape).isRequired,
-  // toggleModal: PropTypes.func.isRequired,
   visible: PropTypes.number.isRequired,
-  // addVisibility: PropTypes.func.isRequired,
   sortReviews: PropTypes.func.isRequired,
   submitHelpfulNess: PropTypes.func.isRequired,
+  // toggleModal: PropTypes.func.isRequired,
+  // addVisibility: PropTypes.func.isRequired,
 };
 
 export default Reviews;

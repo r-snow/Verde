@@ -177,6 +177,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
           <button
             type="button"
             key={nanoid()}
+            className="review-button"
             style={{
               padding: '0.4rem 1.6rem',
               margin: '0.2rem',
