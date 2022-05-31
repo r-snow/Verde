@@ -82,7 +82,7 @@ export default function DescriptionDetails({
         <span
           style={{
             display: 'flex',
-            gap: '0.4em',
+            gap: '0.4rem',
             flexWrap: 'wrap',
             alignItems: 'center',
           }}
@@ -102,7 +102,7 @@ export default function DescriptionDetails({
           </a>
         </span>
       )}
-      <Price price={currPrice} salePrice={currSalePrice} fontSize={24} />
+      <Price price={currPrice} salePrice={currSalePrice} fontSize={30} />
       <p
         style={{
           fontFamily: 'Helvetica',
