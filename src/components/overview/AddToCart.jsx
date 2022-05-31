@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import SizeSelector from './SizeSelector';
 import QtySelector from './QtySelector';
+import CartMessage from './CartMessage';
+import config from '../../../config/config';
 
 export default function AddToCart({ skuData, currStyle }) {
   const [currSku, setCurrSku] = useState('Select Size');
   const [availQty, setAvailQty] = useState(['-']);
   const [selectedQty, setSelectedQty] = useState('-');
-  const [showSizeWarning, setShowSizeWarning] = useState(false);
+  const [message, setMessage] = useState('none');
 
   useEffect(() => {
     let newMax = skuData[currSku].quantity;
@@ -34,11 +37,23 @@ export default function AddToCart({ skuData, currStyle }) {
   const handleCartSubmit = (e) => {
     e.preventDefault();
     if (currSku === 'Select Size') {
-      setShowSizeWarning(true);
-      // alert('Please pick a size');
+      setMessage('warning');
     } else {
-      setShowSizeWarning(false);
-      // open the dropdown somehow
+      setMessage('none');
+      const count = e.target[1].value;
+      axios
+        .post(
+          'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/cart',
+          {
+            sku_id: Number(currSku),
+            count,
+          },
+          { headers: { Authorization: config.TOKEN } }
+        )
+        .then(() => {
+          setMessage('success');
+        })
+        .catch((err) => console.error(err));
     }
   };
 
@@ -53,19 +68,7 @@ export default function AddToCart({ skuData, currStyle }) {
       }}
     >
       <span>
-        {showSizeWarning && (
-          <div
-            style={{
-              marginBottom: '0.5em',
-              padding: '0.5em',
-              backgroundColor: 'pink',
-              color: 'red',
-              borderRadius: '0.5em',
-            }}
-          >
-            Please pick a size!
-          </div>
-        )}
+        <CartMessage message={message} />
         <SizeSelector
           currSku={currSku}
           setCurrSku={setCurrSku}
@@ -77,7 +80,9 @@ export default function AddToCart({ skuData, currStyle }) {
           setSelectedQty={setSelectedQty}
         />
       </span>
-      <button type="submit">Add to Cart</button>
+      <button type="submit" className="add-to-cart--btn">
+        ADD TO CART
+      </button>
     </form>
   );
 }

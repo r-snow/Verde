@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Price({ price, salePrice }) {
+export default function Price({ price, salePrice, fontSize }) {
   return (
     <span
       style={{
         display: 'flex',
         gap: '0.8em',
+        fontSize: fontSize === false ? '18px' : `${fontSize.toString()}px`,
+        fontWeight: '500',
+        fontFamily: 'Cormorant Garamond',
       }}
     >
       {salePrice === 0 ? (
@@ -30,8 +33,10 @@ export default function Price({ price, salePrice }) {
 Price.propTypes = {
   price: PropTypes.number.isRequired,
   salePrice: PropTypes.number,
+  fontSize: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
 };
 
 Price.defaultProps = {
   salePrice: 0,
+  fontSize: false,
 };
