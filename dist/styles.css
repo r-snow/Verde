@@ -18,8 +18,58 @@ body {
   background-color: #f8f8ff;
 }
 /*-------- Overview Styles Section -------*/
-.header--cart {
+header {
   position: relative;
+}
+
+.header--cart-drawer {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 40vw;
+  height: 100vh;
+  border: solid lightgrey 2px;
+  border-radius: 4px 0 0 4px;
+  background-color: #f8f8ff;
+  border-right-color: transparent;
+  padding: 2rem;
+}
+
+.header--cart-drawer > h3 {
+  font-family: 'Cormorant Garamond';
+  font-size: 36px;
+}
+
+.empty-cart-text {
+  font-family: Helvetica;
+  font-weight: 300;
+}
+
+.cart-drawer--item {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  border-bottom: solid lightgrey 1px;
+}
+
+.cart-drawer--item > p,
+.cart-drawer--item > span > p,
+.cart-drawer--item > span > b,
+.cart-drawer--item > b {
+  margin: 0;
+  font-family: Helvetica;
+}
+
+.cart-drawer--item > span > p,
+.cart-drawer--item > p {
+  font-weight: 300;
+}
+
+.cart-drawer--item > span {
+  display: flex;
+  gap: 0.2rem;
 }
 
 .main-image-btn:hover {
