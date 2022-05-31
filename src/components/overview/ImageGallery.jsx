@@ -33,7 +33,7 @@ export default function ImageGallery({
             decrementIdx();
           }
         }}
-        color={currImgIdx === 0 ? 'white' : 'black'}
+        color={currImgIdx === 0 ? 'transparent' : 'black'}
         style={{
           marginLeft: '1em',
         }}
@@ -78,7 +78,7 @@ export default function ImageGallery({
             incrementIdx();
           }
         }}
-        color={currImgIdx === photos.length - 1 ? 'white' : 'black'}
+        color={currImgIdx === photos.length - 1 ? 'transparent' : 'black'}
       />
     </section>
   );

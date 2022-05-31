@@ -48,7 +48,7 @@ export default function ExpandedIcons({ photos, currImgIdx, setCurrImgIdx }) {
       <FontAwesomeIcon
         icon={faCaretLeft}
         size="lg"
-        color={currImgIdx !== 0 ? 'black' : 'white'}
+        color={currImgIdx !== 0 ? 'black' : 'transparent'}
         style={{
           opacity: '0.5',
         }}
@@ -62,7 +62,7 @@ export default function ExpandedIcons({ photos, currImgIdx, setCurrImgIdx }) {
       <FontAwesomeIcon
         icon={faCaretRight}
         size="lg"
-        color={currImgIdx !== photos.length - 1 ? 'black' : 'white'}
+        color={currImgIdx !== photos.length - 1 ? 'black' : 'transparent'}
         style={{
           opacity: '0.5',
         }}

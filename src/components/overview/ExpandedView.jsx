@@ -37,6 +37,7 @@ export default function ExpandedView({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        position: 'relative',
       }}
     >
       {currImgIdx !== 0 && !isZoomed && (
@@ -49,7 +50,6 @@ export default function ExpandedView({
             position: 'absolute',
             top: '50%',
             left: '1em',
-            zIndex: '9999',
           }}
           onClick={() => {
             setCurrImgIdx((prev) => prev - 1);
