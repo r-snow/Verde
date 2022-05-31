@@ -154,7 +154,13 @@ function RatingsAndReviews() {
         submitHelpfulNess={submitHelpfulNess}
       />
 
-      {modalActive && <ReviewModal meta={meta} toggleModal={toggleModal} />}
+      {modalActive && (
+        <ReviewModal
+          meta={meta}
+          toggleModal={toggleModal}
+          setReviews={setReviews}
+        />
+      )}
     </section>
   );
 }

@@ -11,7 +11,7 @@ function CharacteristicsButtons({ characteristic, id, handleRadioChange }) {
     <div
       className={`${characteristic}-char`}
       style={{
-        backgroundColor: '#C2DED1',
+        backgroundColor: '#14C38E',
         borderRadius: '5em 0em',
         padding: '1rem 5rem',
         margin: '1rem 0rem',

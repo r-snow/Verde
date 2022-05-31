@@ -38,6 +38,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
       }}
     >
       <div
+        className="rating-title-text"
         style={{
           fontSize: '2em',
           margin: '0.3rem 0',
