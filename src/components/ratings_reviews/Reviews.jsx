@@ -12,48 +12,10 @@ function Reviews({
   sortReviews,
   submitHelpfulNess,
 }) {
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const reviewOffset = document.getElementById(
-  //       'review-list-container'
-  //     ).offsetHeight;
-  //     const reviewScroll = document.getElementById(
-  //       'review-list-container'
-  //     ).scrollTop;
-  //     const reviewScrollHeight = document.getElementById(
-  //       'review-list-container'
-  //     ).scrollHeight;
-  //     console.log(reviewOffset, reviewScroll, reviewScrollHeight);
-  //     if (reviewOffset + reviewScroll >= reviewScrollHeight) {
-  //       console.log('happy');
-  //       addVisibility();
-  //     }
-  //   };
-
-  //   window.addEventListener('scroll', handleScroll);
-  // }, [addVisibility]);
-
-  // if (
-  //   document.getElementById('review-list-container').offsetHeight +
-  //     document.getElementById('review-list-container').scrollTop +
-  //     1 >=
-  //   document.getElementById('review-list-container').scrollHeight
-  // ) {
-  //   console.log('bottom of the page');
-  //   // addVisibility();
-  // }
-
-  // if (
-  //   document.getElementById('review-list-container').offsetHeight +
-  //     document.getElementById('review-list-container').scrollTop +
-  //     1 >=
-  //   document.getElementById('review-list-container').scrollHeight
-  // ) {
-  //   console.log('bottom of the page');
-  //   // addVisibility();
-  // }
-
-  // console.log(reviews, 'list of reviews');
+  const handleScroll = (event) => {
+    const { scrollTop, clientHeight, scrollHeight } = event.current.target;
+    console.log(scrollTop);
+  };
   return (
     <div
       className="full-review-container"
