@@ -99,6 +99,9 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
         tabIndex={0}
         onKeyDown={toggleModal}
         aria-label="close modal with overlay"
+        style={{
+          zIndex: '5000',
+        }}
       />
       <div
         className="outline-color"
@@ -108,6 +111,7 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
           position: 'absolute',
           padding: '1.5em',
           alignSelf: 'center',
+          zIndex: '9999',
         }}
       >
         <form
@@ -222,15 +226,46 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
               borderRadius: '1rem',
               padding: '10rem 20rem',
               maxWidth: '65rem',
+              textAlign: 'center',
             }}
           >
-            Upload up to 5 photos
+            Upload photos
             <br />
-            <input type="file" accept="image/*" onChange={uploadImages} />
-            <input type="file" accept="image/*" onChange={uploadImages} />
-            <input type="file" accept="image/*" onChange={uploadImages} />
-            <input type="file" accept="image/*" onChange={uploadImages} />
-            <input type="file" accept="image/*" onChange={uploadImages} />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={uploadImages}
+              className="review-button"
+              style={{ padding: '0rem', fontSize: '0.5em' }}
+            />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={uploadImages}
+              className="review-button"
+              style={{ padding: '0rem', fontSize: '0.5em' }}
+            />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={uploadImages}
+              className="review-button"
+              style={{ padding: '0rem', fontSize: '0.5em' }}
+            />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={uploadImages}
+              className="review-button"
+              style={{ padding: '0rem', fontSize: '0.5em' }}
+            />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={uploadImages}
+              className="review-button"
+              style={{ padding: '0rem', fontSize: '0.5em' }}
+            />
             {formImages.map((image) => (
               <img
                 src={image}
@@ -280,7 +315,8 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
           </p>
           <button
             type="submit"
-            style={{ padding: '1rem 2rem', borderRadius: '0.5rem' }}
+            className="review-button"
+            style={{ padding: '1rem 3rem' }}
           >
             Submit
           </button>

@@ -75,10 +75,13 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
           <button
             type="button"
             onClick={changeView}
+            className="review-button"
             style={{
               padding: '0rem 0.5rem',
-              // borderRadius: '2rem',
+              borderRadius: '0.2rem',
               margin: '0rem 0rem 1rem 0rem',
+              backgroundColor: 'lightgray',
+              fontSize: '0.7em',
             }}
           >
             Show more
