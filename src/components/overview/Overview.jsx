@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ImageGallery from './ImageGallery';
-import ExpandedView from './ExpandedView';
-import DescriptionDetails from './DescriptionDetails';
+import ImageGallery from './ImageGallery/ImageGallery';
+import ExpandedView from './ImageGallery/ExpandedView';
+import DescriptionDetails from './DescriptionDetails/DescriptionDetails';
 import sampleProductData from './example_data/productData';
 import sampleProductStylesData from './example_data/productStylesData';
 import sampleProductReviewsData from './example_data/productReviewsData';

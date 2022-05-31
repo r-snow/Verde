@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AddToCart from './AddToCart';
+import AddToCart from './AddToCart/AddToCart';
 import StyleSelector from './StyleSelector';
 import Socials from './Socials';
-import Price from '../shared/Price';
-import CustomStars from '../shared/CustomStars';
+import Price from '../../shared/Price';
+import CustomStars from '../../shared/CustomStars';
 
 export default function DescriptionDetails({
   category,

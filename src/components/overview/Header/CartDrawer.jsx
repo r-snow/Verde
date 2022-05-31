@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { nanoid } from 'nanoid';
 import axios from 'axios';
-import config from '../../../config/config';
+import config from '../../../../config/config';
 import CartDrawerItem from './CartDrawerItem';
 
 export default function CartDrawer({ closeDrawer }) {

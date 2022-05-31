@@ -15,6 +15,12 @@ export default function CartMessage({ message }) {
         setMessageText('Please pick a size!');
         setIsShown(true);
         break;
+      case 'failure':
+        setColor('red');
+        setBackgroundColor('pink');
+        setMessageText('Cart addition failed, please try again');
+        setIsShown(true);
+        break;
       case 'success':
         setColor('darkgreen');
         setBackgroundColor('lightgreen');
