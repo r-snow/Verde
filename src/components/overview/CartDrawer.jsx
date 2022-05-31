@@ -5,41 +5,13 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { nanoid } from 'nanoid';
 import axios from 'axios';
 import config from '../../../config/config';
+import CartDrawerItem from './CartDrawerItem';
 
 export default function CartDrawer({ closeDrawer }) {
   const [cartItems, setCartItems] = useState([]);
 
   const cartElements = cartItems.map((item) => (
-    <div key={nanoid()} className="cart-drawer--item">
-      <span>
-        <b>SKU:</b>
-        <p>{item.sku_id}</p>
-      </span>
-      <span>
-        <b>Size:</b>
-        <p>S</p>
-      </span>
-      <span>
-        <b>Quantity:</b>
-        <p>{item.count}</p>
-      </span>
-      <span>
-        <b>Price:</b>
-        <p>$18.00</p>
-      </span>
-      <FontAwesomeIcon
-        icon={faXmark}
-        color="black"
-        size="xl"
-        type="button"
-        onClick={closeDrawer}
-        style={{
-          position: 'absolute',
-          top: '0.5rem',
-          right: '0.5rem',
-        }}
-      />
-    </div>
+    <CartDrawerItem skuId={item.sku_id} count={item.count} key={nanoid()} />
   ));
 
   useEffect(() => {
