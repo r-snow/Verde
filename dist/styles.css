@@ -149,6 +149,10 @@ header {
   cursor: zoom-out;
 }
 
+.expanded-view--standard:hover {
+  cursor: crosshair;
+}
+
 .svg-inline--fa {
   transition: 0.3s;
 }

@@ -117,7 +117,6 @@ export default function ExpandedView({
               padding: '0',
               height: '100vh',
               width: '100vw',
-              display: 'block',
               overflow: 'hidden',
             }}
             onClick={handleImageClick}
@@ -132,7 +131,6 @@ export default function ExpandedView({
                 position: 'relative',
                 top: `${y}px`,
                 left: `${x}px`,
-                verticalAlign: 'top',
               }}
               onMouseMove={handleMouseMove}
             />
