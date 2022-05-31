@@ -12,6 +12,47 @@ function Reviews({
   sortReviews,
   submitHelpfulNess,
 }) {
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const reviewOffset = document.getElementById(
+  //       'review-list-container'
+  //     ).offsetHeight;
+  //     const reviewScroll = document.getElementById(
+  //       'review-list-container'
+  //     ).scrollTop;
+  //     const reviewScrollHeight = document.getElementById(
+  //       'review-list-container'
+  //     ).scrollHeight;
+  //     console.log(reviewOffset, reviewScroll, reviewScrollHeight);
+  //     if (reviewOffset + reviewScroll >= reviewScrollHeight) {
+  //       console.log('happy');
+  //       addVisibility();
+  //     }
+  //   };
+
+  //   window.addEventListener('scroll', handleScroll);
+  // }, [addVisibility]);
+
+  // if (
+  //   document.getElementById('review-list-container').offsetHeight +
+  //     document.getElementById('review-list-container').scrollTop +
+  //     1 >=
+  //   document.getElementById('review-list-container').scrollHeight
+  // ) {
+  //   console.log('bottom of the page');
+  //   // addVisibility();
+  // }
+
+  // if (
+  //   document.getElementById('review-list-container').offsetHeight +
+  //     document.getElementById('review-list-container').scrollTop +
+  //     1 >=
+  //   document.getElementById('review-list-container').scrollHeight
+  // ) {
+  //   console.log('bottom of the page');
+  //   // addVisibility();
+  // }
+
   // console.log(reviews, 'list of reviews');
   return (
     <div
@@ -37,6 +78,7 @@ function Reviews({
       </select>
 
       <div
+        id="review-list-container"
         style={{
           borderRadius: '5px',
           maxHeight: '1000px',
@@ -93,7 +135,7 @@ function Reviews({
                 margin: '0em 0.5em',
               }}
             />
-            Write a review
+            Write a new review
           </button>
         </section>
       </div>

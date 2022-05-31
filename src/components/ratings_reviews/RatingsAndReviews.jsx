@@ -126,20 +126,6 @@ function RatingsAndReviews() {
       }}
       id="ratings-reviews"
     >
-      {reviews.length === 0 && (
-        <button
-          type="button"
-          onClick={toggleModal}
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            width: '25%',
-          }}
-        >
-          Write a new review
-        </button>
-      )}
-
       <Ratings
         meta={meta}
         ratingSwitch={ratingSwitch}
