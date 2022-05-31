@@ -188,7 +188,11 @@ function RatingsAndReviews() {
             marginLeft: 'auto',
           }}
         >
-          <button type="button" className="review-button" onClick={toggleModal}>
+          <button
+            type="button"
+            className="alt-review-button"
+            onClick={toggleModal}
+          >
             <FontAwesomeIcon
               icon={faPen}
               size="xs"
@@ -202,7 +206,7 @@ function RatingsAndReviews() {
           {visible < reviews.length && (
             <button
               type="button"
-              className="review-button"
+              className="alt-review-button"
               onClick={addVisibility}
             >
               <FontAwesomeIcon

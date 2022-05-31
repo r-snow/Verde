@@ -524,8 +524,7 @@ html {
 .review-button:hover {
   background-color: aquamarine;
   color: rgb(255, 255, 255);
-  text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(0, 255, 64),
-    0 0 0.2em rgb(0, 255, 234);
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
   background-size: 100% 3px;
 }
 
@@ -539,15 +538,17 @@ html {
   background-position: left bottom;
   font-size: 1em;
   padding: 0.6em 0.5em;
-  transition: background-size 1000ms ease;
+  transition: background-size 1000ms ease, background-color 100ms ease;
 }
 
 .alt-review-button:hover {
   background-color: aquamarine;
+  background-image: linear-gradient(90deg, rgb(0, 255, 157), rgb(2, 226, 255));
+  background-position: top right;
+  background-size: 100% 3px;
   color: rgb(255, 255, 255);
   text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(0, 255, 64),
     0 0 0.2em rgb(0, 255, 234);
-  background-size: 100% 3px;
 }
 
 .separator {
