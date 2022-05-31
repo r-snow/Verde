@@ -4,4 +4,4 @@ import App from './App';
 
 const mountNode = document.getElementById('app');
 const root = createRoot(mountNode);
-root.render(<App name="Verde Customer" />);
+root.render(<App />);

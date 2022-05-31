@@ -33,7 +33,7 @@ export default function Price({ price, salePrice, fontSize }) {
 Price.propTypes = {
   price: PropTypes.number.isRequired,
   salePrice: PropTypes.number,
-  fontSize: PropTypes.number,
+  fontSize: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
 };
 
 Price.defaultProps = {
