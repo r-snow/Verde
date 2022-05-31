@@ -100,6 +100,7 @@ export default function Overview() {
   const styles = productStylesData.results.map((style) => ({
     styleId: style.style_id,
     iconUrl: style.photos[0].thumbnail_url,
+    name: style.name,
   }));
 
   const incrementIdx = () => {

@@ -37,6 +37,7 @@ export default function DescriptionDetails({
           color: 'grey',
           fontSize: '12px',
           marginTop: '0',
+          marginBottom: '0.3rem',
         }}
       >
         {category.toUpperCase()}
@@ -48,6 +49,7 @@ export default function DescriptionDetails({
           fontWeight: '500',
           fontSize: '36px',
           marginTop: '0',
+          marginBottom: '0.5rem',
         }}
       >
         {name}
@@ -101,6 +103,17 @@ export default function DescriptionDetails({
         </span>
       )}
       <Price price={currPrice} salePrice={currSalePrice} fontSize={24} />
+      <p
+        style={{
+          fontFamily: 'Helvetica',
+          fontWeight: '300',
+          color: 'grey',
+          fontSize: '12px',
+          marginTop: '0',
+        }}
+      >
+        {styles[currStyle].name.toUpperCase()}
+      </p>
       <StyleSelector
         styles={styles}
         currStyle={currStyle}
