@@ -8,7 +8,7 @@ import YourOutfit from './components/related_items_outfit/YourOutfit';
 import currentProduct from './components/related_items_outfit/sampleProductData';
 
 function App() {
-  const [curProd, setCurProd] = useState(Number(currentProduct.id));
+  const [curProd, setCurProd] = useState(currentProduct);
 
   return (
     <>
