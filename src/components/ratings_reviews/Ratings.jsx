@@ -46,7 +46,11 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
           }}
         >
           {averageRatingScore.toFixed(2)}
-          <CustomStars rating={averageRatingScore} color="cyan" size="25px" />
+          <CustomStars
+            rating={averageRatingScore}
+            color="var(--verde-theme)"
+            size="25px"
+          />
         </div>
 
         <i style={{ textAlign: 'center', marginBottom: '1em', width: '17rem' }}>

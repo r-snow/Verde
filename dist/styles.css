@@ -8,6 +8,24 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 0.7em;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: lightgray;
+  border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--verde-theme);
+}
+
 /*-------- Overview Styles Section -------*/
 .main-image-btn:hover {
   cursor: zoom-in;
@@ -473,7 +491,7 @@ html {
 }
 
 .rating-title-text {
-  background-image: linear-gradient(90deg, rgb(0, 255, 157), rgb(211, 209, 84));
+  background-image: linear-gradient(90deg, var(--verde-theme), aquamarine);
   background-size: 0% 3px;
   background-repeat: no-repeat;
   background-position: left bottom;
@@ -505,15 +523,19 @@ html {
 }
 
 .reviews:hover {
-  border: solid 2px aquamarine;
+  border: solid 2px rgb(0, 255, 157);
 }
 
 .review-button {
   background-color: transparent;
-  border-radius: 0.5rem;
-  border: 2px solid rgb(143, 143, 143);
-  background-image: linear-gradient(90deg, rgb(0, 255, 157), rgb(255, 251, 0));
-  background-size: 0% 3px;
+  border-radius: 0.2rem;
+  border: 1px solid rgb(143, 143, 143);
+  background-image: linear-gradient(
+    90deg,
+    rgba(0, 255, 157, 0.2),
+    rgba(7, 255, 131, 0.2)
+  );
+  background-size: 0% 100rem;
   background-repeat: no-repeat;
   background-position: left bottom;
   font-size: 1em;
@@ -522,17 +544,17 @@ html {
 }
 
 .review-button:hover {
-  background-color: aquamarine;
+  background-color: #ffe3a9;
   color: rgb(255, 255, 255);
   text-shadow: 1px 1px 2px rgb(0, 0, 0);
-  background-size: 100% 3px;
+  background-size: 100% 100rem;
 }
 
 .alt-review-button {
   background-color: transparent;
   border-radius: 0.5rem;
   border: 2px solid rgb(143, 143, 143);
-  background-image: linear-gradient(90deg, rgb(0, 255, 157), rgb(255, 251, 0));
+  background-image: linear-gradient(90deg, rgb(0, 255, 157), rgb(255, 174, 0));
   background-size: 0% 3px;
   background-repeat: no-repeat;
   background-position: left bottom;
@@ -542,13 +564,12 @@ html {
 }
 
 .alt-review-button:hover {
-  background-color: aquamarine;
+  background-color: var(--verde-theme);
   background-image: linear-gradient(90deg, rgb(0, 255, 157), rgb(2, 226, 255));
   background-position: top right;
   background-size: 100% 3px;
   color: rgb(255, 255, 255);
-  text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(0, 255, 64),
-    0 0 0.2em rgb(0, 255, 234);
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
 
 .separator {
@@ -560,7 +581,7 @@ html {
   min-height: 400px;
   padding: 100px 20vw;
   /* background: linear-gradient(90deg #000000, #00ffab); */
-  background: #00ffab;
+  background: var(--verde-theme);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -590,11 +611,11 @@ html {
 }
 
 .custom-shape-divider-bottom-1653983627 .shape-fill {
-  fill: #00ffab;
+  fill: var(--verde-theme);
 }
 
 .custom-shape-divider-top-1653983827 .shape-fill {
-  fill: #00ffab;
+  fill: var(--verde-theme);
 }
 
 /* Review Modal Section */
@@ -720,6 +741,8 @@ body.prevent-scroll-background {
 :root {
   --star-color: lightgray;
   --star-background: #36f17e;
+  --gold-theme: #ac9673;
+  --verde-theme: #89aa88;
 }
 
 .stars:before {
@@ -727,7 +750,7 @@ body.prevent-scroll-background {
   letter-spacing: -1.2px;
   background: linear-gradient(
     90deg,
-    var(--star-background) var(--percent),
+    var(--gold-theme) var(--percent),
     var(--star-color) var(--percent)
   );
   background-clip: text;
@@ -750,7 +773,7 @@ body.prevent-scroll-background {
   letter-spacing: 1.5em;
   background: linear-gradient(
     90deg,
-    rgb(57, 253, 155) var(--bar-percent),
+    var(--verde-theme) var(--bar-percent),
     lightgray var(--bar-percent)
   );
   -webkit-text-fill-color: transparent;
