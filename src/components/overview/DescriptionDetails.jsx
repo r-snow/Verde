@@ -100,7 +100,7 @@ export default function DescriptionDetails({
           </a>
         </span>
       )}
-      <Price price={currPrice} salePrice={currSalePrice} />
+      <Price price={currPrice} salePrice={currSalePrice} fontSize={24} />
       <StyleSelector
         styles={styles}
         currStyle={currStyle}
