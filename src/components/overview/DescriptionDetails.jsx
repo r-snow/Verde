@@ -85,7 +85,7 @@ export default function DescriptionDetails({
             alignItems: 'center',
           }}
         >
-          <CustomStars rating={avgRating} color="gold" size="20px" />
+          <CustomStars rating={avgRating} color="#9a825c" size="20px" />
           <a
             href="#ratings-reviews"
             style={{

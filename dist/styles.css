@@ -76,11 +76,11 @@ header {
   cursor: zoom-in;
 }
 .main-gallery-thumbnail {
-  width: 6vh;
-  height: 6vh;
+  width: 7vh;
+  height: 7vh;
   object-fit: cover;
   transition: 0.3s;
-  border: 2px grey solid;
+  border: 3px #9a825c solid;
 }
 
 .main-gallery-thumbnail-container {
@@ -91,7 +91,7 @@ header {
 }
 
 .main-gallery-thumbnail:hover {
-  transform: scale(1.02);
+  border: 2px lightgrey solid !important;
 }
 
 .style-thumbnail {
@@ -108,7 +108,7 @@ header {
 }
 
 .selected-style {
-  border: 2px solid grey !important;
+  border: 2px solid #9a825c !important;
 }
 
 .style-thumbnail:hover {
