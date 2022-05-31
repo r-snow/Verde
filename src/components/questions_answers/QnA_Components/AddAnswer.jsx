@@ -1,5 +1,5 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
+import { nanoid } from 'nanoid';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import config from '../../../../config/config';
@@ -10,6 +10,7 @@ export default function AddAnswer({ question, setShowModal }) {
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
   const [photos, setPhotos] = React.useState([]);
+  const [photosUpload, setPhotosUpload] = React.useState([]);
 
   const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/';
 
@@ -30,8 +31,15 @@ export default function AddAnswer({ question, setShowModal }) {
     if (!isValidEmail(email)) {
       error.push('Valid Email');
     }
+    if (photos.length !== photosUpload.length) {
+      error.push('Valid Photo');
+    }
     if (error.length) {
-      setErrorMessage(`You must enter the following: ${error.join(', ')}`);
+      setErrorMessage(
+        `Please enter correct values in the following fields: ${error.join(
+          ', '
+        )}`
+      );
     } else {
       axios
         .post(
@@ -52,10 +60,35 @@ export default function AddAnswer({ question, setShowModal }) {
     }
   };
 
-  const addPhoto = (event) => {
-    const images = [];
-    images.push(event.target.value);
-    setPhotos(images);
+  const handleUpload = async (files) => {
+    if (files.length < 6) {
+      const images = [];
+      const promises = [];
+      for (let i = 0; i < files.length; i += 1) {
+        const currentFile = files[i];
+        const formData = new FormData();
+        formData.append('file', currentFile);
+        formData.append('upload_preset', 'fw2havd4');
+        promises.push(
+          axios
+            .post(
+              'https://api.cloudinary.com/v1_1/drzzqblqw/image/upload',
+              formData
+            )
+            .then((res) => {
+              images.push(res.data.url);
+            })
+        );
+      }
+      Promise.all(promises).then(() => setPhotos(images));
+    } else {
+      setErrorMessage('Please do NOT upload more than 5 photos');
+    }
+  };
+
+  const handlePhotos = (e) => {
+    setPhotosUpload(e.target.files);
+    handleUpload(e.target.files);
   };
 
   return (
@@ -73,7 +106,6 @@ export default function AddAnswer({ question, setShowModal }) {
           style={{
             backgroundColor: 'red',
             fontWeight: 'bold',
-            padding: '5px',
           }}
         >
           {errorMessage}
@@ -90,18 +122,19 @@ export default function AddAnswer({ question, setShowModal }) {
           style={{
             padding: '5px',
             height: '100px',
-            width: '150px',
           }}
         >
-          <label>Your Answer*:</label>
-          <textarea
-            type="text"
-            id="answer"
-            maxLength={1000}
-            minLength={1}
-            autoComplete="off"
-            onChange={(e) => setAnswer(e.target.value)}
-          />
+          <label htmlFor="answer">
+            Your Answer*: <br />
+            <textarea
+              type="text"
+              id="answer"
+              maxLength="1000"
+              minLength="1"
+              autoComplete="off"
+              onChange={(e) => setAnswer(e.target.value)}
+            />
+          </label>
         </div>
         <div
           style={{
@@ -109,76 +142,91 @@ export default function AddAnswer({ question, setShowModal }) {
             height: '70px',
           }}
         >
-          <label>Upload Photos (Limit 5)</label>
-          <input
-            type="file"
-            accept="image/*"
-            id="formFileMultiple"
-            multiple
-            onChange={addPhoto}
-          />
+          <label htmlFor="nickname">
+            Nickname*:{' '}
+            <input
+              id="nickname"
+              maxLength={60}
+              placeholder="Example: jack543!"
+              onChange={(e) => setNickname(e.target.value)}
+            />
+          </label>
+          <p
+            style={{
+              fontStyle: 'italic',
+              fontSize: '12px',
+            }}
+          >
+            For privacy reasons, do not use your full name or email address
+          </p>
+        </div>
+        <div
+          style={{
+            padding: '5px',
+            height: '70px',
+          }}
+        >
+          <label htmlFor="email">
+            Email*:{' '}
+            <input
+              type="email"
+              id="email"
+              maxLength={60}
+              placeholder="jack@email.com"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </label>
+          <p
+            style={{
+              fontStyle: 'italic',
+              fontSize: '12px',
+            }}
+          >
+            For authentication reasons, you will not be emailed
+          </p>
+        </div>
+        <div
+          style={{
+            padding: '5px',
+            height: '150px',
+          }}
+        >
+          <label htmlFor="multipleFiles">
+            Upload Your Photos (Limit 5){' '}
+            <input
+              type="file"
+              accept="image/*"
+              id="multipleFiles"
+              multiple
+              onChange={handlePhotos}
+            />
+          </label>
           {photos.length > 0 && (
             <div>
-              <span>Preview:</span>
+              Preview:
               <br />
               {photos.map((photo) => (
-                <img src={photo} height="50px" alt="Preview" />
+                <img
+                  style={{
+                    padding: '5px',
+                    height: '100px',
+                  }}
+                  src={photo}
+                  key={nanoid()}
+                  alt="preview"
+                />
               ))}
             </div>
           )}
         </div>
-        <div
-          style={{
-            padding: '5px',
-            height: '70px',
-          }}
+        <button
+          className="answer-form-submit-button"
+          type="button"
+          onClick={handleSubmit}
         >
-          <label htmlFor="nickname">Nickname*:</label>
-          <input
-            id="nickname"
-            maxLength={60}
-            placeholder="Example: jack543!"
-            onChange={(e) => setNickname(e.target.value)}
-          />
-          <span
-            style={{
-              fontStyle: 'italic',
-            }}
-          >
-            &nbsp; For privacy reasons, do not use your full name or email
-            address
-          </span>
-        </div>
-        <div
-          style={{
-            padding: '5px',
-            height: '70px',
-          }}
-        >
-          <label>Email*:</label>
-          <input
-            type="email"
-            id="email"
-            maxLength={60}
-            placeholder="jack@email.com"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <span
-            style={{
-              fontStyle: 'italic',
-            }}
-          >
-            &nbsp;For authentication reasons, you will not be emailed
-          </span>
-        </div>
+          Submit Answer
+        </button>
       </form>
-      <button
-        className="answer-form-submit-button"
-        type="button"
-        onClick={handleSubmit}
-      >
-        Submit Answer
-      </button>
     </div>
   );
 }
