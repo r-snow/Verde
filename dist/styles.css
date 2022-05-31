@@ -200,6 +200,16 @@ header {
 .add-to-cart--btn:hover {
   background-color: grey;
 }
+
+.fb-social:hover {
+  color: #4267b2;
+}
+.twt-social:hover {
+  color: #1da1f2;
+}
+.pnt-social:hover {
+  color: #e60023;
+}
 /*------- Question and Answers Section ------*/
 .qa-widget {
   display: flex;
