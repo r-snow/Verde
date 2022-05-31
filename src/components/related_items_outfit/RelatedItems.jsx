@@ -14,7 +14,7 @@ export default function RelatedItems({ curProd }) {
   const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/';
   useEffect(() => {
     axios
-      .get(`${url}products/${curProd}/related`, {
+      .get(`${url}products/${curProd.id}/related`, {
         headers: { Authorization: config.TOKEN },
       })
       .then((results) => setRelatedItemIDs(results.data));
@@ -39,5 +39,11 @@ export default function RelatedItems({ curProd }) {
 }
 
 RelatedItems.propTypes = {
-  curProd: PropTypes.number.isRequired,
+  curProd: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
 };

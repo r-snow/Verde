@@ -96,4 +96,11 @@ export default function ProductCard({ productID, curProd }) {
 
 ProductCard.propTypes = {
   productID: PropTypes.number.isRequired,
+  curProd: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
 };
