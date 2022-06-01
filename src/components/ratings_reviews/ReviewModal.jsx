@@ -125,25 +125,26 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
             justifyContent: 'center',
             alignItems: 'center',
             accentColor: 'aquamarine',
+            fontSize: '1.1em',
           }}
           onSubmit={handleSubmit}
         >
-          Rating
+          <h4 className="review-modal-header">
+            Please give us some feedback on your product
+          </h4>
+          <p className="rating-modal-title">RATING</p>
           <ClickStars changeFormRating={changeFormRating} />
-          <div
-            className="rating-definition"
-            style={{
-              fontSize: '0.7em',
-            }}
-          >
-            <p>1 - Poor</p>
-            <p>2 - Fair</p>
-            <p>3 - Average</p>
-            <p>4 - Good</p>
-            <p>5 - Great</p>
+          <div className="rating-definition">
+            <p className="number-definition">1 - POOR</p>
+            <p className="number-definition">2 - FAIR</p>
+            <p className="number-definition">3 - AVERAGE</p>
+            <p className="number-definition">4 - GOOD</p>
+            <p className="number-definition">5 - GREAT</p>
           </div>
-          <div className="do-you-recommend" style={{ marginBottom: '3rem' }}>
-            <p>Do you recommend this product?</p>
+          <div className="do-you-recommend" style={{ marginBottom: '2rem' }}>
+            <p style={{ fontWeight: '350', textAlign: 'center' }}>
+              Do you recommend this product?
+            </p>
             <label htmlFor="yes">
               <input
                 type="radio"
