@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import { nanoid } from 'nanoid';
 import axios from 'axios';
 import config from '../../../../config/config';
 import CartDrawerItem from './CartDrawerItem';
@@ -12,7 +11,7 @@ export default function CartDrawer({ closeDrawer }) {
   const [cartItems, setCartItems] = useState([]);
 
   const cartElements = cartItems.map((item) => (
-    <CartDrawerItem skuId={item.sku_id} count={item.count} key={nanoid()} />
+    <CartDrawerItem skuId={item.sku_id} count={item.count} key={item.sku_id} />
   ));
 
   useEffect(() => {
