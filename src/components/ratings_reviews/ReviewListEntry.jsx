@@ -39,6 +39,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
         justifyContent: 'center',
         alignItems: 'flex-start',
         width: '100%',
+        boxShadow: '1px 1px 2rem lightgray',
       }}
     >
       <span
