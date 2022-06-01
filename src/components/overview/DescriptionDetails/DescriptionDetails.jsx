@@ -21,97 +21,26 @@ export default function DescriptionDetails({
   slogan,
 }) {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        width: '400px',
-      }}
-    >
-      <p
-        style={{
-          textAlign: 'center',
-          fontFamily: 'Montserrat',
-          fontWeight: '300',
-          color: 'grey',
-          fontSize: '12px',
-          marginTop: '0',
-          marginBottom: '0.3rem',
-        }}
-      >
-        {category.toUpperCase()}
-      </p>
-      <p
-        style={{
-          textAlign: 'center',
-          fontFamily: 'Cormorant Garamond',
-          fontWeight: '500',
-          fontSize: '36px',
-          marginTop: '0',
-          marginBottom: '0.5rem',
-        }}
-      >
-        {name}
-      </p>
-      {slogan.length && (
-        <b
-          style={{
-            marginBottom: '0',
-            textAlign: 'center',
-            fontFamily: 'Cormorant Garamond',
-            fontWeight: '500',
-            fontSize: '20px',
-          }}
-        >
-          {slogan}
-        </b>
-      )}
+    <div className="description-details--container">
+      <p className="description-details--category">{category.toUpperCase()}</p>
+      <p className="description-details--name">{name}</p>
+      {slogan.length && <b className="description-details--slogan">{slogan}</b>}
       {description.length && (
-        <p
-          style={{
-            fontWeight: '300',
-            textAlign: 'center',
-            fontFamily: 'Cormorant Garamond',
-          }}
-        >
-          {description}
-        </p>
+        <p className="description-details--description">{description}</p>
       )}
       {reviewCount > 0 && (
-        <span
-          style={{
-            display: 'flex',
-            gap: '0.4rem',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-          }}
-        >
+        <span className="description-details--reviews-container">
           <CustomStars rating={avgRating} color="#9a825c" size="20px" />
           <a
+            className="description-details--reviews-link"
             href="#ratings-reviews"
-            style={{
-              fontFamily: 'Montserrat',
-              fontWeight: '300',
-              color: 'grey',
-              fontSize: '12px',
-              marginTop: '0',
-            }}
           >
             READ ALL {reviewCount} REVIEWS
           </a>
         </span>
       )}
       <Price price={currPrice} salePrice={currSalePrice} fontSize={30} />
-      <p
-        style={{
-          fontFamily: 'Montserrat',
-          fontWeight: '300',
-          color: 'grey',
-          fontSize: '12px',
-          marginTop: '0',
-        }}
-      >
+      <p className="description-details--style-name">
         {styles[currStyle].name.toUpperCase()}
       </p>
       <StyleSelector

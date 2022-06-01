@@ -60,15 +60,7 @@ export default function AddToCart({ skuData, currStyle }) {
   };
 
   return (
-    <form
-      onSubmit={handleCartSubmit}
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '1em',
-        marginBottom: '1em',
-      }}
-    >
+    <form onSubmit={handleCartSubmit} className="add-to-cart--container">
       <span>
         <CartMessage message={message} />
         <SizeSelector

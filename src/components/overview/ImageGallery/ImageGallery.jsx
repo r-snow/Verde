@@ -13,12 +13,7 @@ export default function ImageGallery({
   setCurrImgIdx,
 }) {
   return (
-    <section
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-      }}
-    >
+    <section className="main-gallery--container">
       <Thumbnails
         photos={photos}
         currImgIdx={currImgIdx}
@@ -34,37 +29,19 @@ export default function ImageGallery({
           }
         }}
         color={currImgIdx === 0 ? 'transparent' : 'black'}
-        style={{
-          marginLeft: '1em',
-        }}
+        style={{ marginLeft: '1em' }}
       />
-      <div
-        style={{
-          position: 'relative',
-          height: '70vh',
-          width: '60vw',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <div className="main-gallery--frame">
         <a href="#expanded">
           <button
             type="button"
             className="main-image-btn"
-            style={{
-              backgroundColor: 'transparent',
-              borderColor: 'transparent',
-            }}
             onClick={changeImgView}
           >
             <img
+              id="main-gallery--img"
               src={photos[currImgIdx].url}
               alt="sample img"
-              style={{
-                maxHeight: '70vh',
-                maxWidth: '55vw',
-              }}
             />
           </button>
         </a>

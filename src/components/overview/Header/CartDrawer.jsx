@@ -65,11 +65,7 @@ export default function CartDrawer({ closeDrawer }) {
           size="xl"
           type="button"
           onClick={closeDrawer}
-          style={{
-            position: 'absolute',
-            top: '1rem',
-            right: '1rem',
-          }}
+          className="cart-drawer-exit"
         />
         <CartDrawerBtns />
       </div>

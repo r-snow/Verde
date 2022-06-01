@@ -34,13 +34,7 @@ export default function Thumbnails({ photos, currImgIdx, setCurrImgIdx }) {
   });
 
   return (
-    <section
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '10px',
-      }}
-    >
+    <section className="main-gallery-thumbnails--container">
       <FontAwesomeIcon
         icon={faAngleUp}
         color={currImgIdx !== 0 ? 'black' : 'transparent'}

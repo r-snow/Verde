@@ -133,16 +133,7 @@ export default function Overview() {
     isLoaded.product === true &&
       isLoaded.styles === true &&
       isLoaded.reviews === true && (
-        <section
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            maxWidth: '100vw',
-          }}
-        >
+        <section id="overview--container">
           <ImageGallery
             changeImgView={changeImgView}
             photos={productStylesData.results[currStyle].photos}

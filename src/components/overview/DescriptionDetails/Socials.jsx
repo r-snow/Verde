@@ -8,15 +8,7 @@ import {
 
 export default function Socials() {
   return (
-    <section
-      className="socials-container"
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        gap: '1em',
-        alignItems: 'center',
-      }}
-    >
+    <section className="socials-container">
       <a
         target="_blank"
         rel="noreferrer"
