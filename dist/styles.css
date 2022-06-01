@@ -169,6 +169,9 @@ body {
 .main-gallery--container {
   display: flex;
   align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: solid 1px lightgrey;
+  padding-bottom: 2rem;
 }
 
 .main-gallery--frame {

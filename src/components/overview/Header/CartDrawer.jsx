@@ -9,6 +9,7 @@ import CartDrawerBtns from './CartDrawerBtns';
 
 export default function CartDrawer({ closeDrawer }) {
   const [cartItems, setCartItems] = useState([]);
+  const [refreshCart, setRefreshCart] = useState(0);
 
   const cartElements = cartItems.map((item) => (
     <CartDrawerItem skuId={item.sku_id} count={item.count} key={item.sku_id} />
@@ -21,7 +22,7 @@ export default function CartDrawer({ closeDrawer }) {
       })
       .then(({ data }) => setCartItems(data))
       .catch(() => setCartItems([]));
-  }, []);
+  }, [refreshCart]);
 
   return (
     <div
@@ -66,7 +67,7 @@ export default function CartDrawer({ closeDrawer }) {
           onClick={closeDrawer}
           className="cart-drawer-exit"
         />
-        <CartDrawerBtns />
+        <CartDrawerBtns setRefreshCart={setRefreshCart} />
       </div>
     </div>
   );
