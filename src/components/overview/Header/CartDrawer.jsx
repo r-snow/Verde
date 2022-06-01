@@ -6,6 +6,7 @@ import { nanoid } from 'nanoid';
 import axios from 'axios';
 import config from '../../../../config/config';
 import CartDrawerItem from './CartDrawerItem';
+import CartDrawerBtns from './CartDrawerBtns';
 
 export default function CartDrawer({ closeDrawer }) {
   const [cartItems, setCartItems] = useState([]);
@@ -54,8 +55,10 @@ export default function CartDrawer({ closeDrawer }) {
         aria-label="transparent div"
       />
       <div className="header--cart-drawer">
-        <h3>Your Cart</h3>
-        {cartElements}
+        <div>
+          <h3>Your Cart</h3>
+          {cartElements}
+        </div>
         <FontAwesomeIcon
           icon={faXmark}
           color="black"
@@ -68,6 +71,7 @@ export default function CartDrawer({ closeDrawer }) {
             right: '1rem',
           }}
         />
+        <CartDrawerBtns />
       </div>
     </div>
   );

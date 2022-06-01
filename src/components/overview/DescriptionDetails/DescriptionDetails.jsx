@@ -32,7 +32,7 @@ export default function DescriptionDetails({
       <p
         style={{
           textAlign: 'center',
-          fontFamily: 'Helvetica',
+          fontFamily: 'Montserrat',
           fontWeight: '300',
           color: 'grey',
           fontSize: '12px',
@@ -91,7 +91,7 @@ export default function DescriptionDetails({
           <a
             href="#ratings-reviews"
             style={{
-              fontFamily: 'Helvetica',
+              fontFamily: 'Montserrat',
               fontWeight: '300',
               color: 'grey',
               fontSize: '12px',
@@ -105,7 +105,7 @@ export default function DescriptionDetails({
       <Price price={currPrice} salePrice={currSalePrice} fontSize={30} />
       <p
         style={{
-          fontFamily: 'Helvetica',
+          fontFamily: 'Montserrat',
           fontWeight: '300',
           color: 'grey',
           fontSize: '12px',

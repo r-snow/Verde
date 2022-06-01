@@ -33,15 +33,18 @@ header {
   background-color: #f8f8ff;
   border-right-color: transparent;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.header--cart-drawer > h3 {
+.cart-drawer--header {
   font-family: 'Cormorant Garamond';
   font-size: 36px;
 }
 
 .empty-cart-text {
-  font-family: Helvetica;
+  font-family: 'Montserrat';
   font-weight: 300;
 }
 
@@ -59,7 +62,7 @@ header {
 .cart-drawer--item > span > b,
 .cart-drawer--item > b {
   margin: 0;
-  font-family: Helvetica;
+  font-family: 'Montserrat';
 }
 
 .cart-drawer--item > span > p,
@@ -70,6 +73,33 @@ header {
 .cart-drawer--item > span {
   display: flex;
   gap: 0.2rem;
+}
+
+.cart-drawer--btns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.cart-drawer--btns > button {
+  margin: 0;
+  padding: 0.6rem 1rem;
+}
+
+.cart-drawer--btns > button:hover {
+  background-color: lightgrey;
+}
+
+.clear-cart--btn {
+  background-color: red;
+  color: white;
+}
+
+.checkout--btn {
+  background-color: #9a825c;
+  color: white;
 }
 
 .main-image-btn:hover {
@@ -172,12 +202,18 @@ header {
 
 .qty-select,
 .size-select,
-.add-to-cart--btn {
-  font-family: Helvetica;
+.add-to-cart--btn,
+.cart-drawer--btns {
+  font-family: 'Montserrat';
   border-radius: 2px;
-  padding: 0.5em 1em;
   font-size: 16px;
   cursor: pointer;
+}
+
+.qty-select,
+.size-select,
+.add-to-cart--btn {
+  padding: 0.5em 1em;
 }
 
 .qty-select,
@@ -189,12 +225,16 @@ header {
   width: 140px;
 }
 
-.add-to-cart--btn {
+.add-to-cart--btn,
+.cart-drawer--btns {
   border-color: transparent;
-  background-color: rgb(144, 169, 139);
-  color: white;
   font-weight: 300;
   transition: 0.3s;
+}
+
+.add-to-cart--btn {
+  background-color: rgb(144, 169, 139);
+  color: white;
 }
 
 .add-to-cart--btn:hover {
