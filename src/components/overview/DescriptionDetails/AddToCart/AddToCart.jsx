@@ -41,15 +41,18 @@ export default function AddToCart({ skuData, currStyle }) {
     } else {
       setMessage('none');
       const count = e.target[1].value;
-      axios
-        .post(
+      const postPromises = [];
+      for (let i = 0; i < count; i += 1) {
+        axios.post(
           'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/cart',
           {
             sku_id: Number(currSku),
             count,
           },
           { headers: { Authorization: config.TOKEN } }
-        )
+        );
+      }
+      Promise.all(postPromises)
         .then(() => {
           setMessage('success');
         })

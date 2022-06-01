@@ -15,10 +15,11 @@ export default function Thumbnails({ photos, currImgIdx, setCurrImgIdx }) {
       <img
         src={photo.thumbnail_url}
         alt="thumbnail"
-        className="main-gallery-thumbnail"
-        style={{
-          borderColor: currImgIdx === i ? 'grey' : 'transparent',
-        }}
+        className={
+          currImgIdx === i
+            ? 'main-gallery-thumbnail selected-thumbnail'
+            : 'main-gallery-thumbnail'
+        }
       />
     </button>
   ));

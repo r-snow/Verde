@@ -42,6 +42,62 @@ body {
 #app {
   background-color: #f8f8ff;
 }
+
+.fade-in {
+  animation-name: FadeIn;
+  animation-duration: 1s;
+  transition-timing-function: linear;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 /*-------- Overview Styles Section -------*/
 #top {
   position: relative;
@@ -169,6 +225,15 @@ body {
 .main-gallery--container {
   display: flex;
   align-items: center;
+  user-select: none;
+}
+
+@media (max-width: 1329px) {
+  .main-gallery--container {
+    border-bottom: solid 1px lightgrey;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+  }
 }
 
 .main-gallery--frame {
@@ -201,7 +266,7 @@ body {
   height: 7vh;
   object-fit: cover;
   transition: 0.3s;
-  border: 3px #9a825c solid;
+  border: 3px transparent solid;
 }
 
 .main-gallery-thumbnail-container {
@@ -212,7 +277,11 @@ body {
 }
 
 .main-gallery-thumbnail:hover {
-  border: 2px lightgrey solid !important;
+  border: 3px lightgrey solid;
+}
+
+.selected-thumbnail {
+  border-color: var(--gold-theme);
 }
 
 .style-thumbnail {
@@ -226,10 +295,6 @@ body {
   transition: 0.3s;
   border-color: transparent;
   border-style: solid;
-}
-
-.selected-style {
-  border: 2px solid #9a825c !important;
 }
 
 .style-thumbnail:hover {
@@ -271,6 +336,7 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
+  user-select: none;
 }
 
 .expanded-view--frame {
