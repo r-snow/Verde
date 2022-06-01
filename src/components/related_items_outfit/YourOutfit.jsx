@@ -37,7 +37,7 @@ export default function YourOutfit({ curProd }) {
           <Carousel>
             {outfit.map((productID, index) => (
               <YOProductCard
-                productID={productID}
+                productID={curProd.id}
                 handleRemove={handleRemove}
                 key={nanoid()}
                 index={index}
