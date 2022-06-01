@@ -56,7 +56,7 @@ export default function CartDrawer({ closeDrawer }) {
       />
       <div className="header--cart-drawer">
         <div>
-          <h3>Your Cart</h3>
+          <h3 className="cart-drawer--header">Your Cart</h3>
           {cartElements}
         </div>
         <FontAwesomeIcon

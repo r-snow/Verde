@@ -12,6 +12,7 @@ html {
   --star-color: lightgray;
   --gold-theme: #ac9673;
   --verde-theme: #89aa88;
+  --off-white: #f8f8ff;
 }
 
 /* Scrollbar */
@@ -110,6 +111,7 @@ header {
 .cart-drawer--btns > button {
   margin: 0;
   padding: 0.6rem 1rem;
+  color: var(--off-white);
 }
 
 .cart-drawer--btns > button:hover {
@@ -117,13 +119,11 @@ header {
 }
 
 .clear-cart--btn {
-  background-color: red;
-  color: white;
+  background-color: #b33a3a;
 }
 
 .checkout--btn {
   background-color: #9a825c;
-  color: white;
 }
 
 .main-image-btn:hover {
@@ -258,7 +258,7 @@ header {
 
 .add-to-cart--btn {
   background-color: rgb(144, 169, 139);
-  color: white;
+  color: var(--off-white);
 }
 
 .add-to-cart--btn:hover {

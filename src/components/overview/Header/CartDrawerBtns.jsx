@@ -4,10 +4,10 @@ export default function CartDrawerBtns() {
   return (
     <span className="cart-drawer--btns">
       <button className="cart-drawer--btns clear-cart--btn" type="button">
-        Clear Cart
+        CLEAR CART
       </button>
       <button className="cart-drawer--btns checkout--btn" type="button">
-        Checkout
+        CHECKOUT
       </button>
     </span>
   );
