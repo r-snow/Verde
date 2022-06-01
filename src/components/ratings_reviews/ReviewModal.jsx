@@ -106,7 +106,7 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
       <div
         className="outline-color"
         style={{
-          backgroundColor: '#00FFAB',
+          backgroundColor: 'var(--verde-theme)',
           border: 'solid white 1px',
           position: 'absolute',
           padding: '1.5em',
@@ -124,7 +124,7 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
             padding: '1rem',
             justifyContent: 'center',
             alignItems: 'center',
-            accentColor: '#E3FCBF',
+            accentColor: 'aquamarine',
           }}
           onSubmit={handleSubmit}
         >
