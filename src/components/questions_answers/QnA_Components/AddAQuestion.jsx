@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
@@ -30,7 +29,11 @@ export default function AddAQuestion({ productID, setOpenModal }) {
       error.push('Valid Email');
     }
     if (error.length) {
-      setErrorMessage(`You must enter the following: ${error.join(', ')}`);
+      setErrorMessage(
+        `Please enter correct values in the following fields: ${error.join(
+          ', '
+        )}`
+      );
     } else {
       axios
         .post(
@@ -87,64 +90,70 @@ export default function AddAQuestion({ productID, setOpenModal }) {
             width: '150px',
           }}
         >
-          <label>Your Question*:</label>
-          <textarea
-            type="text"
-            id="question"
-            maxLength={1000}
-            minLength={1}
-            autoComplete="off"
-            rows={4}
-            columns={60}
-            onChange={(e) => setQuestion(e.target.value)}
-          />
+          <label htmlFor="question">
+            Your Question*:{' '}
+            <textarea
+              type="text"
+              id="question"
+              maxLength={1000}
+              minLength={1}
+              autoComplete="off"
+              rows={4}
+              columns={60}
+              onChange={(e) => setQuestion(e.target.value)}
+            />
+          </label>
         </div>
         <div
           style={{
             padding: '5px',
           }}
         >
-          <label>Nickname*:</label>
-          <input
-            id="nickname"
-            maxLength={60}
-            placeholder="Example: jack123!"
-            onChange={(e) => setNickname(e.target.value)}
-          />{' '}
+          <label htmlFor="nickname">
+            Nickname*:{' '}
+            <input
+              id="nickname"
+              maxLength={60}
+              placeholder="Example: jack123!"
+              onChange={(e) => setNickname(e.target.value)}
+            />
+          </label>
         </div>
-        <span
+        <p
           style={{
             fontStyle: 'italic',
             fontSize: '12px',
             padding: '5px',
           }}
         >
-          &nbsp; For privacy reasons, do not use your full name or email address
-        </span>
+          For privacy reasons, do not use your full name or email address
+        </p>
 
         <div
           style={{
             padding: '5px',
           }}
         >
-          <label>Email*:</label>
-          <input
-            type="email"
-            id="email"
-            maxLength={60}
-            placeholder="jack123@email.com"
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <label htmlFor="email">
+            Email*:{' '}
+            <input
+              type="email"
+              id="email"
+              maxLength={60}
+              placeholder="jack123@email.com"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </label>
         </div>
-        <span
+        <p
           style={{
             fontStyle: 'italic',
             fontSize: '12px',
             padding: '5px',
           }}
         >
-          &nbsp;For authentication reasons, you will not be emailed
-        </span>
+          For authentication reasons, you will not be emailed
+        </p>
       </form>
       <button
         className="question-form-submit-button"

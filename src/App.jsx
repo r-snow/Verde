@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import Header from './components/overview/Header';
 import Overview from './components/overview/Overview';
 import QnA from './components/questions_answers/QnA';
 import RatingsAndReviews from './components/ratings_reviews/RatingsAndReviews';
@@ -7,16 +7,12 @@ import RelatedItems from './components/related_items_outfit/RelatedItems';
 import YourOutfit from './components/related_items_outfit/YourOutfit';
 import currentProduct from './components/related_items_outfit/sampleProductData';
 
-function App(props) {
-  const { name } = props;
-  const [curProd, setCurProd] = useState(Number(currentProduct.id));
+function App() {
+  const [curProd, setCurProd] = useState(currentProduct);
 
   return (
     <>
-      <h1 id="top">
-        Hello
-        {` ${name}`}
-      </h1>
+      <Header />
       <Overview />
       <RelatedItems curProd={curProd} setCurProd={setCurProd} />
       <YourOutfit curProd={curProd} />
@@ -25,13 +21,5 @@ function App(props) {
     </>
   );
 }
-
-App.propTypes = {
-  name: PropTypes.string,
-};
-
-App.defaultProps = {
-  name: 'Verde Customer',
-};
 
 export default App;

@@ -8,10 +8,12 @@ import Price from '../shared/Price';
 import Stars from '../shared/Stars';
 import productReviewsData from '../overview/example_data/productReviewsData';
 import Ratings from './sampleRatings';
+import Compare from './CompareModal';
 
 import config from '../../../config/config';
 
-export default function ProductCard({ setOpenModal, productID }) {
+export default function ProductCard({ productID, curProd }) {
+  const [openModal, setOpenModal] = useState(false);
   const [product, setProduct] = useState({});
   const [image, setImage] = useState('');
 
@@ -81,11 +83,24 @@ export default function ProductCard({ setOpenModal, productID }) {
       <p>{product.name}</p>
       <Price price={parseFloat(product.default_price)} salePrice={120} />
       <Stars rating={rating()} />
+      {openModal && (
+        <Compare
+          curProd={curProd}
+          compProd={product}
+          setOpenModal={setOpenModal}
+        />
+      )}
     </div>
   );
 }
 
 ProductCard.propTypes = {
   productID: PropTypes.number.isRequired,
-  setOpenModal: PropTypes.func.isRequired,
+  curProd: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
 };
