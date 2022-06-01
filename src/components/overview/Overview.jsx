@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ImageGallery from './ImageGallery';
-import ExpandedView from './ExpandedView';
-import DescriptionDetails from './DescriptionDetails';
+import ImageGallery from './ImageGallery/ImageGallery';
+import ExpandedView from './ImageGallery/ExpandedView';
+import DescriptionDetails from './DescriptionDetails/DescriptionDetails';
 import sampleProductData from './example_data/productData';
 import sampleProductStylesData from './example_data/productStylesData';
 import sampleProductReviewsData from './example_data/productReviewsData';
@@ -100,6 +100,7 @@ export default function Overview() {
   const styles = productStylesData.results.map((style) => ({
     styleId: style.style_id,
     iconUrl: style.photos[0].thumbnail_url,
+    name: style.name,
   }));
 
   const incrementIdx = () => {
@@ -132,16 +133,7 @@ export default function Overview() {
     isLoaded.product === true &&
       isLoaded.styles === true &&
       isLoaded.reviews === true && (
-        <section
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            maxWidth: '100vw',
-          }}
-        >
+        <section id="overview--container">
           <ImageGallery
             changeImgView={changeImgView}
             photos={productStylesData.results[currStyle].photos}

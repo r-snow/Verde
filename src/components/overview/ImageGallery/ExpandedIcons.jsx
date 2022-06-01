@@ -35,23 +35,12 @@ export default function ExpandedIcons({ photos, currImgIdx, setCurrImgIdx }) {
   });
 
   return (
-    <section
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        gap: '1em',
-        alignItems: 'center',
-        position: 'absolute',
-        bottom: '2em',
-      }}
-    >
+    <section className="expanded-icons--container">
       <FontAwesomeIcon
         icon={faCaretLeft}
         size="lg"
-        color={currImgIdx !== 0 ? 'black' : 'white'}
-        style={{
-          opacity: '0.5',
-        }}
+        color={currImgIdx !== 0 ? 'black' : 'transparent'}
+        className="expanded-icons--carat"
         onClick={() => {
           if (currImgIdx !== 0) {
             setCurrImgIdx((prev) => prev - 1);
@@ -62,10 +51,8 @@ export default function ExpandedIcons({ photos, currImgIdx, setCurrImgIdx }) {
       <FontAwesomeIcon
         icon={faCaretRight}
         size="lg"
-        color={currImgIdx !== photos.length - 1 ? 'black' : 'white'}
-        style={{
-          opacity: '0.5',
-        }}
+        color={currImgIdx !== photos.length - 1 ? 'black' : 'transparent'}
+        className="expanded-icons--carat"
         onClick={() => {
           if (currImgIdx !== photos.length - 1) {
             setCurrImgIdx((prev) => prev + 1);

@@ -31,26 +31,14 @@ export default function ExpandedView({
   };
 
   return (
-    <section
-      id="expanded"
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
+    <section id="expanded">
       {currImgIdx !== 0 && !isZoomed && (
         <FontAwesomeIcon
           icon={faAngleLeft}
           type="button"
           color="black"
           size="lg"
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '1em',
-            zIndex: '9999',
-          }}
+          className="expanded-view--arrows expanded-view--left-carat"
           onClick={() => {
             setCurrImgIdx((prev) => prev - 1);
           }}
@@ -62,64 +50,29 @@ export default function ExpandedView({
           type="button"
           color="black"
           size="lg"
-          style={{
-            position: 'absolute',
-            top: '50%',
-            right: '1em',
-            zIndex: '9999',
-          }}
+          className="expanded-view--arrows expanded-view--right-carat"
           onClick={() => {
             setCurrImgIdx((prev) => prev + 1);
           }}
         />
       )}
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          position: 'relative',
-          height: '100vh',
-          width: '100vw',
-          justifyContent: 'center',
-        }}
-      >
+      <div className="expanded-view--frame">
         {!isZoomed ? (
           <button
+            className="expanded-view--default-btn"
             type="button"
-            style={{
-              backgroundColor: 'transparent',
-              borderColor: 'transparent',
-              objectFit: 'cover',
-              margin: '0',
-              padding: '0',
-            }}
             onClick={handleImageClick}
           >
             <img
               src={currPhotoUrl}
               className="expanded-view--standard"
               alt="big img"
-              style={{
-                maxHeight: '80vh',
-                maxWidth: '60vw',
-                minWidth: '0',
-              }}
             />
           </button>
         ) : (
           <button
+            className="expanded-view--zoomed-btn"
             type="button"
-            style={{
-              backgroundColor: 'transparent',
-              borderColor: 'transparent',
-              margin: '0',
-              padding: '0',
-              height: '100vh',
-              width: '100vw',
-              display: 'block',
-              overflow: 'hidden',
-            }}
             onClick={handleImageClick}
           >
             <img
@@ -127,12 +80,8 @@ export default function ExpandedView({
               className="expanded-view--zoomed"
               alt="big img"
               style={{
-                transform: `scale(2.5)`,
-                height: '500px',
-                position: 'relative',
                 top: `${y}px`,
                 left: `${x}px`,
-                verticalAlign: 'top',
               }}
               onMouseMove={handleMouseMove}
             />
@@ -146,15 +95,11 @@ export default function ExpandedView({
             }}
           >
             <FontAwesomeIcon
+              className="expanded-view--compress"
               icon={faCompress}
               color="black"
               type="button"
               size="lg"
-              style={{
-                position: 'absolute',
-                top: '1em',
-                right: '1em',
-              }}
             />
           </a>
         )}

@@ -34,16 +34,10 @@ export default function Thumbnails({ photos, currImgIdx, setCurrImgIdx }) {
   });
 
   return (
-    <section
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '10px',
-      }}
-    >
+    <section className="main-gallery-thumbnails--container">
       <FontAwesomeIcon
         icon={faAngleUp}
-        color={currImgIdx !== 0 ? 'black' : 'white'}
+        color={currImgIdx !== 0 ? 'black' : 'transparent'}
         type="button"
         onClick={() => {
           if (currImgIdx !== 0) {
@@ -54,7 +48,7 @@ export default function Thumbnails({ photos, currImgIdx, setCurrImgIdx }) {
       {displayedThumbnailElements}
       <FontAwesomeIcon
         icon={faAngleDown}
-        color={currImgIdx !== photos.length - 1 ? 'black' : 'white'}
+        color={currImgIdx !== photos.length - 1 ? 'black' : 'transparent'}
         type="button"
         onClick={() => {
           if (currImgIdx !== photos.length - 1) {

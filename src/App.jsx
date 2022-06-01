@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Header from './components/overview/Header';
+import Header from './components/overview/Header/Header';
 import Overview from './components/overview/Overview';
 import QnA from './components/questions_answers/QnA';
 import RatingsAndReviews from './components/ratings_reviews/RatingsAndReviews';
