@@ -65,12 +65,25 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
         <>
           <span
             style={{
-              padding: '1em 0em',
+              padding: '1em 0em 0rem',
+              maxWidth: '60vw',
+              wordWrap: 'break-word',
             }}
           >
             {review.body.slice(0, 250)}
           </span>
-          <button type="button" onClick={changeView}>
+          <button
+            type="button"
+            onClick={changeView}
+            className="review-button"
+            style={{
+              padding: '0rem 0.5rem',
+              borderRadius: '0.2rem',
+              margin: '0rem 0rem 1rem 0rem',
+              backgroundColor: 'lightgray',
+              fontSize: '0.7em',
+            }}
+          >
             Show more
           </button>{' '}
         </>
@@ -80,6 +93,8 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
         <span
           style={{
             padding: '1em 0em',
+            maxWidth: '60vw',
+            wordWrap: 'break-word',
           }}
         >
           {review.body}
@@ -98,7 +113,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
           display: 'flex',
           width: '100%',
           color: 'darkgray',
-          margin: '2em 0em 0em 0.2em',
+          margin: '2em 0em 1em 0.2em',
           fontSize: '0.8em',
         }}
       >
@@ -123,7 +138,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
           <div>
             <FontAwesomeIcon
               icon={faCircleCheck}
-              size="xl"
+              size="lg"
               style={{
                 opacity: '0.5',
                 margin: '0em 0.1em',
@@ -157,8 +172,9 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
         style={{
           display: 'flex',
           alignItems: 'flex-end',
-          // lineHeight: '10px',
           width: '100%',
+          position: 'relative',
+          top: '1.2rem',
         }}
       >
         {!clickedHelpful ? (

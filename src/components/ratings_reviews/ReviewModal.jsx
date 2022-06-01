@@ -6,7 +6,7 @@ import CharacteristicsButtons from './CharacteristicsButtons';
 import ClickStars from './ClickStars';
 import config from '../../../config/config';
 
-function ReviewModal({ meta, toggleModal }) {
+function ReviewModal({ meta, setReviews, toggleModal }) {
   const [wordCount, updateWordCount] = useState(0);
 
   const [formRating, changeFormRating] = useState(null);
@@ -77,7 +77,17 @@ function ReviewModal({ meta, toggleModal }) {
         toggleModal();
         console.log('Successful Post');
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .then(() => {
+        axios
+          .get(
+            `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?product_id=40344&sort=newest&count=1000`,
+            {
+              headers: { Authorization: config.TOKEN },
+            }
+          )
+          .then((results) => setReviews(results.data.results));
+      });
   };
 
   return (
@@ -89,15 +99,19 @@ function ReviewModal({ meta, toggleModal }) {
         tabIndex={0}
         onKeyDown={toggleModal}
         aria-label="close modal with overlay"
+        style={{
+          zIndex: '5000',
+        }}
       />
       <div
         className="outline-color"
         style={{
-          backgroundColor: '#C2DED1',
+          backgroundColor: '#00FFAB',
           border: 'solid white 1px',
           position: 'absolute',
           padding: '1.5em',
           alignSelf: 'center',
+          zIndex: '9999',
         }}
       >
         <form
@@ -110,6 +124,7 @@ function ReviewModal({ meta, toggleModal }) {
             padding: '1rem',
             justifyContent: 'center',
             alignItems: 'center',
+            accentColor: '#E3FCBF',
           }}
           onSubmit={handleSubmit}
         >
@@ -211,15 +226,46 @@ function ReviewModal({ meta, toggleModal }) {
               borderRadius: '1rem',
               padding: '10rem 20rem',
               maxWidth: '65rem',
+              textAlign: 'center',
             }}
           >
-            Upload up to 5 photos
+            Upload photos
             <br />
-            <input type="file" accept="image/*" onChange={uploadImages} />
-            <input type="file" accept="image/*" onChange={uploadImages} />
-            <input type="file" accept="image/*" onChange={uploadImages} />
-            <input type="file" accept="image/*" onChange={uploadImages} />
-            <input type="file" accept="image/*" onChange={uploadImages} />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={uploadImages}
+              className="review-button"
+              style={{ padding: '0rem', fontSize: '0.5em' }}
+            />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={uploadImages}
+              className="review-button"
+              style={{ padding: '0rem', fontSize: '0.5em' }}
+            />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={uploadImages}
+              className="review-button"
+              style={{ padding: '0rem', fontSize: '0.5em' }}
+            />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={uploadImages}
+              className="review-button"
+              style={{ padding: '0rem', fontSize: '0.5em' }}
+            />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={uploadImages}
+              className="review-button"
+              style={{ padding: '0rem', fontSize: '0.5em' }}
+            />
             {formImages.map((image) => (
               <img
                 src={image}
@@ -269,7 +315,8 @@ function ReviewModal({ meta, toggleModal }) {
           </p>
           <button
             type="submit"
-            style={{ padding: '1rem 2rem', borderRadius: '0.5rem' }}
+            className="review-button"
+            style={{ padding: '1rem 3rem' }}
           >
             Submit
           </button>
@@ -287,6 +334,7 @@ ReviewModal.propTypes = {
     PropTypes.object,
     PropTypes.array,
   ]).isRequired,
+  setReviews: PropTypes.func.isRequired,
   toggleModal: PropTypes.func.isRequired,
 };
 

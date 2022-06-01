@@ -30,44 +30,44 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
         alignItems: 'center',
         // border: 'solid 5px blue',
         borderRadius: '3rem',
-        padding: '2em 1em',
-        margin: 'auto',
+        padding: '2rem 1rem',
+        margin: '10 auto',
         width: '30rem',
         minWidth: '30rem',
         fontSize: '0.8em',
       }}
     >
-      <div
-        style={{
-          fontSize: '2em',
-          margin: '0.3rem 0',
-        }}
-      >
-        Reviews & Ratings
-      </div>
-      <div
-        style={{
-          fontSize: '3.5em',
-          margin: '0.1em 0em',
-        }}
-      >
-        {averageRatingScore.toFixed(2)}
-        <CustomStars rating={averageRatingScore} color="cyan" size="25px" />
-      </div>
-
-      <i style={{ textAlign: 'center', marginBottom: '1em', width: '17rem' }}>
-        <p
+      <div className="rating-title-text">
+        <div
           style={{
-            display: 'inline',
-            fontSize: '2em',
+            fontSize: '3.5em',
+            margin: '0.1em 0em',
+            textAlign: 'center',
           }}
         >
-          {((Number(meta.recommended.true) / totalReviews) * 100).toFixed(2)}
-        </p>
-        <p style={{ display: 'inline' }}>
-          % of reviews recommend this product!
-        </p>
-      </i>
+          {averageRatingScore.toFixed(2)}
+          <CustomStars
+            rating={averageRatingScore}
+            color="var(--verde-theme)"
+            size="25px"
+          />
+        </div>
+
+        <i style={{ textAlign: 'center', marginBottom: '1em', width: '17rem' }}>
+          <p
+            style={{
+              display: 'inline',
+              fontSize: '2em',
+            }}
+            className="rating-title-text"
+          >
+            {((Number(meta.recommended.true) / totalReviews) * 100).toFixed(2)}
+          </p>
+          <p style={{ display: 'inline' }}>
+            % of reviews recommend this product!
+          </p>
+        </i>
+      </div>
       <div className="sliders-container">
         {metaEntries.map((entry) => (
           <Sliders
@@ -181,6 +181,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
           <button
             type="button"
             key={nanoid()}
+            className="review-button"
             style={{
               padding: '0.4rem 1.6rem',
               margin: '0.2rem',
