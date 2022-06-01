@@ -77,14 +77,14 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
             onClick={changeView}
             className="review-button"
             style={{
-              padding: '0rem 0.5rem',
+              padding: '0.2rem 0.7rem',
               borderRadius: '0.2rem',
               margin: '0rem 0rem 1rem 0rem',
-              backgroundColor: 'lightgray',
+              backgroundColor: 'transparent',
               fontSize: '0.7em',
             }}
           >
-            Show more
+            SHOW MORE
           </button>{' '}
         </>
       )}

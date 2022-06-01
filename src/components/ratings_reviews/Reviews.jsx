@@ -28,10 +28,12 @@ function Reviews({
           alignSelf: 'end',
           padding: '0.7rem 6rem',
           borderRadius: '2rem',
+          fontFamily: 'Montserrat',
+          fontSize: '1.2rem',
         }}
         onChange={(event) => sortReviews(event.target.value)}
       >
-        <option>Sort by...</option>
+        <option>SORT BY...</option>
         <option>Helpfulness</option>
         <option>Newest</option>
         <option>Relevance</option>

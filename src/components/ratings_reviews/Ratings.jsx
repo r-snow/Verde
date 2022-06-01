@@ -37,36 +37,38 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
         fontSize: '0.8em',
       }}
     >
-      <div className="rating-title-text">
+      <div className="ratings-all-titles-containers">
         <div
+          className="rating-title-text"
           style={{
             fontSize: '3.5em',
-            margin: '0.1em 0em',
             textAlign: 'center',
+            fontFamily: 'Montserrat',
           }}
         >
           {averageRatingScore.toFixed(2)}
           <CustomStars
             rating={averageRatingScore}
             color="var(--verde-theme)"
-            size="25px"
+            size="42px"
           />
         </div>
 
-        <i style={{ textAlign: 'center', marginBottom: '1em', width: '17rem' }}>
-          <p
-            style={{
-              display: 'inline',
-              fontSize: '2em',
-            }}
-            className="rating-title-text"
-          >
+        <div
+          style={{
+            textAlign: 'center',
+            marginBottom: '1em',
+            width: '20rem',
+            fontFamily: 'Montserrat',
+          }}
+        >
+          <p className="percent-title">
             {((Number(meta.recommended.true) / totalReviews) * 100).toFixed(2)}
           </p>
           <p style={{ display: 'inline' }}>
-            % of reviews recommend this product!
+            % OF REVIEWS RECOMMEND THIS PRODUCT!
           </p>
-        </i>
+        </div>
       </div>
       <div className="sliders-container">
         {metaEntries.map((entry) => (
@@ -157,6 +159,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
       <p
         style={{
           alignSelf: 'center',
+          fontSize: '1.5rem',
         }}
       >
         <FontAwesomeIcon
@@ -188,7 +191,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
             }}
             onClick={() => toggleRatedReviews(starKeys)}
           >
-            {starKeys} stars
+            {starKeys} STARS
           </button>
         ))}
       </div>

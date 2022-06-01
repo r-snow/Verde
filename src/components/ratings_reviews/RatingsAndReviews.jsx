@@ -114,7 +114,7 @@ function RatingsAndReviews() {
   return (
     <>
       <div className="separator">
-        <h1 className="separator-title">Ratings & Reviews</h1>
+        <p className="separator-title">RATINGS & REVIEWS</p>
       </div>
       <div className="section-end">
         <div className="custom-shape-divider-top-1653983827">
@@ -150,9 +150,9 @@ function RatingsAndReviews() {
           fontWeight: '100',
           fontSize: '1.5em',
           padding: '0.2em',
-          // border: 'solid red 5px',
           flexWrap: 'wrap',
           overflowX: 'hidden',
+          // border: 'solid red 5px',
         }}
         id="ratings-reviews"
       >
@@ -182,10 +182,10 @@ function RatingsAndReviews() {
             display: 'flex',
             justifyContent: 'space-around',
             alignSelf: 'end',
-            border: 'solid 0px cyan',
             width: '50%',
             right: '80%',
             marginLeft: 'auto',
+            border: 'solid 0px cyan',
           }}
         >
           <button
@@ -201,7 +201,7 @@ function RatingsAndReviews() {
                 margin: '0em 0.5em',
               }}
             />
-            Write a new review
+            WRITE A NEW REVIEW
           </button>
           {visible < reviews.length && (
             <button
@@ -217,7 +217,7 @@ function RatingsAndReviews() {
                   margin: '0em 0.5em',
                 }}
               />
-              Show more
+              SHOW MORE
             </button>
           )}
         </section>
