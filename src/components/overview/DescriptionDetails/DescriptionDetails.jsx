@@ -21,7 +21,7 @@ export default function DescriptionDetails({
   slogan,
 }) {
   return (
-    <div className="description-details--container">
+    <div className="description-details--container fade-in">
       <p className="description-details--category">{category.toUpperCase()}</p>
       <p className="description-details--name">{name}</p>
       {slogan.length && <b className="description-details--slogan">{slogan}</b>}
