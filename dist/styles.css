@@ -8,6 +8,30 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --star-color: lightgray;
+  --gold-theme: #ac9673;
+  --verde-theme: #89aa88;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 0.7em;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: lightgray;
+  border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--verde-theme);
+}
+
 html,
 body {
   /* padding: 0; */
@@ -539,10 +563,26 @@ header {
   font-size: 1rem;
 }
 
+.rating-title-text {
+  background-image: linear-gradient(90deg, var(--verde-theme), aquamarine);
+  background-size: 0% 3px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  text-decoration: none;
+  font-weight: 900;
+  transition: background-size 400ms ease-in-out;
+}
+
+.rating-title-text:hover {
+  background-size: 100% 3px;
+}
+
+.rating-title,
 .review-helpful-btn {
   border: 0;
   border-radius: 5px;
-  background-color: transparent;
+  background-color: transparent !important;
+  /* border: solid 5px yellow; */
   color: rgb(105, 105, 105);
   text-align: center;
   font-size: 0.5em;
@@ -552,19 +592,103 @@ header {
 .reviews {
   border-radius: 1em;
   border: solid 2px lightgray;
-  /* border-image: linear-gradient(
-      to bottom,
-      rgb(27, 240, 158),
-      rgba(47, 214, 200, 1)
-    )
-    1 100%; */
-  /* border-width: 0.3rem;
-  border-style: solid; */
   transition: 200ms all ease-in-out;
 }
 
 .reviews:hover {
-  border: solid 2px aquamarine;
+  border: solid 2px rgb(0, 255, 157);
+}
+
+.review-button {
+  background-color: transparent;
+  border-radius: 0.2rem;
+  border: 1px solid rgb(143, 143, 143);
+  background-image: linear-gradient(
+    90deg,
+    rgba(0, 255, 157, 0.2),
+    rgba(7, 255, 131, 0.2)
+  );
+  background-size: 0% 100rem;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  font-size: 1em;
+  padding: 0.6em 0.5em;
+  transition: background-size 1000ms ease;
+}
+
+.review-button:hover {
+  background-color: #ffe3a9;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+  background-size: 100% 100rem;
+}
+
+.alt-review-button {
+  background-color: transparent;
+  border-radius: 0.5rem;
+  border: 2px solid rgb(143, 143, 143);
+  background-image: linear-gradient(90deg, rgb(0, 255, 157), rgb(255, 174, 0));
+  background-size: 0% 3px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  font-size: 1em;
+  padding: 0.6em 0.5em;
+  transition: background-size 1000ms ease, background-color 100ms ease;
+}
+
+.alt-review-button:hover {
+  background-color: var(--verde-theme);
+  background-image: linear-gradient(90deg, rgb(0, 255, 157), rgb(2, 226, 255));
+  background-position: top right;
+  background-size: 100% 3px;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+
+.separator {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 5px solid green; */
+  min-height: 400px;
+  padding: 100px 20vw;
+  /* background: linear-gradient(90deg #000000, #00ffab); */
+  background: var(--verde-theme);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.separator-title {
+  font-size: 3rem;
+  letter-spacing: 1rem;
+
+  /* border: solid 5px blue; */
+}
+
+.custom-shape-divider-bottom-1653983627 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1653983627 svg {
+  position: relative;
+  display: block;
+  width: calc(101% + 1.3px);
+  height: 163px;
+}
+
+.custom-shape-divider-bottom-1653983627 .shape-fill {
+  fill: var(--verde-theme);
+}
+
+.custom-shape-divider-top-1653983827 .shape-fill {
+  fill: var(--verde-theme);
 }
 
 /* Review Modal Section */
@@ -581,7 +705,7 @@ body.prevent-scroll-background {
 }
 
 .disclaimer-text {
-  font-size: 0.5em;
+  font-size: 0.75em;
   margin: 0;
 }
 
@@ -687,17 +811,12 @@ body.prevent-scroll-background {
 /* Stars Instructions! Add a className='stars' to a div and add a number to the style property. Example: style={{'--rating': num}} */
 /* If you are using the component, simply pass a prop down an object as a prop {'--rating':num} */
 
-:root {
-  --star-color: lightgray;
-  --star-background: #36f17e;
-}
-
 .stars:before {
   content: '★★★★★';
   letter-spacing: -1.2px;
   background: linear-gradient(
     90deg,
-    var(--star-background) var(--percent),
+    var(--gold-theme) var(--percent),
     var(--star-color) var(--percent)
   );
   background-clip: text;
@@ -720,7 +839,7 @@ body.prevent-scroll-background {
   letter-spacing: 1.5em;
   background: linear-gradient(
     90deg,
-    rgb(57, 253, 155) var(--bar-percent),
+    var(--verde-theme) var(--bar-percent),
     lightgray var(--bar-percent)
   );
   -webkit-text-fill-color: transparent;
