@@ -19,29 +19,12 @@ export default function StyleSelector({ styles, currStyle, setCurrStyle }) {
       <img
         src={style.iconUrl}
         alt={style.styleId}
-        style={{
-          width: '40px',
-          height: '40px',
-          objectFit: 'cover',
-          borderRadius: '50%',
-        }}
+        className="style-selector--thumbnails"
       />
     </button>
   ));
 
-  return (
-    <section
-      style={{
-        marginBottom: '1em',
-        display: 'grid',
-        gridTemplateColumns: 'repeat(8, 1fr)',
-        rowGap: '1em',
-        columnGap: '0.5em',
-      }}
-    >
-      {thumbnails}
-    </section>
-  );
+  return <section className="style-selector--container">{thumbnails}</section>;
 }
 
 StyleSelector.propTypes = {

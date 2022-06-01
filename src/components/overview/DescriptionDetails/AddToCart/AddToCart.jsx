@@ -4,7 +4,7 @@ import axios from 'axios';
 import SizeSelector from './SizeSelector';
 import QtySelector from './QtySelector';
 import CartMessage from './CartMessage';
-import config from '../../../config/config';
+import config from '../../../../../config/config';
 
 export default function AddToCart({ skuData, currStyle }) {
   const [currSku, setCurrSku] = useState('Select Size');
@@ -53,20 +53,14 @@ export default function AddToCart({ skuData, currStyle }) {
         .then(() => {
           setMessage('success');
         })
-        .catch((err) => console.error(err));
+        .catch(() => {
+          setMessage('failure');
+        });
     }
   };
 
   return (
-    <form
-      onSubmit={handleCartSubmit}
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '1em',
-        marginBottom: '1em',
-      }}
-    >
+    <form onSubmit={handleCartSubmit} className="add-to-cart--container">
       <span>
         <CartMessage message={message} />
         <SizeSelector

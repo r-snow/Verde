@@ -15,6 +15,12 @@ export default function CartMessage({ message }) {
         setMessageText('Please pick a size!');
         setIsShown(true);
         break;
+      case 'failure':
+        setColor('red');
+        setBackgroundColor('pink');
+        setMessageText('Cart addition failed, please try again');
+        setIsShown(true);
+        break;
       case 'success':
         setColor('darkgreen');
         setBackgroundColor('lightgreen');
@@ -28,15 +34,10 @@ export default function CartMessage({ message }) {
   return (
     isShown && (
       <div
+        className="add-to-cart--message"
         style={{
           backgroundColor,
           color,
-          marginBottom: '0.8em',
-          padding: '0.5em',
-          borderRadius: '0.5em',
-          fontFamily: 'Helvetica',
-          textAlign: 'center',
-          fontSize: '14px',
         }}
       >
         {messageText}

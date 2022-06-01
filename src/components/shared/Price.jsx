@@ -6,24 +6,25 @@ export default function Price({ price, salePrice, fontSize }) {
     <span
       style={{
         display: 'flex',
-        gap: '0.8em',
+        gap: '0.4rem',
         fontSize: fontSize === false ? '18px' : `${fontSize.toString()}px`,
-        fontWeight: '500',
-        fontFamily: 'Cormorant Garamond',
+        fontFamily: 'EB Garamond, serif',
+        margin: '1rem 0',
       }}
     >
       {salePrice === 0 ? (
-        <p>${price}</p>
+        <p style={{ margin: 0 }}>${price}</p>
       ) : (
         <>
           <p
             style={{
               textDecoration: 'line-through',
+              margin: 0,
             }}
           >
             ${price}
           </p>
-          <p>${salePrice}</p>
+          <p style={{ marginTop: 0 }}>${salePrice}</p>
         </>
       )}
     </span>
