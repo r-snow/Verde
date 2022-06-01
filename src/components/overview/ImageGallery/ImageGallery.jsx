@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import Thumbnails from './Thumbnails';
+import MainImage from './MainImage';
 
 export default function ImageGallery({
   changeImgView,
@@ -38,11 +39,7 @@ export default function ImageGallery({
             className="main-image-btn"
             onClick={changeImgView}
           >
-            <img
-              id="main-gallery--img"
-              src={photos[currImgIdx].url}
-              alt="sample img"
-            />
+            <MainImage currPhotoUrl={photos[currImgIdx].url} />
           </button>
         </a>
       </div>

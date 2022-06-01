@@ -42,6 +42,62 @@ body {
 #app {
   background-color: #f8f8ff;
 }
+
+.fade-in {
+  animation-name: FadeIn;
+  animation-duration: 1s;
+  transition-timing-function: linear;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 /*-------- Overview Styles Section -------*/
 #top {
   position: relative;
@@ -169,10 +225,15 @@ body {
 .main-gallery--container {
   display: flex;
   align-items: center;
-  margin-bottom: 2rem;
-  border-bottom: solid 1px lightgrey;
-  padding-bottom: 2rem;
   user-select: none;
+}
+
+@media (max-width: 1329px) {
+  .main-gallery--container {
+    border-bottom: solid 1px lightgrey;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+  }
 }
 
 .main-gallery--frame {
