@@ -8,7 +8,7 @@ import ProductCard from './RIProductCard';
 import config from '../../../config/config';
 import Compare from './Compare/CompareModal';
 
-export default function RelatedItems({ curProd }) {
+export default function RelatedItems({ curProd, setCurProd }) {
   const [relatedItemIDs, setRelatedItemIDs] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [compProd, setCompProd] = useState({});
@@ -33,6 +33,7 @@ export default function RelatedItems({ curProd }) {
             key={productID}
             setOpenModal={setOpenModal}
             setCompProd={setCompProd}
+            setCurProd={setCurProd}
           />
         ))}
       </Carousel>
@@ -55,4 +56,5 @@ RelatedItems.propTypes = {
     PropTypes.object,
     PropTypes.array,
   ]).isRequired,
+  setCurProd: PropTypes.func.isRequired,
 };
