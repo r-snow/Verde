@@ -3,16 +3,11 @@ import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
-import config from '../../../../config/config';
 import CartDrawerItem from './CartDrawerItem';
 import CartDrawerBtns from './CartDrawerBtns';
 
-export default function CartDrawer({ closeDrawer, localCart }) {
-  const [cartItems, setCartItems] = useState([]);
-  const [refreshCart, setRefreshCart] = useState(0);
-  const [closingOut, setClosingOut] = useState(false);
-
+export default function CartDrawer({ closeDrawer, localCart, deleteCartItem }) {
+  const [cartTotal, setCartTotal] = useState(0);
   const cartElements = localCart.map((item) => (
     <CartDrawerItem
       count={item.count}
@@ -22,18 +17,19 @@ export default function CartDrawer({ closeDrawer, localCart }) {
       price={item.price}
       salePrice={item.salePrice}
       size={item.size}
+      idx={item.idx}
+      deleteCartItem={deleteCartItem}
       key={nanoid()}
     />
   ));
 
   useEffect(() => {
-    axios
-      .get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/cart', {
-        headers: { Authorization: config.TOKEN },
-      })
-      .then(({ data }) => setCartItems(data))
-      .catch(() => setCartItems([]));
-  }, [refreshCart]);
+    let newCartTotal = 0;
+    for (let i = 0; i < localCart.length; i += 1) {
+      newCartTotal += Number(localCart[i].price) * Number(localCart[i].count);
+    }
+    setCartTotal(newCartTotal);
+  }, [localCart]);
 
   return (
     <div className="drawer--container">
@@ -47,7 +43,9 @@ export default function CartDrawer({ closeDrawer, localCart }) {
       />
       <div className="header--cart-drawer slide-in">
         <div>
-          <h3 className="cart-drawer--header">Your Cart</h3>
+          <h3 className="cart-drawer--header">
+            {cartElements.length ? 'Your Cart' : 'Your Cart Is Empty'}
+          </h3>
           {cartElements}
         </div>
         <FontAwesomeIcon
@@ -58,7 +56,7 @@ export default function CartDrawer({ closeDrawer, localCart }) {
           onClick={closeDrawer}
           className="cart-drawer-exit"
         />
-        <CartDrawerBtns setRefreshCart={setRefreshCart} />
+        <CartDrawerBtns cartTotal={cartTotal} />
       </div>
     </div>
   );
@@ -66,6 +64,7 @@ export default function CartDrawer({ closeDrawer, localCart }) {
 
 CartDrawer.propTypes = {
   closeDrawer: PropTypes.func.isRequired,
+  deleteCartItem: PropTypes.func.isRequired,
   localCart: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
