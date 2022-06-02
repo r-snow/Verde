@@ -1,14 +1,14 @@
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import React, { useState, useEffect, useMemo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus, faPen } from '@fortawesome/free-solid-svg-icons';
 import Ratings from './Ratings';
 import Reviews from './Reviews';
 import ReviewModal from './ReviewModal';
-
 import config from '../../../config/config';
 
-function RatingsAndReviews() {
+function RatingsAndReviews({ productID }) {
   const [modalActive, setModalStatus] = useState(false);
   const [reviews, setReviews] = useState([]);
   const [visible, setVisible] = useState(2);
@@ -37,7 +37,7 @@ function RatingsAndReviews() {
   });
 
   const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/';
-  const id = 40344;
+  const id = productID;
   useEffect(() => {
     axios
       .get(`${url}reviews/?product_id=${id}&sort=newest&count=1000`, {
@@ -49,7 +49,7 @@ function RatingsAndReviews() {
         headers: { Authorization: config.TOKEN },
       })
       .then((results) => setMeta({ ...results.data }));
-  }, []);
+  }, [id]);
 
   const toggleRatedReviews = (rating) => {
     const copy = { ...ratingSwitch };
@@ -92,7 +92,6 @@ function RatingsAndReviews() {
   }
 
   const sortReviews = (sortType) => {
-    // console.log(sortType.toLowerCase());
     axios
       .get(
         `${url}reviews/?product_id=${id}&count=1000&sort=${sortType.toLowerCase()}`,
@@ -114,7 +113,7 @@ function RatingsAndReviews() {
   return (
     <>
       <div className="separator">
-        <h1 className="separator-title">Ratings & Reviews</h1>
+        <p className="separator-title">RATINGS & REVIEWS</p>
       </div>
       <div className="section-end">
         <div className="custom-shape-divider-top-1653983827">
@@ -150,7 +149,6 @@ function RatingsAndReviews() {
           fontWeight: '100',
           fontSize: '1.5em',
           padding: '0.2em',
-          // border: 'solid red 5px',
           flexWrap: 'wrap',
           overflowX: 'hidden',
         }}
@@ -182,10 +180,10 @@ function RatingsAndReviews() {
             display: 'flex',
             justifyContent: 'space-around',
             alignSelf: 'end',
-            border: 'solid 0px cyan',
             width: '50%',
             right: '80%',
             marginLeft: 'auto',
+            marginTop: '1em',
           }}
         >
           <button
@@ -201,7 +199,7 @@ function RatingsAndReviews() {
                 margin: '0em 0.5em',
               }}
             />
-            Write a new review
+            WRITE A NEW REVIEW
           </button>
           {visible < reviews.length && (
             <button
@@ -217,7 +215,7 @@ function RatingsAndReviews() {
                   margin: '0em 0.5em',
                 }}
               />
-              Show more
+              SHOW MORE
             </button>
           )}
         </section>
@@ -225,5 +223,9 @@ function RatingsAndReviews() {
     </>
   );
 }
+
+RatingsAndReviews.propTypes = {
+  productID: PropTypes.number.isRequired,
+};
 
 export default RatingsAndReviews;

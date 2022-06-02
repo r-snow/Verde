@@ -20,7 +20,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
   const averageRatingScore = totalRatingScore / totalReviews;
   const filteredStarsKeys = Object.keys(ratingSwitch);
   const metaEntries = Object.entries(meta.characteristics);
-  // computes average and # of reviews recommended the product and # of star reviews
+
   return (
     <div
       style={{
@@ -28,7 +28,6 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
         flexDirection: 'column',
         justifyContent: 'start',
         alignItems: 'center',
-        // border: 'solid 5px blue',
         borderRadius: '3rem',
         padding: '2rem 1rem',
         margin: '10 auto',
@@ -37,36 +36,39 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
         fontSize: '0.8em',
       }}
     >
-      <div className="rating-title-text">
+      <div className="ratings-all-titles-containers">
         <div
+          className="rating-title-text"
           style={{
             fontSize: '3.5em',
-            margin: '0.1em 0em',
             textAlign: 'center',
+            fontFamily: 'Montserrat',
           }}
         >
           {averageRatingScore.toFixed(2)}
           <CustomStars
             rating={averageRatingScore}
             color="var(--verde-theme)"
-            size="25px"
+            size="42px"
+            style={{ position: 'absolute', bottom: 40, lineHeight: 1 }}
           />
         </div>
 
-        <i style={{ textAlign: 'center', marginBottom: '1em', width: '17rem' }}>
-          <p
-            style={{
-              display: 'inline',
-              fontSize: '2em',
-            }}
-            className="rating-title-text"
-          >
+        <div
+          style={{
+            textAlign: 'center',
+            marginBottom: '1em',
+            width: '20rem',
+            fontFamily: 'Montserrat',
+          }}
+        >
+          <p className="percent-title">
             {((Number(meta.recommended.true) / totalReviews) * 100).toFixed(2)}
           </p>
           <p style={{ display: 'inline' }}>
-            % of reviews recommend this product!
+            % OF REVIEWS RECOMMEND THIS PRODUCT!
           </p>
-        </i>
+        </div>
       </div>
       <div className="sliders-container">
         {metaEntries.map((entry) => (
@@ -157,6 +159,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
       <p
         style={{
           alignSelf: 'center',
+          fontSize: '1.5rem',
         }}
       >
         <FontAwesomeIcon
@@ -180,7 +183,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
         {filteredStarsKeys.map((starKeys) => (
           <button
             type="button"
-            key={nanoid()}
+            // key={nanoid()}
             className="review-button"
             style={{
               padding: '0.4rem 1.6rem',
@@ -188,7 +191,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
             }}
             onClick={() => toggleRatedReviews(starKeys)}
           >
-            {starKeys} stars
+            {starKeys} STARS
           </button>
         ))}
       </div>
