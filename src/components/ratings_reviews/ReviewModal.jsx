@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import CharacteristicsButtons from './CharacteristicsButtons';
 import ClickStars from './ClickStars';
 import config from '../../../config/config';
@@ -278,7 +278,7 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
               <img
                 src={image}
                 alt="upload"
-                key={nanoid()}
+                // key={nanoid()}
                 className="upload-review-thumbnails"
               />
             ))}

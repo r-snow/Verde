@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBarsStaggered } from '@fortawesome/free-solid-svg-icons';
 // import Stars from '../shared/Stars';
@@ -75,7 +75,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
         {metaEntries.map((entry) => (
           <Sliders
             id={entry[1].id}
-            key={nanoid()}
+            // key={nanoid()}
             average={entry[1].value}
             char={entry[0]}
           />
@@ -184,7 +184,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
         {filteredStarsKeys.map((starKeys) => (
           <button
             type="button"
-            key={nanoid()}
+            // key={nanoid()}
             className="review-button"
             style={{
               padding: '0.4rem 1.6rem',
