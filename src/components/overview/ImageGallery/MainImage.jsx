@@ -6,9 +6,13 @@ export default function MainImage({ currPhotoUrl }) {
 
   useEffect(() => {
     setClassName('transparent');
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       setClassName('fade-in');
     }, 400);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
   }, [currPhotoUrl]);
 
   return (

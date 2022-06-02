@@ -37,6 +37,7 @@ export default function Thumbnails({ photos, currImgIdx, setCurrImgIdx }) {
   return (
     <section className="main-gallery-thumbnails--container">
       <FontAwesomeIcon
+        className={currImgIdx !== 0 ? 'hover-pointer' : ''}
         icon={faAngleUp}
         color={currImgIdx !== 0 ? 'black' : 'transparent'}
         type="button"
@@ -48,6 +49,7 @@ export default function Thumbnails({ photos, currImgIdx, setCurrImgIdx }) {
       />
       {displayedThumbnailElements}
       <FontAwesomeIcon
+        className={currImgIdx !== photos.length - 1 ? 'hover-pointer' : ''}
         icon={faAngleDown}
         color={currImgIdx !== photos.length - 1 ? 'black' : 'transparent'}
         type="button"

@@ -22,6 +22,7 @@ export default function ImageGallery({
       />
       <FontAwesomeIcon
         icon={faAngleLeft}
+        className={currImgIdx !== 0 ? 'hover-pointer' : ''}
         size="xl"
         type="button"
         onClick={() => {
@@ -45,6 +46,7 @@ export default function ImageGallery({
       </div>
       <FontAwesomeIcon
         icon={faAngleRight}
+        className={currImgIdx !== photos.length - 1 ? 'hover-pointer' : ''}
         size="xl"
         type="button"
         onClick={() => {
