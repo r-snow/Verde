@@ -887,7 +887,7 @@ body {
 }
 
 .carousel {
-  width: fit-content;
+  overflow: hidden;
 }
 
 .product-card {
