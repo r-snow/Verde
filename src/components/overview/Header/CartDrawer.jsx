@@ -1,18 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
-import config from '../../../../config/config';
 import CartDrawerItem from './CartDrawerItem';
 import CartDrawerBtns from './CartDrawerBtns';
 
 export default function CartDrawer({ closeDrawer, localCart }) {
-  const [cartItems, setCartItems] = useState([]);
-  const [refreshCart, setRefreshCart] = useState(0);
-  const [closingOut, setClosingOut] = useState(false);
-
   const cartElements = localCart.map((item) => (
     <CartDrawerItem
       count={item.count}
@@ -25,15 +19,6 @@ export default function CartDrawer({ closeDrawer, localCart }) {
       key={nanoid()}
     />
   ));
-
-  useEffect(() => {
-    axios
-      .get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/cart', {
-        headers: { Authorization: config.TOKEN },
-      })
-      .then(({ data }) => setCartItems(data))
-      .catch(() => setCartItems([]));
-  }, [refreshCart]);
 
   return (
     <div className="drawer--container">
@@ -58,7 +43,7 @@ export default function CartDrawer({ closeDrawer, localCart }) {
           onClick={closeDrawer}
           className="cart-drawer-exit"
         />
-        <CartDrawerBtns setRefreshCart={setRefreshCart} />
+        <CartDrawerBtns />
       </div>
     </div>
   );

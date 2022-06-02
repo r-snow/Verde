@@ -264,30 +264,17 @@ body {
   animation-iteration-count: infinite;
 }
 
-.cart-drawer--btns {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 0;
-}
-
-.cart-drawer--btns > button {
+.checkout--btn {
   margin: 0;
   padding: 0.6rem 1rem;
   color: var(--off-white);
+  background-color: var(--gold-theme);
 }
 
-.cart-drawer--btns > button:hover {
-  background-color: lightgrey;
-}
-
-.clear-cart--btn {
-  background-color: #b33a3a;
-}
-
-.checkout--btn {
-  background-color: #9a825c;
+.checkout--btn:hover {
+  background-color: var(--off-white);
+  color: var(--gold-theme);
+  border: solid 1px var(--gold-theme);
 }
 
 #overview--container {
