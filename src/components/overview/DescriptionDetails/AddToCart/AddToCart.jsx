@@ -15,6 +15,7 @@ export default function AddToCart({
   salePrice,
   styleUrl,
   setLocalCart,
+  setShowDrawer,
 }) {
   const [currSku, setCurrSku] = useState('Select Size');
   const [availQty, setAvailQty] = useState(['-']);
@@ -50,17 +51,20 @@ export default function AddToCart({
     } else {
       setMessage('none');
       const count = e.target[1].value;
-      const localCartItem = {
-        count,
-        prodName,
-        styleName,
-        styleUrl,
-        price,
-        salePrice,
-        size: skuData[currSku].size,
-        skuId: currSku,
-      };
-      setLocalCart((prevCart) => [localCartItem, ...prevCart]);
+      setLocalCart((prevCart) => {
+        const localCartItem = {
+          count,
+          prodName,
+          styleName,
+          styleUrl,
+          price,
+          salePrice,
+          size: skuData[currSku].size,
+          skuId: currSku,
+          idx: prevCart.length,
+        };
+        return [...prevCart, localCartItem];
+      });
       const postPromises = [];
       for (let i = 0; i < count; i += 1) {
         axios.post(
@@ -74,7 +78,7 @@ export default function AddToCart({
       }
       Promise.all(postPromises)
         .then(() => {
-          setMessage('success');
+          setShowDrawer(true);
         })
         .catch(() => {
           setMessage('failure');
@@ -119,4 +123,5 @@ AddToCart.propTypes = {
   price: PropTypes.number.isRequired,
   salePrice: PropTypes.number.isRequired,
   setLocalCart: PropTypes.func.isRequired,
+  setShowDrawer: PropTypes.func.isRequired,
 };

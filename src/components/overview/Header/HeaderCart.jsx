@@ -1,27 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import CartDrawer from './CartDrawer';
 
-export default function HeaderCart({ localCart }) {
-  const [showDrawer, setShowDrawer] = useState(false);
-
+export default function HeaderCart({
+  localCart,
+  showDrawer,
+  setShowDrawer,
+  deleteCartItem,
+}) {
   const closeDrawer = () => {
     setShowDrawer(false);
   };
 
   return (
-    <div className="header--cart">
+    <div>
       <FontAwesomeIcon
         icon={faCartShopping}
         color="white"
         size="xl"
         type="button"
+        className="header--cart"
         onClick={() => setShowDrawer(true)}
       />
       {showDrawer && (
-        <CartDrawer closeDrawer={closeDrawer} localCart={localCart} />
+        <CartDrawer
+          deleteCartItem={deleteCartItem}
+          closeDrawer={closeDrawer}
+          localCart={localCart}
+        />
       )}
     </div>
   );
@@ -35,4 +43,7 @@ HeaderCart.propTypes = {
     PropTypes.object,
     PropTypes.array,
   ]).isRequired,
+  showDrawer: PropTypes.bool.isRequired,
+  setShowDrawer: PropTypes.func.isRequired,
+  deleteCartItem: PropTypes.func.isRequired,
 };

@@ -20,6 +20,7 @@ export default function DescriptionDetails({
   skuData,
   slogan,
   setLocalCart,
+  setShowDrawer,
 }) {
   return (
     <div className="description-details--container fade-in">
@@ -58,6 +59,7 @@ export default function DescriptionDetails({
         salePrice={currSalePrice}
         styleUrl={styles[currStyle].iconUrl}
         setLocalCart={setLocalCart}
+        setShowDrawer={setShowDrawer}
       />
       <Socials />
     </div>
@@ -79,6 +81,7 @@ DescriptionDetails.propTypes = {
   currStyle: PropTypes.number.isRequired,
   setCurrStyle: PropTypes.func.isRequired,
   setLocalCart: PropTypes.func.isRequired,
+  setShowDrawer: PropTypes.func.isRequired,
   currPrice: PropTypes.number.isRequired,
   currSalePrice: PropTypes.number.isRequired,
   reviewCount: PropTypes.number.isRequired,

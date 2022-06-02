@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 export default function CartDrawerItem({
   count,
@@ -9,11 +11,18 @@ export default function CartDrawerItem({
   price,
   salePrice,
   size,
+  idx,
+  deleteCartItem,
 }) {
   let displayPrice = price;
   if (salePrice) {
     displayPrice = salePrice;
   }
+
+  const deleteItem = () => {
+    deleteCartItem(idx);
+  };
+
   return (
     <div className="cart-drawer--item-container">
       <img
@@ -27,23 +36,22 @@ export default function CartDrawerItem({
         }}
       />
       <div className="cart-drawer--item">
+        <b>{prodName}</b>
+        <p>{styleName}</p>
+        <p>{`Size ${size}`}</p>
         <span>
-          <b style={{ marginRight: '8px' }}>{prodName}</b>
-        </span>
-        <span>
-          <p>{styleName}</p>
-        </span>
-        <span>
-          <p>{size}</p>
-        </span>
-        <span>
-          <p>Quantity:</p>
-          <p>{count}</p>
-        </span>
-        <span>
+          <p>{`Quantity ${count}`}</p>
           <p>${displayPrice}</p>
         </span>
       </div>
+      <FontAwesomeIcon
+        type="button"
+        onClick={deleteItem}
+        color="black"
+        size="lg"
+        icon={faTrash}
+        className="cart-drawer--item-delete hover-pointer"
+      />
     </div>
   );
 }
@@ -56,4 +64,6 @@ CartDrawerItem.propTypes = {
   styleUrl: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   salePrice: PropTypes.number.isRequired,
+  idx: PropTypes.number.isRequired,
+  deleteCartItem: PropTypes.func.isRequired,
 };
