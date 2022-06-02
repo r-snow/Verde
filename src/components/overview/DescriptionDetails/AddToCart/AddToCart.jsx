@@ -51,17 +51,20 @@ export default function AddToCart({
     } else {
       setMessage('none');
       const count = e.target[1].value;
-      const localCartItem = {
-        count,
-        prodName,
-        styleName,
-        styleUrl,
-        price,
-        salePrice,
-        size: skuData[currSku].size,
-        skuId: currSku,
-      };
-      setLocalCart((prevCart) => [localCartItem, ...prevCart]);
+      setLocalCart((prevCart) => {
+        const localCartItem = {
+          count,
+          prodName,
+          styleName,
+          styleUrl,
+          price,
+          salePrice,
+          size: skuData[currSku].size,
+          skuId: currSku,
+          idx: prevCart.length,
+        };
+        return [...prevCart, localCartItem];
+      });
       const postPromises = [];
       for (let i = 0; i < count; i += 1) {
         axios.post(

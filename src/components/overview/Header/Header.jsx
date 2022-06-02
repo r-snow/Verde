@@ -2,7 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import HeaderCart from './HeaderCart';
 
-export default function Header({ localCart, showDrawer, setShowDrawer }) {
+export default function Header({
+  localCart,
+  showDrawer,
+  setShowDrawer,
+  deleteCartItem,
+}) {
   return (
     <header id="top">
       <span className="header--left">
@@ -17,6 +22,7 @@ export default function Header({ localCart, showDrawer, setShowDrawer }) {
         localCart={localCart}
         showDrawer={showDrawer}
         setShowDrawer={setShowDrawer}
+        deleteCartItem={deleteCartItem}
       />
     </header>
   );
@@ -32,4 +38,5 @@ Header.propTypes = {
   ]).isRequired,
   showDrawer: PropTypes.bool.isRequired,
   setShowDrawer: PropTypes.func.isRequired,
+  deleteCartItem: PropTypes.func.isRequired,
 };

@@ -4,7 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import CartDrawer from './CartDrawer';
 
-export default function HeaderCart({ localCart, showDrawer, setShowDrawer }) {
+export default function HeaderCart({
+  localCart,
+  showDrawer,
+  setShowDrawer,
+  deleteCartItem,
+}) {
   const closeDrawer = () => {
     setShowDrawer(false);
   };
@@ -20,7 +25,11 @@ export default function HeaderCart({ localCart, showDrawer, setShowDrawer }) {
         onClick={() => setShowDrawer(true)}
       />
       {showDrawer && (
-        <CartDrawer closeDrawer={closeDrawer} localCart={localCart} />
+        <CartDrawer
+          deleteCartItem={deleteCartItem}
+          closeDrawer={closeDrawer}
+          localCart={localCart}
+        />
       )}
     </div>
   );
@@ -36,4 +45,5 @@ HeaderCart.propTypes = {
   ]).isRequired,
   showDrawer: PropTypes.bool.isRequired,
   setShowDrawer: PropTypes.func.isRequired,
+  deleteCartItem: PropTypes.func.isRequired,
 };
