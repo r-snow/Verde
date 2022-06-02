@@ -2,7 +2,6 @@ import axios from 'axios';
 
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-// import { nanoid } from 'nanoid';
 import Carousel from './Carousel';
 import ProductCard from './RIProductCard';
 
@@ -20,20 +19,18 @@ export default function RelatedItems({ curProd }) {
       .then((results) => setRelatedItemIDs(results.data));
   }, [curProd]);
 
+  console.log(relatedItemIDs);
+
   return (
     <div className="related-items">
       <h2 className="ri-header fade-in">Related Items</h2>
       <div>
         <Carousel>
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
           {relatedItemIDs.map((productID) => (
             <ProductCard
               curProd={curProd}
               productID={productID}
-              // key={nanoid()}
+              key={productID}
             />
           ))}
         </Carousel>

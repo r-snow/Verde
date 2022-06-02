@@ -5,27 +5,6 @@ export default function Compare({ setOpenModal, curProd, compProd }) {
   const [curProdFeat, setCurProdFeats] = useState([]);
   const [compProdFeat, setCompProdFeats] = useState([]);
 
-  // const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/';
-  // useEffect(() => {
-  //   axios
-  //     .get(`${url}products/${productID}`, {
-  //       headers: { Authorization: config.TOKEN },
-  //     })
-  //     .then((results) => setProduct(results.data));
-  //   axios
-  //     .get(`${url}products/${productID}/styles`, {
-  //       headers: { Authorization: config.TOKEN },
-  //     })
-  //     .then((results) => setImage(results.data.results[0].photos[0].url));
-  // }, [productID]);
-
-  // const handleKeyPress = (event) => {
-  //   event.preventDefault();
-  //   if (event.key === 'Enter') {
-  //     console.log('Clicking here will change overview product...');
-  //   }
-  // };
-
   return (
     <div className="compare-modal-container">
       <div
