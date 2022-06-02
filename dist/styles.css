@@ -618,10 +618,15 @@ body {
 .qty-select,
 .size-select {
   background-color: white;
+  height: 37.5px;
 }
 .size-select {
   margin-right: 1em;
   width: 140px;
+}
+
+.qty-select {
+  width: 52px;
 }
 
 .add-to-cart--btn,
