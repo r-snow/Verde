@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,6 +7,7 @@ import CartDrawerItem from './CartDrawerItem';
 import CartDrawerBtns from './CartDrawerBtns';
 
 export default function CartDrawer({ closeDrawer, localCart, deleteCartItem }) {
+  const [cartTotal, setCartTotal] = useState(0);
   const cartElements = localCart.map((item) => (
     <CartDrawerItem
       count={item.count}
@@ -21,6 +22,14 @@ export default function CartDrawer({ closeDrawer, localCart, deleteCartItem }) {
       key={nanoid()}
     />
   ));
+
+  useEffect(() => {
+    let newCartTotal = 0;
+    for (let i = 0; i < localCart.length; i += 1) {
+      newCartTotal += Number(localCart[i].price) * Number(localCart[i].count);
+    }
+    setCartTotal(newCartTotal);
+  }, [localCart]);
 
   return (
     <div className="drawer--container">
@@ -45,7 +54,7 @@ export default function CartDrawer({ closeDrawer, localCart, deleteCartItem }) {
           onClick={closeDrawer}
           className="cart-drawer-exit"
         />
-        <CartDrawerBtns />
+        <CartDrawerBtns cartTotal={cartTotal} />
       </div>
     </div>
   );

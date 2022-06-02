@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function CartDrawerBtns() {
+export default function CartDrawerBtns({ cartTotal }) {
   return (
     <button
       className="cart-drawer--btns checkout--btn"
@@ -9,7 +9,7 @@ export default function CartDrawerBtns() {
         window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
       }}
     >
-      CHECKOUT
+      {`CHECKOUT - $${cartTotal}`}
     </button>
   );
 }

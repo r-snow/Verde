@@ -608,6 +608,9 @@ body {
   appearance: none;
 }
 
+.cart-drawer--btns {
+  width: 100%;
+}
 .qty-select,
 .size-select,
 .add-to-cart--btn,
