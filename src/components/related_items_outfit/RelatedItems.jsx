@@ -19,7 +19,11 @@ export default function RelatedItems({ curProd, setCurProd }) {
       .get(`${url}products/${curProd.id}/related`, {
         headers: { Authorization: config.TOKEN },
       })
-      .then((results) => setRelatedItemIDs(results.data));
+      .then((results) =>
+        setRelatedItemIDs(
+          [...new Set(results.data)].filter((prodID) => prodID !== curProd.id)
+        )
+      );
   }, [curProd]);
 
   return (
