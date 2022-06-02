@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function CartDrawerBtns({ cartTotal }) {
   return (
@@ -13,3 +14,7 @@ export default function CartDrawerBtns({ cartTotal }) {
     </button>
   );
 }
+
+CartDrawerBtns.propTypes = {
+  cartTotal: PropTypes.number.isRequired,
+};
