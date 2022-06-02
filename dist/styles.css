@@ -888,7 +888,6 @@ body {
 
 .carousel {
   width: fit-content;
-  position: relative;
 }
 
 .product-card {
@@ -937,19 +936,19 @@ body {
   margin: 10px 0px;
 }
 
-.full-modal-container,
-.compare-overlay {
-  width: 100vw;
-  height: 100vw;
+.compare-modal-container {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-}
-
-.compare-overlay {
   background: rgba(0, 0, 0, 0.5);
+  z-index: 149;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 
 .compare-modal {

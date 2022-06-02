@@ -6,9 +6,12 @@ import Carousel from './Carousel';
 import ProductCard from './RIProductCard';
 
 import config from '../../../config/config';
+import Compare from './Compare/CompareModal';
 
 export default function RelatedItems({ curProd }) {
   const [relatedItemIDs, setRelatedItemIDs] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
+  const [compProd, setCompProd] = useState({});
 
   const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/';
   useEffect(() => {
@@ -19,22 +22,27 @@ export default function RelatedItems({ curProd }) {
       .then((results) => setRelatedItemIDs(results.data));
   }, [curProd]);
 
-  console.log(relatedItemIDs);
-
   return (
     <div className="related-items">
       <h2 className="ri-header fade-in">Related Items</h2>
-      <div>
-        <Carousel>
-          {relatedItemIDs.map((productID) => (
-            <ProductCard
-              curProd={curProd}
-              productID={productID}
-              key={productID}
-            />
-          ))}
-        </Carousel>
-      </div>
+      <Carousel>
+        {relatedItemIDs.map((productID) => (
+          <ProductCard
+            curProd={curProd}
+            productID={productID}
+            key={productID}
+            setOpenModal={setOpenModal}
+            setCompProd={setCompProd}
+          />
+        ))}
+      </Carousel>
+      {openModal && (
+        <Compare
+          curProd={curProd}
+          compProd={compProd}
+          setOpenModal={setOpenModal}
+        />
+      )}
     </div>
   );
 }

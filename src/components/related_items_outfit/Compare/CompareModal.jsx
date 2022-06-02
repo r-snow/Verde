@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+import React /* ,  { useState } */ from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
 export default function Compare({ setOpenModal, curProd, compProd }) {
-  const [curProdFeat, setCurProdFeats] = useState([]);
-  const [compProdFeat, setCompProdFeats] = useState([]);
+  // const [curProdFeat, setCurProdFeats] = useState([]);
+  // const [compProdFeat, setCompProdFeats] = useState([]);
 
   return (
-    <div className="compare-modal-container">
-      <div
-        className="compare-overlay"
-        onClick={() => setOpenModal(false)}
-        role="button"
-        tabIndex={0}
-        onKeyDown={() => setOpenModal(false)}
-        aria-label="close modal with overlay"
-      />
+    <div
+      className="compare-modal-container"
+      onClick={() => setOpenModal(false)}
+      role="button"
+      tabIndex={0}
+      onKeyDown={() => setOpenModal(false)}
+      aria-label="close modal with overlay"
+    >
+      <div className="compare-overlay" />
       <div className="compare-modal">
         <FontAwesomeIcon
           className="compare-modal-close"

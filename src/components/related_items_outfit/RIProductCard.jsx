@@ -8,12 +8,9 @@ import Price from '../shared/Price';
 import Stars from '../shared/Stars';
 import productReviewsData from '../overview/example_data/productReviewsData';
 import Ratings from './sampleRatings';
-import Compare from './CompareModal';
-
 import config from '../../../config/config';
 
-export default function ProductCard({ productID, curProd }) {
-  const [openModal, setOpenModal] = useState(false);
+export default function ProductCard({ productID, setOpenModal, setCompProd }) {
   const [product, setProduct] = useState({});
   const [image, setImage] = useState('');
 
@@ -42,6 +39,11 @@ export default function ProductCard({ productID, curProd }) {
     console.log('Clicking here will change overview product...');
   };
 
+  const compare = () => {
+    setOpenModal(true);
+    setCompProd(product);
+  };
+
   const rating = () => {
     let avgRating = 0;
     const reviewCount = Object.keys(Ratings.ratings).reduce((aggCount, key) => {
@@ -67,7 +69,7 @@ export default function ProductCard({ productID, curProd }) {
           icon={faStar}
           size="lg"
           type="button"
-          onClick={() => setOpenModal(true)}
+          onClick={compare}
         />
       </div>
       <img className="product-card-image" src={image} alt="Sample" />
@@ -79,24 +81,12 @@ export default function ProductCard({ productID, curProd }) {
         salePrice={120}
       />
       <Stars rating={rating()} />
-      {openModal && (
-        <Compare
-          curProd={curProd}
-          compProd={product}
-          setOpenModal={setOpenModal}
-        />
-      )}
     </div>
   );
 }
 
 ProductCard.propTypes = {
   productID: PropTypes.number.isRequired,
-  curProd: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.bool,
-    PropTypes.object,
-    PropTypes.array,
-  ]).isRequired,
+  setOpenModal: PropTypes.func.isRequired,
+  setCompProd: PropTypes.func.isRequired,
 };
