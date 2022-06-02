@@ -12,6 +12,7 @@ import { nanoid } from 'nanoid';
 export default function ExpandedIcons({ photos, currImgIdx, setCurrImgIdx }) {
   const iconElements = photos.map((photo, i) => (
     <FontAwesomeIcon
+      className="hover-pointer"
       icon={faCircle}
       size="lg"
       color="black"
@@ -37,10 +38,14 @@ export default function ExpandedIcons({ photos, currImgIdx, setCurrImgIdx }) {
   return (
     <section className="expanded-icons--container">
       <FontAwesomeIcon
+        className={
+          currImgIdx !== 0
+            ? 'hover-pointer expanded-icons--carat'
+            : 'expanded-icons--carat'
+        }
         icon={faCaretLeft}
         size="lg"
         color={currImgIdx !== 0 ? 'black' : 'transparent'}
-        className="expanded-icons--carat"
         onClick={() => {
           if (currImgIdx !== 0) {
             setCurrImgIdx((prev) => prev - 1);
@@ -49,10 +54,14 @@ export default function ExpandedIcons({ photos, currImgIdx, setCurrImgIdx }) {
       />
       {displayedIconElements}
       <FontAwesomeIcon
+        className={
+          currImgIdx !== photos.length - 1
+            ? 'hover-pointer expanded-icons--carat'
+            : 'expanded-icons--carat'
+        }
         icon={faCaretRight}
         size="lg"
         color={currImgIdx !== photos.length - 1 ? 'black' : 'transparent'}
-        className="expanded-icons--carat"
         onClick={() => {
           if (currImgIdx !== photos.length - 1) {
             setCurrImgIdx((prev) => prev + 1);

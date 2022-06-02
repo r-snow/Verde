@@ -19,9 +19,11 @@ export default function DescriptionDetails({
   avgRating,
   skuData,
   slogan,
+  setLocalCart,
+  setShowDrawer,
 }) {
   return (
-    <div className="description-details--container">
+    <div className="description-details--container fade-in">
       <p className="description-details--category">{category.toUpperCase()}</p>
       <p className="description-details--name">{name}</p>
       {slogan.length && <b className="description-details--slogan">{slogan}</b>}
@@ -48,7 +50,17 @@ export default function DescriptionDetails({
         currStyle={currStyle}
         setCurrStyle={setCurrStyle}
       />
-      <AddToCart skuData={skuData} currStyle={currStyle} />
+      <AddToCart
+        skuData={skuData}
+        currStyle={currStyle}
+        prodName={name}
+        styleName={styles[currStyle].name}
+        price={currPrice}
+        salePrice={currSalePrice}
+        styleUrl={styles[currStyle].iconUrl}
+        setLocalCart={setLocalCart}
+        setShowDrawer={setShowDrawer}
+      />
       <Socials />
     </div>
   );
@@ -68,6 +80,8 @@ DescriptionDetails.propTypes = {
   ]).isRequired,
   currStyle: PropTypes.number.isRequired,
   setCurrStyle: PropTypes.func.isRequired,
+  setLocalCart: PropTypes.func.isRequired,
+  setShowDrawer: PropTypes.func.isRequired,
   currPrice: PropTypes.number.isRequired,
   currSalePrice: PropTypes.number.isRequired,
   reviewCount: PropTypes.number.isRequired,

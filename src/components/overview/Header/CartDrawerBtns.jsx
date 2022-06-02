@@ -1,14 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function CartDrawerBtns() {
+export default function CartDrawerBtns({ cartTotal }) {
   return (
-    <span className="cart-drawer--btns">
-      <button className="cart-drawer--btns clear-cart--btn" type="button">
-        CLEAR CART
-      </button>
-      <button className="cart-drawer--btns checkout--btn" type="button">
-        CHECKOUT
-      </button>
-    </span>
+    <button
+      className="cart-drawer--btns checkout--btn"
+      type="button"
+      onClick={() => {
+        window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
+      }}
+    >
+      {`CHECKOUT - $${cartTotal}`}
+    </button>
   );
 }
+
+CartDrawerBtns.propTypes = {
+  cartTotal: PropTypes.number.isRequired,
+};

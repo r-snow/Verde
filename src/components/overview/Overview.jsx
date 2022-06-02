@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import ImageGallery from './ImageGallery/ImageGallery';
 import ExpandedView from './ImageGallery/ExpandedView';
 import DescriptionDetails from './DescriptionDetails/DescriptionDetails';
@@ -8,7 +9,7 @@ import sampleProductStylesData from './example_data/productStylesData';
 import sampleProductReviewsData from './example_data/productReviewsData';
 import config from '../../../config/config';
 
-export default function Overview() {
+export default function Overview({ setLocalCart, setShowDrawer }) {
   const [isDefaultImgView, setIsDefaultImgView] = useState(true);
   const [currImgIdx, setCurrImgIdx] = useState(0);
   const [currStyle, setCurrStyle] = useState(0);
@@ -155,6 +156,8 @@ export default function Overview() {
             reviewCount={reviewCount}
             avgRating={avgRating}
             skuData={skuData}
+            setLocalCart={setLocalCart}
+            setShowDrawer={setShowDrawer}
           />
         </section>
       )
@@ -165,6 +168,12 @@ export default function Overview() {
       photos={productStylesData.results[currStyle].photos}
       currImgIdx={currImgIdx}
       setCurrImgIdx={setCurrImgIdx}
+      setShowDrawer={setShowDrawer}
     />
   );
 }
+
+Overview.propTypes = {
+  setLocalCart: PropTypes.func.isRequired,
+  setShowDrawer: PropTypes.func.isRequired,
+};
