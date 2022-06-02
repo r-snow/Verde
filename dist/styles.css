@@ -553,12 +553,17 @@ body {
   align-items: center;
 }
 
-.description-details--reviews-link {
+.description-details--reviews-link,
+#empty-cart-msg {
   font-family: 'Montserrat';
   font-weight: 300;
   color: grey;
   font-size: 12px;
   margin-top: 0;
+}
+
+#empty-cart-msg {
+  font-size: 20px;
 }
 
 .description-details--style-name {

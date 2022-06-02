@@ -43,7 +43,9 @@ export default function CartDrawer({ closeDrawer, localCart, deleteCartItem }) {
       />
       <div className="header--cart-drawer slide-in">
         <div>
-          <h3 className="cart-drawer--header">Your Cart</h3>
+          <h3 className="cart-drawer--header">
+            {cartElements.length ? 'Your Cart' : 'Your Cart Is Empty'}
+          </h3>
           {cartElements}
         </div>
         <FontAwesomeIcon
