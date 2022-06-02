@@ -8,6 +8,7 @@ import YourOutfit from './components/related_items_outfit/YourOutfit';
 import currentProduct from './components/related_items_outfit/sampleProductData';
 
 function App() {
+  // const [productID, setProductID] = useState(40344);
   const [curProd, setCurProd] = useState(currentProduct);
   const [localCart, setLocalCart] = useState(
     JSON.parse(localStorage.getItem('localCart')) || []
@@ -53,8 +54,14 @@ function App() {
         setShowDrawer={setShowDrawer}
         deleteCartItem={deleteCartItem}
       />
-      <Overview setLocalCart={setLocalCart} setShowDrawer={setShowDrawer} />
+      <Overview
+        setLocalCart={setLocalCart}
+        setShowDrawer={setShowDrawer}
+        productID={curProd.id}
+      />
+      <div className="horizontal-divider"> </div>
       <RelatedItems curProd={curProd} setCurProd={setCurProd} />
+      <div className="horizontal-divider"> </div>
       <YourOutfit curProd={curProd} />
       <QnA />
       <RatingsAndReviews />

@@ -41,6 +41,8 @@ body {
 
 #app {
   background-color: #f8f8ff;
+  display: flex;
+  flex-direction: column;
 }
 
 .fade-in {
@@ -136,7 +138,7 @@ body {
 #top {
   position: relative;
   background-color: rgb(144, 169, 139);
-  padding: 8px 12px;
+  padding: 10px 24px;
   margin-bottom: 36px;
   display: flex;
   align-items: center;
@@ -294,6 +296,14 @@ body {
   align-items: center;
   flex-wrap: wrap;
   max-width: 100vw;
+}
+
+.horizontal-divider {
+  width: 80%;
+  height: 1px;
+  margin: 30px;
+  background-color: lightgrey;
+  align-self: center;
 }
 
 .main-image-btn:hover {
@@ -881,10 +891,18 @@ body {
 }
 
 /*------ Related Items Section -----*/
+
+.ri-header {
+  text-align: center;
+  font-family: 'Cormorant Garamond';
+  font-weight: 500;
+  font-size: 36px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
 .carousel {
   overflow: hidden;
-  width: fit-content;
-  position: relative;
 }
 
 .product-card {
@@ -893,34 +911,59 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 30px;
 }
 
 .product-card-image {
-  width: auto;
+  width: 200px;
   height: 300px;
+  object-fit: cover;
+}
+
+.product-card-category {
+  text-align: center;
+  font-family: 'Montserrat';
+  font-weight: 300;
+  color: grey;
+  font-size: 12px;
+  margin-bottom: 0.5rem;
+  margin-top: 2rem;
+}
+
+.product-card-name {
+  font-family: 'Cormorant Garamond';
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+  text-align: center;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.ri-price {
+  font-size: 30px;
+  font-family: 'EB Garamond', serif;
 }
 
 .product-card-compare {
   display: flex;
   align-self: flex-end;
   color: #9a825c;
-  opacity: 0.5;
   margin: 10px 0px;
 }
 
-.full-modal-container,
-.compare-overlay {
-  width: 100vw;
-  height: 100vw;
+.compare-modal-container {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-}
-
-.compare-overlay {
   background: rgba(0, 0, 0, 0.5);
+  z-index: 149;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 
 .compare-modal {
@@ -934,16 +977,25 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding-left: 1.2rem;
-  padding-top: 0.7rem;
-  padding-bottom: 0.7rem;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 50px;
 }
 
 .compare-modal-close {
   display: flex;
   align-self: flex-end;
-  color: black;
-  margin-right: 20px;
+  color: #9a825c;
+}
+
+.compare-modal-header {
+  text-align: center;
+  font-family: 'Cormorant Garamond';
+  font-weight: 500;
+  font-size: 30 px;
+  margin-bottom: 0.1rem;
+  margin-top: 0px;
 }
 
 .table-body {
@@ -957,6 +1009,11 @@ body {
   flex-direction: row;
   color: #9a825c;
   justify-content: space-evenly;
+  font-family: 'Montserrat';
+  font-weight: 300;
+  font-size: 15px;
+  margin-bottom: 0.5rem;
+  margin-top: 2rem;
 }
 
 .table-row {
@@ -968,6 +1025,16 @@ body {
 }
 
 /*------- Your outfit-------*/
+
+.yo-header {
+  text-align: center;
+  font-family: 'Cormorant Garamond';
+  font-weight: 500;
+  font-size: 36px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
 .your-outfit {
   display: flex;
   flex-direction: row;
@@ -979,7 +1046,7 @@ body {
   flex-direction: column;
   flex-shrink: 0;
   width: 200px;
-  height: 500px;
+  height: 520px;
   align-items: center;
   justify-content: center;
   border: 1.5px #9a825c;
