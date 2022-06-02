@@ -124,8 +124,8 @@ body {
 #top {
   position: relative;
   background-color: rgb(144, 169, 139);
-  padding: 0.6rem 1rem;
-  margin-bottom: 3rem;
+  padding: 8px 12px;
+  margin-bottom: 36px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -140,11 +140,14 @@ body {
   margin: 0;
   color: white;
   font-family: 'Cormorant Garamond';
+  font-size: 40px;
+  margin-left: 8px;
 }
 
 .header--icon {
   width: 40px;
   height: 40px;
+  margin-top: 4px;
 }
 
 .header--cart-drawer {
