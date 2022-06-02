@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-// import { nanoid } from 'nanoid';
+import { nanoid } from 'nanoid';
 
 function ClickStars({ changeFormRating }) {
   const [rating, setRating] = useState(0);
@@ -10,7 +10,7 @@ function ClickStars({ changeFormRating }) {
       {[...Array(5)].map((star, index) => (
         <button
           type="button"
-          // key={nanoid()}
+          key={nanoid()}
           className={index <= (hover || rating) ? 'on' : 'off'}
           id="clickableStars"
           onClick={() => {

@@ -1,17 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faCirclePlus, faPen } from '@fortawesome/free-solid-svg-icons';
 import ReviewListEntry from './ReviewListEntry';
 
-function Reviews({
-  reviews,
-  visible,
-  sortReviews,
-  submitHelpfulNess,
-  // toggleModal,
-  // addVisibility,
-}) {
+function Reviews({ reviews, visible, sortReviews, submitHelpfulNess }) {
   return (
     <div
       className="full-review-container"
@@ -45,11 +36,6 @@ function Reviews({
           borderRadius: '5px',
           maxHeight: '1000px',
           overflowY: 'scroll',
-          // overflow: 'visible',
-          // border: 'solid 5px green',
-          // maxWidth: '80rem',
-          // margin: '0em 10em',
-          // overflowX: 'hidden',
         }}
       >
         {reviews.slice(0, visible).map((review) => (
@@ -69,8 +55,6 @@ Reviews.propTypes = {
   visible: PropTypes.number.isRequired,
   sortReviews: PropTypes.func.isRequired,
   submitHelpfulNess: PropTypes.func.isRequired,
-  // toggleModal: PropTypes.func.isRequired,
-  // addVisibility: PropTypes.func.isRequired,
 };
 
 export default Reviews;

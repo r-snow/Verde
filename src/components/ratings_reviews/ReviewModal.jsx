@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-// import { nanoid } from 'nanoid';
+import { nanoid } from 'nanoid';
 import CharacteristicsButtons from './CharacteristicsButtons';
 import ClickStars from './ClickStars';
 import config from '../../../config/config';
@@ -21,7 +21,6 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
   const metaEntries = Object.entries(meta.characteristics);
 
   const uploadImages = (event) => {
-    // console.log(event.target.files, 'photo object');
     const bodyFormData = new FormData();
     bodyFormData.append('file', event.target.files[0]);
     bodyFormData.append('upload_preset', 'vypkehti');
@@ -63,7 +62,6 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
       photos: formImages,
       characteristics: testRadio,
     };
-    // console.log(newPost, 'post Obj');
 
     axios
       .post(
@@ -75,9 +73,7 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
       )
       .then(() => {
         toggleModal();
-        console.log('Successful Post');
       })
-      .catch((err) => console.log(err))
       .then(() => {
         axios
           .get(
@@ -107,7 +103,6 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
         className="outline-color"
         style={{
           backgroundColor: 'var(--verde-theme)',
-          // border: 'solid white 1px',
           position: 'absolute',
           padding: '2rem',
           alignSelf: 'center',
@@ -278,7 +273,7 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
               <img
                 src={image}
                 alt="upload"
-                // key={nanoid()}
+                key={nanoid()}
                 className="upload-review-thumbnails"
               />
             ))}

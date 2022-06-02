@@ -1,14 +1,14 @@
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import React, { useState, useEffect, useMemo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus, faPen } from '@fortawesome/free-solid-svg-icons';
 import Ratings from './Ratings';
 import Reviews from './Reviews';
 import ReviewModal from './ReviewModal';
-
 import config from '../../../config/config';
 
-function RatingsAndReviews() {
+function RatingsAndReviews({ productID }) {
   const [modalActive, setModalStatus] = useState(false);
   const [reviews, setReviews] = useState([]);
   const [visible, setVisible] = useState(2);
@@ -37,7 +37,7 @@ function RatingsAndReviews() {
   });
 
   const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/';
-  const id = 40344;
+  const id = productID;
   useEffect(() => {
     axios
       .get(`${url}reviews/?product_id=${id}&sort=newest&count=1000`, {
@@ -49,7 +49,7 @@ function RatingsAndReviews() {
         headers: { Authorization: config.TOKEN },
       })
       .then((results) => setMeta({ ...results.data }));
-  }, []);
+  }, [id]);
 
   const toggleRatedReviews = (rating) => {
     const copy = { ...ratingSwitch };
@@ -92,7 +92,6 @@ function RatingsAndReviews() {
   }
 
   const sortReviews = (sortType) => {
-    // console.log(sortType.toLowerCase());
     axios
       .get(
         `${url}reviews/?product_id=${id}&count=1000&sort=${sortType.toLowerCase()}`,
@@ -152,7 +151,6 @@ function RatingsAndReviews() {
           padding: '0.2em',
           flexWrap: 'wrap',
           overflowX: 'hidden',
-          // border: 'solid red 5px',
         }}
         id="ratings-reviews"
       >
@@ -186,7 +184,6 @@ function RatingsAndReviews() {
             right: '80%',
             marginLeft: 'auto',
             marginTop: '1em',
-            // border: 'solid 4px cyan',
           }}
         >
           <button
@@ -226,5 +223,9 @@ function RatingsAndReviews() {
     </>
   );
 }
+
+RatingsAndReviews.propTypes = {
+  productID: PropTypes.number.isRequired,
+};
 
 export default RatingsAndReviews;
