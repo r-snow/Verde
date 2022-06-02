@@ -199,6 +199,7 @@ body {
 .cart-drawer--header {
   font-family: 'Cormorant Garamond';
   font-size: 36px;
+  margin: 0 0 10px 0;
 }
 
 .empty-cart-text {
@@ -216,14 +217,17 @@ body {
   bottom: 0;
   background: rgba(49, 49, 49, 0.8);
 }
-
+.cart-drawer--item-container {
+  display: flex;
+  align-items: center;
+  border-bottom: solid lightgrey 1px;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
 .cart-drawer--item {
   display: flex;
   flex-direction: column;
-  padding-bottom: 0.5rem;
-  margin-bottom: 0.5rem;
   position: relative;
-  border-bottom: solid lightgrey 1px;
 }
 
 .cart-drawer--item > p,

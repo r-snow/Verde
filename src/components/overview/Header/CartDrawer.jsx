@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
@@ -7,13 +8,22 @@ import config from '../../../../config/config';
 import CartDrawerItem from './CartDrawerItem';
 import CartDrawerBtns from './CartDrawerBtns';
 
-export default function CartDrawer({ closeDrawer }) {
+export default function CartDrawer({ closeDrawer, localCart }) {
   const [cartItems, setCartItems] = useState([]);
   const [refreshCart, setRefreshCart] = useState(0);
   const [closingOut, setClosingOut] = useState(false);
 
-  const cartElements = cartItems.map((item) => (
-    <CartDrawerItem skuId={item.sku_id} count={item.count} key={item.sku_id} />
+  const cartElements = localCart.map((item) => (
+    <CartDrawerItem
+      count={item.count}
+      prodName={item.prodName}
+      styleName={item.styleName}
+      styleUrl={item.styleUrl}
+      price={item.price}
+      salePrice={item.salePrice}
+      size={item.size}
+      key={nanoid()}
+    />
   ));
 
   useEffect(() => {
@@ -56,4 +66,11 @@ export default function CartDrawer({ closeDrawer }) {
 
 CartDrawer.propTypes = {
   closeDrawer: PropTypes.func.isRequired,
+  localCart: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
 };

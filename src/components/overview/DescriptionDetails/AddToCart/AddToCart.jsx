@@ -6,7 +6,16 @@ import QtySelector from './QtySelector';
 import CartMessage from './CartMessage';
 import config from '../../../../../config/config';
 
-export default function AddToCart({ skuData, currStyle }) {
+export default function AddToCart({
+  skuData,
+  currStyle,
+  prodName,
+  styleName,
+  price,
+  salePrice,
+  styleUrl,
+  setLocalCart,
+}) {
   const [currSku, setCurrSku] = useState('Select Size');
   const [availQty, setAvailQty] = useState(['-']);
   const [selectedQty, setSelectedQty] = useState('-');
@@ -41,6 +50,17 @@ export default function AddToCart({ skuData, currStyle }) {
     } else {
       setMessage('none');
       const count = e.target[1].value;
+      const localCartItem = {
+        count,
+        prodName,
+        styleName,
+        styleUrl,
+        price,
+        salePrice,
+        size: skuData[currSku].size,
+        skuId: currSku,
+      };
+      setLocalCart((prevCart) => [localCartItem, ...prevCart]);
       const postPromises = [];
       for (let i = 0; i < count; i += 1) {
         axios.post(
@@ -93,4 +113,10 @@ AddToCart.propTypes = {
     PropTypes.array,
   ]).isRequired,
   currStyle: PropTypes.number.isRequired,
+  prodName: PropTypes.string.isRequired,
+  styleUrl: PropTypes.string.isRequired,
+  styleName: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  salePrice: PropTypes.number.isRequired,
+  setLocalCart: PropTypes.func.isRequired,
 };
