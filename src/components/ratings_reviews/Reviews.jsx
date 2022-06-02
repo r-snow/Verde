@@ -45,7 +45,7 @@ function Reviews({
           borderRadius: '5px',
           maxHeight: '1000px',
           overflowY: 'scroll',
-          overflow: 'visible',
+          // overflow: 'visible',
           // border: 'solid 5px green',
           // maxWidth: '80rem',
           // margin: '0em 10em',

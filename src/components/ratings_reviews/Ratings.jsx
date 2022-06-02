@@ -51,6 +51,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
             rating={averageRatingScore}
             color="var(--verde-theme)"
             size="42px"
+            style={{ position: 'absolute', bottom: 40, lineHeight: 1 }}
           />
         </div>
 

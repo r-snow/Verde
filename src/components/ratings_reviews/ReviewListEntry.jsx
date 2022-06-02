@@ -35,11 +35,9 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
         flexDirection: 'column',
         padding: '2rem',
         fontSize: '1em',
-        margin: '1em 0em',
         justifyContent: 'center',
         alignItems: 'flex-start',
         width: '100%',
-        boxShadow: '1px 1px 2rem lightgray',
       }}
     >
       <span

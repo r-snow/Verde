@@ -861,7 +861,8 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .percent-title {
@@ -906,13 +907,15 @@ body {
 }
 
 .reviews {
-  border-radius: 1em;
-  border: solid 2px lightgray;
+  /* border-radius: 1em; */
+  border-top: solid 1px lightgray;
+  border-bottom: solid 1px lightgray;
   transition: 200ms all ease-in-out;
 }
 
 .reviews:hover {
-  border: solid 2px rgb(0, 255, 157);
+  border-top: solid 1px var(--gold-theme);
+  border-bottom: solid 1px var(--gold-theme);
 }
 
 .review-button {
@@ -1053,9 +1056,10 @@ body.prevent-scroll-background {
 }
 
 .name-email-input {
-  width: 50rem;
-  padding: 1rem 2rem;
-  font-size: 1.5em;
+  width: 40rem;
+
+  padding: 0.5rem 1rem;
+  font-size: 1em;
   box-sizing: border-box;
   border-radius: 0.5rem;
   border: solid lightgray 1.5px;
@@ -1094,7 +1098,7 @@ body.prevent-scroll-background {
 
 .review-summary-form {
   width: 50rem;
-  padding: 2rem;
+  padding: 0.8rem;
   font-size: 1em;
   box-sizing: border-box;
   border-radius: 0.5rem;
@@ -1104,12 +1108,14 @@ body.prevent-scroll-background {
 
 .review-body-form {
   width: 50rem;
-  padding: 4rem;
+  height: 10rem;
+  padding: 1rem;
   font-size: 1em;
   box-sizing: border-box;
   border-radius: 0.5rem;
   border: solid lightgray 1.5px;
   margin: 1rem 1rem 0rem 1rem;
+  word-wrap: break-word;
 }
 
 .upload-review-thumbnails {

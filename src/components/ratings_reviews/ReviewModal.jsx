@@ -107,9 +107,9 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
         className="outline-color"
         style={{
           backgroundColor: 'var(--verde-theme)',
-          border: 'solid white 1px',
+          // border: 'solid white 1px',
           position: 'absolute',
-          padding: '1.5em',
+          padding: '1em',
           alignSelf: 'center',
           zIndex: '9999',
         }}
@@ -225,9 +225,10 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
               margin: '4rem',
               border: 'solid lightgray 0.1em',
               borderRadius: '1rem',
-              padding: '10rem 20rem',
+              padding: '5rem 10rem',
               maxWidth: '65rem',
               textAlign: 'center',
+              boxShadow: '0 0 2.5rem lightgray',
             }}
           >
             Upload photos
