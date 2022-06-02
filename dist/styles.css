@@ -60,6 +60,21 @@ body {
   animation-direction: reverse;
 }
 
+.slide-in {
+  animation-name: SlideIn;
+  animation-duration: 1s;
+  transition-timing-function: linear;
+}
+
+@keyframes SlideIn {
+  0% {
+    transform: translateX(40vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 @keyframes FadeIn {
   0% {
     opacity: 0;

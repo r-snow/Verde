@@ -5,24 +5,6 @@ import CartDrawer from './CartDrawer';
 
 export default function HeaderCart() {
   const [showDrawer, setShowDrawer] = useState(false);
-  const [keepDrawer, setKeepDrawer] = useState(false);
-  const [isFirstLoad, setIsFirstLoad] = useState(true);
-
-  useEffect(() => {
-    let timeoutId;
-    if (isFirstLoad) {
-      setIsFirstLoad(false);
-    } else if (!showDrawer && !isFirstLoad) {
-      setKeepDrawer(true);
-      timeoutId = setTimeout(() => {
-        setKeepDrawer(false);
-      }, 1000);
-    }
-
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, [showDrawer]);
 
   const closeDrawer = () => {
     setShowDrawer(false);
@@ -37,12 +19,7 @@ export default function HeaderCart() {
         type="button"
         onClick={() => setShowDrawer(true)}
       />
-      {(keepDrawer || showDrawer) && (
-        <CartDrawer
-          closeDrawer={closeDrawer}
-          drawerClass={showDrawer ? 'fade-in' : 'fade-out'}
-        />
-      )}
+      {showDrawer && <CartDrawer closeDrawer={closeDrawer} />}
     </div>
   );
 }
