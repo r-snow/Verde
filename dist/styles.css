@@ -217,6 +217,7 @@ body {
   bottom: 0;
   background: rgba(49, 49, 49, 0.8);
 }
+
 .cart-drawer--item-container {
   display: flex;
   align-items: center;

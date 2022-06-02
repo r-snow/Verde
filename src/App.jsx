@@ -12,6 +12,7 @@ function App() {
   const [localCart, setLocalCart] = useState(
     JSON.parse(localStorage.getItem('localCart')) || []
   );
+  const [showDrawer, setShowDrawer] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('localCart', JSON.stringify(localCart));
@@ -20,8 +21,12 @@ function App() {
 
   return (
     <>
-      <Header localCart={localCart} />
-      <Overview setLocalCart={setLocalCart} />
+      <Header
+        localCart={localCart}
+        showDrawer={showDrawer}
+        setShowDrawer={setShowDrawer}
+      />
+      <Overview setLocalCart={setLocalCart} setShowDrawer={setShowDrawer} />
       <RelatedItems curProd={curProd} setCurProd={setCurProd} />
       <YourOutfit curProd={curProd} />
       <QnA />

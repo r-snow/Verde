@@ -15,6 +15,7 @@ export default function AddToCart({
   salePrice,
   styleUrl,
   setLocalCart,
+  setShowDrawer,
 }) {
   const [currSku, setCurrSku] = useState('Select Size');
   const [availQty, setAvailQty] = useState(['-']);
@@ -74,7 +75,7 @@ export default function AddToCart({
       }
       Promise.all(postPromises)
         .then(() => {
-          setMessage('success');
+          setShowDrawer(true);
         })
         .catch(() => {
           setMessage('failure');
@@ -119,4 +120,5 @@ AddToCart.propTypes = {
   price: PropTypes.number.isRequired,
   salePrice: PropTypes.number.isRequired,
   setLocalCart: PropTypes.func.isRequired,
+  setShowDrawer: PropTypes.func.isRequired,
 };
