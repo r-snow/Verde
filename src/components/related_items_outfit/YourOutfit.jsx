@@ -30,7 +30,7 @@ export default function YourOutfit({ curProd }) {
 
   return (
     <div>
-      <h2>Your Outfit</h2>
+      <h2 className="yo-header">Your Outfit</h2>
       <section className="your-outfit">
         <AddOutfitCard className="add-oufit-card" handleAdd={handleAdd} />
         <div>

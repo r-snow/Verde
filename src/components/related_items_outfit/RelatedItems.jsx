@@ -21,10 +21,14 @@ export default function RelatedItems({ curProd }) {
   }, [curProd]);
 
   return (
-    <div>
-      <h2>Related Items</h2>
+    <div className="related-items">
+      <h2 className="ri-header fade-in">Related Items</h2>
       <div>
         <Carousel>
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
           {relatedItemIDs.map((productID) => (
             <ProductCard
               curProd={curProd}

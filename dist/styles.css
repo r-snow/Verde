@@ -791,8 +791,17 @@ body {
 }
 
 /*------ Related Items Section -----*/
+
+.ri-header {
+  text-align: center;
+  font-family: 'Cormorant Garamond';
+  font-weight: 500;
+  font-size: 36px;
+  margin-bottom: 0;
+  margin-top: 50px;
+}
+
 .carousel {
-  overflow: hidden;
   width: fit-content;
   position: relative;
 }
@@ -878,6 +887,16 @@ body {
 }
 
 /*------- Your outfit-------*/
+
+.yo-header {
+  text-align: center;
+  font-family: 'Cormorant Garamond';
+  font-weight: 500;
+  font-size: 36px;
+  margin-bottom: 0;
+  margin-top: 50px;
+}
+
 .your-outfit {
   display: flex;
   flex-direction: row;
