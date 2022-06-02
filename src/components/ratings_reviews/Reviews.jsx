@@ -27,7 +27,7 @@ function Reviews({
           textAlign: 'left',
           alignSelf: 'end',
           padding: '0.7rem 6rem',
-          borderRadius: '2rem',
+          borderRadius: '0rem',
           fontFamily: 'Montserrat',
           fontSize: '1.2rem',
         }}

@@ -227,7 +227,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
         )}
         <div
           style={{
-            marginLeft: '40rem',
+            marginLeft: 'auto',
           }}
         >
           {!comment ? (

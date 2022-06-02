@@ -109,7 +109,7 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
           backgroundColor: 'var(--verde-theme)',
           // border: 'solid white 1px',
           position: 'absolute',
-          padding: '1em',
+          padding: '2rem',
           alignSelf: 'center',
           zIndex: '9999',
         }}
@@ -142,7 +142,13 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
             <p className="number-definition">5 - GREAT</p>
           </div>
           <div className="do-you-recommend" style={{ marginBottom: '2rem' }}>
-            <p style={{ fontWeight: '350', textAlign: 'center' }}>
+            <p
+              style={{
+                fontWeight: '350',
+                textAlign: 'center',
+                textShadow: '1px 1px 4px black',
+              }}
+            >
               Do you recommend this product?
             </p>
             <label htmlFor="yes">
