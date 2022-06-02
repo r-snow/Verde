@@ -120,6 +120,18 @@ body {
   }
 }
 
+@keyframes Spin {
+  0% {
+    transform: rotate(0turn) scale(1);
+    color: black;
+  }
+
+  100% {
+    transform: rotate(3turn) scale(1.5);
+    color: var(--verde-theme);
+  }
+}
+
 /*-------- Overview Styles Section -------*/
 #top {
   position: relative;
@@ -229,6 +241,15 @@ body {
   position: absolute;
   top: 1rem;
   right: 1rem;
+}
+
+.cart-drawer-exit:hover {
+  cursor: pointer;
+  animation-name: Spin;
+  animation-duration: 1s;
+  transition-timing-function: ease-in-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
 }
 
 .cart-drawer--btns {
