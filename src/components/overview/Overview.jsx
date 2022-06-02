@@ -9,7 +9,7 @@ import sampleProductStylesData from './example_data/productStylesData';
 import sampleProductReviewsData from './example_data/productReviewsData';
 import config from '../../../config/config';
 
-export default function Overview({ setLocalCart }) {
+export default function Overview({ setLocalCart, setShowDrawer }) {
   const [isDefaultImgView, setIsDefaultImgView] = useState(true);
   const [currImgIdx, setCurrImgIdx] = useState(0);
   const [currStyle, setCurrStyle] = useState(0);
@@ -157,6 +157,7 @@ export default function Overview({ setLocalCart }) {
             avgRating={avgRating}
             skuData={skuData}
             setLocalCart={setLocalCart}
+            setShowDrawer={setShowDrawer}
           />
         </section>
       )
@@ -167,10 +168,12 @@ export default function Overview({ setLocalCart }) {
       photos={productStylesData.results[currStyle].photos}
       currImgIdx={currImgIdx}
       setCurrImgIdx={setCurrImgIdx}
+      setShowDrawer={setShowDrawer}
     />
   );
 }
 
 Overview.propTypes = {
   setLocalCart: PropTypes.func.isRequired,
+  setShowDrawer: PropTypes.func.isRequired,
 };
