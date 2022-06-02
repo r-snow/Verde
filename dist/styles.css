@@ -816,8 +816,9 @@ body {
 }
 
 .product-card-image {
-  width: auto;
+  width: 200px;
   height: 300px;
+  object-fit: cover;
 }
 
 .product-card-category {
@@ -848,7 +849,6 @@ body {
   display: flex;
   align-self: flex-end;
   color: #9a825c;
-  opacity: 0.5;
   margin: 10px 0px;
 }
 
@@ -878,16 +878,25 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding-left: 1.2rem;
-  padding-top: 0.7rem;
-  padding-bottom: 0.7rem;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 50px;
 }
 
 .compare-modal-close {
   display: flex;
   align-self: flex-end;
-  color: black;
-  margin-right: 20px;
+  color: #9a825c;
+}
+
+.compare-modal-header {
+  text-align: center;
+  font-family: 'Cormorant Garamond';
+  font-weight: 500;
+  font-size: 30 px;
+  margin-bottom: 0.1rem;
+  margin-top: 0px;
 }
 
 .table-body {
@@ -901,6 +910,11 @@ body {
   flex-direction: row;
   color: #9a825c;
   justify-content: space-evenly;
+  font-family: 'Montserrat';
+  font-weight: 300;
+  font-size: 15px;
+  margin-bottom: 0.5rem;
+  margin-top: 2rem;
 }
 
 .table-row {
@@ -933,7 +947,7 @@ body {
   flex-direction: column;
   flex-shrink: 0;
   width: 200px;
-  height: 500px;
+  height: 520px;
   align-items: center;
   justify-content: center;
   border: 1.5px #9a825c;

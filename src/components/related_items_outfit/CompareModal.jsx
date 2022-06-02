@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
 export default function Compare({ setOpenModal, curProd, compProd }) {
   const [curProdFeat, setCurProdFeats] = useState([]);
@@ -16,14 +18,14 @@ export default function Compare({ setOpenModal, curProd, compProd }) {
         aria-label="close modal with overlay"
       />
       <div className="compare-modal">
-        <button
+        <FontAwesomeIcon
           className="compare-modal-close"
+          icon={faCircleXmark}
+          size="lg"
           type="button"
           onClick={() => setOpenModal(false)}
-        >
-          x
-        </button>
-        <h2>COMPARING</h2>
+        />
+        <h2 className="compare-modal-header">COMPARING</h2>
         <table className="table">
           <tbody className="table-body">
             <tr className="column-title">
