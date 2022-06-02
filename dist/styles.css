@@ -162,6 +162,13 @@ body {
   margin-top: 4px;
 }
 
+.header--cart:hover,
+.hover-pointer:hover,
+.expanded-view--arrows:hover,
+.main-gallery-thumbnail-container:hover {
+  cursor: pointer;
+}
+
 .header--cart-drawer {
   position: fixed;
   right: 0;
