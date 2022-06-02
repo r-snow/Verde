@@ -36,20 +36,11 @@ export default function CartDrawerItem({
         }}
       />
       <div className="cart-drawer--item">
+        <b>{prodName}</b>
+        <p>{styleName}</p>
+        <p>{`Size ${size}`}</p>
         <span>
-          <b style={{ marginRight: '8px' }}>{prodName}</b>
-        </span>
-        <span>
-          <p>{styleName}</p>
-        </span>
-        <span>
-          <p>{size}</p>
-        </span>
-        <span>
-          <p>Quantity:</p>
-          <p>{count}</p>
-        </span>
-        <span>
+          <p>{`Quantity ${count}`}</p>
           <p>${displayPrice}</p>
         </span>
       </div>

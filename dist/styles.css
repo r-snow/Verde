@@ -199,7 +199,7 @@ body {
 .cart-drawer--header {
   font-family: 'Cormorant Garamond';
   font-size: 36px;
-  margin: 0 0 10px 0;
+  margin: 0 0 16px 0;
 }
 
 .empty-cart-text {
@@ -236,7 +236,9 @@ body {
 .cart-drawer--item {
   display: flex;
   flex-direction: column;
+  gap: 8px;
   position: relative;
+  width: 100%;
 }
 
 .cart-drawer--item > p,
@@ -254,7 +256,7 @@ body {
 
 .cart-drawer--item > span {
   display: flex;
-  gap: 0.2rem;
+  justify-content: space-between;
 }
 
 .cart-drawer-exit {
