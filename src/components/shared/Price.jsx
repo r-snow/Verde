@@ -20,11 +20,12 @@ export default function Price({ price, salePrice, fontSize }) {
             style={{
               textDecoration: 'line-through',
               margin: 0,
+              color: 'grey',
             }}
           >
             ${price}
           </p>
-          <p style={{ marginTop: 0 }}>${salePrice}</p>
+          <p style={{ margin: 0 }}>${salePrice}</p>
         </>
       )}
     </span>

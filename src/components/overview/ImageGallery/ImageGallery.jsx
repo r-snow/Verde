@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import Thumbnails from './Thumbnails';
+import MainImage from './MainImage';
 
 export default function ImageGallery({
   changeImgView,
@@ -21,6 +22,7 @@ export default function ImageGallery({
       />
       <FontAwesomeIcon
         icon={faAngleLeft}
+        className={currImgIdx !== 0 ? 'hover-pointer' : ''}
         size="xl"
         type="button"
         onClick={() => {
@@ -38,16 +40,13 @@ export default function ImageGallery({
             className="main-image-btn"
             onClick={changeImgView}
           >
-            <img
-              id="main-gallery--img"
-              src={photos[currImgIdx].url}
-              alt="sample img"
-            />
+            <MainImage currPhotoUrl={photos[currImgIdx].url} />
           </button>
         </a>
       </div>
       <FontAwesomeIcon
         icon={faAngleRight}
+        className={currImgIdx !== photos.length - 1 ? 'hover-pointer' : ''}
         size="xl"
         type="button"
         onClick={() => {

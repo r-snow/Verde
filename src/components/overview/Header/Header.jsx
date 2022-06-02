@@ -1,7 +1,8 @@
 import React from 'react';
 import HeaderCart from './HeaderCart';
+import PropTypes from 'prop-types';
 
-export default function Header() {
+export default function Header({ localCart }) {
   return (
     <header id="top">
       <span className="header--left">
@@ -12,7 +13,17 @@ export default function Header() {
         />
         <h1 className="header--title">Verde</h1>
       </span>
-      <HeaderCart />
+      <HeaderCart localCart={localCart} />
     </header>
   );
 }
+
+Header.propTypes = {
+  localCart: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
+};

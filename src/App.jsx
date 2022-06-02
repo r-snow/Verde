@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/overview/Header/Header';
 import Overview from './components/overview/Overview';
 import QnA from './components/questions_answers/QnA';
@@ -9,11 +9,19 @@ import currentProduct from './components/related_items_outfit/sampleProductData'
 
 function App() {
   const [curProd, setCurProd] = useState(currentProduct);
+  const [localCart, setLocalCart] = useState(
+    JSON.parse(localStorage.getItem('localCart')) || []
+  );
+
+  useEffect(() => {
+    localStorage.setItem('localCart', JSON.stringify(localCart));
+    console.log(localCart);
+  }, [localCart]);
 
   return (
     <>
-      <Header />
-      <Overview />
+      <Header localCart={localCart} />
+      <Overview setLocalCart={setLocalCart} />
       <RelatedItems curProd={curProd} setCurProd={setCurProd} />
       <YourOutfit curProd={curProd} />
       <QnA />
