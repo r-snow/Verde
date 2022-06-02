@@ -53,6 +53,13 @@ body {
   opacity: 0;
 }
 
+.fade-out {
+  animation-name: FadeIn;
+  animation-duration: 1s;
+  transition-timing-function: linear;
+  animation-direction: reverse;
+}
+
 @keyframes FadeIn {
   0% {
     opacity: 0;
@@ -107,6 +114,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  user-select: none;
 }
 
 .header--left {
@@ -140,6 +148,17 @@ body {
   justify-content: space-between;
 }
 
+.drawer--container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100000;
+}
+
 .cart-drawer--header {
   font-family: 'Cormorant Garamond';
   font-size: 36px;
@@ -148,6 +167,17 @@ body {
 .empty-cart-text {
   font-family: 'Montserrat';
   font-weight: 300;
+}
+
+.drawer-window {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(49, 49, 49, 0.8);
 }
 
 .cart-drawer--item {

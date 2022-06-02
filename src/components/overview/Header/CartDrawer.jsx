@@ -7,54 +7,35 @@ import config from '../../../../config/config';
 import CartDrawerItem from './CartDrawerItem';
 import CartDrawerBtns from './CartDrawerBtns';
 
-export default function CartDrawer({ closeDrawer }) {
+export default function CartDrawer({ drawerClass, closeDrawer }) {
   const [cartItems, setCartItems] = useState([]);
   const [refreshCart, setRefreshCart] = useState(0);
+  const [closingOut, setClosingOut] = useState(false);
 
   const cartElements = cartItems.map((item) => (
     <CartDrawerItem skuId={item.sku_id} count={item.count} key={item.sku_id} />
   ));
 
-  useEffect(() => {
-    axios
-      .get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/cart', {
-        headers: { Authorization: config.TOKEN },
-      })
-      .then(({ data }) => setCartItems(data))
-      .catch(() => setCartItems([]));
-  }, [refreshCart]);
+  // useEffect(() => {
+  //   axios
+  //     .get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/cart', {
+  //       headers: { Authorization: config.TOKEN },
+  //     })
+  //     .then(({ data }) => setCartItems(data))
+  //     .catch(() => setCartItems([]));
+  // }, [refreshCart]);
 
   return (
-    <div
-      style={{
-        position: 'fixed',
-        width: '100vw',
-        height: '100vh',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        zIndex: 100000,
-      }}
-    >
+    <div className="drawer--container">
       <div
-        style={{
-          position: 'fixed',
-          width: '100vw',
-          height: '100vh',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'rgba(49, 49, 49, 0.8)',
-        }}
+        className={`drawer-window ${drawerClass}`}
         onClick={closeDrawer}
         onKeyDown={closeDrawer}
         role="button"
         tabIndex={0}
         aria-label="transparent div"
       />
-      <div className="header--cart-drawer">
+      <div className={`header--cart-drawer ${drawerClass}`}>
         <div>
           <h3 className="cart-drawer--header">Your Cart</h3>
           {cartElements}
@@ -74,5 +55,6 @@ export default function CartDrawer({ closeDrawer }) {
 }
 
 CartDrawer.propTypes = {
+  drawerClass: PropTypes.string.isRequired,
   closeDrawer: PropTypes.func.isRequired,
 };
