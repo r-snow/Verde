@@ -280,10 +280,6 @@ body {
   border: 3px lightgrey solid;
 }
 
-.selected-thumbnail {
-  border-color: var(--gold-theme);
-}
-
 .style-thumbnail {
   grid-column: span 2;
   display: flex;
@@ -300,6 +296,11 @@ body {
 .style-thumbnail:hover {
   cursor: pointer;
   border: 2px solid lightgray;
+}
+
+.selected-thumbnail,
+.selected-style {
+  border-color: var(--gold-theme) !important;
 }
 
 /* style selector thumbnail edge cases */
