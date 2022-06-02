@@ -10,7 +10,12 @@ import productReviewsData from '../overview/example_data/productReviewsData';
 import Ratings from './sampleRatings';
 import config from '../../../config/config';
 
-export default function ProductCard({ productID, setOpenModal, setCompProd }) {
+export default function ProductCard({
+  productID,
+  setOpenModal,
+  setCompProd,
+  setCurProd,
+}) {
   const [product, setProduct] = useState({});
   const [image, setImage] = useState('');
 
@@ -90,4 +95,5 @@ ProductCard.propTypes = {
   productID: PropTypes.number.isRequired,
   setOpenModal: PropTypes.func.isRequired,
   setCompProd: PropTypes.func.isRequired,
+  setCurProd: PropTypes.func.isRequired,
 };

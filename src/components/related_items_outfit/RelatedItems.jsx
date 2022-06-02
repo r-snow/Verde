@@ -33,6 +33,7 @@ export default function RelatedItems({ curProd, setCurProd }) {
             key={productID}
             setOpenModal={setOpenModal}
             setCompProd={setCompProd}
+            setCurProd={setCurProd}
           />
         ))}
       </Carousel>
@@ -55,4 +56,5 @@ RelatedItems.propTypes = {
     PropTypes.object,
     PropTypes.array,
   ]).isRequired,
+  setCurProd: PropTypes.func.isRequired,
 };
