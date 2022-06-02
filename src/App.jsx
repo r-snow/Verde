@@ -33,7 +33,6 @@ function App() {
       }
     }
     localStorage.setItem('localCart', JSON.stringify(localCart));
-    console.log(localCart);
   }, [localCart]);
 
   const deleteCartItem = (idx) => {
