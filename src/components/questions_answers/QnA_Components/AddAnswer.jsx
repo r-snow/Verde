@@ -114,8 +114,9 @@ export default function AddAnswer({ question, setShowModal }) {
       <form
         style={{
           display: 'flex',
+          padding: '1em',
           flexDirection: 'column',
-          alignItems: 'left',
+          alignItems: 'center',
         }}
       >
         <div

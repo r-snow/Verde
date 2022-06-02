@@ -525,7 +525,7 @@ body {
 .qa-widget {
   display: flex;
   flex-direction: column;
-  padding: 1em;
+  padding: 2em;
   font-family: Helvetica;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -578,7 +578,7 @@ body {
   transition: all ease 0.3s;
 }
 .add-question-button:hover {
-  background-color: lightgrey;
+  background-color: #89aa88;
   border: 1px solid black;
 }
 
@@ -593,7 +593,7 @@ body {
   float: left;
 }
 .more-questions:hover {
-  background-color: lightgrey;
+  background-color: #89aa88;
   border: 1px solid black;
 }
 /* Answers*/
@@ -635,7 +635,7 @@ body {
 /* Add Answer & Question Modal */
 .answer-modal,
 .add-question-modal {
-  background-color: rgb(158, 205, 198);
+  background-color: #89aa88;
   z-index: 150; /* Overlay effect: positioned over other containers */
   position: fixed;
   width: 50%;
