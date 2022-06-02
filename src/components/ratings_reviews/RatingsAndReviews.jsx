@@ -185,7 +185,7 @@ function RatingsAndReviews() {
             width: '50%',
             right: '80%',
             marginLeft: 'auto',
-            border: 'solid 0px cyan',
+            border: 'solid 4px cyan',
           }}
         >
           <button
