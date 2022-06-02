@@ -12,7 +12,7 @@ import Compare from './CompareModal';
 
 import config from '../../../config/config';
 
-export default function ProductCard({ productID, curProd }) {
+export default function ProductCard({ productID, curProd, setCurProd }) {
   const [openModal, setOpenModal] = useState(false);
   const [product, setProduct] = useState({});
   const [image, setImage] = useState('');
@@ -39,6 +39,7 @@ export default function ProductCard({ productID, curProd }) {
   };
 
   const handleClick = () => {
+    setCurProd(product);
     console.log('Clicking here will change overview product...');
   };
 

@@ -8,7 +8,7 @@ import ProductCard from './RIProductCard';
 
 import config from '../../../config/config';
 
-export default function RelatedItems({ curProd }) {
+export default function RelatedItems({ curProd, setCurProd }) {
   const [relatedItemIDs, setRelatedItemIDs] = useState([]);
 
   const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/';
@@ -29,6 +29,7 @@ export default function RelatedItems({ curProd }) {
             <ProductCard
               curProd={curProd}
               productID={productID}
+              setcurProd={setCurProd}
               // key={nanoid()}
             />
           ))}
