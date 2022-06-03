@@ -1122,12 +1122,11 @@ body {
   flex-direction: column;
   flex-shrink: 0;
   width: 200px;
-  height: 520px;
+  height: 500px;
   align-items: center;
   justify-content: center;
   border: 1.5px #9a825c;
   border-style: solid;
-  border-radius: 20px;
   margin: 30px;
   font-family: 'Montserrat';
   font-weight: 500;
