@@ -64,11 +64,7 @@ function App() {
       <div className="horizontal-divider"> </div>
       <YourOutfit curProd={curProd} />
       <div className="horizontal-divider"> </div>
-<<<<<<< HEAD
-      <QnA />
-=======
       <QnA productID={curProd.id} />
->>>>>>> e1f920615fc271683e7981c1b6f6110196435464
       <div className="horizontal-divider"> </div>
       <RatingsAndReviews productID={curProd.id} />
     </>
