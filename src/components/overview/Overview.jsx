@@ -159,6 +159,7 @@ export default function Overview({ setLocalCart, setShowDrawer, productID }) {
             skuData={skuData}
             setLocalCart={setLocalCart}
             setShowDrawer={setShowDrawer}
+            productID={productID}
           />
         </section>
       )

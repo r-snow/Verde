@@ -286,6 +286,26 @@ body {
   animation-fill-mode: forwards;
 }
 
+.cart-item-img {
+  height: 100px;
+  width: 80px;
+  object-fit: cover;
+}
+
+.cart-item-btn {
+  color: transparent;
+  border-color: transparent;
+  border-radius: 0;
+  background-color: transparent;
+  margin: 0;
+  margin-right: 12px;
+  padding: 2px 0;
+  transition: 0.3s;
+}
+.cart-item-btn:hover {
+  border-bottom: grey 2px solid;
+}
+
 .checkout--btn {
   margin: 0;
   padding: 0.6rem 1rem;

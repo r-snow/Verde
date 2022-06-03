@@ -53,6 +53,7 @@ function App() {
         showDrawer={showDrawer}
         setShowDrawer={setShowDrawer}
         deleteCartItem={deleteCartItem}
+        setCurProd={setCurProd}
       />
       <Overview
         setLocalCart={setLocalCart}

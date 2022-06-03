@@ -9,6 +9,7 @@ export default function HeaderCart({
   showDrawer,
   setShowDrawer,
   deleteCartItem,
+  setCurProd,
 }) {
   const closeDrawer = () => {
     setShowDrawer(false);
@@ -29,6 +30,7 @@ export default function HeaderCart({
           deleteCartItem={deleteCartItem}
           closeDrawer={closeDrawer}
           localCart={localCart}
+          setCurProd={setCurProd}
         />
       )}
     </div>
@@ -46,4 +48,5 @@ HeaderCart.propTypes = {
   showDrawer: PropTypes.bool.isRequired,
   setShowDrawer: PropTypes.func.isRequired,
   deleteCartItem: PropTypes.func.isRequired,
+  setCurProd: PropTypes.func.isRequired,
 };
