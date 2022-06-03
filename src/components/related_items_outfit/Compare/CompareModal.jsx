@@ -16,7 +16,6 @@ export default function Compare({ setOpenModal, curProd, compProd }) {
       onKeyDown={() => setOpenModal(false)}
       aria-label="close modal with overlay"
     >
-      <div className="compare-overlay" />
       <div className="compare-modal">
         <FontAwesomeIcon
           className="compare-modal-close"
@@ -28,24 +27,19 @@ export default function Compare({ setOpenModal, curProd, compProd }) {
         <h2 className="compare-modal-header">COMPARING</h2>
         <table className="table">
           <tbody className="table-body">
-            <tr className="column-title">
-              <th>{curProd.name}</th>
-              <th>Attribute</th>
-              <th>{compProd.name}</th>
-            </tr>
-            <tr className="table-row">
+            <tr className="table-column">
+              <th className="column-title">{curProd.name}</th>
               <td>&#10004;</td>
-              <td>Ultrasheen</td>
+              <td>&#10004;</td>
               <td>&#10004;</td>
             </tr>
-            <tr className="table-row">
-              <td>&#10004;</td>
-              <td>Light Compose</td>
-              <td>&#10004;</td>
+            <tr className="table-column">
+              <th className="column-title">Attribute</th>
             </tr>
-            <tr className="table-row">
+            <tr className="table-column">
+              <th className="column-title">{compProd.name}</th>
               <td>&#10004;</td>
-              <td>100% Cotton</td>
+              <td>&#10004;</td>
               <td>&#10004;</td>
             </tr>
           </tbody>
