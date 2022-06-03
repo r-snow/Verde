@@ -33,14 +33,14 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
         margin: '10 auto',
         width: '30rem',
         minWidth: '30rem',
-        fontSize: '0.8em',
+        fontSize: '16px',
       }}
     >
       <div className="ratings-all-titles-containers">
         <div
           className="rating-title-text"
           style={{
-            fontSize: '3.5em',
+            fontSize: '40px',
             textAlign: 'center',
             fontFamily: 'Montserrat',
           }}
@@ -159,7 +159,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
       <p
         style={{
           alignSelf: 'center',
-          fontSize: '1.5rem',
+          fontSize: '24px',
         }}
       >
         <FontAwesomeIcon

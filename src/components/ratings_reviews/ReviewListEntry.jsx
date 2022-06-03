@@ -33,8 +33,8 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        padding: '2rem',
-        fontSize: '1em',
+        padding: '1rem',
+        fontSize: '16px',
         justifyContent: 'center',
         alignItems: 'flex-start',
         width: '100%',
@@ -42,7 +42,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
     >
       <span
         style={{
-          fontSize: '2em',
+          fontSize: '24px',
         }}
       >
         <b>{review.summary.slice(0, 60)}</b>
@@ -52,7 +52,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
       {review.body.length < 250 && (
         <span
           style={{
-            padding: '1em 0em',
+            padding: '0.2em 0em 0.5em',
             width: '60vw',
             overflowX: 'hidden',
           }}
@@ -65,7 +65,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
         <>
           <span
             style={{
-              padding: '1em 0em 0rem',
+              padding: '0.2em 0em 0.5rem',
               maxWidth: '60vw',
               wordWrap: 'break-word',
             }}
@@ -81,7 +81,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
               borderRadius: '0.2rem',
               margin: '0rem 0rem 1rem 0rem',
               backgroundColor: 'transparent',
-              fontSize: '0.7em',
+              fontSize: '18px',
             }}
           >
             SHOW MORE
@@ -101,11 +101,13 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
         </span>
       )}
 
-      <div className="images-container">
-        {review.photos.map((photo) => (
-          <ReviewPhotos photo={photo} key={photo.id} />
-        ))}
-      </div>
+      {review.photos.length !== 0 ? (
+        <div className="images-container">
+          {review.photos.map((photo) => (
+            <ReviewPhotos photo={photo} key={photo.id} />
+          ))}
+        </div>
+      ) : null}
 
       <div
         className="reviewer-name"
@@ -113,8 +115,8 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
           display: 'flex',
           width: '100%',
           color: 'darkgray',
-          margin: '2em 0em 1em 0.2em',
-          fontSize: '0.8em',
+          fontSize: '14px',
+          margin: '0',
         }}
       >
         {review.reviewer_name} |{' '}
@@ -130,12 +132,13 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
       </div>
       <span
         style={{
-          fontSize: '0.65em',
-          margin: '0.7rem 0rem',
+          fontSize: '16px',
+          margin: '0rem',
+          border: 'solid 5px green',
         }}
       >
         {review.recommend && (
-          <div>
+          <div style={{ margin: '0rem 0rem' }}>
             <FontAwesomeIcon
               icon={faCircleCheck}
               size="lg"
@@ -150,7 +153,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
               style={{
                 opacity: '0.5',
                 margin: '0em 0.15em',
-                fontSize: '0.7em',
+                fontSize: '10px',
               }}
             />
             I recommended this product!
@@ -160,7 +163,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
               style={{
                 opacity: '0.5',
                 margin: '0em 0.2em',
-                fontSize: '0.7em',
+                fontSize: '10px',
               }}
             />{' '}
           </div>
@@ -174,12 +177,19 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
           alignItems: 'flex-end',
           width: '100%',
           position: 'relative',
-          top: '1.2rem',
+          top: '0.2rem',
+          margin: '0',
         }}
       >
         {!clickedHelpful ? (
           <div>
-            <div style={{ display: 'inline', fontSize: '0.8em' }}>
+            <div
+              style={{
+                display: 'inline',
+                fontSize: '16px',
+                border: 'solid 5px blue',
+              }}
+            >
               Was this Review Helpful?
             </div>
             <button
@@ -222,7 +232,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
             </button>
           </div>
         ) : (
-          <p style={{ fontSize: '0.6em', fontWeight: '600', color: '#746245' }}>
+          <p style={{ fontSize: '16px', fontWeight: '600', color: '#746245' }}>
             Thank you for your feedback!
           </p>
         )}

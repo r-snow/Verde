@@ -17,10 +17,10 @@ function Reviews({ reviews, visible, sortReviews, submitHelpfulNess }) {
           marginBottom: '1em',
           textAlign: 'left',
           alignSelf: 'end',
-          padding: '0.7rem 6rem',
+          padding: '0.7rem 3rem',
           borderRadius: '0rem',
           fontFamily: 'Montserrat',
-          fontSize: '1.2rem',
+          fontSize: '12px',
         }}
         onChange={(event) => sortReviews(event.target.value)}
       >

@@ -120,7 +120,7 @@ function RatingsAndReviews({ productID }) {
           justifyContent: 'center',
           fontFamily: 'Cormorant Garamond',
           fontWeight: '100',
-          fontSize: '1.5em',
+          fontSize: '24px',
           padding: '0.2em',
           flexWrap: 'wrap',
           overflowX: 'hidden',
@@ -184,7 +184,7 @@ function RatingsAndReviews({ productID }) {
                 icon={faCirclePlus}
                 size="xs"
                 style={{
-                  opacity: '0.8',
+                  opacity: '1',
                   margin: '0em 0.5em',
                 }}
               />

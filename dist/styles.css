@@ -1068,7 +1068,7 @@ body {
 
 .end-review-buttons {
   padding: 0.6em 0.5em;
-  font-size: 1em;
+  font-size: 16px;
 }
 
 .full-photo-modal-container {
@@ -1084,19 +1084,19 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 20px;
   font-weight: 500;
 }
 
 .percent-title {
   display: inline;
-  font-size: 2rem;
+  font-size: 20px;
   transition: all 500ms ease-in-out;
 }
 
 .percent-title:hover {
   color: var(--gold-theme);
-  font-size: 2.25rem;
+  font-size: 22px;
   font-weight: 300;
   text-shadow: var(--verde-theme);
 }
@@ -1125,8 +1125,8 @@ body {
   /* border: solid 5px yellow; */
   color: rgb(105, 105, 105);
   text-align: center;
-  font-size: 0.5em;
-  padding: 0.5em;
+  font-size: 20px;
+  padding: 0.5em 0.2em;
 }
 
 .reviews {
@@ -1161,7 +1161,7 @@ body {
   background-size: 0% 100rem;
   background-repeat: no-repeat;
   background-position: left bottom;
-  font-size: 0.9em;
+  font-size: 15px;
   font-family: Montserrat;
   padding: 0.6em 0.5em;
   transition: all 500ms ease;
@@ -1200,54 +1200,6 @@ body {
   /* text-shadow: 1px 1px 2px rgb(0, 0, 0); */
 }
 
-.separator {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* border: 5px solid green; */
-  min-height: 400px;
-  padding: 100px 20vw;
-  /* background: linear-gradient(90deg #000000, #00ffab); */
-  background: var(--verde-theme);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.separator-title {
-  font-size: 3rem;
-  letter-spacing: 1rem;
-  font-family: Montserrat;
-  color: white;
-
-  /* border: solid 5px blue; */
-}
-
-.custom-shape-divider-bottom-1653983627 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  transform: rotate(180deg);
-}
-
-.custom-shape-divider-bottom-1653983627 svg {
-  position: relative;
-  display: block;
-  width: calc(101% + 1.3px);
-  height: 163px;
-}
-
-.custom-shape-divider-bottom-1653983627 .shape-fill {
-  fill: var(--verde-theme);
-}
-
-.custom-shape-divider-top-1653983827 .shape-fill {
-  fill: var(--verde-theme);
-}
-
 /* Review Modal Section */
 body.prevent-scroll-background {
   overflow-y: hidden;
@@ -1257,12 +1209,12 @@ body.prevent-scroll-background {
   display: inline-block;
   width: 8rem;
   margin: 0.5em 0em;
-  font-size: 2rem;
+  font-size: 24px;
   height: 1px;
 }
 
 .disclaimer-text {
-  font-size: 0.75em;
+  font-size: 12px;
   margin: 0;
 }
 
@@ -1299,9 +1251,8 @@ body.prevent-scroll-background {
 
 .name-email-input {
   width: 40rem;
-
   padding: 0.5rem 1rem;
-  font-size: 1em;
+  font-size: 16px;
   box-sizing: border-box;
   border-radius: 0.5rem;
   border: solid lightgray 1.5px;
@@ -1317,7 +1268,7 @@ body.prevent-scroll-background {
 }
 
 .rating-definition {
-  font-size: 0.8em;
+  font-size: 13px;
   display: flex;
 }
 
@@ -1327,7 +1278,7 @@ body.prevent-scroll-background {
 }
 
 .rating-modal-title {
-  font-size: 2rem;
+  font-size: 24px;
   font-weight: 500;
   margin: 0;
   padding: 0;
@@ -1342,7 +1293,7 @@ body.prevent-scroll-background {
 .review-summary-form {
   width: 40rem;
   padding: 0.8rem;
-  font-size: 1em;
+  font-size: 16px;
   box-sizing: border-box;
   border-radius: 0.5rem;
   border: solid lightgray 1.5px;
@@ -1353,7 +1304,7 @@ body.prevent-scroll-background {
   width: 50rem;
   height: 10rem;
   padding: 1rem;
-  font-size: 1em;
+  font-size: 16px;
   box-sizing: border-box;
   border-radius: 0.5rem;
   border: solid lightgray 1.5px;
@@ -1450,7 +1401,7 @@ body.prevent-scroll-background {
 /* Sliders */
 
 .characteristic-name {
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: 400;
   /* letter-spacing: 0.3rem; */
 }
@@ -1491,7 +1442,7 @@ button#clickableStars {
 }
 
 #clickableStars {
-  font-size: 2em;
+  font-size: 32px;
   transition: 200ms all ease-in-out;
 }
 
