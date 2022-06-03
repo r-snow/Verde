@@ -26,7 +26,6 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
   const toggleClickedHelpful = () => {
     setClickedHelpful(!clickedHelpful);
   };
-  // console.log(review, 'review passed down into ReviewListEntry');
   return (
     <section
       className="reviews"
@@ -38,11 +37,13 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
         justifyContent: 'center',
         alignItems: 'flex-start',
         width: '100%',
+        fontFamily: 'montserrat',
       }}
     >
       <span
         style={{
-          fontSize: '40px',
+          fontSize: '25px',
+          fontFamily: 'Cormorant Garamond',
         }}
       >
         <b>{review.summary.slice(0, 60)}</b>
@@ -55,7 +56,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
             padding: '0.2em 0em 0.5em',
             width: '60vw',
             overflowX: 'hidden',
-            fontSize: '20px',
+            fontSize: '16px',
           }}
         >
           {review.body}
