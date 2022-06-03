@@ -34,6 +34,8 @@ export default function Overview({ setLocalCart, setShowDrawer, productID }) {
 
   const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/';
   useEffect(() => {
+    setCurrImgIdx(0);
+    setCurrStyle(0);
     setIsLoaded({
       product: false,
       styles: false,
