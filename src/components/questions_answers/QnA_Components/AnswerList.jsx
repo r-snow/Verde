@@ -11,7 +11,7 @@ export default function AnswerList({ answer }) {
   const [helpful, setHelpful] = useState(answer.helpfulness);
   const [reportToggle, setReportToggle] = useState(false);
 
-  const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/';
+  const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/';
 
   const markAnswerHelpful = () => {
     if (!marked) {
@@ -58,7 +58,7 @@ export default function AnswerList({ answer }) {
       </div>
       <div className="answer-name">
         <span>by &nbsp;</span>
-        {answer.answerer_name === 'Seller' ? (
+        {answer.answerer_name.toLowerCase() === 'seller' ? (
           <span
             style={{
               fontWeight: 'bold',

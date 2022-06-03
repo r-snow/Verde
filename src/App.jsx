@@ -63,7 +63,8 @@ function App() {
       <RelatedItems curProd={curProd} setCurProd={setCurProd} />
       <div className="horizontal-divider"> </div>
       <YourOutfit curProd={curProd} />
-      <QnA />
+      <div className="horizontal-divider"> </div>
+      <QnA productID={curProd.id} />
       <div className="horizontal-divider"> </div>
       <RatingsAndReviews productID={curProd.id} />
     </>
