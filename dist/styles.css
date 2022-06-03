@@ -964,8 +964,10 @@ body {
 }
 
 .ri-price {
-  font-size: 30px;
+  font-size: 35px;
   font-family: 'EB Garamond', serif;
+  margin-top: 1em;
+  margin-bottom: 0;
 }
 
 .product-card-compare {
