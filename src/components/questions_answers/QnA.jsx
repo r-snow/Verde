@@ -53,7 +53,7 @@ export default function QnA({ productID }) {
             type="button"
             onClick={() => setOpenModal(true)}
           >
-            Add A Question +
+            ADD A QUESTION +
           </button>
           {openModal && (
             <AddAQuestion productID={productID} setOpenModal={setOpenModal} />

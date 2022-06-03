@@ -775,7 +775,7 @@ body {
 .add-question-button {
   font-size: 16px;
   height: 60px;
-  width: 235px;
+  width: 255px;
   padding: 10px;
   margin: 25px;
   cursor: pointer;
@@ -793,7 +793,7 @@ body {
 .more-questions {
   font-size: medium;
   height: 60px;
-  width: 235px;
+  width: 285px;
   padding: 10px;
   margin: 25px;
   cursor: pointer;
@@ -844,7 +844,8 @@ body {
 }
 
 .more-answers:hover {
-  background-color: rgb(144, 169, 139);
+  text-decoration: underline;
+  /* background-color: rgb(144, 169, 139); */
 }
 
 /* Add Answer & Question Modal */

@@ -61,7 +61,7 @@ export default function QuestionList({ questions, searchInput, productID }) {
           type="button"
           onClick={() => setOpenModal(true)}
         >
-          Add A Question +
+          ADD A QUESTION +
         </button>
         {openModal && (
           <AddAQuestion productID={productID} setOpenModal={setOpenModal} />
