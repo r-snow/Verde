@@ -902,6 +902,11 @@ body {
 }
 
 .carousel {
+  display: flex;
+  align-items: center;
+}
+
+.viewport {
   overflow: hidden;
 }
 
