@@ -50,7 +50,7 @@ export default function CartDrawer({
         aria-label="transparent div"
       />
       <div className="header--cart-drawer slide-in">
-        <div>
+        <div style={{ overflowY: 'scroll' }}>
           <h3 className="cart-drawer--header">
             {cartElements.length ? 'Your Cart' : 'Your Cart Is Empty'}
           </h3>
