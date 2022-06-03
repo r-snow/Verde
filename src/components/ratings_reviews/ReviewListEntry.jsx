@@ -42,7 +42,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
     >
       <span
         style={{
-          fontSize: '24px',
+          fontSize: '40px',
         }}
       >
         <b>{review.summary.slice(0, 60)}</b>
@@ -55,6 +55,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
             padding: '0.2em 0em 0.5em',
             width: '60vw',
             overflowX: 'hidden',
+            fontSize: '20px',
           }}
         >
           {review.body}
@@ -67,6 +68,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
             style={{
               padding: '0.2em 0em 0.5rem',
               maxWidth: '60vw',
+              fontSize: '20px',
               wordWrap: 'break-word',
             }}
           >
@@ -115,8 +117,8 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
           display: 'flex',
           width: '100%',
           color: 'darkgray',
-          fontSize: '14px',
-          margin: '0',
+          fontSize: '16px',
+          margin: '0rem 0rem 0.5rem',
         }}
       >
         {review.reviewer_name} |{' '}
@@ -134,7 +136,6 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
         style={{
           fontSize: '16px',
           margin: '0rem',
-          border: 'solid 5px green',
         }}
       >
         {review.recommend && (
@@ -149,7 +150,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
             />{' '}
             <FontAwesomeIcon
               icon={faQuoteLeft}
-              size="xs"
+              size="2xs"
               style={{
                 opacity: '0.5',
                 margin: '0em 0.15em',
@@ -159,7 +160,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
             I recommended this product!
             <FontAwesomeIcon
               icon={faQuoteRight}
-              size="xs"
+              size="2xs"
               style={{
                 opacity: '0.5',
                 margin: '0em 0.2em',
@@ -178,16 +179,17 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
           width: '100%',
           position: 'relative',
           top: '0.2rem',
-          margin: '0',
+          margin: '0rem',
         }}
       >
         {!clickedHelpful ? (
-          <div>
+          <div style={{ margin: '0' }}>
             <div
               style={{
                 display: 'inline',
                 fontSize: '16px',
-                border: 'solid 5px blue',
+
+                margin: '0',
               }}
             >
               Was this Review Helpful?
