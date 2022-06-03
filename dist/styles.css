@@ -134,6 +134,18 @@ body {
   }
 }
 
+@keyframes RevSpin {
+  0% {
+    transform: rotate(3turn) scale(1.5);
+    color: var(--verde-theme);
+  }
+
+  100% {
+    transform: rotate(0turn) scale(1);
+    color: black;
+  }
+}
+
 /*-------- Overview Styles Section -------*/
 #top {
   position: relative;
@@ -265,15 +277,33 @@ body {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  animation: RevSpin 1s;
 }
 
 .cart-drawer-exit:hover {
   cursor: pointer;
-  animation-name: Spin;
-  animation-duration: 1s;
-  transition-timing-function: ease-in-out;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
+  animation: Spin 1s;
+  animation-fill-mode: forwards;
+}
+
+.cart-item-img {
+  height: 100px;
+  width: 80px;
+  object-fit: cover;
+}
+
+.cart-item-btn {
+  color: transparent;
+  border-color: transparent;
+  border-radius: 0;
+  background-color: transparent;
+  margin: 0;
+  margin-right: 12px;
+  padding: 2px 0;
+  transition: 0.3s;
+}
+.cart-item-btn:hover {
+  border-bottom: grey 2px solid;
 }
 
 .checkout--btn {
@@ -700,6 +730,8 @@ body {
 .qa-header {
   font-size: 36px;
   text-align: center;
+  font-weight: 400;
+  margin-top: 0;
 }
 
 /* search-bar */
