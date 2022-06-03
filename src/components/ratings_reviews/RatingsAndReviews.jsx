@@ -158,6 +158,7 @@ function RatingsAndReviews({ productID }) {
             right: '80%',
             marginLeft: 'auto',
             marginBottom: '1em',
+            marginTop: '1em',
           }}
         >
           <button

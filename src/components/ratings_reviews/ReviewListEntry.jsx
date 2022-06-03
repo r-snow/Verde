@@ -40,6 +40,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
         fontFamily: 'Cormorant Garamond',
       }}
     >
+      <Stars rating={review.rating} id="reviewStar" />
       <span
         style={{
           fontSize: '22px',
@@ -47,7 +48,6 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
       >
         <b>{review.summary.slice(0, 60)}</b>
       </span>
-      <Stars rating={review.rating} id="reviewStar" />
 
       {review.body.length < 250 && (
         <span
@@ -67,7 +67,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
         <>
           <span
             style={{
-              padding: '0.2em 0em 0.5rem',
+              padding: '0.2em 0em',
               maxWidth: '60vw',
               fontSize: '20px',
               fontWeight: '500',
@@ -76,20 +76,19 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
           >
             {review.body.slice(0, 250)}
           </span>
-          <button
-            type="button"
+          <div
+            role="button"
+            onKeyDown={changeView}
             onClick={changeView}
-            className="review-button"
+            tabIndex={0}
+            className="alt-review-button-body"
             style={{
-              padding: '0.2rem 0.5rem',
-              borderRadius: '0rem',
               margin: '0rem 0rem 0.2rem',
-              backgroundColor: 'transparent',
               fontSize: '10px',
             }}
           >
             SHOW MORE
-          </button>{' '}
+          </div>{' '}
         </>
       )}
 
@@ -120,7 +119,6 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
           width: '100%',
           color: 'darkgray',
           fontSize: '15px',
-          margin: '0rem 0rem 1rem',
         }}
       >
         {review.reviewer_name} |{' '}
@@ -130,7 +128,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
           size="xs"
           style={{
             opacity: '0.5',
-            margin: '0.3em 0.2em',
+            margin: '0em 0.2em',
           }}
         />
       </div>
@@ -139,7 +137,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
         <span
           style={{
             fontSize: '15px',
-            margin: '0rem',
+            margin: '0.3em 0em',
             position: 'relative',
           }}
         >
@@ -149,6 +147,8 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
             style={{
               opacity: '0.5',
               margin: '0em 0.15em',
+              position: 'relative',
+              bottom: '5px',
               fontSize: '10px',
             }}
           />
@@ -158,6 +158,8 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
             size="2xs"
             style={{
               opacity: '0.5',
+              position: 'relative',
+              bottom: '5px',
               margin: '0em 0.2em',
               fontSize: '10px',
             }}
@@ -262,7 +264,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
                 type="text"
                 placeholder="Leave a comment"
                 className="hover-pointer"
-                style={{ padding: '0.7rem 0.7rem', fontFamily: 'montserrat' }}
+                style={{ padding: '0.3rem', fontFamily: 'montserrat' }}
                 onKeyPress={(event) => {
                   if (event.key === 'Enter') {
                     clickComment();
