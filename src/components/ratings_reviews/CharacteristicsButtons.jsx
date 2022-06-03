@@ -13,11 +13,10 @@ function CharacteristicsButtons({ characteristic, id, handleRadioChange }) {
       style={{
         // backgroundColor: 'var(--gold-theme)',
         border: '1px solid lightgray',
-        borderRadius: '0.5rem',
         boxShadow: '0 0 1rem lightgrey',
         padding: '1rem 5rem',
         margin: '1rem 0rem',
-        minWidth: '10vw',
+        minWidth: 'max-content',
       }}
     >
       <p className="char-words">{characteristic}</p>

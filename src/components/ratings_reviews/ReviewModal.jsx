@@ -136,37 +136,59 @@ function ReviewModal({ meta, productID, setReviews, toggleModal }) {
             <p className="number-definition">4 - GOOD</p>
             <p className="number-definition">5 - GREAT</p>
           </div>
-          <div className="do-you-recommend" style={{ marginBottom: '2rem' }}>
+          <div
+            className="do-you-recommend"
+            style={{
+              padding: 0,
+            }}
+          >
             <p
               style={{
                 fontWeight: '500',
                 textAlign: 'center',
+                marginBottom: '0.2rem',
               }}
             >
               Do you recommend this product?
             </p>
-            <label htmlFor="yes">
-              <input
-                type="radio"
-                value="yes"
-                name="recommend-btn"
-                className="recommendation-radio-btns"
-                checked={formRecommend === 'yes'}
-                onChange={(event) => changeFormRecommend(event.target.value)}
-              />
-              Yes
-            </label>
-            <label htmlFor="no">
-              <input
-                type="radio"
-                value="no"
-                name="recommend-btn"
-                className="recommendation-radio-btns"
-                checked={formRecommend === 'no'}
-                onChange={(event) => changeFormRecommend(event.target.value)}
-              />
-              No
-            </label>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-around',
+                margin: 0,
+              }}
+            >
+              <label htmlFor="yes">
+                <p className="yes-no-labels">
+                  Yes
+                  <input
+                    type="radio"
+                    value="yes"
+                    name="recommend-btn"
+                    className="recommendation-radio-btns"
+                    checked={formRecommend === 'yes'}
+                    onChange={(event) =>
+                      changeFormRecommend(event.target.value)
+                    }
+                  />
+                </p>
+              </label>
+              <label htmlFor="no">
+                <p className="yes-no-labels">
+                  No
+                  <input
+                    type="radio"
+                    value="no"
+                    name="recommend-btn"
+                    className="recommendation-radio-btns"
+                    checked={formRecommend === 'no'}
+                    onChange={(event) =>
+                      changeFormRecommend(event.target.value)
+                    }
+                  />
+                </p>
+              </label>
+            </div>
           </div>
           <div className="characteristics-radio-btns">
             {metaEntries.map((entry) => (
@@ -218,14 +240,13 @@ function ReviewModal({ meta, productID, setReviews, toggleModal }) {
             </p>
           )}
           {wordCount >= 50 && <p>Character requirement achieved!</p>}
-          <label
+          <section
             htmlFor="upload-photos"
             style={{
               fontSize: '1.5em',
               margin: '4rem',
               border: 'solid lightgray 0.1em',
-              borderRadius: '1rem',
-              padding: '5rem 10rem',
+              padding: '2.5rem 5rem',
               maxWidth: '65rem',
               textAlign: 'center',
               boxShadow: '0 0 2.5rem lightgray',
@@ -233,41 +254,66 @@ function ReviewModal({ meta, productID, setReviews, toggleModal }) {
           >
             Upload photos
             <br />
-            <input
+            <label htmlFor="upload-img-btn" className="alt-review-button">
+              Upload
+              <input
+                type="file"
+                accept="image/*"
+                onChange={uploadImages}
+                className="review-button"
+                id="upload-img-btn"
+                style={{
+                  display: 'none',
+                  padding: '0rem',
+                  fontSize: '0.5em',
+                  fontFamily: 'montserrat',
+                }}
+              />
+            </label>
+            {/* <input
               type="file"
               accept="image/*"
               onChange={uploadImages}
               className="review-button"
-              style={{ padding: '0rem', fontSize: '0.5em' }}
+              style={{
+                padding: '0rem',
+                fontSize: '0.5em',
+                fontFamily: 'montserrat',
+              }}
             />
             <input
               type="file"
               accept="image/*"
               onChange={uploadImages}
               className="review-button"
-              style={{ padding: '0rem', fontSize: '0.5em' }}
+              style={{
+                padding: '0rem',
+                fontSize: '0.5em',
+                fontFamily: 'montserrat',
+              }}
             />
             <input
               type="file"
               accept="image/*"
               onChange={uploadImages}
               className="review-button"
-              style={{ padding: '0rem', fontSize: '0.5em' }}
+              style={{
+                padding: '0rem',
+                fontSize: '0.5em',
+                fontFamily: 'montserrat',
+              }}
             />
             <input
               type="file"
               accept="image/*"
               onChange={uploadImages}
               className="review-button"
-              style={{ padding: '0rem', fontSize: '0.5em' }}
-            />
-            <input
-              type="file"
-              accept="image/*"
-              onChange={uploadImages}
-              className="review-button"
-              style={{ padding: '0rem', fontSize: '0.5em' }}
-            />
+              style={{
+                padding: '0rem',
+                fontSize: '0.5em',
+                fontFamily: 'montserrat',
+              }}
+            /> */}
             {formImages.map((image) => (
               <img
                 src={image}
@@ -276,7 +322,7 @@ function ReviewModal({ meta, productID, setReviews, toggleModal }) {
                 className="upload-review-thumbnails"
               />
             ))}
-          </label>
+          </section>
           <label htmlFor="nickname" style={{ padding: '1rem 0rem' }}>
             Nickname
             <input
@@ -315,12 +361,8 @@ function ReviewModal({ meta, productID, setReviews, toggleModal }) {
           >
             For authentication reasons, you <i>will not</i> be emailed.
           </p>
-          <button
-            type="submit"
-            className="review-button hover-pointer"
-            style={{ padding: '1rem 3rem' }}
-          >
-            Submit
+          <button type="submit" className="alt-review-button hover-pointer">
+            SUBMIT
           </button>
         </form>
       </div>

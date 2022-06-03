@@ -33,14 +33,14 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
         margin: '10 auto',
         width: '30rem',
         minWidth: '30rem',
-        fontSize: '16px',
+        fontSize: '14px',
       }}
     >
       <div className="ratings-all-titles-containers">
         <div
           className="rating-title-text"
           style={{
-            fontSize: '40px',
+            fontSize: '30px',
             textAlign: 'center',
             fontFamily: 'Montserrat',
           }}
@@ -48,8 +48,8 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
           {averageRatingScore.toFixed(2)}
           <CustomStars
             rating={averageRatingScore}
-            color="var(--verde-theme)"
-            size="35px"
+            color="var(--gold-theme)"
+            size="30px"
             style={{ position: 'absolute', bottom: 40, lineHeight: 1 }}
           />
         </div>
@@ -160,6 +160,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
         style={{
           alignSelf: 'center',
           fontSize: '24px',
+          margin: '0',
         }}
       >
         <FontAwesomeIcon
@@ -175,7 +176,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
       <div
         style={{
           display: 'flex',
-          flexDirection: 'row',
+          flexDirection: 'column',
           flexWrap: 'wrap-reverse',
           alignSelf: 'center',
         }}
@@ -184,7 +185,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
           <button
             type="button"
             // key={nanoid()}
-            className="review-button"
+            className="alt-review-button"
             style={{
               padding: '0.4rem 1.6rem',
               margin: '0.2rem',
