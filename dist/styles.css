@@ -931,6 +931,19 @@ body {
   object-fit: cover;
 }
 
+.image-unavailable {
+  text-align: center;
+  font-family: 'Montserrat';
+  font-weight: 300;
+  color: #b33a3a;
+  font-size: 17px;
+  height: 300px;
+  width: 200px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 150px 0;
+}
+
 .product-card-category {
   text-align: center;
   font-family: 'Montserrat';

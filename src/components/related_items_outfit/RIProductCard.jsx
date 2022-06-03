@@ -36,13 +36,12 @@ export default function ProductCard({
   const handleKeyPress = (event) => {
     event.preventDefault();
     if (event.key === 'Enter') {
-      console.log('Clicking here will change overview product...');
+      setCurProd(product);
     }
   };
 
   const handleClick = () => {
     setCurProd(product);
-    console.log('Clicking here will change overview product...');
   };
 
   const compare = () => {
@@ -78,7 +77,14 @@ export default function ProductCard({
           onClick={compare}
         />
       </div>
-      <img className="product-card-image" src={image} alt="Sample" />
+      {!image ? (
+        <p className="image-unavailable">
+          Image
+          <br /> Unavailable
+        </p>
+      ) : (
+        <img className="product-card-image" src={image} alt="Sample" />
+      )}
       <p className="product-card-category">{product.category}</p>
       <p className="product-card-name">{product.name}</p>
       <Price
