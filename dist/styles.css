@@ -1049,6 +1049,7 @@ body {
 .compare-modal {
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: #fff;
   z-index: 150; /* Overlay effect: positioned over other containers */
   position: fixed;
@@ -1061,6 +1062,7 @@ body {
   padding-right: 20px;
   padding-top: 20px;
   padding-bottom: 50px;
+  border-radius: 5px;
 }
 
 .compare-modal-close {
@@ -1070,38 +1072,39 @@ body {
 }
 
 .compare-modal-header {
-  text-align: center;
   font-family: 'Cormorant Garamond';
   font-weight: 500;
-  font-size: 30 px;
+  font-size: 35px;
   margin-bottom: 0.1rem;
   margin-top: 0px;
+  text-align: center;
 }
 
 .table-body {
   display: flex;
+  flex-direction: row;
+  align-items: start;
+}
+
+.table-column {
+  display: flex;
   flex-direction: column;
-  justify-content: center;
+  width: 15em;
+  align-items: center;
 }
 
 .column-title {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   color: #9a825c;
-  justify-content: space-evenly;
   font-family: 'Montserrat';
   font-weight: 300;
-  font-size: 15px;
-  margin-bottom: 0.5rem;
+  font-size: 20px;
+  margin-bottom: 1.5rem;
   margin-top: 2rem;
-}
-
-.table-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  justify-content: space-evenly;
-  color: black;
+  width: 10em;
+  height: 1em;
 }
 
 /*------- Your outfit-------*/
@@ -1127,6 +1130,9 @@ body {
   border-style: solid;
   border-radius: 20px;
   margin: 30px;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 15px;
 }
 
 .add-outfit-plus {
