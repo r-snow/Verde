@@ -60,6 +60,9 @@ export default function Compare({ setOpenModal, curProd, compProd }) {
             </tr>
             <tr className="table-column">
               <th className="column-title">Attribute</th>
+              <td>Lenses</td>
+              <td>UV Protection</td>
+              <td>Frames</td>
             </tr>
             <tr className="table-column">
               <th className="column-title">{compProd.name}</th>

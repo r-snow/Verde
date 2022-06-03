@@ -1323,9 +1323,6 @@ body.prevent-scroll-background {
   right: 0;
   bottom: 0;
   left: 0;
-}
-
-.modal-overlay {
   background: rgba(49, 49, 49, 0.8);
 }
 
