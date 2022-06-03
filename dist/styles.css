@@ -1053,7 +1053,7 @@ body {
   background-color: #fff;
   z-index: 150; /* Overlay effect: positioned over other containers */
   position: fixed;
-  width: 50%;
+  width: 50vw;
   height: auto;
   top: 50%;
   left: 50%;
@@ -1062,6 +1062,7 @@ body {
   padding-right: 20px;
   padding-top: 20px;
   padding-bottom: 50px;
+  border: 1rem solid rgb(144, 169, 139);
 }
 
 .compare-modal-close {
