@@ -756,6 +756,7 @@ body {
   margin: 12px;
   padding: 0px 20px 0px 20px;
   display: block;
+  border-bottom: 1px solid lightgrey;
 }
 
 .question-body {
@@ -772,25 +773,27 @@ body {
 }
 
 .add-question-button {
-  font-size: medium;
+  font-size: 16px;
   height: 60px;
-  width: 235px;
+  width: 255px;
   padding: 10px;
   margin: 25px;
   cursor: pointer;
+  border-color: transparent;
   transition: all ease 0.3s;
   font-family: 'Montserrat';
   border-radius: 0;
+  background-color: rgb(144, 169, 139);
+  color: var(--off-white);
 }
 .add-question-button:hover {
-  background-color: rgb(144, 169, 139);
-  border: 1px solid black;
+  background-color: grey;
 }
 
 .more-questions {
   font-size: medium;
   height: 60px;
-  width: 235px;
+  width: 285px;
   padding: 10px;
   margin: 25px;
   cursor: pointer;
@@ -798,10 +801,13 @@ body {
   float: left;
   font-family: 'Montserrat';
   border-radius: 0;
-}
-.more-questions:hover {
   background-color: rgb(144, 169, 139);
-  border: 1px solid black;
+  color: var(--off-white);
+  border-color: transparent;
+}
+
+.more-questions:hover {
+  background-color: grey;
 }
 /* Answers*/
 .answer-div {
@@ -838,7 +844,8 @@ body {
 }
 
 .more-answers:hover {
-  background-color: rgb(144, 169, 139);
+  text-decoration: underline;
+  /* background-color: rgb(144, 169, 139); */
 }
 
 /* Add Answer & Question Modal */
@@ -856,6 +863,7 @@ body {
   padding-top: 0.7rem;
   padding-bottom: 0.7rem;
   border: 1rem solid rgb(144, 169, 139);
+  font-family: 'Montserrat';
 }
 
 .answer-modal-close,
@@ -871,20 +879,23 @@ body {
 
 .answer-form-submit-button,
 .question-form-submit-button {
-  font-weight: bold;
-  font-size: medium;
+  /* font-weight: bold; */
+  font-size: 16px;
   height: 50px;
   width: 180px;
-  background-color: white;
   padding: 10px;
   cursor: pointer;
+  border-color: transparent;
+  transition: all ease 0.3s;
   font-family: 'Montserrat';
   border-radius: 0;
+  background-color: rgb(144, 169, 139);
+  color: var(--off-white);
 }
 
 .answer-form-submit-button:hover,
 .question-form-submit-button:hover {
-  background-color: rgb(144, 169, 139);
+  background-color: grey;
 }
 
 /* Photo & Modals */
@@ -911,7 +922,7 @@ body {
   position: relative;
   width: auto;
   max-width: 1200px;
-  height: 600px;
+  height: 500px;
   margin: auto;
   padding: auto;
   border: 1px solid black;
