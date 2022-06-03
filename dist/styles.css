@@ -1158,6 +1158,8 @@ body {
 .images-container {
   display: flex;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .indiv-bar {
@@ -1170,7 +1172,7 @@ body {
 
 .percent-title {
   display: inline;
-  font-size: 20px;
+  font-size: 16px;
   transition: all 500ms ease-in-out;
 }
 
@@ -1192,10 +1194,10 @@ body {
     letter-spacing 400ms ease-in-out;
 }
 
-.rating-title-text:hover {
+/* .rating-title-text:hover {
   background-size: 100% 3px;
   letter-spacing: 0.1rem;
-}
+} */
 
 .rating-title,
 .review-helpful-btn {
@@ -1205,8 +1207,7 @@ body {
   /* border: solid 5px yellow; */
   color: rgb(105, 105, 105);
   text-align: center;
-  font-size: 20px;
-  padding: 0.5em 0.2em;
+  font-size: 16px;
 }
 
 .reviews {
@@ -1280,6 +1281,27 @@ body {
   /* text-shadow: 1px 1px 2px rgb(0, 0, 0); */
 }
 
+.alt-review-button-body {
+  background-color: transparent;
+  /* border-radius: 0.5rem; */
+  border: 0px solid rgb(143, 143, 143);
+  /* background-image: linear-gradient(90deg, rgb(0, 255, 157), rgb(255, 174, 0)); */
+  background-size: 0% 3px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  color: rgb(0, 0, 0);
+  font-family: Montserrat, 'Times New Roman';
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.alt-review-button-body:hover {
+  text-decoration: underline;
+  /* background-image: linear-gradient(90deg, rgb(0, 255, 157), rgb(2, 226, 255)); */
+  background-size: 100% 3px;
+  /* text-shadow: 1px 1px 2px rgb(0, 0, 0); */
+}
+
 /* Review Modal Section */
 body.prevent-scroll-background {
   overflow-y: hidden;
@@ -1334,7 +1356,6 @@ body.prevent-scroll-background {
   padding: 0.5rem 1rem;
   font-size: 16px;
   box-sizing: border-box;
-  border-radius: 0.5rem;
   border: solid lightgray 1.5px;
   margin: 0.5rem;
 }
@@ -1365,7 +1386,7 @@ body.prevent-scroll-background {
 }
 
 .recommendation-radio-btns {
-  margin: 0em 6em;
+  margin: 0em;
   align-self: center;
   text-align: center;
 }
@@ -1375,7 +1396,6 @@ body.prevent-scroll-background {
   padding: 0.8rem;
   font-size: 16px;
   box-sizing: border-box;
-  border-radius: 0.5rem;
   border: solid lightgray 1.5px;
   margin: 1rem;
 }
@@ -1386,7 +1406,6 @@ body.prevent-scroll-background {
   padding: 1rem;
   font-size: 16px;
   box-sizing: border-box;
-  border-radius: 0.5rem;
   border: solid lightgray 1.5px;
   margin: 1rem 1rem 0rem 1rem;
   word-wrap: break-word;
@@ -1398,6 +1417,15 @@ body.prevent-scroll-background {
   border-radius: 0.5rem;
   margin: 0.4rem 0rem;
   object-fit: contain;
+}
+
+.yes-no-labels {
+  border: solid 5px blue;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-self: center;
+  margin: 0;
 }
 
 /* Review Photos */
@@ -1491,7 +1519,7 @@ body.prevent-scroll-background {
   width: 18rem;
   height: 0.5rem;
   -webkit-appearance: none;
-  background: #ac9673;
+  background: lightgray;
 
   border-radius: 5rem;
   box-shadow: inset 0- 0 5px rgba(0, 0, 0, 1);
@@ -1505,7 +1533,7 @@ body.prevent-scroll-background {
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
-  filter: invert(0.65);
+  /* filter: invert(0.65); */
 }
 
 .sliders-container {

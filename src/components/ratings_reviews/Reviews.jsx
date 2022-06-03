@@ -15,7 +15,7 @@ function Reviews({ reviews, visible, sortReviews, submitHelpfulNess }) {
       <select
         className="size-select hover-pointer"
         style={{
-          // marginBottom: '1em',
+          marginBottom: '12px',
           // textAlign: 'left',
           alignSelf: 'end',
         }}

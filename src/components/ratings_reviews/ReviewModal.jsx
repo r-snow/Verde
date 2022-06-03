@@ -132,11 +132,14 @@ function ReviewModal({ meta, productID, setReviews, toggleModal }) {
           <div className="rating-definition">
             <p className="number-definition">1 - POOR</p>
             <p className="number-definition">2 - FAIR</p>
-            <p className="number-definition">3 - AVERAGE</p>
+            <p className="number-definition">3 - AVERAGE</p>d
             <p className="number-definition">4 - GOOD</p>
             <p className="number-definition">5 - GREAT</p>
           </div>
-          <div className="do-you-recommend" style={{ marginBottom: '2rem' }}>
+          <div
+            className="do-you-recommend"
+            style={{ marginBottom: '1rem', border: 'solid 5px green' }}
+          >
             <p
               style={{
                 fontWeight: '500',
@@ -146,26 +149,30 @@ function ReviewModal({ meta, productID, setReviews, toggleModal }) {
               Do you recommend this product?
             </p>
             <label htmlFor="yes">
-              <input
-                type="radio"
-                value="yes"
-                name="recommend-btn"
-                className="recommendation-radio-btns"
-                checked={formRecommend === 'yes'}
-                onChange={(event) => changeFormRecommend(event.target.value)}
-              />
-              Yes
+              <p className="yes-no-labels">
+                Yes
+                <input
+                  type="radio"
+                  value="yes"
+                  name="recommend-btn"
+                  className="recommendation-radio-btns"
+                  checked={formRecommend === 'yes'}
+                  onChange={(event) => changeFormRecommend(event.target.value)}
+                />
+              </p>
             </label>
             <label htmlFor="no">
-              <input
-                type="radio"
-                value="no"
-                name="recommend-btn"
-                className="recommendation-radio-btns"
-                checked={formRecommend === 'no'}
-                onChange={(event) => changeFormRecommend(event.target.value)}
-              />
-              No
+              <p className="yes-no-labels">
+                No
+                <input
+                  type="radio"
+                  value="no"
+                  name="recommend-btn"
+                  className="recommendation-radio-btns"
+                  checked={formRecommend === 'no'}
+                  onChange={(event) => changeFormRecommend(event.target.value)}
+                />
+              </p>
             </label>
           </div>
           <div className="characteristics-radio-btns">
@@ -224,8 +231,7 @@ function ReviewModal({ meta, productID, setReviews, toggleModal }) {
               fontSize: '1.5em',
               margin: '4rem',
               border: 'solid lightgray 0.1em',
-              borderRadius: '1rem',
-              padding: '5rem 10rem',
+              padding: '2.5rem 5rem',
               maxWidth: '65rem',
               textAlign: 'center',
               boxShadow: '0 0 2.5rem lightgray',
@@ -238,35 +244,55 @@ function ReviewModal({ meta, productID, setReviews, toggleModal }) {
               accept="image/*"
               onChange={uploadImages}
               className="review-button"
-              style={{ padding: '0rem', fontSize: '0.5em' }}
+              style={{
+                padding: '0rem',
+                fontSize: '0.5em',
+                fontFamily: 'montserrat',
+              }}
             />
             <input
               type="file"
               accept="image/*"
               onChange={uploadImages}
               className="review-button"
-              style={{ padding: '0rem', fontSize: '0.5em' }}
+              style={{
+                padding: '0rem',
+                fontSize: '0.5em',
+                fontFamily: 'montserrat',
+              }}
             />
             <input
               type="file"
               accept="image/*"
               onChange={uploadImages}
               className="review-button"
-              style={{ padding: '0rem', fontSize: '0.5em' }}
+              style={{
+                padding: '0rem',
+                fontSize: '0.5em',
+                fontFamily: 'montserrat',
+              }}
             />
             <input
               type="file"
               accept="image/*"
               onChange={uploadImages}
               className="review-button"
-              style={{ padding: '0rem', fontSize: '0.5em' }}
+              style={{
+                padding: '0rem',
+                fontSize: '0.5em',
+                fontFamily: 'montserrat',
+              }}
             />
             <input
               type="file"
               accept="image/*"
               onChange={uploadImages}
               className="review-button"
-              style={{ padding: '0rem', fontSize: '0.5em' }}
+              style={{
+                padding: '0rem',
+                fontSize: '0.5em',
+                fontFamily: 'montserrat',
+              }}
             />
             {formImages.map((image) => (
               <img
@@ -315,12 +341,8 @@ function ReviewModal({ meta, productID, setReviews, toggleModal }) {
           >
             For authentication reasons, you <i>will not</i> be emailed.
           </p>
-          <button
-            type="submit"
-            className="review-button hover-pointer"
-            style={{ padding: '1rem 3rem' }}
-          >
-            Submit
+          <button type="submit" className="alt-review-button hover-pointer">
+            SUBMIT
           </button>
         </form>
       </div>
