@@ -1098,6 +1098,9 @@ body {
   border-style: solid;
   border-radius: 20px;
   margin: 30px;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 15px;
 }
 
 .add-outfit-plus {

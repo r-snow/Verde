@@ -18,7 +18,7 @@ export default function AddOutfitCard({ handleAdd }) {
         size="xl"
         type="button"
       />
-      <p>Add Outfit</p>
+      <p className="add-oufit-button">ADD OUTFIT</p>
     </div>
   );
 }

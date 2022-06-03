@@ -1,11 +1,36 @@
-import React /* ,  { useState } */ from 'react';
+import React /* , { useState, useEffect } */ from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
 export default function Compare({ setOpenModal, curProd, compProd }) {
-  // const [curProdFeat, setCurProdFeats] = useState([]);
-  // const [compProdFeat, setCompProdFeats] = useState([]);
+  // const [featTab, setFeatTab] = useState([]);
+
+  // useEffect(() => {
+  //   const newFeat = {};
+
+  //   const addFeats = (prod) => {
+  //     prod.features.forEach((feat) => {
+  //       let isNew = true;
+  //       featTab.forEach((tableFeat) => {
+  //         if (tableFeat === feat.feature) {
+  //           isNew = false;
+  //         }
+  //       });
+
+  //       if (isNew === true) {
+  //         newFeat.value = feat;
+  //       }
+  //     });
+  //   };
+
+  //   addFeats(curProd);
+  //   addFeats(compProd);
+
+  //   const addVals = (prod) => {
+  //     prod.features.forEach((feat) => {});
+  //   };
+  // });
 
   return (
     <div
