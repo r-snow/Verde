@@ -18,6 +18,7 @@ export default function ProductCard({
 }) {
   const [product, setProduct] = useState({});
   const [image, setImage] = useState('');
+  const [salePrice, setSalePrice] = useState('');
 
   const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/';
   useEffect(() => {
@@ -30,7 +31,15 @@ export default function ProductCard({
       .get(`${url}products/${productID}/styles`, {
         headers: { Authorization: config.TOKEN },
       })
-      .then((results) => setImage(results.data.results[0].photos[0].url));
+      .then((results) => {
+        setImage(results.data.results[0].photos[0].url);
+        if (results.data.results[0].sale_price === null) {
+          setSalePrice(0);
+        } else {
+          setSalePrice(parseFloat(results.data.results[0].sale_price));
+          console.log(parseFloat(results.data.results[0].sale_price));
+        }
+      });
   }, [productID]);
 
   const handleKeyPress = (event) => {
@@ -91,7 +100,7 @@ export default function ProductCard({
         <Price
           className="ri-price"
           price={parseFloat(product.default_price)}
-          salePrice={120}
+          salePrice={salePrice}
         />
         <Stars rating={rating()} />
       </div>
