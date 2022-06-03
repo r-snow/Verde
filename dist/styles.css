@@ -1062,7 +1062,6 @@ body {
   padding-right: 20px;
   padding-top: 20px;
   padding-bottom: 50px;
-  border-radius: 5px;
 }
 
 .compare-modal-close {
@@ -1323,6 +1322,9 @@ body.prevent-scroll-background {
   right: 0;
   bottom: 0;
   left: 0;
+}
+
+.modal-overlay {
   background: rgba(49, 49, 49, 0.8);
 }
 
