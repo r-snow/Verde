@@ -906,8 +906,14 @@ body {
   align-items: center;
 }
 
+.carousel-arrow {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
 .viewport {
   overflow: hidden;
+  width: 100vw;
 }
 
 .product-card {

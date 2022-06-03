@@ -34,24 +34,22 @@ export default function Carousel({ children }) {
 
   return (
     <div className="carousel">
-      <FontAwesomeIcon
-        icon={faAngleLeft}
-        // className={currImgIdx !== 0 ? 'hover-pointer' : ''}
-        size="xl"
-        type="button"
-        // onClick={() => {
-        //   if (currImgIdx) {
-        //     decrementIdx();
-        //   }
-        // }}
-        // color={currImgIdx === 0 ? 'transparent' : 'black'}
-        style={{ marginLeft: '1em' }}
-      />
+      {activeIndex !== 0 && (
+        <FontAwesomeIcon
+          className="carousel-arrow"
+          icon={faAngleLeft}
+          size="xl"
+          type="button"
+          onClick={() => {
+            updateIndex(activeIndex - 1);
+          }}
+        />
+      )}
       <div className="viewport">
         <div
           className="inner"
           style={{
-            transform: `translateX(-${activeIndex * 260}px)`,
+            transform: `translateX(-${activeIndex * 261}px)`,
             whiteSpace: 'nowrap',
             transition: 'transform 0.5s',
           }}
@@ -60,50 +58,18 @@ export default function Carousel({ children }) {
         >
           {React.Children.map(children, (child) => React.cloneElement(child))}
         </div>
-        {/* <div
-          className="indicators"
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            margin: '5px',
-          }}
-        >
-        <button
-        type="button"
-            style={{
-              margin: '5px',
-            }}
-            onClick={() => {
-              updateIndex(activeIndex - 1);
-            }}
-            >
-            Prev
-            </button>
-            <button
-            type="button"
-            style={{
-              margin: '5px',
-            }}
-            onClick={() => {
-              updateIndex(activeIndex + 1);
-            }}
-            >
-            Next
-            </button>
-          </div> */}
       </div>
-      <FontAwesomeIcon
-        icon={faAngleRight}
-        // className={currImgIdx !== photos.length - 1 ? 'hover-pointer' : ''}
-        size="xl"
-        type="button"
-        // onClick={() => {
-        //   if (currImgIdx !== photos.length - 1) {
-        //     incrementIdx();
-        //   }
-        // }}
-        // color={currImgIdx === photos.length - 1 ? 'transparent' : 'black'}
-      />
+      {activeIndex !== React.Children.count(children) - 2 && (
+        <FontAwesomeIcon
+          className="carousel-arrow"
+          icon={faAngleRight}
+          size="xl"
+          type="button"
+          onClick={() => {
+            updateIndex(activeIndex + 1);
+          }}
+        />
+      )}
     </div>
   );
 }
