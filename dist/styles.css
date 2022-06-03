@@ -1130,16 +1130,24 @@ body {
 }
 
 .reviews {
-  /* border-radius: 1em; */
+  /* border-top: solid 0px lightgray; */
+  border-bottom: solid 1px lightgray;
+  transition: 200ms all ease-in-out;
+}
+
+.reviews:first-child {
   border-top: solid 1px lightgray;
   border-bottom: solid 1px lightgray;
   transition: 200ms all ease-in-out;
 }
 
-.reviews:hover {
-  border-top: solid 1px var(--gold-theme);
+/* .reviews:hover {
   border-bottom: solid 1px var(--gold-theme);
 }
+
+.reviews:first-child:hover {
+  border-bottom: solid 1px var(--gold-theme);
+} */
 
 .review-button {
   background-color: transparent;

@@ -117,7 +117,7 @@ function RatingsAndReviews({ productID }) {
         style={{
           display: 'flex',
           flexDirection: 'row',
-          justifyContent: 'space-between',
+          justifyContent: 'center',
           fontFamily: 'Cormorant Garamond',
           fontWeight: '100',
           fontSize: '1.5em',
