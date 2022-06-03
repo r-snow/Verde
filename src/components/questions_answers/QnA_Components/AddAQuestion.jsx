@@ -83,7 +83,7 @@ export default function AddAQuestion({ productID, setOpenModal }) {
           flexDirection: 'column',
           alignItems: 'center',
           padding: '10px',
-          fontSize: '20px',
+          fontSize: '18px',
         }}
       >
         <div
@@ -94,7 +94,8 @@ export default function AddAQuestion({ productID, setOpenModal }) {
           }}
         >
           <label htmlFor="question">
-            Your Question*:{' '}
+            Your Question*:
+            <br />
             <textarea
               type="text"
               id="question"
