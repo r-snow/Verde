@@ -1057,17 +1057,19 @@ body {
 .table-column {
   display: flex;
   flex-direction: column;
-  width: 10em;
+  width: 15em;
   align-items: center;
 }
 
 .column-title {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #9a825c;
   font-family: 'Montserrat';
   font-weight: 300;
   font-size: 20px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
   margin-top: 2rem;
   width: 10em;
   height: 1em;
