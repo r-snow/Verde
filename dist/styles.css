@@ -1226,7 +1226,7 @@ body.prevent-scroll-background {
 
 .full-modal-container {
   width: 50vw;
-  height: 90vh;
+  height: 80vh;
   position: fixed;
   top: 0;
   right: 0;
@@ -1250,7 +1250,7 @@ body.prevent-scroll-background {
 }
 
 .name-email-input {
-  width: 40rem;
+  width: 30vw;
   padding: 0.5rem 1rem;
   font-size: 16px;
   box-sizing: border-box;
@@ -1291,7 +1291,7 @@ body.prevent-scroll-background {
 }
 
 .review-summary-form {
-  width: 40rem;
+  width: 30vw;
   padding: 0.8rem;
   font-size: 16px;
   box-sizing: border-box;
@@ -1301,7 +1301,7 @@ body.prevent-scroll-background {
 }
 
 .review-body-form {
-  width: 50rem;
+  width: 30vw;
   height: 10rem;
   padding: 1rem;
   font-size: 16px;

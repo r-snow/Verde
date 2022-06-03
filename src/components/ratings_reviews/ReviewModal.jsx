@@ -116,7 +116,7 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
             flexDirection: 'column',
             backgroundColor: 'white',
             borderRadius: '5rem',
-            padding: '1rem',
+            padding: '0.5rem',
             justifyContent: 'center',
             alignItems: 'center',
             accentColor: 'aquamarine',
@@ -139,9 +139,8 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
           <div className="do-you-recommend" style={{ marginBottom: '2rem' }}>
             <p
               style={{
-                fontWeight: '350',
+                fontWeight: '500',
                 textAlign: 'center',
-                textShadow: '1px 1px 4px black',
               }}
             >
               Do you recommend this product?
