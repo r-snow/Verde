@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { format, parseISO } from 'date-fns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faCircleCheck,
+  // faCircleCheck,
   faThumbsUp,
   faThumbsDown,
   faComment,
@@ -32,18 +32,17 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        padding: '1rem',
+        padding: '1rem 1rem .1rem',
         fontSize: '16px',
         justifyContent: 'center',
         alignItems: 'flex-start',
         width: '100%',
-        fontFamily: 'montserrat',
+        fontFamily: 'Cormorant Garamond',
       }}
     >
       <span
         style={{
-          fontSize: '25px',
-          fontFamily: 'Cormorant Garamond',
+          fontSize: '22px',
         }}
       >
         <b>{review.summary.slice(0, 60)}</b>
@@ -54,9 +53,10 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
         <span
           style={{
             padding: '0.2em 0em 0.5em',
-            width: '60vw',
+            width: '55vw',
             overflowX: 'hidden',
-            fontSize: '16px',
+            fontSize: '20px',
+            fontWeight: '500',
           }}
         >
           {review.body}
@@ -70,6 +70,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
               padding: '0.2em 0em 0.5rem',
               maxWidth: '60vw',
               fontSize: '20px',
+              fontWeight: '500',
               wordWrap: 'break-word',
             }}
           >
@@ -118,8 +119,8 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
           display: 'flex',
           width: '100%',
           color: 'darkgray',
-          fontSize: '16px',
-          margin: '0rem 0rem 0.5rem',
+          fontSize: '15px',
+          margin: '0rem 0rem 1rem',
         }}
       >
         {review.reviewer_name} |{' '}
@@ -133,68 +134,59 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
           }}
         />
       </div>
-      <span
-        style={{
-          fontSize: '16px',
-          margin: '0rem',
-        }}
-      >
-        {review.recommend && (
-          <div style={{ margin: '0rem 0rem' }}>
-            <FontAwesomeIcon
-              icon={faCircleCheck}
-              size="lg"
-              style={{
-                opacity: '0.5',
-                margin: '0em 0.1em',
-              }}
-            />{' '}
-            <FontAwesomeIcon
-              icon={faQuoteLeft}
-              size="2xs"
-              style={{
-                opacity: '0.5',
-                margin: '0em 0.15em',
-                fontSize: '10px',
-              }}
-            />
-            I recommended this product!
-            <FontAwesomeIcon
-              icon={faQuoteRight}
-              size="2xs"
-              style={{
-                opacity: '0.5',
-                margin: '0em 0.2em',
-                fontSize: '10px',
-              }}
-            />{' '}
-          </div>
-        )}
-      </span>
+
+      {review.recommend && (
+        <span
+          style={{
+            fontSize: '15px',
+            margin: '0rem',
+            position: 'relative',
+          }}
+        >
+          <FontAwesomeIcon
+            icon={faQuoteLeft}
+            size="2xs"
+            style={{
+              opacity: '0.5',
+              margin: '0em 0.15em',
+              fontSize: '10px',
+            }}
+          />
+          I recommended this product!
+          <FontAwesomeIcon
+            icon={faQuoteRight}
+            size="2xs"
+            style={{
+              opacity: '0.5',
+              margin: '0em 0.2em',
+              fontSize: '10px',
+            }}
+          />{' '}
+          {/* <FontAwesomeIcon
+            icon={faCircleCheck}
+            size="xs"
+            style={{
+              opacity: '0.5',
+              margin: '0em 0.1em',
+            }}
+          />{' '} */}
+        </span>
+      )}
 
       <div
         className="misc-container"
         style={{
           display: 'flex',
-          alignItems: 'flex-end',
+          alignItems: 'center',
           width: '100%',
           position: 'relative',
-          top: '0.2rem',
+          // top: '1rem',
           margin: '0rem',
         }}
       >
         {!clickedHelpful ? (
           <div style={{ margin: '0' }}>
-            <div
-              style={{
-                display: 'inline',
-                fontSize: '16px',
-
-                margin: '0',
-              }}
-            >
-              Was this Review Helpful?
-            </div>
+            Was this Review Helpful?
             <button
               type="button"
               className="review-helpful-btn"

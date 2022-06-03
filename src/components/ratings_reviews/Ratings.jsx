@@ -49,7 +49,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
           <CustomStars
             rating={averageRatingScore}
             color="var(--verde-theme)"
-            size="42px"
+            size="35px"
             style={{ position: 'absolute', bottom: 40, lineHeight: 1 }}
           />
         </div>
