@@ -1385,7 +1385,7 @@ body.prevent-scroll-background {
 .rating-modal-title {
   font-size: 24px;
   font-weight: 500;
-  margin: 0;
+  margin: 0.5rem;
   padding: 0;
 }
 
@@ -1424,12 +1424,11 @@ body.prevent-scroll-background {
 }
 
 .yes-no-labels {
-  border: solid 5px blue;
   display: inline-flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-self: center;
-  margin: 0;
+  margin: 0.5rem;
 }
 
 /* Review Photos */
@@ -1516,6 +1515,7 @@ body.prevent-scroll-background {
 .characteristic-name {
   font-size: 24px;
   font-weight: 400;
+  min-width: 600px;
   /* letter-spacing: 0.3rem; */
 }
 
