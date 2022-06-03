@@ -63,11 +63,13 @@ export default function AddAQuestion({ productID, setOpenModal }) {
       >
         X
       </button>
-      <h2>New Question About: product #{productID}</h2>
+      <h2 style={{ textAlign: 'center' }}>
+        New Question About: product #{productID}
+      </h2>
       {errorMessage && (
         <div
           style={{
-            backgroundColor: 'red',
+            backgroundColor: 'pink',
             fontWeight: 'bold',
             padding: '5px',
           }}
@@ -79,8 +81,9 @@ export default function AddAQuestion({ productID, setOpenModal }) {
         style={{
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'left',
+          alignItems: 'center',
           padding: '10px',
+          fontSize: '20px',
         }}
       >
         <div
@@ -122,13 +125,12 @@ export default function AddAQuestion({ productID, setOpenModal }) {
         <p
           style={{
             fontStyle: 'italic',
-            fontSize: '12px',
+            fontSize: '14px',
             padding: '5px',
           }}
         >
           For privacy reasons, do not use your full name or email address
         </p>
-
         <div
           style={{
             padding: '5px',
@@ -148,20 +150,20 @@ export default function AddAQuestion({ productID, setOpenModal }) {
         <p
           style={{
             fontStyle: 'italic',
-            fontSize: '12px',
+            fontSize: '14px',
             padding: '5px',
           }}
         >
           For authentication reasons, you will not be emailed
-        </p>
+        </p>{' '}
+        <button
+          className="question-form-submit-button"
+          type="button"
+          onClick={handleSubmit}
+        >
+          Submit Question
+        </button>
       </form>
-      <button
-        className="question-form-submit-button"
-        type="button"
-        onClick={handleSubmit}
-      >
-        Submit Question
-      </button>
     </div>
   );
 }
