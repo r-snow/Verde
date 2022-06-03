@@ -104,7 +104,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
       )}
 
       {review.photos.length !== 0 ? (
-        <div className="images-container">
+        <div className="images-container hover-pointer">
           {review.photos.map((photo) => (
             <ReviewPhotos photo={photo} key={photo.id} />
           ))}
@@ -207,6 +207,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
               <FontAwesomeIcon
                 icon={faThumbsUp}
                 size="sm"
+                className="hover-pointer"
                 style={{
                   opacity: '0.5',
                   margin: '0em 0.2em',
@@ -226,6 +227,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
               <FontAwesomeIcon
                 icon={faThumbsDown}
                 size="sm"
+                className="hover-pointer"
                 style={{
                   opacity: '0.5',
                   margin: '0em 0.2em',
@@ -247,6 +249,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
             <div
               onClick={clickComment}
               onKeyDown={clickComment}
+              className="hover-pointer"
               role="button"
               tabIndex="0"
             >
@@ -265,7 +268,8 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
               <input
                 type="text"
                 placeholder="Leave a comment"
-                style={{ padding: '0.7rem 0.7rem' }}
+                className="hover-pointer"
+                style={{ padding: '0.7rem 0.7rem', fontFamily: 'montserrat' }}
                 onKeyPress={(event) => {
                   if (event.key === 'Enter') {
                     clickComment();

@@ -145,6 +145,7 @@ function RatingsAndReviews({ productID }) {
             meta={meta}
             toggleModal={toggleModal}
             setReviews={setReviews}
+            productID={productID}
           />
         )}
         <section
@@ -161,7 +162,7 @@ function RatingsAndReviews({ productID }) {
         >
           <button
             type="button"
-            className="alt-review-button"
+            className="alt-review-button hover-pointer"
             onClick={toggleModal}
           >
             <FontAwesomeIcon
@@ -177,7 +178,7 @@ function RatingsAndReviews({ productID }) {
           {visible < reviews.length && (
             <button
               type="button"
-              className="alt-review-button"
+              className="alt-review-button hover-pointer"
               onClick={addVisibility}
             >
               <FontAwesomeIcon

@@ -82,7 +82,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
       </div>
       <div className="bars-container">
         <div
-          className="indiv-bar"
+          className="indiv-bar hover-pointer"
           role="button"
           tabIndex={0}
           onClick={() => toggleRatedReviews(5)}
@@ -97,7 +97,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
         </div>
 
         <div
-          className="indiv-bar"
+          className="indiv-bar hover-pointer"
           role="button"
           tabIndex={0}
           onClick={() => toggleRatedReviews(4)}
@@ -112,7 +112,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
         </div>
 
         <div
-          className="indiv-bar"
+          className="indiv-bar hover-pointer"
           role="button"
           tabIndex={0}
           onClick={() => toggleRatedReviews(3)}
@@ -127,7 +127,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
         </div>
 
         <div
-          className="indiv-bar"
+          className="indiv-bar hover-pointer"
           role="button"
           tabIndex={0}
           onClick={() => toggleRatedReviews(2)}
@@ -142,7 +142,7 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
         </div>
 
         <div
-          className="indiv-bar"
+          className="indiv-bar hover-pointer"
           role="button"
           tabIndex={0}
           onClick={() => toggleRatedReviews(1)}
