@@ -17,7 +17,7 @@ function CharacteristicsButtons({ characteristic, id, handleRadioChange }) {
         boxShadow: '0 0 1rem lightgrey',
         padding: '1rem 5rem',
         margin: '1rem 0rem',
-        minWidth: '40rem',
+        minWidth: '10vw',
       }}
     >
       <p className="char-words">{characteristic}</p>

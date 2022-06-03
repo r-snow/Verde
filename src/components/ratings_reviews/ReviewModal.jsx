@@ -6,7 +6,7 @@ import CharacteristicsButtons from './CharacteristicsButtons';
 import ClickStars from './ClickStars';
 import config from '../../../config/config';
 
-function ReviewModal({ meta, setReviews, toggleModal }) {
+function ReviewModal({ meta, productID, setReviews, toggleModal }) {
   const [wordCount, updateWordCount] = useState(0);
 
   const [formRating, changeFormRating] = useState(null);
@@ -52,7 +52,7 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
     }
     const testRadio = { ...radioQualities };
     const newPost = {
-      product_id: 40344,
+      product_id: productID,
       rating: formRating,
       recommend: recommended,
       summary: formSummary,
@@ -77,7 +77,7 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
       .then(() => {
         axios
           .get(
-            `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?product_id=40344&sort=newest&count=1000`,
+            `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?product_id=${productID}&sort=newest&count=1000`,
             {
               headers: { Authorization: config.TOKEN },
             }
@@ -93,7 +93,7 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
         onClick={toggleModal}
         role="button"
         tabIndex={0}
-        onKeyDown={toggleModal}
+        onKeyDown={() => toggleModal()}
         aria-label="close modal with overlay"
         style={{
           zIndex: '5000',
@@ -116,7 +116,7 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
             flexDirection: 'column',
             backgroundColor: 'white',
             borderRadius: '5rem',
-            padding: '1rem',
+            padding: '0.5rem',
             justifyContent: 'center',
             alignItems: 'center',
             accentColor: 'aquamarine',
@@ -139,9 +139,8 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
           <div className="do-you-recommend" style={{ marginBottom: '2rem' }}>
             <p
               style={{
-                fontWeight: '350',
+                fontWeight: '500',
                 textAlign: 'center',
-                textShadow: '1px 1px 4px black',
               }}
             >
               Do you recommend this product?
@@ -318,7 +317,7 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
           </p>
           <button
             type="submit"
-            className="review-button"
+            className="review-button hover-pointer"
             style={{ padding: '1rem 3rem' }}
           >
             Submit
@@ -337,6 +336,7 @@ ReviewModal.propTypes = {
     PropTypes.object,
     PropTypes.array,
   ]).isRequired,
+  productID: PropTypes.number.isRequired,
   setReviews: PropTypes.func.isRequired,
   toggleModal: PropTypes.func.isRequired,
 };

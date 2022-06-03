@@ -13,14 +13,11 @@ function Reviews({ reviews, visible, sortReviews, submitHelpfulNess }) {
       }}
     >
       <select
+        className="size-select hover-pointer"
         style={{
-          marginBottom: '1em',
-          textAlign: 'left',
+          // marginBottom: '1em',
+          // textAlign: 'left',
           alignSelf: 'end',
-          padding: '0.7rem 6rem',
-          borderRadius: '0rem',
-          fontFamily: 'Montserrat',
-          fontSize: '1.2rem',
         }}
         onChange={(event) => sortReviews(event.target.value)}
       >

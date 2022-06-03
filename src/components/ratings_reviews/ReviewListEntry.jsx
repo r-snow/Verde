@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { format, parseISO } from 'date-fns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faCircleCheck,
+  // faCircleCheck,
   faThumbsUp,
   faThumbsDown,
   faComment,
@@ -26,23 +26,23 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
   const toggleClickedHelpful = () => {
     setClickedHelpful(!clickedHelpful);
   };
-  // console.log(review, 'review passed down into ReviewListEntry');
   return (
     <section
       className="reviews"
       style={{
         display: 'flex',
         flexDirection: 'column',
-        padding: '2rem',
-        fontSize: '1em',
+        padding: '1rem 1rem .1rem',
+        fontSize: '16px',
         justifyContent: 'center',
         alignItems: 'flex-start',
         width: '100%',
+        fontFamily: 'Cormorant Garamond',
       }}
     >
       <span
         style={{
-          fontSize: '2em',
+          fontSize: '22px',
         }}
       >
         <b>{review.summary.slice(0, 60)}</b>
@@ -52,9 +52,11 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
       {review.body.length < 250 && (
         <span
           style={{
-            padding: '1em 0em',
-            width: '60vw',
+            padding: '0.2em 0em 0.5em',
+            width: '55vw',
             overflowX: 'hidden',
+            fontSize: '20px',
+            fontWeight: '500',
           }}
         >
           {review.body}
@@ -65,8 +67,10 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
         <>
           <span
             style={{
-              padding: '1em 0em 0rem',
+              padding: '0.2em 0em 0.5rem',
               maxWidth: '60vw',
+              fontSize: '20px',
+              fontWeight: '500',
               wordWrap: 'break-word',
             }}
           >
@@ -77,11 +81,11 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
             onClick={changeView}
             className="review-button"
             style={{
-              padding: '0.2rem 0.7rem',
-              borderRadius: '0.2rem',
-              margin: '0rem 0rem 1rem 0rem',
+              padding: '0.2rem 0.5rem',
+              borderRadius: '0rem',
+              margin: '0rem 0rem 0.2rem',
               backgroundColor: 'transparent',
-              fontSize: '0.7em',
+              fontSize: '10px',
             }}
           >
             SHOW MORE
@@ -101,11 +105,13 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
         </span>
       )}
 
-      <div className="images-container">
-        {review.photos.map((photo) => (
-          <ReviewPhotos photo={photo} key={photo.id} />
-        ))}
-      </div>
+      {review.photos.length !== 0 ? (
+        <div className="images-container hover-pointer">
+          {review.photos.map((photo) => (
+            <ReviewPhotos photo={photo} key={photo.id} />
+          ))}
+        </div>
+      ) : null}
 
       <div
         className="reviewer-name"
@@ -113,8 +119,8 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
           display: 'flex',
           width: '100%',
           color: 'darkgray',
-          margin: '2em 0em 1em 0.2em',
-          fontSize: '0.8em',
+          fontSize: '15px',
+          margin: '0rem 0rem 1rem',
         }}
       >
         {review.reviewer_name} |{' '}
@@ -128,60 +134,59 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
           }}
         />
       </div>
-      <span
-        style={{
-          fontSize: '0.65em',
-          margin: '0.7rem 0rem',
-        }}
-      >
-        {review.recommend && (
-          <div>
-            <FontAwesomeIcon
-              icon={faCircleCheck}
-              size="lg"
-              style={{
-                opacity: '0.5',
-                margin: '0em 0.1em',
-              }}
-            />{' '}
-            <FontAwesomeIcon
-              icon={faQuoteLeft}
-              size="xs"
-              style={{
-                opacity: '0.5',
-                margin: '0em 0.15em',
-                fontSize: '0.7em',
-              }}
-            />
-            I recommended this product!
-            <FontAwesomeIcon
-              icon={faQuoteRight}
-              size="xs"
-              style={{
-                opacity: '0.5',
-                margin: '0em 0.2em',
-                fontSize: '0.7em',
-              }}
-            />{' '}
-          </div>
-        )}
-      </span>
+
+      {review.recommend && (
+        <span
+          style={{
+            fontSize: '15px',
+            margin: '0rem',
+            position: 'relative',
+          }}
+        >
+          <FontAwesomeIcon
+            icon={faQuoteLeft}
+            size="2xs"
+            style={{
+              opacity: '0.5',
+              margin: '0em 0.15em',
+              fontSize: '10px',
+            }}
+          />
+          I recommended this product!
+          <FontAwesomeIcon
+            icon={faQuoteRight}
+            size="2xs"
+            style={{
+              opacity: '0.5',
+              margin: '0em 0.2em',
+              fontSize: '10px',
+            }}
+          />{' '}
+          {/* <FontAwesomeIcon
+            icon={faCircleCheck}
+            size="xs"
+            style={{
+              opacity: '0.5',
+              margin: '0em 0.1em',
+            }}
+          />{' '} */}
+        </span>
+      )}
 
       <div
         className="misc-container"
         style={{
           display: 'flex',
-          alignItems: 'flex-end',
+          alignItems: 'center',
           width: '100%',
           position: 'relative',
-          top: '1.2rem',
+          // top: '1rem',
+          margin: '0rem',
         }}
       >
         {!clickedHelpful ? (
-          <div>
-            <div style={{ display: 'inline', fontSize: '0.8em' }}>
-              Was this Review Helpful?
-            </div>
+          <div style={{ margin: '0' }}>
+            Was this Review Helpful?
             <button
               type="button"
               className="review-helpful-btn"
@@ -195,6 +200,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
               <FontAwesomeIcon
                 icon={faThumbsUp}
                 size="sm"
+                className="hover-pointer"
                 style={{
                   opacity: '0.5',
                   margin: '0em 0.2em',
@@ -214,6 +220,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
               <FontAwesomeIcon
                 icon={faThumbsDown}
                 size="sm"
+                className="hover-pointer"
                 style={{
                   opacity: '0.5',
                   margin: '0em 0.2em',
@@ -222,7 +229,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
             </button>
           </div>
         ) : (
-          <p style={{ fontSize: '0.6em', fontWeight: '600', color: '#746245' }}>
+          <p style={{ fontSize: '16px', fontWeight: '600', color: '#746245' }}>
             Thank you for your feedback!
           </p>
         )}
@@ -235,6 +242,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
             <div
               onClick={clickComment}
               onKeyDown={clickComment}
+              className="hover-pointer"
               role="button"
               tabIndex="0"
             >
@@ -253,7 +261,8 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
               <input
                 type="text"
                 placeholder="Leave a comment"
-                style={{ padding: '0.7rem 0.7rem' }}
+                className="hover-pointer"
+                style={{ padding: '0.7rem 0.7rem', fontFamily: 'montserrat' }}
                 onKeyPress={(event) => {
                   if (event.key === 'Enter') {
                     clickComment();
