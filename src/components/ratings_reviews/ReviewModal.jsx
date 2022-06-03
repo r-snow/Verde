@@ -21,7 +21,6 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
   const metaEntries = Object.entries(meta.characteristics);
 
   const uploadImages = (event) => {
-    // console.log(event.target.files, 'photo object');
     const bodyFormData = new FormData();
     bodyFormData.append('file', event.target.files[0]);
     bodyFormData.append('upload_preset', 'vypkehti');
@@ -63,7 +62,6 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
       photos: formImages,
       characteristics: testRadio,
     };
-    // console.log(newPost, 'post Obj');
 
     axios
       .post(
@@ -75,9 +73,7 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
       )
       .then(() => {
         toggleModal();
-        console.log('Successful Post');
       })
-      .catch((err) => console.log(err))
       .then(() => {
         axios
           .get(
@@ -106,10 +102,9 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
       <div
         className="outline-color"
         style={{
-          backgroundColor: '#00FFAB',
-          border: 'solid white 1px',
+          backgroundColor: 'var(--verde-theme)',
           position: 'absolute',
-          padding: '1.5em',
+          padding: '2rem',
           alignSelf: 'center',
           zIndex: '9999',
         }}
@@ -124,26 +119,33 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
             padding: '1rem',
             justifyContent: 'center',
             alignItems: 'center',
-            accentColor: '#E3FCBF',
+            accentColor: 'aquamarine',
+            fontSize: '1.1em',
           }}
           onSubmit={handleSubmit}
         >
-          Rating
+          <h4 className="review-modal-header">
+            Please give us some feedback on your product
+          </h4>
+          <p className="rating-modal-title">RATING</p>
           <ClickStars changeFormRating={changeFormRating} />
-          <div
-            className="rating-definition"
-            style={{
-              fontSize: '0.7em',
-            }}
-          >
-            <p>1 - Poor</p>
-            <p>2 - Fair</p>
-            <p>3 - Average</p>
-            <p>4 - Good</p>
-            <p>5 - Great</p>
+          <div className="rating-definition">
+            <p className="number-definition">1 - POOR</p>
+            <p className="number-definition">2 - FAIR</p>
+            <p className="number-definition">3 - AVERAGE</p>
+            <p className="number-definition">4 - GOOD</p>
+            <p className="number-definition">5 - GREAT</p>
           </div>
-          <div className="do-you-recommend" style={{ marginBottom: '3rem' }}>
-            <p>Do you recommend this product?</p>
+          <div className="do-you-recommend" style={{ marginBottom: '2rem' }}>
+            <p
+              style={{
+                fontWeight: '350',
+                textAlign: 'center',
+                textShadow: '1px 1px 4px black',
+              }}
+            >
+              Do you recommend this product?
+            </p>
             <label htmlFor="yes">
               <input
                 type="radio"
@@ -224,9 +226,10 @@ function ReviewModal({ meta, setReviews, toggleModal }) {
               margin: '4rem',
               border: 'solid lightgray 0.1em',
               borderRadius: '1rem',
-              padding: '10rem 20rem',
+              padding: '5rem 10rem',
               maxWidth: '65rem',
               textAlign: 'center',
+              boxShadow: '0 0 2.5rem lightgray',
             }}
           >
             Upload photos

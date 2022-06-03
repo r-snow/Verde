@@ -35,7 +35,6 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
         flexDirection: 'column',
         padding: '2rem',
         fontSize: '1em',
-        margin: '1em 0em',
         justifyContent: 'center',
         alignItems: 'flex-start',
         width: '100%',
@@ -54,7 +53,8 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
         <span
           style={{
             padding: '1em 0em',
-            maxWidth: '60vw',
+            width: '60vw',
+            overflowX: 'hidden',
           }}
         >
           {review.body}
@@ -77,14 +77,14 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
             onClick={changeView}
             className="review-button"
             style={{
-              padding: '0rem 0.5rem',
+              padding: '0.2rem 0.7rem',
               borderRadius: '0.2rem',
               margin: '0rem 0rem 1rem 0rem',
-              backgroundColor: 'lightgray',
+              backgroundColor: 'transparent',
               fontSize: '0.7em',
             }}
           >
-            Show more
+            SHOW MORE
           </button>{' '}
         </>
       )}
@@ -228,7 +228,7 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
         )}
         <div
           style={{
-            marginLeft: '40rem',
+            marginLeft: 'auto',
           }}
         >
           {!comment ? (

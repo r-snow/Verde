@@ -1,17 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faCirclePlus, faPen } from '@fortawesome/free-solid-svg-icons';
 import ReviewListEntry from './ReviewListEntry';
 
-function Reviews({
-  reviews,
-  visible,
-  sortReviews,
-  submitHelpfulNess,
-  // toggleModal,
-  // addVisibility,
-}) {
+function Reviews({ reviews, visible, sortReviews, submitHelpfulNess }) {
   return (
     <div
       className="full-review-container"
@@ -27,11 +18,13 @@ function Reviews({
           textAlign: 'left',
           alignSelf: 'end',
           padding: '0.7rem 6rem',
-          borderRadius: '2rem',
+          borderRadius: '0rem',
+          fontFamily: 'Montserrat',
+          fontSize: '1.2rem',
         }}
         onChange={(event) => sortReviews(event.target.value)}
       >
-        <option>Sort by...</option>
+        <option>SORT BY...</option>
         <option>Helpfulness</option>
         <option>Newest</option>
         <option>Relevance</option>
@@ -43,10 +36,6 @@ function Reviews({
           borderRadius: '5px',
           maxHeight: '1000px',
           overflowY: 'scroll',
-          // border: 'solid 5px green',
-          // maxWidth: '80rem',
-          // margin: '0em 10em',
-          // overflowX: 'hidden',
         }}
       >
         {reviews.slice(0, visible).map((review) => (
@@ -66,8 +55,6 @@ Reviews.propTypes = {
   visible: PropTypes.number.isRequired,
   sortReviews: PropTypes.func.isRequired,
   submitHelpfulNess: PropTypes.func.isRequired,
-  // toggleModal: PropTypes.func.isRequired,
-  // addVisibility: PropTypes.func.isRequired,
 };
 
 export default Reviews;

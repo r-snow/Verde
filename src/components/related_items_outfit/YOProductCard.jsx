@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import Price from '../shared/Price';
 import Stars from '../shared/Stars';
@@ -77,8 +77,8 @@ export default function YOProductCard({ handleRemove, productID, index }) {
         />
       </div>
       <img className="product-card-image" src={image} alt="Sample" />
-      <p>{product.category}</p>
-      <p>{product.name}</p>
+      <p className="product-card-category">{product.category}</p>
+      <p className="product-card-name">{product.name}</p>
       <Price price={parseFloat(product.default_price)} salePrice={120} />
       <Stars rating={rating()} />
     </div>
