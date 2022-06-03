@@ -9,7 +9,7 @@ export default function AddAQuestion({ productID, setOpenModal }) {
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
 
-  const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/';
+  const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/';
 
   const isValidEmail = (val) => {
     const validEmail =
