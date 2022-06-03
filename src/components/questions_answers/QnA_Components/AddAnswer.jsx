@@ -12,7 +12,7 @@ export default function AddAnswer({ question, setShowModal }) {
   const [photos, setPhotos] = React.useState([]);
   const [photosUpload, setPhotosUpload] = React.useState([]);
 
-  const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/';
+  const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/';
 
   const isValidEmail = (val) => {
     const validEmail =
@@ -100,11 +100,13 @@ export default function AddAnswer({ question, setShowModal }) {
       >
         X
       </button>
-      <h2>Submit Your Answer: {question.question_body}</h2>
+      <h2 style={{ textAlign: 'center' }}>
+        Submit Your Answer: {question.question_body}
+      </h2>
       {errorMessage && (
         <div
           style={{
-            backgroundColor: 'red',
+            backgroundColor: 'pink',
             fontWeight: 'bold',
           }}
         >
@@ -114,8 +116,10 @@ export default function AddAnswer({ question, setShowModal }) {
       <form
         style={{
           display: 'flex',
+          padding: '1em',
           flexDirection: 'column',
-          alignItems: 'left',
+          alignItems: 'center',
+          fontSize: '20px',
         }}
       >
         <div
@@ -129,9 +133,11 @@ export default function AddAnswer({ question, setShowModal }) {
             <textarea
               type="text"
               id="answer"
-              maxLength="1000"
-              minLength="1"
+              maxLength={1000}
+              minLength={1}
               autoComplete="off"
+              rows={4}
+              columns={60}
               onChange={(e) => setAnswer(e.target.value)}
             />
           </label>
@@ -154,7 +160,7 @@ export default function AddAnswer({ question, setShowModal }) {
           <p
             style={{
               fontStyle: 'italic',
-              fontSize: '12px',
+              fontSize: '14px',
             }}
           >
             For privacy reasons, do not use your full name or email address
@@ -179,7 +185,7 @@ export default function AddAnswer({ question, setShowModal }) {
           <p
             style={{
               fontStyle: 'italic',
-              fontSize: '12px',
+              fontSize: '14px',
             }}
           >
             For authentication reasons, you will not be emailed
@@ -209,7 +215,7 @@ export default function AddAnswer({ question, setShowModal }) {
                 <img
                   style={{
                     padding: '5px',
-                    height: '100px',
+                    height: '90px',
                   }}
                   src={photo}
                   key={nanoid()}
