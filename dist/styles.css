@@ -243,8 +243,12 @@ body {
 
 .cart-drawer--item-delete {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 10px;
+  right: 10px;
+}
+
+.cart-drawer--item-delete:hover {
+  color: #b33a3a;
 }
 
 .cart-drawer--item {
