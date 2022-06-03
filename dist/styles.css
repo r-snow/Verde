@@ -691,14 +691,15 @@ body {
 .qa-widget {
   display: flex;
   flex-direction: column;
-  padding: 1em;
-  font-family: Helvetica;
+  padding: 2em;
+  font-family: 'Cormorant Garamond';
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
 .qa-header {
-  font-size: 30px;
+  font-size: 40px;
+  text-align: center;
 }
 
 /* search-bar */
@@ -722,7 +723,7 @@ body {
 }
 
 .question-body {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   margin: 10px;
 }
@@ -730,7 +731,7 @@ body {
 .question-control {
   margin-left: auto;
   float: right;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: normal;
 }
 
@@ -744,7 +745,7 @@ body {
   transition: all ease 0.3s;
 }
 .add-question-button:hover {
-  background-color: lightgrey;
+  background-color: rgb(144, 169, 139);
   border: 1px solid black;
 }
 
@@ -759,7 +760,7 @@ body {
   float: left;
 }
 .more-questions:hover {
-  background-color: lightgrey;
+  background-color: rgb(144, 169, 139);
   border: 1px solid black;
 }
 /* Answers*/
@@ -771,12 +772,12 @@ body {
 .answer {
   margin: 10px;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 20px;
   overflow-wrap: normal;
 }
 
 .answer-name {
-  font-size: 15px;
+  font-size: 17px;
   display: inline-flex;
   flex-direction: row;
   margin-left: 40px;
@@ -795,16 +796,16 @@ body {
 }
 
 .more-answers:hover {
-  background-color: lightgrey;
+  background-color: rgb(144, 169, 139);
 }
 
 /* Add Answer & Question Modal */
 .answer-modal,
 .add-question-modal {
-  background-color: rgb(158, 205, 198);
+  background-color: white;
   z-index: 150; /* Overlay effect: positioned over other containers */
   position: fixed;
-  width: 50%;
+  width: 40%;
   height: auto;
   top: 50%;
   left: 50%;
@@ -812,6 +813,7 @@ body {
   padding-left: 1.2rem;
   padding-top: 0.7rem;
   padding-bottom: 0.7rem;
+  border: 1rem solid rgb(144, 169, 139);
 }
 
 .answer-modal-close,
@@ -837,7 +839,7 @@ body {
 
 .answer-form-submit-button:hover,
 .question-form-submit-button:hover {
-  background-color: whitesmoke;
+  background-color: rgb(144, 169, 139);
 }
 
 /* Photo & Modals */
