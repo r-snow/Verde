@@ -698,7 +698,7 @@ body {
 }
 
 .qa-header {
-  font-size: 40px;
+  font-size: 36px;
   text-align: center;
 }
 
@@ -718,6 +718,10 @@ body {
   flex-direction: row;
   margin: 12px;
   padding: 0px 20px 0px 20px;
+<<<<<<< HEAD
+=======
+  /* width: 100%; */
+>>>>>>> 97b44d37c3ac348d3fcf1b494f9851589e4659a9
   display: block;
 }
 
@@ -742,6 +746,8 @@ body {
   margin: 25px;
   cursor: pointer;
   transition: all ease 0.3s;
+  font-family: 'Montserrat';
+  border-radius: 0;
 }
 .add-question-button:hover {
   background-color: rgb(144, 169, 139);
@@ -757,6 +763,8 @@ body {
   cursor: pointer;
   transition: all ease 0.3s;
   float: left;
+  font-family: 'Montserrat';
+  border-radius: 0;
 }
 .more-questions:hover {
   background-color: rgb(144, 169, 139);
@@ -792,6 +800,8 @@ body {
   margin: 8px;
   transition: all ease 0.4s;
   background-color: transparent;
+  font-family: 'Montserrat';
+  border-radius: 0;
 }
 
 .more-answers:hover {
@@ -823,6 +833,7 @@ body {
   font-size: medium;
   font-weight: bold;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .answer-form-submit-button,
@@ -830,10 +841,12 @@ body {
   font-weight: bold;
   font-size: medium;
   height: 50px;
-  width: 160px;
+  width: 180px;
   background-color: white;
   padding: 10px;
   cursor: pointer;
+  font-family: 'Montserrat';
+  border-radius: 0;
 }
 
 .answer-form-submit-button:hover,
@@ -907,6 +920,10 @@ body {
   align-items: center;
 }
 
+.inner {
+  display: flex;
+}
+
 .carousel-arrow {
   margin-left: 1em;
   margin-right: 1em;
@@ -932,6 +949,19 @@ body {
   object-fit: cover;
 }
 
+.image-unavailable {
+  text-align: center;
+  font-family: 'Montserrat';
+  font-weight: 300;
+  color: #b33a3a;
+  font-size: 17px;
+  height: 300px;
+  width: 200px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 150px 0;
+}
+
 .product-card-category {
   text-align: center;
   font-family: 'Montserrat';
@@ -952,8 +982,10 @@ body {
 }
 
 .ri-price {
-  font-size: 30px;
+  font-size: 35px;
   font-family: 'EB Garamond', serif;
+  margin-top: 1em;
+  margin-bottom: 0;
 }
 
 .product-card-compare {
@@ -1045,12 +1077,6 @@ body {
   font-size: 36px;
   margin-bottom: 0;
   margin-top: 0;
-}
-
-.your-outfit {
-  display: flex;
-  flex-direction: row;
-  flex-basis: 200px;
 }
 
 .add-outfit-card {

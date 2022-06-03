@@ -11,7 +11,7 @@ export default function YourOutfit({ curProd }) {
   const handleAdd = () => {
     let isNewProd = true;
     for (let i = 0; i < outfit.length; i += 1) {
-      if (outfit[i] === curProd) {
+      if (outfit[i].id === curProd.id) {
         isNewProd = false;
       }
     }
@@ -31,21 +31,19 @@ export default function YourOutfit({ curProd }) {
   return (
     <div>
       <h2 className="yo-header">Your Outfit</h2>
-      <section className="your-outfit">
-        <AddOutfitCard className="add-oufit-card" handleAdd={handleAdd} />
-        <div>
-          <Carousel>
-            {outfit.map((productID, index) => (
-              <YOProductCard
-                productID={curProd.id}
-                handleRemove={handleRemove}
-                key={nanoid()}
-                index={index}
-              />
-            ))}
-          </Carousel>
-        </div>
-      </section>
+      <div>
+        <Carousel>
+          <AddOutfitCard className="add-oufit-card" handleAdd={handleAdd} />
+          {outfit.map((product, index) => (
+            <YOProductCard
+              productID={product.id}
+              handleRemove={handleRemove}
+              key={nanoid()}
+              index={index}
+            />
+          ))}
+        </Carousel>
+      </div>
     </div>
   );
 }
