@@ -12,7 +12,7 @@ export default function Price({ price, salePrice, fontSize }) {
         margin: '1rem 0',
       }}
     >
-      {salePrice === 0 ? (
+      {salePrice === 0 || salePrice === price ? (
         <p style={{ margin: 0 }}>${price}</p>
       ) : (
         <>
