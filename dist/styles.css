@@ -698,7 +698,7 @@ body {
 }
 
 .qa-header {
-  font-size: 40px;
+  font-size: 36px;
   text-align: center;
 }
 
@@ -743,6 +743,8 @@ body {
   margin: 25px;
   cursor: pointer;
   transition: all ease 0.3s;
+  font-family: 'Montserrat';
+  border-radius: 0;
 }
 .add-question-button:hover {
   background-color: rgb(144, 169, 139);
@@ -758,6 +760,8 @@ body {
   cursor: pointer;
   transition: all ease 0.3s;
   float: left;
+  font-family: 'Montserrat';
+  border-radius: 0;
 }
 .more-questions:hover {
   background-color: rgb(144, 169, 139);
@@ -793,6 +797,8 @@ body {
   margin: 8px;
   transition: all ease 0.4s;
   background-color: transparent;
+  font-family: 'Montserrat';
+  border-radius: 0;
 }
 
 .more-answers:hover {
@@ -824,6 +830,7 @@ body {
   font-size: medium;
   font-weight: bold;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .answer-form-submit-button,
@@ -831,10 +838,12 @@ body {
   font-weight: bold;
   font-size: medium;
   height: 50px;
-  width: 160px;
+  width: 180px;
   background-color: white;
   padding: 10px;
   cursor: pointer;
+  font-family: 'Montserrat';
+  border-radius: 0;
 }
 
 .answer-form-submit-button:hover,
