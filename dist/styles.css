@@ -972,6 +972,13 @@ body {
   margin: 30px;
 }
 
+.product-card-body {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .product-card-image {
   width: 200px;
   height: 300px;

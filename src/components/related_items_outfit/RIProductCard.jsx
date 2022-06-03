@@ -62,13 +62,7 @@ export default function ProductCard({
   };
 
   return (
-    <div
-      className="product-card"
-      onClick={handleClick}
-      onKeyPress={handleKeyPress}
-      role="button"
-      tabIndex={0}
-    >
+    <div className="product-card">
       <div className="product-card-compare">
         <FontAwesomeIcon
           icon={faStar}
@@ -77,22 +71,30 @@ export default function ProductCard({
           onClick={compare}
         />
       </div>
-      {!image ? (
-        <p className="image-unavailable">
-          Image
-          <br /> Unavailable
-        </p>
-      ) : (
-        <img className="product-card-image" src={image} alt="Sample" />
-      )}
-      <p className="product-card-category">{product.category}</p>
-      <p className="product-card-name">{product.name}</p>
-      <Price
-        className="ri-price"
-        price={parseFloat(product.default_price)}
-        salePrice={120}
-      />
-      <Stars rating={rating()} />
+      <div
+        className="product-card-body"
+        onClick={handleClick}
+        onKeyPress={handleKeyPress}
+        role="button"
+        tabIndex={0}
+      >
+        {!image ? (
+          <p className="image-unavailable">
+            Image
+            <br /> Unavailable
+          </p>
+        ) : (
+          <img className="product-card-image" src={image} alt="Sample" />
+        )}
+        <p className="product-card-category">{product.category}</p>
+        <p className="product-card-name">{product.name}</p>
+        <Price
+          className="ri-price"
+          price={parseFloat(product.default_price)}
+          salePrice={120}
+        />
+        <Stars rating={rating()} />
+      </div>
     </div>
   );
 }
