@@ -244,8 +244,12 @@ body {
 
 .cart-drawer--item-delete {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 10px;
+  right: 10px;
+}
+
+.cart-drawer--item-delete:hover {
+  color: #b33a3a;
 }
 
 .cart-drawer--item {
@@ -753,6 +757,7 @@ body {
   margin: 12px;
   padding: 0px 20px 0px 20px;
   display: block;
+  border-bottom: 1px solid lightgrey;
 }
 
 .question-body {
@@ -769,25 +774,27 @@ body {
 }
 
 .add-question-button {
-  font-size: medium;
+  font-size: 16px;
   height: 60px;
-  width: 235px;
+  width: 255px;
   padding: 10px;
   margin: 25px;
   cursor: pointer;
+  border-color: transparent;
   transition: all ease 0.3s;
   font-family: 'Montserrat';
   border-radius: 0;
+  background-color: rgb(144, 169, 139);
+  color: var(--off-white);
 }
 .add-question-button:hover {
-  background-color: rgb(144, 169, 139);
-  border: 1px solid black;
+  background-color: grey;
 }
 
 .more-questions {
   font-size: medium;
   height: 60px;
-  width: 235px;
+  width: 285px;
   padding: 10px;
   margin: 25px;
   cursor: pointer;
@@ -795,10 +802,13 @@ body {
   float: left;
   font-family: 'Montserrat';
   border-radius: 0;
-}
-.more-questions:hover {
   background-color: rgb(144, 169, 139);
-  border: 1px solid black;
+  color: var(--off-white);
+  border-color: transparent;
+}
+
+.more-questions:hover {
+  background-color: grey;
 }
 /* Answers*/
 .answer-div {
@@ -835,7 +845,8 @@ body {
 }
 
 .more-answers:hover {
-  background-color: rgb(144, 169, 139);
+  text-decoration: underline;
+  /* background-color: rgb(144, 169, 139); */
 }
 
 /* Add Answer & Question Modal */
@@ -853,6 +864,7 @@ body {
   padding-top: 0.7rem;
   padding-bottom: 0.7rem;
   border: 1rem solid rgb(144, 169, 139);
+  font-family: 'Montserrat';
 }
 
 .answer-modal-close,
@@ -868,20 +880,23 @@ body {
 
 .answer-form-submit-button,
 .question-form-submit-button {
-  font-weight: bold;
-  font-size: medium;
+  /* font-weight: bold; */
+  font-size: 16px;
   height: 50px;
   width: 180px;
-  background-color: white;
   padding: 10px;
   cursor: pointer;
+  border-color: transparent;
+  transition: all ease 0.3s;
   font-family: 'Montserrat';
   border-radius: 0;
+  background-color: rgb(144, 169, 139);
+  color: var(--off-white);
 }
 
 .answer-form-submit-button:hover,
 .question-form-submit-button:hover {
-  background-color: rgb(144, 169, 139);
+  background-color: grey;
 }
 
 /* Photo & Modals */
@@ -908,7 +923,7 @@ body {
   position: relative;
   width: auto;
   max-width: 1200px;
-  height: 600px;
+  height: 500px;
   margin: auto;
   padding: auto;
   border: 1px solid black;
@@ -1163,6 +1178,8 @@ body {
 .images-container {
   display: flex;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .indiv-bar {
@@ -1175,7 +1192,7 @@ body {
 
 .percent-title {
   display: inline;
-  font-size: 20px;
+  font-size: 16px;
   transition: all 500ms ease-in-out;
 }
 
@@ -1197,10 +1214,10 @@ body {
     letter-spacing 400ms ease-in-out;
 }
 
-.rating-title-text:hover {
+/* .rating-title-text:hover {
   background-size: 100% 3px;
   letter-spacing: 0.1rem;
-}
+} */
 
 .rating-title,
 .review-helpful-btn {
@@ -1210,8 +1227,7 @@ body {
   /* border: solid 5px yellow; */
   color: rgb(105, 105, 105);
   text-align: center;
-  font-size: 20px;
-  padding: 0.5em 0.2em;
+  font-size: 16px;
 }
 
 .reviews {
@@ -1285,6 +1301,27 @@ body {
   /* text-shadow: 1px 1px 2px rgb(0, 0, 0); */
 }
 
+.alt-review-button-body {
+  background-color: transparent;
+  /* border-radius: 0.5rem; */
+  border: 0px solid rgb(143, 143, 143);
+  /* background-image: linear-gradient(90deg, rgb(0, 255, 157), rgb(255, 174, 0)); */
+  background-size: 0% 3px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  color: rgb(0, 0, 0);
+  font-family: Montserrat, 'Times New Roman';
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.alt-review-button-body:hover {
+  text-decoration: underline;
+  /* background-image: linear-gradient(90deg, rgb(0, 255, 157), rgb(2, 226, 255)); */
+  background-size: 100% 3px;
+  /* text-shadow: 1px 1px 2px rgb(0, 0, 0); */
+}
+
 /* Review Modal Section */
 body.prevent-scroll-background {
   overflow-y: hidden;
@@ -1339,7 +1376,6 @@ body.prevent-scroll-background {
   padding: 0.5rem 1rem;
   font-size: 16px;
   box-sizing: border-box;
-  border-radius: 0.5rem;
   border: solid lightgray 1.5px;
   margin: 0.5rem;
 }
@@ -1365,12 +1401,12 @@ body.prevent-scroll-background {
 .rating-modal-title {
   font-size: 24px;
   font-weight: 500;
-  margin: 0;
+  margin: 0.5rem;
   padding: 0;
 }
 
 .recommendation-radio-btns {
-  margin: 0em 6em;
+  margin: 0em;
   align-self: center;
   text-align: center;
 }
@@ -1380,7 +1416,6 @@ body.prevent-scroll-background {
   padding: 0.8rem;
   font-size: 16px;
   box-sizing: border-box;
-  border-radius: 0.5rem;
   border: solid lightgray 1.5px;
   margin: 1rem;
 }
@@ -1391,7 +1426,6 @@ body.prevent-scroll-background {
   padding: 1rem;
   font-size: 16px;
   box-sizing: border-box;
-  border-radius: 0.5rem;
   border: solid lightgray 1.5px;
   margin: 1rem 1rem 0rem 1rem;
   word-wrap: break-word;
@@ -1403,6 +1437,14 @@ body.prevent-scroll-background {
   border-radius: 0.5rem;
   margin: 0.4rem 0rem;
   object-fit: contain;
+}
+
+.yes-no-labels {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-self: center;
+  margin: 0.5rem;
 }
 
 /* Review Photos */
@@ -1489,6 +1531,7 @@ body.prevent-scroll-background {
 .characteristic-name {
   font-size: 24px;
   font-weight: 400;
+  min-width: 600px;
   /* letter-spacing: 0.3rem; */
 }
 
@@ -1496,7 +1539,7 @@ body.prevent-scroll-background {
   width: 18rem;
   height: 0.5rem;
   -webkit-appearance: none;
-  background: #ac9673;
+  background: lightgray;
 
   border-radius: 5rem;
   box-shadow: inset 0- 0 5px rgba(0, 0, 0, 1);
@@ -1510,7 +1553,7 @@ body.prevent-scroll-background {
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
-  filter: invert(0.65);
+  /* filter: invert(0.65); */
 }
 
 .sliders-container {

@@ -15,7 +15,7 @@ export default function MoreQuestions({ questions, searchInput }) {
             setCollapseQuestions(!collapseQuestions);
           }}
         >
-          More Answered Questions
+          MORE ANSWERED QUESTIONS
         </button>
       ) : (
         <div>
@@ -33,7 +33,7 @@ export default function MoreQuestions({ questions, searchInput }) {
               setCollapseQuestions(!collapseQuestions);
             }}
           >
-            Collapse Questions
+            COLLAPSE QUESTIONS
           </button>
         </div>
       )}

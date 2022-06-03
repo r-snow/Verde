@@ -138,6 +138,10 @@ export default function AddAnswer({ question, setShowModal }) {
               autoComplete="off"
               rows={4}
               columns={60}
+              style={{
+                width: '420px',
+                height: '60px',
+              }}
               onChange={(e) => setAnswer(e.target.value)}
             />
           </label>
