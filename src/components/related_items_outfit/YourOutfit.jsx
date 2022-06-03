@@ -11,7 +11,7 @@ export default function YourOutfit({ curProd }) {
   const handleAdd = () => {
     let isNewProd = true;
     for (let i = 0; i < outfit.length; i += 1) {
-      if (outfit[i] === curProd) {
+      if (outfit[i].id === curProd.id) {
         isNewProd = false;
       }
     }
@@ -34,9 +34,9 @@ export default function YourOutfit({ curProd }) {
       <div>
         <Carousel>
           <AddOutfitCard className="add-oufit-card" handleAdd={handleAdd} />
-          {outfit.map((productID, index) => (
+          {outfit.map((product, index) => (
             <YOProductCard
-              productID={curProd.id}
+              productID={product.id}
               handleRemove={handleRemove}
               key={nanoid()}
               index={index}
