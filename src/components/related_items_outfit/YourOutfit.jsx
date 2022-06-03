@@ -35,9 +35,9 @@ export default function YourOutfit({ curProd }) {
         <AddOutfitCard className="add-oufit-card" handleAdd={handleAdd} />
         <div>
           <Carousel>
-            {outfit.map((productID, index) => (
+            {outfit.map((product, index) => (
               <YOProductCard
-                productID={curProd.id}
+                productID={product.id}
                 handleRemove={handleRemove}
                 key={nanoid()}
                 index={index}
