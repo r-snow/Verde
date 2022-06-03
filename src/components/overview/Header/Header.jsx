@@ -7,6 +7,7 @@ export default function Header({
   showDrawer,
   setShowDrawer,
   deleteCartItem,
+  setCurProd,
 }) {
   return (
     <header id="top">
@@ -23,6 +24,7 @@ export default function Header({
         showDrawer={showDrawer}
         setShowDrawer={setShowDrawer}
         deleteCartItem={deleteCartItem}
+        setCurProd={setCurProd}
       />
     </header>
   );
@@ -39,4 +41,5 @@ Header.propTypes = {
   showDrawer: PropTypes.bool.isRequired,
   setShowDrawer: PropTypes.func.isRequired,
   deleteCartItem: PropTypes.func.isRequired,
+  setCurProd: PropTypes.func.isRequired,
 };

@@ -6,7 +6,12 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import CartDrawerItem from './CartDrawerItem';
 import CartDrawerBtns from './CartDrawerBtns';
 
-export default function CartDrawer({ closeDrawer, localCart, deleteCartItem }) {
+export default function CartDrawer({
+  closeDrawer,
+  localCart,
+  deleteCartItem,
+  setCurProd,
+}) {
   const [cartTotal, setCartTotal] = useState(0);
   const cartElements = localCart.map((item) => (
     <CartDrawerItem
@@ -19,6 +24,9 @@ export default function CartDrawer({ closeDrawer, localCart, deleteCartItem }) {
       size={item.size}
       idx={item.idx}
       deleteCartItem={deleteCartItem}
+      setCurProd={setCurProd}
+      closeDrawer={closeDrawer}
+      productID={item.productID}
       key={nanoid()}
     />
   ));
@@ -65,6 +73,7 @@ export default function CartDrawer({ closeDrawer, localCart, deleteCartItem }) {
 CartDrawer.propTypes = {
   closeDrawer: PropTypes.func.isRequired,
   deleteCartItem: PropTypes.func.isRequired,
+  setCurProd: PropTypes.func.isRequired,
   localCart: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,

@@ -16,6 +16,7 @@ export default function AddToCart({
   styleUrl,
   setLocalCart,
   setShowDrawer,
+  productID,
 }) {
   const [currSku, setCurrSku] = useState('Select Size');
   const [availQty, setAvailQty] = useState(['-']);
@@ -59,6 +60,7 @@ export default function AddToCart({
           styleUrl,
           price,
           salePrice,
+          productID,
           size: skuData[currSku].size,
           skuId: currSku,
           idx: prevCart.length,
@@ -117,6 +119,7 @@ AddToCart.propTypes = {
     PropTypes.array,
   ]).isRequired,
   currStyle: PropTypes.number.isRequired,
+  productID: PropTypes.number.isRequired,
   prodName: PropTypes.string.isRequired,
   styleUrl: PropTypes.string.isRequired,
   styleName: PropTypes.string.isRequired,
