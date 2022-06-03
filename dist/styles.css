@@ -179,7 +179,8 @@ body {
 .header--cart:hover,
 .hover-pointer:hover,
 .expanded-view--arrows:hover,
-.main-gallery-thumbnail-container:hover {
+.main-gallery-thumbnail-container:hover,
+.product-card:hover {
   cursor: pointer;
 }
 
@@ -1078,6 +1079,11 @@ body {
   margin-bottom: 0.1rem;
   margin-top: 0px;
   text-align: center;
+}
+
+.atts {
+  font-family: 'Cormorant Garamond';
+  font-size: 17px;
 }
 
 .table-body {
