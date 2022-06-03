@@ -53,7 +53,8 @@ function ReviewListEntry({ review, submitHelpfulNess }) {
         <span
           style={{
             padding: '1em 0em',
-            maxWidth: '60vw',
+            width: '60vw',
+            overflowX: 'hidden',
           }}
         >
           {review.body}

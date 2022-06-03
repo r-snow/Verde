@@ -12,11 +12,11 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
   const totalReviews =
     Number(meta.recommended.true) + Number(meta.recommended.false);
   const totalRatingScore =
-    Number(meta.ratings[5]) * 5 +
-    Number(meta.ratings[4]) * 4 +
-    Number(meta.ratings[3]) * 3 +
-    Number(meta.ratings[2]) * 2 +
-    Number(meta.ratings[1]) * 1;
+    Number(meta.ratings[5] || 0) * 5 +
+    Number(meta.ratings[4] || 0) * 4 +
+    Number(meta.ratings[3] || 0) * 3 +
+    Number(meta.ratings[2] || 0) * 2 +
+    Number(meta.ratings[1] || 0) * 1;
   const averageRatingScore = totalRatingScore / totalReviews;
   const filteredStarsKeys = Object.keys(ratingSwitch);
   const metaEntries = Object.entries(meta.characteristics);
@@ -90,10 +90,10 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
         >
           <p style={{ margin: '0em 1em' }}>5 stars</p>
           <Bars
-            reviewCount={Number(meta.ratings[5])}
+            reviewCount={Number(meta.ratings[5] || 0)}
             totalCount={totalReviews}
           />
-          <p style={{ margin: '0em 1em' }}>{Number(meta.ratings[5])}</p>
+          <p style={{ margin: '0em 1em' }}>{Number(meta.ratings[5] || 0)}</p>
         </div>
 
         <div
@@ -105,10 +105,10 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
         >
           <p style={{ margin: '0em 1em' }}>4 stars</p>
           <Bars
-            reviewCount={Number(meta.ratings[4])}
+            reviewCount={Number(meta.ratings[4] || 0)}
             totalCount={totalReviews}
           />
-          <p style={{ margin: '0em 1em' }}>{Number(meta.ratings[4])}</p>
+          <p style={{ margin: '0em 1em' }}>{Number(meta.ratings[4] || 0)}</p>
         </div>
 
         <div
@@ -120,10 +120,10 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
         >
           <p style={{ margin: '0em 1em' }}>3 stars</p>
           <Bars
-            reviewCount={Number(meta.ratings[3])}
+            reviewCount={Number(meta.ratings[3] || 0)}
             totalCount={totalReviews}
           />
-          <p style={{ margin: '0em 1em' }}>{Number(meta.ratings[3])}</p>
+          <p style={{ margin: '0em 1em' }}>{Number(meta.ratings[3] || 0)}</p>
         </div>
 
         <div
@@ -135,10 +135,10 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
         >
           <p style={{ margin: '0em 1em' }}>2 stars</p>
           <Bars
-            reviewCount={Number(meta.ratings[2])}
+            reviewCount={Number(meta.ratings[2] || 0)}
             totalCount={totalReviews}
           />
-          <p style={{ margin: '0em 1em' }}>{Number(meta.ratings[2])}</p>
+          <p style={{ margin: '0em 1em' }}>{Number(meta.ratings[2] || 0)}</p>
         </div>
 
         <div
@@ -150,10 +150,10 @@ function Ratings({ meta, ratingSwitch, toggleRatedReviews }) {
         >
           <p style={{ margin: '0em 1em' }}>1 stars</p>
           <Bars
-            reviewCount={Number(meta.ratings[1])}
+            reviewCount={Number(meta.ratings[1] || 0)}
             totalCount={totalReviews}
           />
-          <p style={{ margin: '0em 1em' }}>{Number(meta.ratings[1])}</p>
+          <p style={{ margin: '0em 1em' }}>{Number(meta.ratings[1] || 0)}</p>
         </div>
       </div>
       <p
