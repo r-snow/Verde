@@ -11,7 +11,7 @@ export default function YourOutfit({ curProd }) {
   const handleAdd = () => {
     let isNewProd = true;
     for (let i = 0; i < outfit.length; i += 1) {
-      if (outfit[i] === curProd) {
+      if (outfit[i].id === curProd.id) {
         isNewProd = false;
       }
     }
