@@ -52,8 +52,6 @@ export default function Compare({ setOpenModal, curProd, compProd }) {
         setFeatTab((prevFeatTab) => [...prevFeatTab, newFeat]);
       }
     });
-
-    console.log(featTab);
   });
 
   return (
@@ -75,18 +73,20 @@ export default function Compare({ setOpenModal, curProd, compProd }) {
         />
         <h2 className="compare-modal-header">COMPARING</h2>
         <table className="table">
-          <tr>
-            <th className="column-title">{curProd.name}</th>
-            <th className="column-title">Attribute</th>
-            <th className="column-title">{compProd.name}</th>
-          </tr>
-          {featTab.map((feat) => (
+          <tbody>
             <tr>
-              <td className="table-data">{feat.curProdVal}</td>
-              <td className="table-data">{feat.value}</td>
-              <td className="table-data">{feat.compProdVal}</td>
+              <th className="column-title">{curProd.name}</th>
+              <th className="column-title">Attribute</th>
+              <th className="column-title">{compProd.name}</th>
             </tr>
-          ))}
+            {featTab.map((feat) => (
+              <tr key={feat.value}>
+                <td className="table-data">{feat.curProdVal}</td>
+                <td className="table-data">{feat.value}</td>
+                <td className="table-data">{feat.compProdVal}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
     </div>

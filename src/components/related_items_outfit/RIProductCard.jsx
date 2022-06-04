@@ -37,7 +37,6 @@ export default function ProductCard({
           setSalePrice(0);
         } else {
           setSalePrice(parseFloat(results.data.results[0].sale_price));
-          console.log(parseFloat(results.data.results[0].sale_price));
         }
       });
   }, [productID]);
