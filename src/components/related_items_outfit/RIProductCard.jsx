@@ -37,7 +37,6 @@ export default function ProductCard({
           setSalePrice(0);
         } else {
           setSalePrice(parseFloat(results.data.results[0].sale_price));
-          console.log(parseFloat(results.data.results[0].sale_price));
         }
       });
   }, [productID]);
@@ -100,7 +99,7 @@ export default function ProductCard({
         <Price
           className="ri-price"
           price={parseFloat(product.default_price)}
-          salePrice={salePrice}
+          salePrice={Number(salePrice)}
         />
         <Stars rating={rating()} />
       </div>
