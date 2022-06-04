@@ -33,21 +33,20 @@ export default function YOProductCard({ handleRemove, productID, index }) {
           setSalePrice(0);
         } else {
           setSalePrice(parseFloat(results.data.results[0].sale_price));
-          console.log(parseFloat(results.data.results[0].sale_price));
         }
       });
   }, [productID]);
 
-  const handleKeyPress = (event) => {
-    event.preventDefault();
-    if (event.key === 'Enter') {
-      console.log('Clicking here will change overview product...');
-    }
-  };
+  // const handleKeyPress = (event) => {
+  //   event.preventDefault();
+  //   if (event.key === 'Enter') {
+  //     console.log('Clicking here will change overview product...');
+  //   }
+  // };
 
-  const handleClick = () => {
-    console.log('Clicking here will change overview product...');
-  };
+  // const handleClick = () => {
+  //   console.log('Clicking here will change overview product...');
+  // };
 
   const rating = () => {
     let avgRating = 0;
