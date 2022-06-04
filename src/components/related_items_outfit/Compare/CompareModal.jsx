@@ -87,27 +87,6 @@ export default function Compare({ setOpenModal, curProd, compProd }) {
               <td className="table-data">{feat.compProdVal}</td>
             </tr>
           ))}
-
-          {/* <tbody className="table-body">
-            <tr className="table-column">
-              <th className="column-title">{curProd.name}</th>
-              {featTab.map((feat) => (
-                <td className="table-data">{feat.curProdVal}</td>
-              ))}
-            </tr>
-            <tr className="table-column">
-              <th className="column-title">Attribute</th>
-              {featTab.map((feat) => (
-                <td className="table-data">{feat.value}</td>
-              ))}
-            </tr>
-            <tr className="table-column">
-              <th className="column-title">{compProd.name}</th>
-              {featTab.map((feat) => (
-                <td className="table-data">{feat.compProdVal}</td>
-              ))}
-            </tr>
-          </tbody> */}
         </table>
       </div>
     </div>
