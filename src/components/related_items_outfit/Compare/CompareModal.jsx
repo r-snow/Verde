@@ -75,26 +75,39 @@ export default function Compare({ setOpenModal, curProd, compProd }) {
         />
         <h2 className="compare-modal-header">COMPARING</h2>
         <table className="table">
-          <tbody className="table-body">
+          <tr>
+            <th className="column-title">{curProd.name}</th>
+            <th className="column-title">Attribute</th>
+            <th className="column-title">{compProd.name}</th>
+          </tr>
+          {featTab.map((feat) => (
+            <tr>
+              <td className="table-data">{feat.curProdVal}</td>
+              <td className="table-data">{feat.value}</td>
+              <td className="table-data">{feat.compProdVal}</td>
+            </tr>
+          ))}
+
+          {/* <tbody className="table-body">
             <tr className="table-column">
               <th className="column-title">{curProd.name}</th>
               {featTab.map((feat) => (
-                <td>{feat.curProdVal}</td>
+                <td className="table-data">{feat.curProdVal}</td>
               ))}
             </tr>
             <tr className="table-column">
               <th className="column-title">Attribute</th>
               {featTab.map((feat) => (
-                <td>{feat.value}</td>
+                <td className="table-data">{feat.value}</td>
               ))}
             </tr>
             <tr className="table-column">
               <th className="column-title">{compProd.name}</th>
               {featTab.map((feat) => (
-                <td>{feat.compProdVal}</td>
+                <td className="table-data">{feat.compProdVal}</td>
               ))}
             </tr>
-          </tbody>
+          </tbody> */}
         </table>
       </div>
     </div>

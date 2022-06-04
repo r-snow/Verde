@@ -1091,12 +1091,17 @@ body {
   font-family: 'Cormorant Garamond';
   font-weight: 500;
   font-size: 35px;
-  margin-bottom: 0.1rem;
+  margin-bottom: 1rem;
   margin-top: 0px;
   text-align: center;
 }
 
-.atts {
+.table {
+  width: 100%;
+  text-align: center;
+}
+
+.table-data {
   font-family: 'Cormorant Garamond';
   font-size: 17px;
 }
@@ -1117,9 +1122,6 @@ body {
 }
 
 .column-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: #9a825c;
   font-family: 'Montserrat';
   font-weight: 300;
