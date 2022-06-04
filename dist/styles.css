@@ -1103,22 +1103,7 @@ body {
 
 .table-data {
   font-family: 'Cormorant Garamond';
-  font-size: 17px;
-}
-
-.table-body {
-  display: flex;
-  flex-direction: row;
-  align-items: start;
-}
-
-.table-column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  empty-cells: show;
-  table-layout: fixed;
-  width: 100%;
+  font-size: 20px;
 }
 
 .column-title {
