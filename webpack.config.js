@@ -1,4 +1,5 @@
 const path = require('path');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const config = {
   entry: ['./src/index.jsx'],
@@ -23,6 +24,7 @@ const config = {
   resolve: {
     extensions: ['', '.js', '.jsx'],
   },
+  // plugins: [new BundleAnalyzerPlugin()],
 };
 
 module.exports = config;
