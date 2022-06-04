@@ -17,9 +17,7 @@ export default function Compare({ setOpenModal, curProd, compProd }) {
         }
       });
       if (isNew === true) {
-        if (curFeat.value === null) {
-          newFeat.curProdVal = '';
-        } else {
+        if (curFeat.value !== null) {
           newFeat.curProdVal = curFeat.value;
         }
         newFeat.value = curFeat.feature;
@@ -44,17 +42,11 @@ export default function Compare({ setOpenModal, curProd, compProd }) {
         if (curTableFeat.curProdVal === compFeat.value) {
           newFeat.curProdVal = true;
           newFeat.compProdVal = true;
-        } else if (compFeat.value === null) {
-          newFeat.compProdVal = '';
-        } else {
+        } else if (compFeat.value !== null) {
           newFeat.compProdVal = compFeat.value;
         }
-      } else {
-        if (compFeat.value === null) {
-          newFeat.compProdVal = '';
-        } else {
-          newFeat.compProdVal = compFeat.value;
-        }
+      } else if (compFeat.value !== null) {
+        newFeat.compProdVal = compFeat.value;
         newFeat.curProdVal = '';
         newFeat.value = compFeat.feature;
         setFeatTab((prevFeatTab) => [...prevFeatTab, newFeat]);
@@ -86,21 +78,21 @@ export default function Compare({ setOpenModal, curProd, compProd }) {
           <tbody className="table-body">
             <tr className="table-column">
               <th className="column-title">{curProd.name}</th>
-              <td>&#10004;</td>
-              <td>&#10004;</td>
-              <td>&#10004;</td>
+              {featTab.map((feat) => (
+                <td>{feat.curProdVal}</td>
+              ))}
             </tr>
             <tr className="table-column">
               <th className="column-title">Attribute</th>
-              <td className="atts">Lenses</td>
-              <td className="atts">UV Protection</td>
-              <td className="atts">Frames</td>
+              {featTab.map((feat) => (
+                <td>{feat.value}</td>
+              ))}
             </tr>
             <tr className="table-column">
               <th className="column-title">{compProd.name}</th>
-              <td>&#10004;</td>
-              <td>&#10004;</td>
-              <td>&#10004;</td>
+              {featTab.map((feat) => (
+                <td>{feat.compProdVal}</td>
+              ))}
             </tr>
           </tbody>
         </table>
