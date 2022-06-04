@@ -1,36 +1,68 @@
-import React /* , { useState, useEffect } */ from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
 export default function Compare({ setOpenModal, curProd, compProd }) {
-  // const [featTab, setFeatTab] = useState([]);
+  const [featTab, setFeatTab] = useState([]);
 
-  // useEffect(() => {
-  //   const newFeat = {};
+  useEffect(() => {
+    curProd.features.forEach((curFeat) => {
+      const newFeat = {};
+      let isNew = true;
 
-  //   const addFeats = (prod) => {
-  //     prod.features.forEach((feat) => {
-  //       let isNew = true;
-  //       featTab.forEach((tableFeat) => {
-  //         if (tableFeat === feat.feature) {
-  //           isNew = false;
-  //         }
-  //       });
+      featTab.forEach((tableFeat) => {
+        if (tableFeat.value === curFeat.feature) {
+          isNew = false;
+        }
+      });
+      if (isNew === true) {
+        if (curFeat.value === null) {
+          newFeat.curProdVal = '';
+        } else {
+          newFeat.curProdVal = curFeat.value;
+        }
+        newFeat.value = curFeat.feature;
+        newFeat.comProdVal = '';
+        setFeatTab((prevFeatTab) => [...prevFeatTab, newFeat]);
+      }
+    });
 
-  //       if (isNew === true) {
-  //         newFeat.value = feat;
-  //       }
-  //     });
-  //   };
+    compProd.features.forEach((compFeat) => {
+      const newFeat = {};
+      let isAlsoNew = true;
+      let curTableFeat = '';
 
-  //   addFeats(curProd);
-  //   addFeats(compProd);
+      featTab.forEach((tableFeat) => {
+        if (tableFeat.value === compFeat.feature) {
+          isAlsoNew = false;
+          curTableFeat = tableFeat;
+        }
+      });
 
-  //   const addVals = (prod) => {
-  //     prod.features.forEach((feat) => {});
-  //   };
-  // });
+      if (isAlsoNew === false) {
+        if (curTableFeat.curProdVal === compFeat.value) {
+          newFeat.curProdVal = true;
+          newFeat.compProdVal = true;
+        } else if (compFeat.value === null) {
+          newFeat.compProdVal = '';
+        } else {
+          newFeat.compProdVal = compFeat.value;
+        }
+      } else {
+        if (compFeat.value === null) {
+          newFeat.compProdVal = '';
+        } else {
+          newFeat.compProdVal = compFeat.value;
+        }
+        newFeat.curProdVal = '';
+        newFeat.value = compFeat.feature;
+        setFeatTab((prevFeatTab) => [...prevFeatTab, newFeat]);
+      }
+    });
+
+    console.log(featTab);
+  });
 
   return (
     <div
