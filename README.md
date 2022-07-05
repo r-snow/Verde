@@ -1,5 +1,4 @@
 # Verde
-***
 
 A legacy client-facing retail web-portal needed a complete redesign and modernization. Our team of four enigneers at Verde redesigned the portal and implemented features that enable customers to search, browse, add to cart, and checkout. 
 
