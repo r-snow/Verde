@@ -11,6 +11,4 @@ Verde is a project created by the team to flex our front-end development skills.
 Click the image below to watch a demo of this project.
 
 
-<p align="center">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/jq3L86EbDJM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</p>
+[![Watch the video](https://img.youtube.com/vi/jq3L86EbDJM/default.jpg)](https://www.youtube.com/watch?v=jq3L86EbDJM)
